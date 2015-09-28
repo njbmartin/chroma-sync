@@ -1,0 +1,43 @@
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe.config
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.pdb
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.dll
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\log4net.dll
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Newtonsoft.Json.dll
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.xml
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\log4net.xml
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Newtonsoft.Json.xml
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma_Sync.Properties.Resources.resources
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csproj.GenerateResource.Cache
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.exe
+C:\Users\NMA04\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.pdb
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe.config
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.pdb
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\log4net.dll
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Newtonsoft.Json.dll
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.xml
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\log4net.xml
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Newtonsoft.Json.xml
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma_Sync.Properties.Resources.resources
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csproj.GenerateResource.Cache
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.exe
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.pdb
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.dll
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.g.resources
+D:\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.pdb
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe.config
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.pdb
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\log4net.dll
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Newtonsoft.Json.dll
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\log4net.xml
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\bin\Release\Newtonsoft.Json.xml
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.g.resources
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma_Sync.Properties.Resources.resources
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csproj.GenerateResource.Cache
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.exe
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.pdb
+C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
