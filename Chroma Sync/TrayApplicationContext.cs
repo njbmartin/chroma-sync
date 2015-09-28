@@ -13,6 +13,8 @@ using System.Diagnostics;
 using Chroma_Sync.Properties;
 using System.Reflection;
 using System.IO;
+using Corale.Colore;
+using Corale.Colore.Razer.Mouse;
 
 namespace Chroma_Sync
 {
@@ -21,10 +23,14 @@ namespace Chroma_Sync
     public class TrayApplicationContext : ApplicationContext
     {
         private readonly NotifyIcon _icon;
+        private readonly Thread _serverThread;
+
         private Thread _deadThread;
         private Thread _flashThread;
-        private readonly Thread _serverThread;
+
+
         private String _team;
+
         private bool _isDead;
         private bool _isFlashed;
         private int _roundKills;
@@ -42,15 +48,14 @@ namespace Chroma_Sync
             _icon = new NotifyIcon
             {
                 Icon = Properties.Resources.favicon,
-                ContextMenu = new ContextMenu(new[]
-                {exitMenuItem}),
+                ContextMenu = new ContextMenu(new[] { exitMenuItem }),
                 Visible = true,
-                Text = Resources.ExitMenuText,    
+                Text = Resources.ExitMenuText,
             };
             BalloonTip("Getting things ready", "Chroma Sync is performing first-time setup.\nThis shouldn't take long...");
             Debug.WriteLine(Chroma.Instance.Query(Devices.MambaTeChroma).Connected ? "connected" : "not connected");
 
-            var folder= GameLocator.InstallFolder("Counter-Strike Global Offensive");
+            var folder = GameLocator.InstallFolder("Counter-Strike Global Offensive");
             if (folder != null)
             {
                 var file = Resources.gamestate_integration_chromasync;
@@ -64,9 +69,34 @@ namespace Chroma_Sync
                 BalloonTip("Chroma Sync", "CS:GO folder was not found");
                 Debug.WriteLine("CS:GO folder was not found");
             }
+            //Mouse.Instance.SetLed(Led.Strip10, Color.Red);
+            var volumeThread = new Thread(CheckVolume);
+            volumeThread.Start();
             //Flashed();
             _serverThread = new Thread(RunServer);
             _serverThread.Start();
+        }
+
+        private void CheckVolume()
+        {
+            while (true)
+            {
+                var cv = AudioVolume.Volume;
+                var volume = AudioVolume.GetMasterVolume();
+                if (Math.Abs(cv - volume) > 0.01f)
+                {
+                    ResetAll();
+                    BalloonTip("Sound Volume", "Currently set to " + (volume * 100) + "%");
+                    var total = 14 * volume;
+                    
+                    for (uint i = 1; i <= 14; i++)
+                    {
+                        Debug.WriteLine((Led)(i + 3));
+                        Mouse.Instance.SetLed((Led) (i + 3), i < total ? Color.Blue : Color.Black);
+                    }
+                }
+                Thread.Sleep(1000);
+            }
         }
 
         private void CopyResource(Stream stream, string file)
@@ -125,7 +155,7 @@ namespace Chroma_Sync
                 return;
             for (uint i = 1; i <= 12; i++)
             {
-                Keyboard.Instance.SetPosition(0, 3+ i, kills >= i ? Color.HotPink : Color.Black);
+                Keyboard.Instance.SetPosition(0, 3 + i, kills >= i ? Color.HotPink : Color.Black);
             }
             _roundKills = kills;
         }
@@ -158,7 +188,7 @@ namespace Chroma_Sync
             ResetAll();
             SetAll(Color.White);
             Thread.Sleep(1000);
-            for (var i = 0f; i <= 1f; i= i + 0.001f)
+            for (var i = 0f; i <= 1f; i = i + 0.001f)
             {
                 Debug.WriteLine(i);
                 var brightness = new Color(1f, 1f, 1f, i);
@@ -171,7 +201,7 @@ namespace Chroma_Sync
         public void Died()
         {
             BalloonTip("Dead", "You died. Oh no. What a shame.");
-            for (int i = 0; i <= 6; i++) // flash 6 times
+            for (var i = 0; i <= 6; i++) // flash 6 times
             {
                 ResetAll();
                 Thread.Sleep(100);
@@ -186,9 +216,9 @@ namespace Chroma_Sync
         {
             Debug.WriteLine("Checking ammo...");
 
-            bool oneSet=false;
-            bool twoSet=false;
-            bool threeSet=false;
+            var oneSet = false;
+            var twoSet = false;
+            var threeSet = false;
             foreach (var weapon in weapons)
             {
                 JObject wObj = weapon.Value.ToObject<JObject>();
@@ -196,7 +226,7 @@ namespace Chroma_Sync
                 var ammoCurrent = wObj.Value<float>("ammo_clip");
                 Color color = Color.Black;
                 Corale.Colore.Razer.Keyboard.Key key = Corale.Colore.Razer.Keyboard.Key.Invalid;
-                if (ammoCurrent != 0)
+                if (Math.Abs(ammoCurrent) > 0.1f)
                 {
                     var percentage = (ammoCurrent / ammoMax * 100);
 
