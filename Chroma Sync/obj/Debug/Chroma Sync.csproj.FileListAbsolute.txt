@@ -71,3 +71,19 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xml
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.g.resources
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma_Sync.Properties.Resources.resources
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.config
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.g.resources
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma_Sync.Properties.Resources.resources
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.pdb
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\log4net.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Newtonsoft.Json.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.xml
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\log4net.xml
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xml
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.pdb

@@ -85,17 +85,43 @@ namespace Chroma_Sync
                 var volume = AudioVolume.GetMasterVolume();
                 if (Math.Abs(cv - volume) > 0.01f)
                 {
-                    ResetAll();
-                    BalloonTip("Sound Volume", "Currently set to " + (volume * 100) + "%");
-                    var total = 14 * volume;
-                    
-                    for (uint i = 1; i <= 14; i++)
+                    //ResetAll();
+                    //BalloonTip("Sound Volume", "Currently set to " + (volume * 100) + "%");
+                    var mouseTotal = 6 * volume;
+                    var mousepadTotal = 14 * volume;
+                    var custom = new Corale.Colore.Razer.Mousepad.Effects.Custom(new Color());
+                    for (uint i = 0; i < Corale.Colore.Razer.Mousepad.Constants.MaxLeds; i++)
                     {
-                        Debug.WriteLine((Led)(i + 3));
-                        Mouse.Instance.SetLed((Led) (i + 3), i < total ? Color.Blue : Color.Black);
+                        Debug.WriteLine(mouseTotal);
+                        var c = Color.Green;
+                        if (i >= 7)
+                            c = Color.Orange;
+                        if (i >= 10)
+                            c = Color.Red;
+                        custom.Colors[i] = (i < mousepadTotal ? c : Color.Black);
                     }
+                    Mousepad.Instance.SetCustom(custom);
+
+
+                    var mouseCustom = new Corale.Colore.Razer.Mouse.Effects.Custom(new Color());
+                    for (uint i = 0; i <= 7; i++)
+                    {
+                        var c = Color.Green;
+                        if (i >= 2)
+                            c = Color.Orange;
+                        if (i >= 4)
+                            c = Color.Red;
+                        mouseCustom.Colors[17 - i] = (i < mouseTotal ? c : Color.Black);
+                        mouseCustom.Colors[9 - i] = (i < mouseTotal ? c : Color.Black);
+                    }
+                    Mouse.Instance.SetCustom(mouseCustom);
+
+
+
+
+
                 }
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
             }
         }
 
@@ -123,7 +149,7 @@ namespace Chroma_Sync
 
         public void ResetAll()
         {
-            Mouse.Instance.SetEffect(Corale.Colore.Razer.Mouse.Effects.Effect.None);
+            //Mouse.Instance.SetEffect(Corale.Colore.Razer.Mouse.Effects.Effect.None);
             Headset.Instance.SetEffect(Corale.Colore.Razer.Headset.Effects.Effect.None);
             Keyboard.Instance.SetEffect(Corale.Colore.Razer.Keyboard.Effects.Effect.None);
             Keypad.Instance.SetEffect(Corale.Colore.Razer.Keypad.Effects.Effect.None);
