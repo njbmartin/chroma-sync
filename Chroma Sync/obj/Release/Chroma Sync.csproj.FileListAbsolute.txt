@@ -56,3 +56,4 @@ C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\log4net.xml
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\Newtonsoft.Json.xml
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.exe
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.pdb
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache

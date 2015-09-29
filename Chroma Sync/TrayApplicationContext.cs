@@ -69,10 +69,10 @@ namespace Chroma_Sync
             }
             else
             {
-                BalloonTip("Chroma Sync", "CS:GO folder was not found");
+                BalloonTip("CS:GO Configuration", "CS:GO folder was not found on this computer");
                 Debug.WriteLine("CS:GO folder was not found");
             }
-            //Mouse.Instance.SetLed(Led.Strip10, Color.Red);
+
             var volumeThread = new Thread(CheckVolume);
             volumeThread.Start();
             //Flashed();
@@ -163,12 +163,12 @@ namespace Chroma_Sync
 
         public void ResetAll()
         {
-            //Mouse.Instance.SetEffect(Corale.Colore.Razer.Mouse.Effects.Effect.None);
+            Mouse.Instance.SetEffect(Corale.Colore.Razer.Mouse.Effects.Effect.None);
             Headset.Instance.SetEffect(Corale.Colore.Razer.Headset.Effects.Effect.None);
             Keyboard.Instance.SetEffect(Corale.Colore.Razer.Keyboard.Effects.Effect.None);
             Keypad.Instance.SetEffect(Corale.Colore.Razer.Keypad.Effects.Effect.None);
             Mousepad.Instance.SetEffect(Corale.Colore.Razer.Mousepad.Effects.Effect.None);
-            Thread.Sleep(10);
+            Thread.Sleep(2);
         }
 
         public void SetToTeamColour()
@@ -224,7 +224,7 @@ namespace Chroma_Sync
 
         public void Flashed()
         {
-            BalloonTip("Flashed", "Flash animation should be shown");
+            //BalloonTip("Flashed", "Flash animation should be shown");
             ResetAll();
             SetAll(Color.White);
             Thread.Sleep(1000);
@@ -241,7 +241,7 @@ namespace Chroma_Sync
         public void Died()
         {
             _isAnimating = true;
-            BalloonTip("Dead", "You died. Oh no. What a shame.");
+            //BalloonTip("Dead", "You died. Oh no. What a shame.");
             for (var i = 0; i <= 6; i++) // flash 6 times
             {
                 ResetAll();
@@ -403,7 +403,7 @@ namespace Chroma_Sync
 
                 // TcpListener server = new TcpListener(port);
                 server = new TcpListener(IPAddress.Any, port);
-                BalloonTip("Server running", IPAddress.Any.ToString());
+                //BalloonTip("Server running", IPAddress.Any.ToString());
                 // Start listening for client requests.
                 server.Start();
 
@@ -426,7 +426,7 @@ namespace Chroma_Sync
             }
             catch (Exception e)
             {
-                
+                Debug.WriteLine(e.Message);
             }
         }
 
@@ -533,6 +533,11 @@ namespace Chroma_Sync
 
 
 
+                            }
+                            else
+                            {
+                                _isFreezeTime = false;
+                                _isPlanted = false;
                             }
 
                             var player = o["player"];

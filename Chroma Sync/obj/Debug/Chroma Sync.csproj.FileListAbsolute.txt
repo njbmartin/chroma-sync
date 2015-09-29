@@ -100,3 +100,6 @@ C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.g.reso
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma_Sync.Properties.Resources.resources
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.dll
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.pdb
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
