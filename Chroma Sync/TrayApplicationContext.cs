@@ -32,6 +32,9 @@ namespace Chroma_Sync
         private String _team;
 
         private bool _isDead;
+        private bool _isPlanted;
+        private bool _isFreezeTime;
+        private bool _isAnimating;
         private bool _isFlashed;
         private int _roundKills;
 
@@ -87,13 +90,23 @@ namespace Chroma_Sync
                 {
                     //ResetAll();
                     //BalloonTip("Sound Volume", "Currently set to " + (volume * 100) + "%");
+
+                    var headsetTotal = Math.Round(10 * volume);
+                    var c = Color.Green;
+                    if (headsetTotal >= 4)
+                        c = new Color(255, 140, 0);
+                    if (headsetTotal >= 5)
+                        c = Color.Red;
+                    Headset.Instance.SetAll(c);
+
+
                     var mouseTotal = 6 * volume;
                     var mousepadTotal = 14 * volume;
                     var custom = new Corale.Colore.Razer.Mousepad.Effects.Custom(new Color());
                     for (uint i = 0; i < Corale.Colore.Razer.Mousepad.Constants.MaxLeds; i++)
                     {
                         Debug.WriteLine(mouseTotal);
-                        var c = Color.Green;
+                        c = Color.Green;
                         if (i >= 7)
                             c = Color.Orange;
                         if (i >= 10)
@@ -106,7 +119,7 @@ namespace Chroma_Sync
                     var mouseCustom = new Corale.Colore.Razer.Mouse.Effects.Custom(new Color());
                     for (uint i = 0; i <= 7; i++)
                     {
-                        var c = Color.Green;
+                        c = Color.Green;
                         if (i >= 2)
                             c = Color.Orange;
                         if (i >= 4)
@@ -238,6 +251,40 @@ namespace Chroma_Sync
             SetToTeamColour();
         }
 
+        public void Frozen()
+        {
+            _isAnimating = true;
+            //BalloonTip("Dead", "You died. Oh no. What a shame.");
+            while (_isFreezeTime) {
+                Thread.Sleep(500);
+                ResetAll();
+                Thread.Sleep(500);
+                SetAll(Color.HotPink);
+                
+            }
+            ResetAll();
+            SetToTeamColour();
+            _isAnimating = false;
+        }
+
+
+        public void Planted()
+        {
+            _isAnimating = true;
+            //BalloonTip("Dead", "You died. Oh no. What a shame.");
+            while (_isPlanted)
+            {
+                Thread.Sleep(500);
+                ResetAll();
+                Thread.Sleep(1000);
+                SetAll(Color.Orange);
+
+            }
+            ResetAll();
+            SetToTeamColour();
+            _isAnimating = false;
+        }
+
         void WeaponsAmmo(JObject weapons)
         {
             Debug.WriteLine("Checking ammo...");
@@ -345,7 +392,7 @@ namespace Chroma_Sync
 
 
 
-        void RunServer()
+        private void RunServer()
         {
             TcpListener server = null;
             try
@@ -355,171 +402,229 @@ namespace Chroma_Sync
 
                 // TcpListener server = new TcpListener(port);
                 server = new TcpListener(IPAddress.Any, port);
-
+                BalloonTip("Server running", IPAddress.Any.ToString());
                 // Start listening for client requests.
                 server.Start();
 
-                // Buffer for reading data
-                Byte[] bytes = new Byte[256];
-
-
-                // Enter the listening loop. 
                 while (true)
                 {
-                    Debug.Write("Waiting for a connection... ");
-
-                    // Perform a blocking call to accept requests. 
-                    // You could also user server.AcceptSocket() here.
-                    TcpClient client = server.AcceptTcpClient();
-                    Debug.WriteLine("Connected!");
-
-
-                    // Get a stream object for reading and writing
-                    NetworkStream stream = client.GetStream();
-
-
-                    byte[] myReadBuffer = new byte[1024];
-                    StringBuilder myCompleteMessage = new StringBuilder();
-                    int numberOfBytesRead = 0;
-
-                    // Incoming message may be larger than the buffer size. 
-                    do
+                    if (server.Pending())
                     {
-                        numberOfBytesRead = stream.Read(myReadBuffer, 0, myReadBuffer.Length);
-
-                        myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
-
-                    }
-                    while (stream.DataAvailable);
-                    if (myCompleteMessage.Length != 0)
-                    {
-
-                        // Print out the received message to the console.
-                        try
+                        Thread test = new Thread(() =>
                         {
-                            var split = myCompleteMessage.ToString().Split(new char[] { '{' }, 2);
-
-                            if (split.Length > 1)
+                            using (TcpClient client = server.AcceptTcpClient())
                             {
+                                ParseData(client);
+                            }
+                        });
+                        test.Start();
+                    }
+                    Thread.Sleep(10);
+                }
 
-                                String ns = "{" + myCompleteMessage.ToString().Split(new char[] { '{' }, 2)[1];
-                                myCompleteMessage = null;
-                                Debug.Write("You received the following message : " + ns);
-                                //Debug.Write(myCompleteMessage);
-                                string header = string.Format("HTTP/1.1 {0}\r\n"
-                                                  + "Server: {1}\r\n"
-                                                  + "Content-Length: {2}\r\n"
-                                                  + "Content-Type: {3}\r\n"
-                                                  + "Keep-Alive: Close\r\n"
-                                                  + "\r\n",
-                                                  "HTTP 200 OK", "", 0, "application/json");
-                                // Send header & data
-                                var headerBytes = Encoding.ASCII.GetBytes(header);
-                                stream.Write(headerBytes, 0, headerBytes.Length);
+            }
+            catch (Exception e)
+            {
+                
+            }
+        }
+
+        private void ParseData(TcpClient listener)
+        {
+
+            // Buffer for reading data
+            Byte[] bytes = new Byte[256];
+
+            try
+            {
+                // Enter the listening loop. 
+                Debug.Write("Got a connection... ");
+
+                // Perform a blocking call to accept requests. 
+                // You could also user server.AcceptSocket() here.
+                Debug.WriteLine("Connected!");
+
+
+                // Get a stream object for reading and writing
+                NetworkStream stream = listener.GetStream();
+
+
+                byte[] myReadBuffer = new byte[1024];
+                StringBuilder myCompleteMessage = new StringBuilder();
+                int numberOfBytesRead = 0;
+
+                // Incoming message may be larger than the buffer size. 
+                do
+                {
+                    numberOfBytesRead = stream.Read(myReadBuffer, 0, myReadBuffer.Length);
+
+                    myCompleteMessage.AppendFormat("{0}", Encoding.ASCII.GetString(myReadBuffer, 0, numberOfBytesRead));
+
+                }
+                while (stream.DataAvailable);
+                if (myCompleteMessage.Length != 0)
+                {
+
+                    // Print out the received message to the console.
+                    try
+                    {
+                        var split = myCompleteMessage.ToString().Split(new char[] { '{' }, 2);
+
+                        if (split.Length > 1)
+                        {
+
+                            String ns = "{" + myCompleteMessage.ToString().Split(new char[] { '{' }, 2)[1];
+                            myCompleteMessage = null;
+                            Debug.Write("You received the following message : " + ns);
+                            //Debug.Write(myCompleteMessage);
+                            string header = string.Format("HTTP/1.1 {0}\r\n"
+                                              + "Server: {1}\r\n"
+                                              + "Content-Length: {2}\r\n"
+                                              + "Content-Type: {3}\r\n"
+                                              + "Keep-Alive: Close\r\n"
+                                              + "\r\n",
+                                              "HTTP 200 OK", "", 0, "application/json");
+                            // Send header & data
+                            var headerBytes = Encoding.ASCII.GetBytes(header);
+                            stream.Write(headerBytes, 0, headerBytes.Length);
 
 
 
-                                JObject o = JObject.Parse(ns);
+                            JObject o = JObject.Parse(ns);
 
-                                var provider = o["provider"];
+                            var provider = o["provider"];
+                            var round = o["round"];
 
-
-                                var player = o["player"];
-                                if (player != null && provider["steamid"].ToObject<String>() == player["steamid"].ToObject<String>())
+                            if(round != null)
+                            {
+                                var phase = round["phase"].ToObject<String>();
+                                
+                                if (phase.Equals("freezetime"))
                                 {
-                                    // Do things as the player
-
-                                    String nt = null;
-                                    if (player["team"] != null)
+                                    _isFreezeTime = true;
+                                    if (!_isAnimating)
                                     {
-                                        nt = player["team"].ToObject<String>();
+                                        new Thread(new ThreadStart(Frozen)).Start();
                                     }
 
-                                    String activity = player["activity"].ToObject<String>();
-                                    if (_team == null || _team == "NA" || nt != _team)
+                                }
+                                else
+                                {
+                                    _isFreezeTime = false;
+                                }
+
+
+                                if (round["bomb"] != null && round["bomb"].ToObject<String>().Equals("planted"))
+                                {
+                                    _isPlanted = true;
+                                    if (!_isAnimating)
                                     {
-                                        _team = "NA";
-                                        if (player["team"] != null)
-                                        {
-                                            _team = player["team"].ToObject<String>();
-                                        }
-                                        SetToTeamColour();
+                                        new Thread(new ThreadStart(Planted)).Start();
                                     }
-                                    var state = player["state"];
-                                    if (state != null && activity != "menu" && player["team"] != null)
+
+                                }
+                                else
+                                {
+                                    _isPlanted = false;
+                                }
+
+
+
+
+
+                            }
+
+                            var player = o["player"];
+                            if (player != null && provider["steamid"].ToObject<String>() == player["steamid"].ToObject<String>())
+                            {
+                         
+                                String nt = null;
+                                if (player["team"] != null)
+                                {
+                                    nt = player["team"].ToObject<String>();
+                                }
+                                else if (!_team.Equals("NA"))
+                                {
+                                    _team = "NA";
+                                    SetToTeamColour();
+                                }
+
+                                String activity = player["activity"].ToObject<String>();
+                                if (player["team"] != null && nt != _team)
+                                {
+                                    _team = player["team"].ToObject<String>();
+                                    SetToTeamColour();
+                                }
+                                var state = player["state"];
+                                if (state != null && activity != "menu" && player["team"] != null)
+                                {
+                                    if (state["flashed"] != null && state["flashed"].ToObject<int>() > 0)
                                     {
-                                        if (state["flashed"] != null && state["flashed"].ToObject<int>() > 0)
+                                        if (_flashThread == null || !_flashThread.IsAlive)
                                         {
-                                            if (_flashThread == null || !_flashThread.IsAlive)
+                                            if (!_isFlashed)
                                             {
-                                                if (!_isFlashed)
-                                                {
-                                                    _isFlashed = true;
-                                                    _flashThread = new Thread(new ThreadStart(Flashed));
-                                                    _flashThread.Start();
-                                                }
+                                                _isFlashed = true;
+                                                _flashThread = new Thread(new ThreadStart(Flashed));
+                                                _flashThread.Start();
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        _isFlashed = false;
+                                    }
+
+
+                                    if (state["health"] != null)
+                                    {
+
+                                        if (state["health"].ToObject<int>() == 0)
+                                        {
+                                            if (!_isDead)
+                                            {
+                                                _isDead = true;
+                                                _deadThread = new Thread(new ThreadStart(Died));
+                                                _deadThread.Start();
                                             }
                                         }
                                         else
                                         {
-                                            _isFlashed = false;
-                                        }
+                                            _isDead = false;
 
-
-                                        if (state["health"] != null)
-                                        {
-
-                                            if (state["health"].ToObject<int>() == 0)
-                                            {
-                                                if (!_isDead)
-                                                {
-                                                    _isDead = true;
-                                                    _deadThread = new Thread(new ThreadStart(Died));
-                                                    _deadThread.Start();
-                                                }
-                                            }
-                                            else
-                                            {
-                                                _isDead = false;
-
-                                            }
-                                        }
-                                        RoundKills(state["round_kills"].ToObject<int>());
-
-                                        if (player["weapons"] != null)
-                                        {
-                                            var weapons = player["weapons"].ToObject<JObject>();
-                                            WeaponsAmmo(weapons);
                                         }
                                     }
+                                    RoundKills(state["round_kills"].ToObject<int>());
 
-
+                                    if (player["weapons"] != null)
+                                    {
+                                        var weapons = player["weapons"].ToObject<JObject>();
+                                        WeaponsAmmo(weapons);
+                                    }
                                 }
 
+
                             }
-                        }
-                        catch (Exception e)
-                        {
-                            Debug.WriteLine(e);
+
                         }
                     }
-                    // Shutdown and end connection
-                    client.Close();
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e);
+                    }
                 }
             }
-            catch (SocketException e)
-            {
-                Debug.WriteLine("SocketException: {0}", e);
-            }
+            catch { }
             finally
             {
-                // Stop listening for new clients.
-                server.Stop();
+                try
+                {
+                    listener.Close();
+                }
+                catch (Exception) { }
             }
-
-
-            Debug.WriteLine("\nHit enter to continue...");
         }
+
 
 
     }

@@ -87,3 +87,16 @@ N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xml
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.pdb
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.config
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.pdb
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\log4net.dll
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\log4net.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.g.resources
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma_Sync.Properties.Resources.resources
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache

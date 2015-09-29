@@ -41,3 +41,18 @@ C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\
 C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.exe
 C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.pdb
 C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.g.resources
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma_Sync.Properties.Resources.resources
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csproj.GenerateResource.Cache
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\Chroma Sync.exe.config
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\Chroma Sync.exe
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\Chroma Sync.pdb
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\Corale.Colore.dll
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\log4net.dll
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\Newtonsoft.Json.dll
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\Corale.Colore.pdb
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\Corale.Colore.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\log4net.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\Newtonsoft.Json.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.exe
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.pdb
