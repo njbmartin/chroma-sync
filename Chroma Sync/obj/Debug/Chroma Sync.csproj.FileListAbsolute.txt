@@ -65,7 +65,6 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.pdb
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\log4net.dll
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.dll
-C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.xml
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\log4net.xml
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xml
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.g.resources
@@ -100,3 +99,4 @@ C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xm
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.g.resources
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma_Sync.Properties.Resources.resources
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache

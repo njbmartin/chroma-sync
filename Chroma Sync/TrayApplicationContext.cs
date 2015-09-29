@@ -78,6 +78,7 @@ namespace Chroma_Sync
             //Flashed();
             _serverThread = new Thread(RunServer);
             _serverThread.Start();
+
         }
 
         private void CheckVolume()
@@ -239,6 +240,7 @@ namespace Chroma_Sync
 
         public void Died()
         {
+            _isAnimating = true;
             BalloonTip("Dead", "You died. Oh no. What a shame.");
             for (var i = 0; i <= 6; i++) // flash 6 times
             {
@@ -249,6 +251,7 @@ namespace Chroma_Sync
             }
             ResetAll();
             SetToTeamColour();
+            _isAnimating = false;
         }
 
         public void Frozen()
@@ -287,6 +290,8 @@ namespace Chroma_Sync
 
         void WeaponsAmmo(JObject weapons)
         {
+            if (_isAnimating)
+                return;
             Debug.WriteLine("Checking ammo...");
 
             var oneSet = false;
@@ -298,7 +303,7 @@ namespace Chroma_Sync
                 var ammoMax = wObj.Value<float>("ammo_clip_max");
                 var ammoCurrent = wObj.Value<float>("ammo_clip");
                 Color color = Color.Black;
-                Corale.Colore.Razer.Keyboard.Key key = Corale.Colore.Razer.Keyboard.Key.Invalid;
+                Corale.Colore.Razer.Keyboard.Key key;
                 if (Math.Abs(ammoCurrent) > 0.1f)
                 {
                     var percentage = (ammoCurrent / ammoMax * 100);
@@ -315,9 +320,6 @@ namespace Chroma_Sync
                     {
                         color = Color.Red;
                     }
-
-
-
                 }
 
 
@@ -325,7 +327,6 @@ namespace Chroma_Sync
                 switch (wObj.Value<string>("type"))
                 {
                     case "Knife":
-
                         key = Corale.Colore.Razer.Keyboard.Key.Three;
                         threeSet = true;
                         break;
