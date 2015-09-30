@@ -15,6 +15,7 @@ using System.Reflection;
 using System.IO;
 using Corale.Colore;
 using Corale.Colore.Razer.Mouse;
+using Neo.IronLua;
 
 namespace Chroma_Sync
 {
@@ -37,14 +38,15 @@ namespace Chroma_Sync
         private bool _isAnimating;
         private bool _isFlashed;
         private int _roundKills;
-
+        public static Lua l = new Lua();
         //Program configWindow = new Program();
         public TrayApplicationContext()
         {
+            
             const string configMenuText = "Configuration";
             _isFlashed = true;
             _isDead = true;
-
+            
             MenuItem configMenuItem = new MenuItem(configMenuText, ShowConfig);
             MenuItem exitMenuItem = new MenuItem("Exit", Exit);
 
@@ -79,6 +81,37 @@ namespace Chroma_Sync
             _serverThread = new Thread(RunServer);
             _serverThread.Start();
 
+            new Thread(LuaThread).Start();
+
+        }
+
+
+        private void LuaThread()
+        {
+            using (Lua l = new Lua())
+            {
+                dynamic g = l.CreateEnvironment();
+                g.print = new Func<string, string, bool>(LightUp);
+
+                foreach(string st in Directory.GetFiles("scripts\\","*lua",SearchOption.AllDirectories))
+                {
+                    try {
+                        g.DoChunk(l.CompileChunk(st, LuaDeskop.StackTraceCompileOptions, null));
+                    }catch(Exception e)
+                    {
+                        Debug.WriteLine(e);
+                    }
+                }
+
+
+
+            }
+
+        }
+
+        private bool LightUp(string key, string color)
+        {
+            return false;
         }
 
         private void CheckVolume()
