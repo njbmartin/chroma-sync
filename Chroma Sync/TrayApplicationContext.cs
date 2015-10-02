@@ -88,30 +88,38 @@ namespace Chroma_Sync
 
         private void LuaThread()
         {
+            var ms_luaDebug = new LuaStackTraceDebugger();
+            var ms_luaCompileOptions = new LuaCompileOptions();
+            ms_luaCompileOptions.DebugEngine = ms_luaDebug;
+
             using (Lua l = new Lua())
             {
-                dynamic g = l.CreateEnvironment();
-                g.print = new Func<string, string, bool>(LightUp);
-
-                foreach(string st in Directory.GetFiles("scripts\\","*lua",SearchOption.AllDirectories))
+                LuaGlobalPortable g = l.CreateEnvironment();
+                dynamic dg = g;
+                dg.HeadsetColour = new Func<byte,byte, byte, bool>(HeadsetColour);
+                dg.LuaSleep = new Func<int, bool>(LuaSleep);
+                foreach (string st in Directory.GetFiles("scripts\\","*lua",SearchOption.AllDirectories))
                 {
-                    try {
-                        g.DoChunk(l.CompileChunk(st, LuaDeskop.StackTraceCompileOptions, null));
-                    }catch(Exception e)
-                    {
-                        Debug.WriteLine(e);
-                    }
+                    LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
+                    g.DoChunk(compiled);
                 }
-
-
-
             }
-
         }
 
-        private bool LightUp(string key, string color)
+        private bool LuaSleep(int n)
         {
-            return false;
+            Thread.Sleep(n);
+            return true;
+        }
+
+        private bool HeadsetColour(byte R, byte G, byte B)
+        {
+            
+            Headset.Instance.SetEffect(Corale.Colore.Razer.Headset.Effects.Effect.None);
+            Thread.Sleep(5);
+            var c = new Color(R, G, B);
+            Headset.Instance.SetAll(c);
+            return true;
         }
 
         private void CheckVolume()

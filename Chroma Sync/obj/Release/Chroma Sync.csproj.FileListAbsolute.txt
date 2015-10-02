@@ -57,3 +57,10 @@ C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Release\Newtonsoft.Json.
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.exe
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.pdb
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Chroma Sync.exe.config
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.exe
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.pdb
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.g.resources
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma_Sync.Properties.Resources.resources
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csproj.GenerateResource.Cache
