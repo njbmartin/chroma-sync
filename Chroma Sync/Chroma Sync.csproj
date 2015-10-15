@@ -112,6 +112,9 @@
     <None Include="Resources\favicon.ico" />
     <None Include="Resources\android-chrome-192x192.png" />
     <None Include="Resources\favicon-96x96.png" />
+    <Content Include="scripts\readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
