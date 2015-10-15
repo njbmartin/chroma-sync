@@ -110,3 +110,9 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.xml
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xml
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.dll
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.dll
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.pdb
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.pdb
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.xml

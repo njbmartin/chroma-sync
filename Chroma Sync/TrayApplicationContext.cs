@@ -116,7 +116,7 @@ namespace Chroma_Sync
         {
             
             Headset.Instance.SetEffect(Corale.Colore.Razer.Headset.Effects.Effect.None);
-            Thread.Sleep(5);
+            //Thread.Sleep(1);
             var c = new Color(R, G, B);
             Headset.Instance.SetAll(c);
             return true;

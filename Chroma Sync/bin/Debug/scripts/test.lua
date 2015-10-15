@@ -22,7 +22,7 @@ function hsvToRgb(h, s, v, a)
 
   return r * 255, g * 255, b * 255, a * 255
 end
---[[
+
 while true do
 
 	if number > 1 then
@@ -33,4 +33,4 @@ while true do
 	LuaSleep(50)
 	number = number + 0.01
 end
-]]
+
