@@ -11,10 +11,7 @@ using Corale.Colore.Razer;
 using System.Threading;
 using System.Diagnostics;
 using Chroma_Sync.Properties;
-using System.Reflection;
 using System.IO;
-using Corale.Colore;
-using Corale.Colore.Razer.Mouse;
 using Neo.IronLua;
 
 namespace Chroma_Sync
@@ -28,8 +25,6 @@ namespace Chroma_Sync
 
         private Thread _deadThread;
         private Thread _flashThread;
-
-
         private String _team;
 
         private bool _isDead;
@@ -38,15 +33,17 @@ namespace Chroma_Sync
         private bool _isAnimating;
         private bool _isFlashed;
         private int _roundKills;
+
+
         public static Lua l = new Lua();
         //Program configWindow = new Program();
         public TrayApplicationContext()
         {
-            
+
             const string configMenuText = "Configuration";
             _isFlashed = true;
             _isDead = true;
-            
+
             MenuItem configMenuItem = new MenuItem(configMenuText, ShowConfig);
             MenuItem exitMenuItem = new MenuItem("Exit", Exit);
 
@@ -59,15 +56,17 @@ namespace Chroma_Sync
             };
             BalloonTip("Getting things ready", "Chroma Sync is performing first-time setup.\nThis shouldn't take long...");
             Debug.WriteLine(Chroma.Instance.Query(Devices.MambaTeChroma).Connected ? "connected" : "not connected");
+            string folder = null;
 
-            var folder = GameLocator.InstallFolder("Counter-Strike Global Offensive");
+            folder = GameLocator.InstallFolder("Counter-Strike Global Offensive");
             if (folder != null)
             {
                 var file = Resources.gamestate_integration_chromasync;
                 Stream stream = new MemoryStream(file);
                 CopyResource(stream, folder + "\\csgo\\cfg\\gamestate_integration_chromasync.cfg");
                 Debug.WriteLine(folder);
-                BalloonTip("Chroma Sync", "Chroma Sync is now running in the background.");
+                _serverThread = new Thread(RunServer);
+                _serverThread.Start();
             }
             else
             {
@@ -75,15 +74,134 @@ namespace Chroma_Sync
                 Debug.WriteLine("CS:GO folder was not found");
             }
 
+
+
+            folder = GameLocator.InstallFolder("Grand Theft Auto V");
+            if (folder != null)
+            {
+                Debug.WriteLine(folder);
+                new Thread(GTA.Task).Start(folder);
+            }
+            else
+            {
+                BalloonTip("GTA V Configuration", "GTA V directory not found.");
+                Debug.WriteLine("GTA V directory not found");
+            }
+
+
             var volumeThread = new Thread(CheckVolume);
             volumeThread.Start();
             //Flashed();
-            _serverThread = new Thread(RunServer);
-            _serverThread.Start();
+
 
             new Thread(LuaThread).Start();
 
         }
+        public static class GTA
+        {
+
+            private static double _currentAmmo, _wantedLevel;
+            
+
+
+            public static void Task(object folder)
+            {
+                string f = (string)folder;
+                Debug.WriteLine(f);
+                FileSystemWatcher watcher = new FileSystemWatcher();
+
+                watcher.Path = f;
+                watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
+               | NotifyFilters.FileName | NotifyFilters.DirectoryName;
+                // Only watch text files.
+                watcher.Filter = "chroma_sync_*";
+
+                watcher.Changed += new FileSystemEventHandler(OnChanged);
+                watcher.Created += new FileSystemEventHandler(OnChanged);
+                watcher.EnableRaisingEvents = true;
+                new Thread(PoliceAnimation).Start();
+            }
+
+
+
+
+            private static void OnChanged(object source, FileSystemEventArgs e)
+            {
+                // Specify what is done when a file is changed, created, or deleted.
+                string readText = "";
+                try
+                {
+                    readText = File.ReadAllText(e.FullPath);
+                }
+                catch (Exception error)
+                {
+                    return;
+                }
+
+                    if (e.Name.Contains("ammo"))
+                {
+                    int ammo = int.Parse(readText);
+
+                    UpdateAmmo(ammo);
+                }
+
+
+                if (e.Name.Contains("police"))
+                {
+                    _wantedLevel = double.Parse(readText);
+                    Debug.WriteLine(_wantedLevel);
+                }
+
+            }
+
+
+            public static void UpdateAmmo(int ammo)
+            {
+                var keys = Math.Round((double)ammo / 100 * 12);
+                if (keys != _currentAmmo)
+                {
+                    for (uint i = 1; i <= 12; i++)
+                    {
+                        try
+                        {
+                            Keyboard.Instance.SetPosition(0, 2 + i, keys >= i ? Color.Red : Color.Black);
+                        }
+                        catch (Exception e) { }
+                    }
+                }
+                _currentAmmo = keys;
+            }
+
+
+            public static void PoliceAnimation()
+            {
+                int currentLevel = 0;
+                while (true)
+                {
+                    if (currentLevel != _wantedLevel)
+                    {
+                        double wLevel = _wantedLevel;
+                        try
+                        {
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Macro1, wLevel > 0 ? Color.Red : Color.Black);
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Macro2, wLevel > 1 ? Color.Red : Color.Black);
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Macro3, wLevel > 2 ? Color.Red : Color.Black);
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Macro4, wLevel > 3 ? Color.Red : Color.Black);
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Macro5, wLevel > 4 ? Color.Red : Color.Black);
+                            Thread.Sleep(200);
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Macro1, wLevel > 0 ? Color.Blue : Color.Black);
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Macro2, wLevel > 1 ? Color.Blue : Color.Black);
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Macro3, wLevel > 2 ? Color.Blue : Color.Black);
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Macro4, wLevel > 3 ? Color.Blue : Color.Black);
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Macro5, wLevel > 4 ? Color.Blue : Color.Black);
+                        }
+                        catch (Exception e) { }
+                    }
+                    Thread.Sleep(200);
+                }
+            }
+        }
+
 
 
         private void LuaThread()
@@ -92,12 +210,16 @@ namespace Chroma_Sync
             {
                 dynamic g = l.CreateEnvironment();
                 g.print = new Func<string, string, bool>(LightUp);
+                if (!Directory.Exists("scripts\\"))
+                    return;
 
-                foreach(string st in Directory.GetFiles("scripts\\","*lua",SearchOption.AllDirectories))
+                foreach (string st in Directory.GetFiles("scripts\\", "*lua", SearchOption.AllDirectories))
                 {
-                    try {
+                    try
+                    {
                         g.DoChunk(l.CompileChunk(st, LuaDeskop.StackTraceCompileOptions, null));
-                    }catch(Exception e)
+                    }
+                    catch (Exception e)
                     {
                         Debug.WriteLine(e);
                     }
@@ -139,7 +261,6 @@ namespace Chroma_Sync
                     var custom = new Corale.Colore.Razer.Mousepad.Effects.Custom(new Color());
                     for (uint i = 0; i < Corale.Colore.Razer.Mousepad.Constants.MaxLeds; i++)
                     {
-                        Debug.WriteLine(mouseTotal);
                         c = Color.Green;
                         if (i >= 7)
                             c = Color.Orange;
@@ -196,11 +317,13 @@ namespace Chroma_Sync
 
         public void ResetAll()
         {
-            Mouse.Instance.SetEffect(Corale.Colore.Razer.Mouse.Effects.Effect.None);
-            Headset.Instance.SetEffect(Corale.Colore.Razer.Headset.Effects.Effect.None);
-            Keyboard.Instance.SetEffect(Corale.Colore.Razer.Keyboard.Effects.Effect.None);
-            Keypad.Instance.SetEffect(Corale.Colore.Razer.Keypad.Effects.Effect.None);
-            Mousepad.Instance.SetEffect(Corale.Colore.Razer.Mousepad.Effects.Effect.None);
+            try {
+                Mouse.Instance.SetEffect(Corale.Colore.Razer.Mouse.Effects.Effect.None);
+                Headset.Instance.SetEffect(Corale.Colore.Razer.Headset.Effects.Effect.None);
+                Keyboard.Instance.SetEffect(Corale.Colore.Razer.Keyboard.Effects.Effect.None);
+                Keypad.Instance.SetEffect(Corale.Colore.Razer.Keypad.Effects.Effect.None);
+                Mousepad.Instance.SetEffect(Corale.Colore.Razer.Mousepad.Effects.Effect.None);
+            }catch(Exception e) { }
             Thread.Sleep(2);
         }
 
@@ -228,7 +351,7 @@ namespace Chroma_Sync
                 return;
             for (uint i = 1; i <= 12; i++)
             {
-                Keyboard.Instance.SetPosition(0, 3 + i, kills >= i ? Color.HotPink : Color.Black);
+                Keyboard.Instance.SetPosition(0, 2 + i, kills >= i ? Color.HotPink : Color.Black);
             }
             _roundKills = kills;
         }
@@ -291,12 +414,13 @@ namespace Chroma_Sync
         {
             _isAnimating = true;
             //BalloonTip("Dead", "You died. Oh no. What a shame.");
-            while (_isFreezeTime) {
+            while (_isFreezeTime)
+            {
                 Thread.Sleep(500);
                 ResetAll();
                 Thread.Sleep(500);
                 SetAll(Color.HotPink);
-                
+
             }
             ResetAll();
             SetToTeamColour();
@@ -529,10 +653,10 @@ namespace Chroma_Sync
                             var provider = o["provider"];
                             var round = o["round"];
 
-                            if(round != null)
+                            if (round != null)
                             {
                                 var phase = round["phase"].ToObject<String>();
-                                
+
                                 if (phase.Equals("freezetime"))
                                 {
                                     _isFreezeTime = true;
@@ -576,7 +700,7 @@ namespace Chroma_Sync
                             var player = o["player"];
                             if (player != null && provider["steamid"].ToObject<String>() == player["steamid"].ToObject<String>())
                             {
-                         
+
                                 String nt = null;
                                 if (player["team"] != null)
                                 {

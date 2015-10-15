@@ -103,3 +103,9 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojReso
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.dll
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.pdb
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.pdb
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.xml
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.pdb
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.xml
