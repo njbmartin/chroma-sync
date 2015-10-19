@@ -123,3 +123,9 @@ N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.pdb
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.xml
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.pdb
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.xml
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.manifest
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.application
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.TrustInfo.xml
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manifest
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.application
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma_Sync.Form1.resources

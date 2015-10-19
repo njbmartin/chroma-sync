@@ -21,10 +21,13 @@ namespace Chroma_Sync
     public class TrayApplicationContext : ApplicationContext
     {
         private readonly NotifyIcon _icon;
-        private readonly Thread _serverThread;
 
+        private Thread _serverThread;
         private Thread _deadThread;
         private Thread _flashThread;
+        private Thread _volumeThread;
+        private Thread _gtaThread;
+
         private String _team;
 
         private bool _isDead;
@@ -32,10 +35,14 @@ namespace Chroma_Sync
         private bool _isFreezeTime;
         private bool _isAnimating;
         private bool _isFlashed;
+
         private int _roundKills;
 
-
         public static Lua l = new Lua();
+        private Form1 _mainWindow;
+        private Thread _clientThread;
+        private Thread _luaThread;
+
         //Program configWindow = new Program();
         public TrayApplicationContext()
         {
@@ -43,17 +50,19 @@ namespace Chroma_Sync
             const string configMenuText = "Configuration";
             _isFlashed = true;
             _isDead = true;
-
+            _mainWindow = new Form1();
+            _mainWindow.Show();
             MenuItem configMenuItem = new MenuItem(configMenuText, ShowConfig);
             MenuItem exitMenuItem = new MenuItem("Exit", Exit);
 
             _icon = new NotifyIcon
             {
                 Icon = Properties.Resources.favicon,
-                ContextMenu = new ContextMenu(new[] { exitMenuItem }),
+                ContextMenu = new ContextMenu(new[] { /*configMenuItem, */ exitMenuItem }),
                 Visible = true,
                 Text = Resources.ExitMenuText,
             };
+            _icon.Click += new System.EventHandler(ShowConfig);
             BalloonTip("Getting things ready", "Chroma Sync is performing first-time setup.\nThis shouldn't take long...");
             Debug.WriteLine(Chroma.Instance.Query(Devices.MambaTeChroma).Connected ? "connected" : "not connected");
             string folder = null;
@@ -67,6 +76,7 @@ namespace Chroma_Sync
                 Debug.WriteLine(folder);
                 _serverThread = new Thread(RunServer);
                 _serverThread.Start();
+
             }
             else
             {
@@ -80,7 +90,8 @@ namespace Chroma_Sync
             if (folder != null)
             {
                 Debug.WriteLine(folder);
-                new Thread(GTA.Task).Start(folder);
+                _gtaThread = new Thread(GTA.Task);
+                _gtaThread.Start(folder);
             }
             else
             {
@@ -89,20 +100,16 @@ namespace Chroma_Sync
             }
 
 
-            var volumeThread = new Thread(CheckVolume);
-            volumeThread.Start();
-            //Flashed();
+            _volumeThread = new Thread(CheckVolume);
+            _volumeThread.Start();
 
-
-            new Thread(LuaThread).Start();
+            _luaThread = new Thread(LuaScripting.LuaThread);
+            _luaThread.Start();
 
         }
         public static class GTA
         {
-
             private static double _currentAmmo, _wantedLevel;
-            
-
 
             public static void Task(object folder)
             {
@@ -138,22 +145,19 @@ namespace Chroma_Sync
                     return;
                 }
 
-                    if (e.Name.Contains("ammo"))
+                if (e.Name.Contains("ammo"))
                 {
                     int ammo = int.Parse(readText);
 
                     UpdateAmmo(ammo);
                 }
 
-
                 if (e.Name.Contains("police"))
                 {
                     _wantedLevel = double.Parse(readText);
                     Debug.WriteLine(_wantedLevel);
                 }
-
             }
-
 
             public static void UpdateAmmo(int ammo)
             {
@@ -200,50 +204,6 @@ namespace Chroma_Sync
                     Thread.Sleep(200);
                 }
             }
-        }
-
-
-
-        private void LuaThread()
-        {
-            var ms_luaDebug = new LuaStackTraceDebugger();
-            var ms_luaCompileOptions = new LuaCompileOptions();
-            ms_luaCompileOptions.DebugEngine = ms_luaDebug;
-
-            if (!Directory.Exists("scripts\\"))
-                return;
-
-            using (Lua l = new Lua())
-            {
-
-                
-
-                LuaGlobalPortable g = l.CreateEnvironment();
-                dynamic dg = g;
-                dg.HeadsetColour = new Func<byte,byte, byte, bool>(HeadsetColour);
-                dg.LuaSleep = new Func<int, bool>(LuaSleep);
-                foreach (string st in Directory.GetFiles("scripts\\","*lua",SearchOption.AllDirectories))
-                {
-                    LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
-                    g.DoChunk(compiled);
-                }
-            }
-        }
-
-        private bool LuaSleep(int n)
-        {
-            Thread.Sleep(n);
-            return true;
-        }
-
-        private bool HeadsetColour(byte R, byte G, byte B)
-        {
-            
-            Headset.Instance.SetEffect(Corale.Colore.Razer.Headset.Effects.Effect.None);
-            //Thread.Sleep(1);
-            var c = new Color(R, G, B);
-            Headset.Instance.SetAll(c);
-            return true;
         }
 
         private void CheckVolume()
@@ -293,11 +253,6 @@ namespace Chroma_Sync
                         mouseCustom.Colors[9 - i] = (i < mouseTotal ? c : Color.Black);
                     }
                     Mouse.Instance.SetCustom(mouseCustom);
-
-
-
-
-
                 }
                 Thread.Sleep(100);
             }
@@ -327,13 +282,15 @@ namespace Chroma_Sync
 
         public void ResetAll()
         {
-            try {
+            try
+            {
                 Mouse.Instance.SetEffect(Corale.Colore.Razer.Mouse.Effects.Effect.None);
                 Headset.Instance.SetEffect(Corale.Colore.Razer.Headset.Effects.Effect.None);
                 Keyboard.Instance.SetEffect(Corale.Colore.Razer.Keyboard.Effects.Effect.None);
                 Keypad.Instance.SetEffect(Corale.Colore.Razer.Keypad.Effects.Effect.None);
                 Mousepad.Instance.SetEffect(Corale.Colore.Razer.Mousepad.Effects.Effect.None);
-            }catch(Exception e) { }
+            }
+            catch (Exception e) { }
             Thread.Sleep(2);
         }
 
@@ -385,39 +342,43 @@ namespace Chroma_Sync
             Keypad.Instance.SetAll(color);
             Mouse.Instance.SetAll(color);
             Mousepad.Instance.SetAll(color);
-            Thread.Sleep(20);
+            Thread.Sleep(5);
         }
 
         public void Flashed()
         {
+            _isAnimating = true;
             //BalloonTip("Flashed", "Flash animation should be shown");
             ResetAll();
-            SetAll(Color.White);
-            Thread.Sleep(1000);
-            for (var i = 0f; i <= 1f; i = i + 0.001f)
+            for (var i = 0f; i <= 1f; i = i + 0.005f)
             {
                 Debug.WriteLine(i);
                 var brightness = new Color(1f, 1f, 1f, i);
                 SetAll(RGBAFix(brightness));
             }
             ResetAll();
+            _isAnimating = false;
             SetToTeamColour();
         }
 
         public void Died()
         {
             _isAnimating = true;
+            ResetAll();
             //BalloonTip("Dead", "You died. Oh no. What a shame.");
             for (var i = 0; i <= 6; i++) // flash 6 times
             {
-                ResetAll();
-                Thread.Sleep(100);
+
+
                 SetAll(Color.Red);
+                Thread.Sleep(100);
+                ResetAll();
                 Thread.Sleep(100);
             }
             ResetAll();
-            SetToTeamColour();
             _isAnimating = false;
+            SetToTeamColour();
+            
         }
 
         public void Frozen()
@@ -426,15 +387,16 @@ namespace Chroma_Sync
             //BalloonTip("Dead", "You died. Oh no. What a shame.");
             while (_isFreezeTime)
             {
-                Thread.Sleep(500);
+
                 ResetAll();
                 Thread.Sleep(500);
                 SetAll(Color.HotPink);
-
+                Thread.Sleep(500);
             }
             ResetAll();
-            SetToTeamColour();
             _isAnimating = false;
+            SetToTeamColour();
+            
         }
 
 
@@ -444,15 +406,17 @@ namespace Chroma_Sync
             //BalloonTip("Dead", "You died. Oh no. What a shame.");
             while (_isPlanted)
             {
-                Thread.Sleep(500);
+
                 ResetAll();
                 Thread.Sleep(1000);
-                SetAll(Color.Orange);
+                SetAll(Color.Pink);
+                Thread.Sleep(500);
 
             }
             ResetAll();
-            SetToTeamColour();
             _isAnimating = false;
+            SetToTeamColour();
+            
         }
 
         void WeaponsAmmo(JObject weapons)
@@ -464,13 +428,15 @@ namespace Chroma_Sync
             var oneSet = false;
             var twoSet = false;
             var threeSet = false;
+            var fourSet = false;
+            var fiveSet = false;
             foreach (var weapon in weapons)
             {
                 JObject wObj = weapon.Value.ToObject<JObject>();
                 var ammoMax = wObj.Value<float>("ammo_clip_max");
                 var ammoCurrent = wObj.Value<float>("ammo_clip");
-                Color color = Color.Black;
-                Corale.Colore.Razer.Keyboard.Key key;
+                Color color = Color.Green;
+                Corale.Colore.Razer.Keyboard.Key key = Corale.Colore.Razer.Keyboard.Key.Invalid;
                 if (Math.Abs(ammoCurrent) > 0.1f)
                 {
                     var percentage = (ammoCurrent / ammoMax * 100);
@@ -494,22 +460,37 @@ namespace Chroma_Sync
                 switch (wObj.Value<string>("type"))
                 {
                     case "Knife":
-                        key = Corale.Colore.Razer.Keyboard.Key.Three;
+                        if(!threeSet)
+                            key = Corale.Colore.Razer.Keyboard.Key.Three;
                         threeSet = true;
                         break;
                     case "Pistol":
-                        key = Corale.Colore.Razer.Keyboard.Key.Two;
+                        if (!twoSet)
+                            key = Corale.Colore.Razer.Keyboard.Key.Two;
                         twoSet = true;
                         break;
 
+                    case "Grenade":
+                        if (!fourSet)
+                            key = Corale.Colore.Razer.Keyboard.Key.Four;
+                        fourSet = true;
+                        break;
+
                     case "C4":
-                        key = Corale.Colore.Razer.Keyboard.Key.Zero;
+                        if (!fiveSet)
+                            key = Corale.Colore.Razer.Keyboard.Key.Five;
+                        fiveSet = true;
                         break;
                     default:
-                        key = Corale.Colore.Razer.Keyboard.Key.One;
-                        oneSet = true;
+                        if (!wObj.Value<string>("name").Contains("taser"))
+                        {
+                            if (!oneSet)
+                                key = Corale.Colore.Razer.Keyboard.Key.One;
+                            oneSet = true;
+                        }
                         break;
                 }
+
                 Keyboard.Instance.SetKey(key, color, false);
             }
 
@@ -528,23 +509,35 @@ namespace Chroma_Sync
                 Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Three, Color.Black, false);
             }
 
+            if (!fourSet)
+            {
+                Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Four, Color.Black, false);
+            }
+
+            if (!fiveSet)
+            {
+                Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Five, Color.Black, false);
+            }
 
         }
 
 
         void ShowConfig(object sender, EventArgs e)
         {
-            /*
-            // If we are already showing the window, merely focus it.
-            if (configWindow.Visible)
+            if (_mainWindow.IsDisposed)
             {
-                configWindow.Activate();
+                _mainWindow = new Form1();
+            }
+            // If we are already showing the window, merely focus it.
+            if (_mainWindow.Visible)
+            {
+                _mainWindow.Activate();
             }
             else
-           { 
-                configWindow.ShowDialog();
+            {
+                _mainWindow.ShowDialog();
             }
-            */
+
         }
 
         void Exit(object sender, EventArgs e)
@@ -552,7 +545,12 @@ namespace Chroma_Sync
             // We must manually tidy up and remove the icon before we exit.
             // Otherwise it will be left behind until the user mouses over.
             _icon.Visible = false;
-            _serverThread.Abort();
+
+            // Abort all threads
+            //_serverThread.();
+            //_volumeThread.Abort();
+            //_gtaThread.Abort();
+
             Application.Exit();
         }
 
@@ -578,14 +576,14 @@ namespace Chroma_Sync
                 {
                     if (server.Pending())
                     {
-                        Thread test = new Thread(() =>
+                        _clientThread = new Thread(() =>
                         {
                             using (TcpClient client = server.AcceptTcpClient())
                             {
                                 ParseData(client);
                             }
                         });
-                        test.Start();
+                        _clientThread.Start();
                     }
                     Thread.Sleep(10);
                 }
@@ -657,10 +655,11 @@ namespace Chroma_Sync
                             stream.Write(headerBytes, 0, headerBytes.Length);
 
 
-
                             JObject o = JObject.Parse(ns);
-
+                            //LuaScripting.PassThrough(o);
+                            
                             var provider = o["provider"];
+                            
                             var round = o["round"];
 
                             if (round != null)
@@ -783,7 +782,7 @@ namespace Chroma_Sync
                     }
                     catch (Exception e)
                     {
-                        Debug.WriteLine(e);
+                        //Debug.WriteLine(e);
                     }
                 }
             }
