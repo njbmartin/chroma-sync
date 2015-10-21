@@ -15,7 +15,6 @@ namespace Chroma_Sync
         public Form1()
         {
             InitializeComponent();
-            CenterPictureBox(pictureBox1);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -23,12 +22,19 @@ namespace Chroma_Sync
             this.Close();
         }
 
+
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
@@ -38,16 +44,14 @@ namespace Chroma_Sync
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void CenterPictureBox(PictureBox picBox)
+        private void button3_Click(object sender, EventArgs e)
         {
-            var picImage = picBox.Image;
-            picBox.Location = new Point((picBox.Parent.ClientSize.Width / 2) - (picImage.Width / 2), 10);
-            picBox.Refresh();
+
         }
     }
 }

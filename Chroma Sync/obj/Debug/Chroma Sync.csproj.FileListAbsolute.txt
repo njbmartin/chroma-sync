@@ -129,3 +129,11 @@ N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.TrustInfo.xml
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manifest
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.application
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma_Sync.Form1.resources
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma_Sync.Form1.resources
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\scripts\readme.txt
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.manifest
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.application
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.dll
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.TrustInfo.xml
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manifest
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.application
