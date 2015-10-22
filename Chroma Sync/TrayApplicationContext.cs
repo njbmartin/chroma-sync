@@ -10,11 +10,11 @@ using Corale.Colore.Core;
 using Corale.Colore.Razer;
 using System.Threading;
 using System.Diagnostics;
-using Chroma_Sync.Properties;
+using ChromaSync.Properties;
 using System.IO;
 using Neo.IronLua;
 
-namespace Chroma_Sync
+namespace ChromaSync
 {
 
 
@@ -99,9 +99,9 @@ namespace Chroma_Sync
                 Debug.WriteLine("GTA V directory not found");
             }
 
-
+            //var lol= new Corale.Colore.Razer.Mousepad.Effects.Custom(Color.Red);
             _volumeThread = new Thread(CheckVolume);
-            _volumeThread.Start();
+            //_volumeThread.Start();
 
             _luaThread = new Thread(LuaScripting.LuaThread);
             _luaThread.Start();
@@ -254,7 +254,7 @@ namespace Chroma_Sync
                     }
                     Mouse.Instance.SetCustom(mouseCustom);
                 }
-                Thread.Sleep(100);
+                //Thread.Sleep(100);
             }
         }
 

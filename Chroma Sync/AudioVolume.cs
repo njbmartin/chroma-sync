@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chroma_Sync
+namespace ChromaSync
 {
     public static class AudioVolume
     {
 
-        public static float Volume;
+        public static float Volume = 0;
 
         public static float GetMasterVolume()
         {

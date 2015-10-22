@@ -1,4 +1,4 @@
-﻿namespace Chroma_Sync
+﻿namespace ChromaSync
 {
     partial class Form1
     {
@@ -30,32 +30,32 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Installed", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Available to Install", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Installed", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Available to Install", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "ChromaCraft - Minecraft Integration",
             "KeithM",
             "In-Game Effects",
             "Not Active"}, 2, System.Drawing.Color.DeepPink, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "CS:GO (Razer Official)",
             "Razer",
             "In-Game Effects",
             "Not Active"}, 0, System.Drawing.Color.DeepPink, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "GTA V (Razer Official)",
             "Razer",
             "In-Game Effects",
             "Not Active"}, 1, System.Drawing.Color.DeepPink, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Installed", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Available to Install", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Installed", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Available to Install", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "ChromaStrike",
             "Listens to events sent by CS:GO to provide effects for bomb/freeze timer, kill co" +
                 "unt, ammo and health",
             "Nicholas Martin",
             "Active"}, 0, System.Drawing.Color.DeepPink, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "GrandTheftChromaV",
             "Provides effects for GTAV events provided by the CSI mod.",
             "Nicholas Martin",
@@ -63,16 +63,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.listView1 = new System.Windows.Forms.ListView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.ChromaPackages = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Creator = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.SyncType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SyncStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SyncType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -82,7 +83,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,23 +125,23 @@
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.ForeColor = System.Drawing.Color.DimGray;
             this.listView1.FullRowSelect = true;
-            listViewGroup7.Header = "Installed";
-            listViewGroup7.Name = "listViewGroup1";
-            listViewGroup8.Header = "Available to Install";
-            listViewGroup8.Name = "listViewGroup2";
+            listViewGroup1.Header = "Installed";
+            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup2.Header = "Available to Install";
+            listViewGroup2.Name = "listViewGroup2";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup7,
-            listViewGroup8});
+            listViewGroup1,
+            listViewGroup2});
             this.listView1.HoverSelection = true;
+            listViewItem1.UseItemStyleForSubItems = false;
+            listViewItem2.UseItemStyleForSubItems = false;
+            listViewItem3.StateImageIndex = 0;
+            listViewItem3.ToolTipText = "asdafs";
             listViewItem3.UseItemStyleForSubItems = false;
-            listViewItem9.UseItemStyleForSubItems = false;
-            listViewItem10.StateImageIndex = 0;
-            listViewItem10.ToolTipText = "asdafs";
-            listViewItem10.UseItemStyleForSubItems = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem9,
-            listViewItem10});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3});
             this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(23, 188);
             this.listView1.Margin = new System.Windows.Forms.Padding(10);
@@ -158,15 +158,6 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DeepPink;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 800);
-            this.panel1.TabIndex = 5;
-            // 
             // ChromaPackages
             // 
             this.ChromaPackages.Text = "";
@@ -177,22 +168,35 @@
             this.Creator.Text = "Creator";
             this.Creator.Width = 180;
             // 
-            // pictureBox1
+            // SyncType
             // 
-            this.pictureBox1.Image = global::Chroma_Sync.Properties.Resources.favicon_96x96;
-            this.pictureBox1.InitialImage = global::Chroma_Sync.Properties.Resources.android_chrome_192x192;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(96, 96);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.SyncType.Text = "Sync Type";
+            this.SyncType.Width = 120;
             // 
             // SyncStatus
             // 
             this.SyncStatus.Text = "Sync Status";
             this.SyncStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.SyncStatus.Width = 120;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DeepPink;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 800);
+            this.panel1.TabIndex = 5;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ChromaSync.Properties.Resources.favicon_96x96;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(96, 96);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // listView2
             // 
@@ -207,20 +211,20 @@
             this.columnHeader4});
             this.listView2.ForeColor = System.Drawing.Color.DimGray;
             this.listView2.FullRowSelect = true;
-            listViewGroup5.Header = "Installed";
-            listViewGroup5.Name = "listViewGroup1";
-            listViewGroup6.Header = "Available to Install";
-            listViewGroup6.Name = "listViewGroup2";
+            listViewGroup3.Header = "Installed";
+            listViewGroup3.Name = "listViewGroup1";
+            listViewGroup4.Header = "Available to Install";
+            listViewGroup4.Name = "listViewGroup2";
             this.listView2.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup5,
-            listViewGroup6});
+            listViewGroup3,
+            listViewGroup4});
             this.listView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem6.UseItemStyleForSubItems = false;
-            listViewItem7.StateImageIndex = 0;
-            listViewItem7.UseItemStyleForSubItems = false;
+            listViewItem4.UseItemStyleForSubItems = false;
+            listViewItem5.StateImageIndex = 0;
+            listViewItem5.UseItemStyleForSubItems = false;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem6,
-            listViewItem7});
+            listViewItem4,
+            listViewItem5});
             this.listView2.Location = new System.Drawing.Point(23, 544);
             this.listView2.Margin = new System.Windows.Forms.Padding(10);
             this.listView2.MultiSelect = false;
@@ -244,16 +248,16 @@
             this.columnHeader3.Text = "Description";
             this.columnHeader3.Width = 360;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Author";
+            this.columnHeader1.Width = 120;
+            // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Sync Status";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 120;
-            // 
-            // SyncType
-            // 
-            this.SyncType.Text = "Sync Type";
-            this.SyncType.Width = 120;
             // 
             // label1
             // 
@@ -378,11 +382,6 @@
             this.button5.TabIndex = 16;
             this.button5.Text = "Developer Portal";
             this.button5.UseVisualStyleBackColor = false;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Author";
-            this.columnHeader1.Width = 120;
             // 
             // Form1
             // 

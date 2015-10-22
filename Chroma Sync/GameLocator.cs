@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 
 
-namespace Chroma_Sync
+namespace ChromaSync
 {
     public static class GameLocator
     {

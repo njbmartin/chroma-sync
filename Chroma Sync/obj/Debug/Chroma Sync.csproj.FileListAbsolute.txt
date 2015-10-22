@@ -58,22 +58,6 @@ C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\
 C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache
 C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe
 C:\Users\Nicholas\Dropbox\Projects\Razer\Chroma SDK\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.config
-N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
-N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.g.resources
-N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma_Sync.Properties.Resources.resources
-N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.pdb
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.dll
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\log4net.dll
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Newtonsoft.Json.dll
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.xml
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\log4net.xml
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xml
-N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe
-N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.pdb
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.config
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
@@ -116,19 +100,6 @@ C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.pdb
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.xml
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.pdb
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.xml
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\readme.txt
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.dll
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.dll
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.pdb
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.xml
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.pdb
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.xml
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.manifest
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.application
-N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.TrustInfo.xml
-N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manifest
-N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.application
-N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma_Sync.Form1.resources
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma_Sync.Form1.resources
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\scripts\readme.txt
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.manifest
@@ -137,3 +108,31 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.dll
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.TrustInfo.xml
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manifest
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.application
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.config
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\CSGO\csgo_main.lua
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\GTA\gta_main.lua
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\readme.txt
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.manifest
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.application
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.pdb
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\log4net.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Newtonsoft.Json.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\log4net.xml
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.pdb
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.xml
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.pdb
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.xml
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xml
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.g.resources
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\ChromaSync.Form1.resources
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma_Sync.Properties.Resources.resources
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.TrustInfo.xml
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manifest
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.application
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache

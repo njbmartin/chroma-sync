@@ -6,7 +6,7 @@ using Corale.Colore.Core;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
-namespace Chroma_Sync
+namespace ChromaSync
 {
     public class LuaScripting
     {
@@ -33,23 +33,29 @@ namespace Chroma_Sync
 
                 g = l.CreateEnvironment();
                 dg = g;
-                dg.DebugLua = new Func<object,bool>(debug);
-
+                dg.DebugLua = new Func<object, bool>(debug);
+                dg.NewCustom = new Func<Corale.Colore.Razer.Mousepad.Effects.Custom>(newCustom);
                 dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
-                foreach (string st in Directory.GetFiles("scripts\\", "main.lua", SearchOption.AllDirectories))
+                foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
                 {
+                    //try {
                     LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
-                    var d= g.DoChunk(compiled);
-                    
+                    var d = g.DoChunk(compiled);
+                    //}catch(LuaException e)
+                    //{
+                    //   Console.WriteLine(e.FileName + ": "+ e.Line + ": " + e.Message);
+                    //}
                 }
             }
         }
 
         private static bool debug(object d)
         {
+            var m= Corale.Colore.Razer.Mousepad.Constants.MaxLeds;
             Console.WriteLine(d);
             return true;
         }
+
 
         public static void PassThrough(JObject json)
         {
@@ -57,6 +63,11 @@ namespace Chroma_Sync
             {
                 if(action.name == json["provider"]["name"].ToString()) action.callback(json);
             }
+        }
+
+        public static Corale.Colore.Razer.Mousepad.Effects.Custom newCustom()
+        {
+            return new Corale.Colore.Razer.Mousepad.Effects.Custom(new Color());
         }
 
         public static bool registerEvents(string n, object c)

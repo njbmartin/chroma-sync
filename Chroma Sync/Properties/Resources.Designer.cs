@@ -8,9 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Windows.Forms;
-
-namespace Chroma_Sync.Properties {
+namespace ChromaSync.Properties {
     using System;
     
     
@@ -94,8 +92,7 @@ namespace Chroma_Sync.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap favicon_96x96
-        {
+        internal static System.Drawing.Bitmap favicon_96x96 {
             get {
                 object obj = ResourceManager.GetObject("favicon_96x96", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
