@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="552376">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="257976">
       <assemblyIdentity name="Chroma Sync" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LPAXa7szuXNGgAsFMkqZLUJ0910sS+D7FdZ3wH6dTwM=</dsig:DigestValue>
+        <dsig:DigestValue>xuNBbvrwOvh3WwME0SWT3L+Z7hnU/g90GDv7pSQf7g8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Corale.Colore.dll" size="60928">
-      <assemblyIdentity name="Corale.Colore" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Corale.Colore.dll" size="67584">
+      <assemblyIdentity name="Corale.Colore" version="2.3.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>p+mSAYLQ2xZGbXudu9TJhHtBiduDTi5oV9h6XbE6rTo=</dsig:DigestValue>
+        <dsig:DigestValue>g3qTt8k9CJzPYqQRPrFYwfcCwG79oVRAMYt0zCdtxQw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

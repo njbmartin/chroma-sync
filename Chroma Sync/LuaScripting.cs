@@ -38,20 +38,19 @@ namespace ChromaSync
                 dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
                 foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
                 {
-                    //try {
+                    try {
                     LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
                     var d = g.DoChunk(compiled);
-                    //}catch(LuaException e)
-                    //{
-                    //   Console.WriteLine(e.FileName + ": "+ e.Line + ": " + e.Message);
-                    //}
+                    }catch(LuaException e)
+                    {
+                       Console.WriteLine(e.FileName + ": "+ e.Line + ": " + e.Message);
+                    }
                 }
             }
         }
 
         private static bool debug(object d)
         {
-            var m= Corale.Colore.Razer.Mousepad.Constants.MaxLeds;
             Console.WriteLine(d);
             return true;
         }

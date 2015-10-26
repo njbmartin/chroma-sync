@@ -60,9 +60,7 @@ C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.cspr
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Chroma Sync.exe.config
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.exe
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.pdb
-C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.g.resources
-C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma_Sync.Properties.Resources.resources
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csproj.GenerateResource.Cache
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe.config
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.exe
@@ -92,3 +90,29 @@ N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.TrustInfo.xml
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.exe.manifest
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.application
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma_Sync.Form1.resources
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\scripts\CSGO\csgo_main.lua
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\scripts\GTA\gta_main.lua
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\scripts\volume_main.lua
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\scripts\readme.txt
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Chroma Sync.exe.manifest
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Chroma Sync.application
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Chroma Sync.exe
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Chroma Sync.pdb
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Corale.Colore.dll
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\log4net.dll
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Neo.Lua.Desktop.dll
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Neo.Lua.dll
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Newtonsoft.Json.dll
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Corale.Colore.xml
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\log4net.xml
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Neo.Lua.pdb
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Neo.Lua.xml
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Neo.Lua.Desktop.pdb
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Neo.Lua.Desktop.xml
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\Newtonsoft.Json.xml
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\ChromaSync.Form1.resources
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.TrustInfo.xml
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.exe.manifest
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.application
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\ChromaSync.Properties.Resources.resources
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache

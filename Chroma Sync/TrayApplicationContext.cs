@@ -51,19 +51,22 @@ namespace ChromaSync
             _isFlashed = true;
             _isDead = true;
             _mainWindow = new Form1();
-            _mainWindow.Show();
-            MenuItem configMenuItem = new MenuItem(configMenuText, ShowConfig);
+            //_mainWindow.Show();
+            MenuItem configMenuItem = new MenuItem("Open Chroma Sync", ShowConfig);
             MenuItem exitMenuItem = new MenuItem("Exit", Exit);
+            var cm = new ContextMenu();
+            cm.MenuItems.Add(configMenuItem);
+            cm.MenuItems.Add(exitMenuItem);
 
             _icon = new NotifyIcon
             {
                 Icon = Properties.Resources.favicon,
-                ContextMenu = new ContextMenu(new[] { /*configMenuItem, */ exitMenuItem }),
+                ContextMenu = cm,
                 Visible = true,
                 Text = Resources.ExitMenuText,
             };
-            _icon.Click += new System.EventHandler(ShowConfig);
-            BalloonTip("Getting things ready", "Chroma Sync is performing first-time setup.\nThis shouldn't take long...");
+            _icon.DoubleClick += new System.EventHandler(ShowConfig);
+            //BalloonTip("Getting things ready", "Chroma Sync is performing first-time setup.\nThis shouldn't take long...");
             Debug.WriteLine(Chroma.Instance.Query(Devices.MambaTeChroma).Connected ? "connected" : "not connected");
             string folder = null;
 
@@ -80,7 +83,7 @@ namespace ChromaSync
             }
             else
             {
-                BalloonTip("CS:GO Configuration", "CS:GO folder was not found on this computer");
+                //BalloonTip("CS:GO Configuration", "CS:GO folder was not found on this computer");
                 Debug.WriteLine("CS:GO folder was not found");
             }
 
@@ -91,15 +94,14 @@ namespace ChromaSync
             {
                 Debug.WriteLine(folder);
                 _gtaThread = new Thread(GTA.Task);
-                _gtaThread.Start(folder);
+                //_gtaThread.Start(folder);
             }
             else
             {
-                BalloonTip("GTA V Configuration", "GTA V directory not found.");
+                //BalloonTip("GTA V Configuration", "GTA V directory not found.");
                 Debug.WriteLine("GTA V directory not found");
             }
 
-            //var lol= new Corale.Colore.Razer.Mousepad.Effects.Custom(Color.Red);
             _volumeThread = new Thread(CheckVolume);
             //_volumeThread.Start();
 
@@ -126,7 +128,6 @@ namespace ChromaSync
                 watcher.Changed += new FileSystemEventHandler(OnChanged);
                 watcher.Created += new FileSystemEventHandler(OnChanged);
                 watcher.EnableRaisingEvents = true;
-                new Thread(PoliceAnimation).Start();
             }
 
 
@@ -547,10 +548,13 @@ namespace ChromaSync
             _icon.Visible = false;
 
             // Abort all threads
-            //_serverThread.();
-            //_volumeThread.Abort();
+            if(_serverThread != null && _serverThread.IsAlive)
+                _serverThread.Abort();
+            if (_luaThread != null && _luaThread.IsAlive)
+                _luaThread.Abort();
             //_gtaThread.Abort();
-
+            if (_clientThread != null && _clientThread.IsAlive)
+                _clientThread.Abort();
             Application.Exit();
         }
 
@@ -656,7 +660,7 @@ namespace ChromaSync
 
 
                             JObject o = JObject.Parse(ns);
-                            //LuaScripting.PassThrough(o);
+                            LuaScripting.PassThrough(o);
                             
                             var provider = o["provider"];
                             

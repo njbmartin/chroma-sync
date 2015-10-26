@@ -93,8 +93,8 @@
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(741, 745);
-            this.button1.Margin = new System.Windows.Forms.Padding(10);
+            this.button1.Location = new System.Drawing.Point(727, 735);
+            this.button1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 36);
             this.button1.TabIndex = 0;
@@ -143,13 +143,13 @@
             listViewItem2,
             listViewItem3});
             this.listView1.LargeImageList = this.imageList1;
-            this.listView1.Location = new System.Drawing.Point(23, 188);
-            this.listView1.Margin = new System.Windows.Forms.Padding(10);
+            this.listView1.Location = new System.Drawing.Point(33, 202);
+            this.listView1.Margin = new System.Windows.Forms.Padding(20, 0, 20, 20);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowGroups = false;
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(858, 250);
+            this.listView1.Size = new System.Drawing.Size(834, 292);
             this.listView1.SmallImageList = this.imageList1;
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 2;
@@ -166,7 +166,7 @@
             // Creator
             // 
             this.Creator.Text = "Creator";
-            this.Creator.Width = 180;
+            this.Creator.Width = 160;
             // 
             // SyncType
             // 
@@ -191,10 +191,11 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ChromaSync.Properties.Resources.favicon_96x96;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(37, 29);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(20);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(96, 96);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -225,13 +226,13 @@
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem4,
             listViewItem5});
-            this.listView2.Location = new System.Drawing.Point(23, 544);
+            this.listView2.Location = new System.Drawing.Point(33, 580);
             this.listView2.Margin = new System.Windows.Forms.Padding(10);
             this.listView2.MultiSelect = false;
             this.listView2.Name = "listView2";
             this.listView2.ShowGroups = false;
             this.listView2.ShowItemToolTips = true;
-            this.listView2.Size = new System.Drawing.Size(858, 181);
+            this.listView2.Size = new System.Drawing.Size(834, 135);
             this.listView2.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView2.TabIndex = 7;
             this.listView2.TileSize = new System.Drawing.Size(256, 120);
@@ -263,9 +264,9 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(357, 745);
+            this.label1.Location = new System.Drawing.Point(422, 735);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(371, 36);
+            this.label1.Size = new System.Drawing.Size(292, 36);
             this.label1.TabIndex = 8;
             this.label1.Text = "Chroma Sync will continue running in the background.";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -276,7 +277,8 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DeepPink;
-            this.label2.Location = new System.Drawing.Point(19, 121);
+            this.label2.Location = new System.Drawing.Point(33, 145);
+            this.label2.Margin = new System.Windows.Forms.Padding(20, 0, 20, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 24);
             this.label2.TabIndex = 9;
@@ -290,8 +292,8 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(741, 132);
-            this.button2.Margin = new System.Windows.Forms.Padding(10);
+            this.button2.Location = new System.Drawing.Point(727, 156);
+            this.button2.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 36);
             this.button2.TabIndex = 10;
@@ -304,7 +306,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DeepPink;
-            this.label3.Location = new System.Drawing.Point(19, 477);
+            this.label3.Location = new System.Drawing.Point(29, 513);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 24);
             this.label3.TabIndex = 11;
@@ -315,8 +317,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(23, 155);
-            this.label4.Margin = new System.Windows.Forms.Padding(10);
+            this.label4.Location = new System.Drawing.Point(33, 179);
+            this.label4.Margin = new System.Windows.Forms.Padding(20, 0, 20, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(397, 13);
             this.label4.TabIndex = 12;
@@ -326,7 +328,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(23, 511);
+            this.label5.Location = new System.Drawing.Point(30, 547);
             this.label5.Margin = new System.Windows.Forms.Padding(10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(491, 13);
@@ -342,7 +344,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(680, 487);
+            this.button3.Location = new System.Drawing.Point(666, 524);
             this.button3.Margin = new System.Windows.Forms.Padding(10);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(201, 36);
@@ -359,8 +361,8 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(26, 745);
-            this.button4.Margin = new System.Windows.Forms.Padding(10);
+            this.button4.Location = new System.Drawing.Point(32, 735);
+            this.button4.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(140, 36);
             this.button4.TabIndex = 15;
@@ -375,8 +377,8 @@
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(186, 745);
-            this.button5.Margin = new System.Windows.Forms.Padding(10);
+            this.button5.Location = new System.Drawing.Point(192, 735);
+            this.button5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(140, 36);
             this.button5.TabIndex = 16;
@@ -389,7 +391,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(900, 800);
             this.Controls.Add(this.button5);
