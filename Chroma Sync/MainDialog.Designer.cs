@@ -30,32 +30,32 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Installed", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Available to Install", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Installed", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Available to Install", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "ChromaCraft - Minecraft Integration",
             "KeithM",
             "In-Game Effects",
             "Not Active"}, 2, System.Drawing.Color.DeepPink, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
             "CS:GO (Razer Official)",
             "Razer",
             "In-Game Effects",
             "Not Active"}, 0, System.Drawing.Color.DeepPink, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
             "GTA V (Razer Official)",
             "Razer",
             "In-Game Effects",
             "Not Active"}, 1, System.Drawing.Color.DeepPink, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Installed", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Available to Install", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Installed", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Available to Install", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "ChromaStrike",
             "Listens to events sent by CS:GO to provide effects for bomb/freeze timer, kill co" +
                 "unt, ammo and health",
             "Nicholas Martin",
             "Active"}, 0, System.Drawing.Color.DeepPink, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "GrandTheftChromaV",
             "Provides effects for GTAV events provided by the CSI mod.",
             "Nicholas Martin",
@@ -125,23 +125,23 @@
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.ForeColor = System.Drawing.Color.DimGray;
             this.listView1.FullRowSelect = true;
-            listViewGroup1.Header = "Installed";
-            listViewGroup1.Name = "listViewGroup1";
-            listViewGroup2.Header = "Available to Install";
-            listViewGroup2.Name = "listViewGroup2";
+            listViewGroup7.Header = "Installed";
+            listViewGroup7.Name = "listViewGroup1";
+            listViewGroup8.Header = "Available to Install";
+            listViewGroup8.Name = "listViewGroup2";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
+            listViewGroup7,
+            listViewGroup8});
             this.listView1.HoverSelection = true;
-            listViewItem1.UseItemStyleForSubItems = false;
-            listViewItem2.UseItemStyleForSubItems = false;
-            listViewItem3.StateImageIndex = 0;
-            listViewItem3.ToolTipText = "asdafs";
             listViewItem3.UseItemStyleForSubItems = false;
+            listViewItem9.UseItemStyleForSubItems = false;
+            listViewItem10.StateImageIndex = 0;
+            listViewItem10.ToolTipText = "asdafs";
+            listViewItem10.UseItemStyleForSubItems = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
+            listViewItem3,
+            listViewItem9,
+            listViewItem10});
             this.listView1.LargeImageList = this.imageList1;
             this.listView1.Location = new System.Drawing.Point(33, 202);
             this.listView1.Margin = new System.Windows.Forms.Padding(20, 0, 20, 20);
@@ -212,20 +212,20 @@
             this.columnHeader4});
             this.listView2.ForeColor = System.Drawing.Color.DimGray;
             this.listView2.FullRowSelect = true;
-            listViewGroup3.Header = "Installed";
-            listViewGroup3.Name = "listViewGroup1";
-            listViewGroup4.Header = "Available to Install";
-            listViewGroup4.Name = "listViewGroup2";
+            listViewGroup5.Header = "Installed";
+            listViewGroup5.Name = "listViewGroup1";
+            listViewGroup6.Header = "Available to Install";
+            listViewGroup6.Name = "listViewGroup2";
             this.listView2.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
+            listViewGroup5,
+            listViewGroup6});
             this.listView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            listViewItem4.UseItemStyleForSubItems = false;
-            listViewItem5.StateImageIndex = 0;
-            listViewItem5.UseItemStyleForSubItems = false;
+            listViewItem6.UseItemStyleForSubItems = false;
+            listViewItem7.StateImageIndex = 0;
+            listViewItem7.UseItemStyleForSubItems = false;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4,
-            listViewItem5});
+            listViewItem6,
+            listViewItem7});
             this.listView2.Location = new System.Drawing.Point(33, 580);
             this.listView2.Margin = new System.Windows.Forms.Padding(10);
             this.listView2.MultiSelect = false;
@@ -391,7 +391,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.LavenderBlush;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(900, 800);
             this.Controls.Add(this.button5);

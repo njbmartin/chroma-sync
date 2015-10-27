@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="260024">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="224696">
       <assemblyIdentity name="Chroma Sync" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>akKCcjuA83cRtrQKPPUR7OIwR+FCxfG83zV93KSbBSM=</dsig:DigestValue>
+        <dsig:DigestValue>9ZU3QxfcfSuzWLMM1+lMgDvSOcq9hpkbaA7JWiIFszU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

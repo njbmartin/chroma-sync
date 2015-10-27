@@ -555,6 +555,7 @@ namespace ChromaSync
             //_gtaThread.Abort();
             if (_clientThread != null && _clientThread.IsAlive)
                 _clientThread.Abort();
+
             Application.Exit();
         }
 
