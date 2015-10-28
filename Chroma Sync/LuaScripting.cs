@@ -38,26 +38,55 @@ namespace ChromaSync
                 dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
                 foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
                 {
+                    new Thread(() =>
+                    { 
                     try {
-                    LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
-                    var d = g.DoChunk(compiled);
-                    }catch(LuaException e)
+                        LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
+                        var d = g.DoChunk(compiled);
+                    } catch (LuaException e)
                     {
-                       Console.WriteLine(e.FileName + ": "+ e.Line + ": " + e.Message);
+                        debug(e.FileName + ": " + e.Line + ": " + e.Message);
                     }
+                    }).Start();
                 }
+                Console.WriteLine("test");
             }
         }
 
-        private static bool debug(object d)
+        public static bool debug(object d)
         {
             Console.WriteLine(d);
+
+
+            string path = @"scripts\log.txt";
+            // This text is added only once to the file.
+            if (!File.Exists(path))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(d);
+                }
+                return true;
+            }
+
+            // This text is always added, making the file longer over time
+            // if it is not deleted.
+            using (StreamWriter sw = File.AppendText(path))
+            {
+                sw.WriteLine(d);
+            }
+
+
+
+
             return true;
         }
 
 
         public static void PassThrough(JObject json)
         {
+            debug("Chroma Sync received data: " + json.ToString());
             foreach (LuaCallback action in callbacks)
             {
                 if(action.name == json["provider"]["name"].ToString()) action.callback(json);
@@ -71,6 +100,7 @@ namespace ChromaSync
 
         public static bool registerEvents(string n, object c)
         {
+            debug("Registered Callback: " + n);
             callbacks.Add(new LuaCallback { name = n, callback = (Func<object, LuaResult>)c });
             return true;
         }

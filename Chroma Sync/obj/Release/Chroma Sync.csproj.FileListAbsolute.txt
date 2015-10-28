@@ -68,13 +68,10 @@ N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.pdb
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\scripts\readme.txt
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.pdb
-N:\Development\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.dll
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\log4net.dll
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Neo.Lua.Desktop.dll
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Neo.Lua.dll
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Newtonsoft.Json.dll
-N:\Development\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.pdb
-N:\Development\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.xml
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\log4net.xml
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Neo.Lua.pdb
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Neo.Lua.xml
@@ -82,14 +79,12 @@ N:\Development\Chroma Sync\Chroma Sync\bin\Release\Neo.Lua.Desktop.pdb
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Neo.Lua.Desktop.xml
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Newtonsoft.Json.xml
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.g.resources
-N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma_Sync.Properties.Resources.resources
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csproj.GenerateResource.Cache
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe.manifest
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.application
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.TrustInfo.xml
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.exe.manifest
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.application
-N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma_Sync.Form1.resources
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\scripts\CSGO\csgo_main.lua
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\scripts\GTA\gta_main.lua
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Release\scripts\volume_main.lua
@@ -116,3 +111,9 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.exe.mani
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.application
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\ChromaSync.Properties.Resources.resources
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
+N:\Development\Chroma Sync\Chroma Sync\bin\Release\scripts\CSGO\csgo_main.lua
+N:\Development\Chroma Sync\Chroma Sync\bin\Release\scripts\GTA\gta_main.lua
+N:\Development\Chroma Sync\Chroma Sync\bin\Release\scripts\volume_main.lua
+N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
+N:\Development\Chroma Sync\Chroma Sync\obj\Release\ChromaSync.Form1.resources
+N:\Development\Chroma Sync\Chroma Sync\obj\Release\ChromaSync.Properties.Resources.resources
