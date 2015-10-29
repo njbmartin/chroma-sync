@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Security.Permissions;
 using System.Threading;
@@ -29,7 +31,23 @@ namespace ChromaSync
         // Add the event handler for handling non-UI thread exceptions to the event. 
         AppDomain.CurrentDomain.UnhandledException +=
         new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+            SetRegistry();
         Application.Run(new TrayApplicationContext());
+        }
+
+        private static void SetRegistry()
+        {
+            RegistryKey helpDesk = Registry.CurrentUser.CreateSubKey("ChromaSync");
+            helpDesk.SetValue("", "URL:ChromaSync Protocol");
+            helpDesk.SetValue("URL Protocol", "");
+
+            RegistryKey defaultIcon = helpDesk.CreateSubKey("DefaultIcon");
+            defaultIcon.SetValue("", Path.GetFileName(Application.ExecutablePath));
+
+            RegistryKey shell = helpDesk.CreateSubKey("shell");
+            RegistryKey open = shell.CreateSubKey("open");
+            RegistryKey command = open.CreateSubKey("command");
+            command.SetValue("", Application.ExecutablePath + " %1");
         }
 
 

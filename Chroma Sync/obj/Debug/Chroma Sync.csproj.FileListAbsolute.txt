@@ -104,9 +104,6 @@ N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manifest
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.application
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.exe
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
-C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\scripts\CSGO\csgo_main.lua
-C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\scripts\GTA\gta_main.lua
-C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\scripts\volume_main.lua
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\scripts\readme.txt
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.config
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.manifest

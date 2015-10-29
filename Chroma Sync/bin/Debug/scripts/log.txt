@@ -4153,3 +4153,32 @@
   }
 }
 29/10/2015 01:08:18 - Data passed to Minecraft
+29/10/2015 15:36:41 - Registered Callback: Minecraft
+29/10/2015 15:37:15 - Registered Callback: Minecraft
+29/10/2015 15:39:17 - Registered Callback: Minecraft
+29/10/2015 15:42:09 - Registered Callback: Minecraft
+29/10/2015 15:42:38 - Registered Callback: Minecraft
+29/10/2015 15:42:52 - Registered Callback: Minecraft
+29/10/2015 15:44:41 - Registered Callback: Minecraft
+29/10/2015 15:47:55 - Registered Callback: Minecraft
+29/10/2015 15:50:36 - Registered Callback: Minecraft
+29/10/2015 15:51:12 - Registered Callback: Minecraft
+29/10/2015 15:51:48 - Registered Callback: Minecraft
+29/10/2015 16:01:54 - Access to the registry key 'HKEY_CLASSES_ROOT\ChromaSync' is denied.
+
+Stack Trace:
+   at Microsoft.Win32.RegistryKey.Win32Error(Int32 errorCode, String str)
+   at Microsoft.Win32.RegistryKey.CreateSubKeyInternal(String subkey, RegistryKeyPermissionCheck permissionCheck, Object registrySecurityObj, RegistryOptions registryOptions)
+   at Microsoft.Win32.RegistryKey.CreateSubKey(String subkey, RegistryKeyPermissionCheck permissionCheck)
+   at ChromaSync.Program.SetRegistry()
+   at ChromaSync.Program.Main()
+   at System.AppDomain._nExecuteAssembly(RuntimeAssembly assembly, String[] args)
+   at System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+29/10/2015 16:02:45 - Registered Callback: Minecraft
+29/10/2015 16:27:41 - Registered Callback: Minecraft
+29/10/2015 17:04:43 - Registered Callback: Minecraft

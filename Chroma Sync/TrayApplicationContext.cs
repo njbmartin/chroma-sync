@@ -51,10 +51,12 @@ namespace ChromaSync
             _isDead = true;
             _mainWindow = new Form1();
             //_mainWindow.Show();
-            MenuItem configMenuItem = new MenuItem("Open Chroma Sync", ShowConfig);
+            MenuItem about = new MenuItem("About Chroma Sync", showAbout);
+            MenuItem updates = new MenuItem("Check for updates...", ShowConfig);
             MenuItem exitMenuItem = new MenuItem("Exit", Exit);
             var cm = new ContextMenu();
-            cm.MenuItems.Add(configMenuItem);
+            cm.MenuItems.Add(about);
+            cm.MenuItems.Add(updates);
             cm.MenuItems.Add(exitMenuItem);
 
             _icon = new NotifyIcon
@@ -112,6 +114,13 @@ namespace ChromaSync
             _luaThread.Start();
 
         }
+
+        void showAbout(object sender, EventArgs e)
+        {
+            Process.Start("http://chromasync.io/about/");
+        }
+
+
         public static class GTA
         {
             private static double _currentAmmo, _wantedLevel;
