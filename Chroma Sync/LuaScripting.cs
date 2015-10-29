@@ -11,11 +11,8 @@ namespace ChromaSync
     public class LuaScripting
     {
 
-        public static dynamic dg;
-        delegate Func<object, bool> cbs(string json);
-
+        private static readonly object _syncObject = new object();
         private static List<dynamic> callbacks;
-        private static LuaGlobalPortable g;
 
         public static void LuaThread()
         {
@@ -28,74 +25,107 @@ namespace ChromaSync
             if (!Directory.Exists("scripts\\"))
                 return;
 
-            using (Lua l = new Lua())
+            foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
             {
-
-                g = l.CreateEnvironment();
-                dg = g;
-                dg.DebugLua = new Func<object, bool>(debug);
-                dg.NewCustom = new Func<Corale.Colore.Razer.Mousepad.Effects.Custom>(newCustom);
-                dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
-                foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
+                new Thread(() =>
                 {
-                    new Thread(() =>
-                    { 
-                    try {
-                        LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
-                        var d = g.DoChunk(compiled);
-                    } catch (LuaException e)
+                    using (Lua l = new Lua())
                     {
-                        debug(e.FileName + ": " + e.Line + ": " + e.Message);
+
+                        LuaGlobalPortable g = l.CreateEnvironment();
+                        dynamic dg = g;
+                        dg.DebugLua = new Func<object, bool>(debug);
+                        dg.ConvertInt = new Func<JValue, int>(convertInt);
+                        dg.NewCustom = new Func<string,object>(newCustom);
+                        dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
+
+
+                        try
+                        {
+                            LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
+                            var d = g.DoChunk(compiled);
+                        }
+                        catch (LuaException e)
+                        {
+                           debug(e.FileName + ": " + e.Line + ": " + e.Message);
+                        }
+
+
                     }
-                    }).Start();
-                }
-                Console.WriteLine("test");
+                }).Start();
             }
+        }
+
+        public static int convertInt(JValue o)
+        {
+            return o.ToObject<int>();
         }
 
         public static bool debug(object d)
         {
-            Console.WriteLine(d);
-
-
-            string path = @"scripts\log.txt";
-            // This text is added only once to the file.
-            if (!File.Exists(path))
+            var text = DateTime.Now + " - " + d;
+            lock (_syncObject)
             {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
+                Console.WriteLine(text);
+
+
+                string path = @"scripts\log.txt";
+                // This text is added only once to the file.
+                if (!File.Exists(path))
                 {
-                    sw.WriteLine(d);
+                    // Create a file to write to.
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine(text);
+                        sw.Close();
+                    }
+                    return true;
                 }
-                return true;
+
+                // This text is always added, making the file longer over time
+                // if it is not deleted.
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(text);
+                    sw.Close();
+                }
             }
-
-            // This text is always added, making the file longer over time
-            // if it is not deleted.
-            using (StreamWriter sw = File.AppendText(path))
-            {
-                sw.WriteLine(d);
-            }
-
-
-
-
             return true;
         }
 
 
         public static void PassThrough(JObject json)
         {
-            debug("Chroma Sync received data: " + json.ToString());
             foreach (LuaCallback action in callbacks)
             {
-                if(action.name == json["provider"]["name"].ToString()) action.callback(json);
+                var name = json["provider"] != null ? json["provider"]["name"].ToString() : json["product"]["name"].ToString();
+                if (action.name == name)
+                {
+                    try {
+                        action.callback(json);
+                        debug("Data passed to " + action.name);
+                    }catch(Exception e)
+                    {
+                        debug(e);
+                        debug("Exception: " + e.StackTrace);
+                    }
+                }
             }
         }
 
-        public static Corale.Colore.Razer.Mousepad.Effects.Custom newCustom()
+        public static object newCustom(string t)
         {
-            return new Corale.Colore.Razer.Mousepad.Effects.Custom(new Color());
+            switch(t)
+            {
+                case "mouse":
+                    return new Corale.Colore.Razer.Mouse.Effects.Custom(new Color());
+                    break;
+                case "mousepad":
+                    return new Corale.Colore.Razer.Mousepad.Effects.Custom(new Color());
+                    break;
+                default:
+                    return null;
+            }
         }
 
         public static bool registerEvents(string n, object c)

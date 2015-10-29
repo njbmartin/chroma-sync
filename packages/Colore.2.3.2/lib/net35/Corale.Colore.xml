@@ -2400,6 +2400,11 @@
             Helper class to more easily make calls to native Chroma SDK functions.
             </summary>
         </member>
+        <member name="F:Corale.Colore.Core.NativeWrapper.Log">
+            <summary>
+            Logger instance for this class.
+            </summary>
+        </member>
         <member name="M:Corale.Colore.Core.NativeWrapper.CreateEffect(System.Guid,Corale.Colore.Razer.Effect,System.IntPtr)">
             <summary>
             Creates an effect for a device.

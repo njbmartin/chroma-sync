@@ -1,84 +1,4155 @@
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-Registered Callback: Counter-Strike: Global Offensive
-Registered Callback: Grand Theft Auto V
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
-volume changed
+29/10/2015 00:36:04 - Registered Callback: Minecraft
+29/10/2015 00:36:04 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:36:04 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:36:07 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 124,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:36:07 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:07 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:17 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:36:17 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:17 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:27 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:36:27 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:27 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:37 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:36:37 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:37 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:47 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:36:47 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:47 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:57 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:36:57 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:36:57 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:07 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:37:07 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:07 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:17 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:37:17 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:17 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:27 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:37:27 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:27 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:37 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:37:37 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:37 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:47 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:37:47 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:47 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:57 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:37:57 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:37:57 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:07 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:38:07 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:07 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:17 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:38:17 - Neo.IronLua.LuaRuntimeException: No operator is defined for Object GreaterThanOrEqual Object.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:17 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure )
+   at CallSite.Target(Closure , CallSite , Object )
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:23 - Registered Callback: Minecraft
+29/10/2015 00:38:23 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:38:23 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:38:27 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:38:27 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:27 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:37 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 224,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:38:37 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:37 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:47 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 224,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:38:47 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:47 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:57 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 224,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:38:57 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:38:57 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:07 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 224,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:39:07 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:07 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:17 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 224,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:39:17 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:17 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:27 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 224,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:39:27 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:27 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:37 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:39:37 - Registered Callback: Minecraft
+29/10/2015 00:39:37 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:39:37 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 224,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:39:37 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:37 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:47 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 234,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:39:47 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:47 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:57 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 234,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:39:57 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:39:57 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:07 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 234,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:40:07 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:07 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:17 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 234,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:40:17 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:17 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:27 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 234,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:40:27 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:27 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:37 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 234,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:40:37 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:37 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:47 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 234,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:40:47 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:47 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:57 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 234,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:40:57 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:40:57 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:41:03 - Registered Callback: Minecraft
+29/10/2015 00:41:03 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:41:03 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:41:07 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 234,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:41:07 - Data passed to Minecraft
+29/10/2015 00:41:53 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:41:53 - Registered Callback: Minecraft
+29/10/2015 00:41:53 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:41:55 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 100,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:41:55 - Data passed to Minecraft
+29/10/2015 00:42:05 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 152,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:42:05 - Data passed to Minecraft
+29/10/2015 00:42:15 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 152,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:42:15 - Data passed to Minecraft
+29/10/2015 00:42:25 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 152,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:42:25 - Data passed to Minecraft
+29/10/2015 00:42:35 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 152,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:42:35 - Data passed to Minecraft
+29/10/2015 00:42:45 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 152,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:42:45 - Data passed to Minecraft
+29/10/2015 00:42:58 - Registered Callback: Minecraft
+29/10/2015 00:42:58 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:42:58 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:43:08 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 105,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:43:08 - Data passed to Minecraft
+29/10/2015 00:43:37 - Registered Callback: Minecraft
+29/10/2015 00:43:37 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:43:37 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:43:44 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 168,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:43:44 - Data passed to Minecraft
+29/10/2015 00:43:54 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 319,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:43:54 - Data passed to Minecraft
+29/10/2015 00:44:04 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 338,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:44:04 - Data passed to Minecraft
+29/10/2015 00:44:14 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 338,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:44:14 - Data passed to Minecraft
+29/10/2015 00:44:24 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 506,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:44:24 - Data passed to Minecraft
+29/10/2015 00:44:34 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 706,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:44:34 - Data passed to Minecraft
+29/10/2015 00:44:44 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 906,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:44:44 - Data passed to Minecraft
+29/10/2015 00:44:54 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 1106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:44:54 - Data passed to Minecraft
+29/10/2015 00:45:04 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 1306,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:45:04 - Data passed to Minecraft
+29/10/2015 00:45:14 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 1506,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:45:14 - Data passed to Minecraft
+29/10/2015 00:46:57 - chromacraft_main.lua: 36: Unexpected token 'Eof'. 'end' expected.
+29/10/2015 00:46:58 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:46:58 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:47:14 - Registered Callback: Minecraft
+29/10/2015 00:47:14 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:47:14 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:47:15 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:47:16 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:47:16 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:47:25 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:47:25 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:47:25 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:48:24 - chromacraft_main.lua: 9: Unexpected token 'Identifier'. ')' expected.
+29/10/2015 00:48:25 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:48:25 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:49:28 - chromacraft_main.lua: 9: Unexpected token 'Identifier'. ')' expected.
+29/10/2015 00:49:28 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:49:28 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:49:47 - Registered Callback: Minecraft
+29/10/2015 00:49:47 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:49:47 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:49:51 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:49:51 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:49:51 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:01 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:50:01 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:01 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:11 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:50:11 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:11 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:21 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:50:21 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:21 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:31 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:50:31 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:31 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:41 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:50:41 - Neo.IronLua.LuaRuntimeException: No operator is defined for Int32 Divide JValue.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:41 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:50:45 - chromacraft_main.lua: 9: Literal, function or tablector expected.
+29/10/2015 00:50:46 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:50:46 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:53:39 - Registered Callback: Minecraft
+29/10/2015 00:53:39 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:53:39 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:53:41 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:53:41 - Neo.IronLua.LuaRuntimeException: Can not call nil value.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:53:41 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:53:51 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 106,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:53:51 - Neo.IronLua.LuaRuntimeException: Can not call nil value.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:53:51 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:55:29 - Registered Callback: Minecraft
+29/10/2015 00:55:29 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:55:29 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:55:29 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 170,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:55:29 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:55:30 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:55:39 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 170,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:55:39 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:55:39 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:55:49 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 170,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:55:49 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:55:49 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:55:59 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 244,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:55:59 - System.InvalidOperationException: Can not convert from System.Int64 to System.Object.
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:55:59 - Exception:    at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:57:30 - Registered Callback: Minecraft
+29/10/2015 00:57:30 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:57:30 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:57:38 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 301,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:57:38 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:57:38 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:57:48 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 324,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:57:48 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:57:48 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:57:58 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 324,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:57:58 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:57:58 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:58:08 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 348,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:58:08 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:58:08 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:58:18 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 348,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:58:18 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:58:18 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:58:42 - Registered Callback: Minecraft
+29/10/2015 00:58:42 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:58:42 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:58:53 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 386,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:59:50 - Registered Callback: Minecraft
+29/10/2015 00:59:50 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 00:59:50 - Registered Callback: Grand Theft Auto V
+29/10/2015 00:59:57 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 398,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 00:59:57 - Neo.IronLua.LuaRuntimeException: No conversion defined from JValue to Int32.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 00:59:57 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:00:07 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 406,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:00:07 - Neo.IronLua.LuaRuntimeException: No conversion defined from JValue to Int32.
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:00:07 - Exception:    at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:01 - Registered Callback: Minecraft
+29/10/2015 01:01:01 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 01:01:01 - Registered Callback: Grand Theft Auto V
+29/10/2015 01:01:08 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:01:08 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:08 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:18 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:01:18 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:18 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:28 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:01:28 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:28 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:38 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:01:38 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:38 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:48 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:01:48 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:48 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:58 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:01:58 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:01:58 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:08 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:02:08 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:08 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:18 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:02:18 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:18 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:28 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:02:28 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:28 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:38 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:02:38 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:38 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:48 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:02:48 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:48 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:58 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 441,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:02:58 - System.InvalidCastException: Specified cast is not valid.
+   at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:02:58 - Exception:    at ChromaSync.LuaScripting.convertInt(Object o)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.HandleHealth(Closure , Object json)
+   at CallSite.Target(Closure , CallSite , Object , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at chromacraft_main.handleData2(Closure , Object json)
+   at ChromaSync.LuaScripting.PassThrough(JObject json)
+29/10/2015 01:03:36 - Registered Callback: Minecraft
+29/10/2015 01:03:36 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 01:03:36 - Registered Callback: Grand Theft Auto V
+29/10/2015 01:03:46 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 474,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:03:46 - Data passed to Minecraft
+29/10/2015 01:03:56 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 474,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:03:56 - Data passed to Minecraft
+29/10/2015 01:04:06 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 622,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:04:06 - Data passed to Minecraft
+29/10/2015 01:04:56 - Registered Callback: Minecraft
+29/10/2015 01:04:56 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 01:04:56 - Registered Callback: Grand Theft Auto V
+29/10/2015 01:05:44 - Registered Callback: Minecraft
+29/10/2015 01:05:44 - Registered Callback: Counter-Strike: Global Offensive
+29/10/2015 01:05:44 - Registered Callback: Grand Theft Auto V
+29/10/2015 01:06:38 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 144,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:06:38 - Data passed to Minecraft
+29/10/2015 01:06:48 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 410,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:06:48 - Data passed to Minecraft
+29/10/2015 01:06:58 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 610,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:06:58 - Data passed to Minecraft
+29/10/2015 01:07:08 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 811,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:07:08 - Data passed to Minecraft
+29/10/2015 01:07:18 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 18,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 1011,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:07:18 - Data passed to Minecraft
+29/10/2015 01:07:28 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 20,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 1211,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:07:28 - Data passed to Minecraft
+29/10/2015 01:07:38 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 15,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 1411,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:07:38 - Data passed to Minecraft
+29/10/2015 01:07:48 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 14,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 1611,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:07:48 - Data passed to Minecraft
+29/10/2015 01:07:58 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 11,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 1811,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:07:58 - Data passed to Minecraft
+29/10/2015 01:08:08 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 10,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 2011,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:08:08 - Data passed to Minecraft
+29/10/2015 01:08:18 - {
+  "product": {
+    "name": "Minecraft",
+    "appid": "----------"
+  },
+  "player": {
+    "playername": "Movura",
+    "uuid": "aeb942ca-0a67-488b-8e0a-854fd1f227ef",
+    "gamemode": 0,
+    "health": 8,
+    "maxhealth": 20,
+    "dead": false,
+    "armourpoints": 0,
+    "time": 2211,
+    "raining": false,
+    "potioneffects": [],
+    "hotbar": {
+      "selected": 0,
+      "contents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}
+29/10/2015 01:08:18 - Data passed to Minecraft

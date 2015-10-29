@@ -111,9 +111,8 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.exe.mani
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.application
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\ChromaSync.Properties.Resources.resources
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
-N:\Development\Chroma Sync\Chroma Sync\bin\Release\scripts\CSGO\csgo_main.lua
-N:\Development\Chroma Sync\Chroma Sync\bin\Release\scripts\GTA\gta_main.lua
-N:\Development\Chroma Sync\Chroma Sync\bin\Release\scripts\volume_main.lua
-N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\ChromaSync.Form1.resources
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\ChromaSync.Properties.Resources.resources
+N:\Development\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.xml
+N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache

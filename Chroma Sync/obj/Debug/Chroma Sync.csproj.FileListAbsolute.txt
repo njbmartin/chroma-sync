@@ -81,8 +81,6 @@ C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.xml
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.pdb
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.xml
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.config
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\CSGO\csgo_main.lua
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\GTA\gta_main.lua
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\readme.txt
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.manifest
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.application
@@ -137,5 +135,7 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\ChromaSync.Properties.Resources.resources
-N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\volume_main.lua
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\ChromaSync.Properties.Resources.resources
+N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.dll
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.xml

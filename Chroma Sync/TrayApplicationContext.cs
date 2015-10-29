@@ -47,7 +47,6 @@ namespace ChromaSync
         public TrayApplicationContext()
         {
 
-            const string configMenuText = "Configuration";
             _isFlashed = true;
             _isDead = true;
             _mainWindow = new Form1();
@@ -77,8 +76,7 @@ namespace ChromaSync
                 Stream stream = new MemoryStream(file);
                 CopyResource(stream, folder + "\\csgo\\cfg\\gamestate_integration_chromasync.cfg");
                 Debug.WriteLine(folder);
-                _serverThread = new Thread(RunServer);
-                _serverThread.Start();
+                
 
             }
             else
@@ -101,6 +99,11 @@ namespace ChromaSync
                 //BalloonTip("GTA V Configuration", "GTA V directory not found.");
                 Debug.WriteLine("GTA V directory not found");
             }
+
+
+
+            _serverThread = new Thread(RunServer);
+            _serverThread.Start();
 
             _volumeThread = new Thread(CheckVolume);
             //_volumeThread.Start();
@@ -649,8 +652,7 @@ namespace ChromaSync
                             Debug.Write("You received the following message : " + ns);
                             //Debug.Write(myCompleteMessage);
                             string header = string.Format("HTTP/1.1 {0}\r\n"
-                                              + "Server: {1}\r\n"
-                                              + "Content-Length: {2}\r\n"
+                                              + "Server: {1}\r\n" 
                                               + "Content-Type: {3}\r\n"
                                               + "Keep-Alive: Close\r\n"
                                               + "\r\n",
@@ -659,11 +661,16 @@ namespace ChromaSync
                             var headerBytes = Encoding.ASCII.GetBytes(header);
                             stream.Write(headerBytes, 0, headerBytes.Length);
 
-
-                            JObject o = JObject.Parse(ns);
-                            LuaScripting.PassThrough(o);
-                            
-                            var provider = o["provider"];
+                            try {
+                                JObject o = JObject.Parse(ns);
+                                Debug.WriteLine(o.ToString());
+                                LuaScripting.PassThrough(o);
+                            }catch(Exception e)
+                            {
+                                Debug.WriteLine(e);
+                            }
+                            return;
+                            /*var provider = o["provider"];
                             
                             var round = o["round"];
 
@@ -782,12 +789,13 @@ namespace ChromaSync
 
 
                             }
-
+                        */
                         }
+
                     }
                     catch (Exception e)
                     {
-                        //Debug.WriteLine(e);
+                        Debug.WriteLine(e);
                     }
                 }
             }
