@@ -49,6 +49,7 @@ namespace ChromaSync
 
             _isFlashed = true;
             _isDead = true;
+            PackageManager.GetPackages();
             _mainWindow = new Form1();
             //_mainWindow.Show();
             MenuItem about = new MenuItem("About Chroma Sync", showAbout);

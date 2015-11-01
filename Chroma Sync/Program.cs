@@ -32,6 +32,7 @@ namespace ChromaSync
         AppDomain.CurrentDomain.UnhandledException +=
         new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             SetRegistry();
+            
         Application.Run(new TrayApplicationContext());
         }
 

@@ -1,24 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Windows;
 using Microsoft.Win32;
 
 namespace ChromaSync
 {
     public partial class Form1 : Form
     {
-        private string AppName="Chroma Sync";
+        private string AppName = "Chroma Sync";
 
         public Form1()
         {
             InitializeComponent();
             GetStartup();
+            ShowPackages();
+        }
+
+        private void ShowPackages()
+        {
+            packageList.Items.Clear();
+            var packages = PackageManager.packages;
+            foreach (var package in packages)
+            {
+                Console.WriteLine(package.Name);
+                var item = new ListViewItem();
+                item.ToolTipText = package.Description;
+                item.ForeColor = Color.DeepPink;
+                item.Font= new Font(item.Font,
+       item.Font.Style | FontStyle.Bold);
+                item.SubItems.Add(package.Author);
+                
+                item.Text = package.Name;
+
+                if (package.Image != null)
+                {
+                    packageList.LargeImageList.Images.Add(package.Name, package.Image);
+                    item.ImageKey =package.Name;
+                }
+                
+                packageList.Items.Add(item);
+            }
         }
 
         private void SetStartup()
@@ -35,13 +56,13 @@ namespace ChromaSync
         {
             RegistryKey rk = Registry.CurrentUser.OpenSubKey
                 ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            if(rk.GetValue(AppName) != null)
+            if (rk.GetValue(AppName) != null)
                 checkBox1.Checked = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
 

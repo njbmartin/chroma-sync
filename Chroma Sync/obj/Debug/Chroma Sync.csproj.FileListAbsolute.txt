@@ -69,10 +69,8 @@ C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.xml
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\log4net.xml
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.g.resources
-C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma_Sync.Properties.Resources.resources
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.dll
-C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.pdb
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.dll
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.dll
@@ -136,3 +134,12 @@ N:\Development\Chroma Sync\Chroma Sync\obj\Debug\ChromaSync.Properties.Resources
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.dll
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Corale.Colore.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\ChromaSync.Form1.resources
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\ChromaSync.Properties.Resources.resources
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.TrustInfo.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\scripts\readme.txt
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.manifest
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.application
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manifest
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.application
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\packages\CSGO.zip
