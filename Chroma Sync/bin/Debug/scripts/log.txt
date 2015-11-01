@@ -4403,3 +4403,48 @@ Stack Trace:
 01/11/2015 18:37:29 - Registered Callback: Grand Theft Auto V
 01/11/2015 18:37:29 - Registered Callback: Minecraft
 01/11/2015 18:37:29 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 20:46:39 - Registered Callback: Minecraft
+01/11/2015 20:46:39 - Registered Callback: Grand Theft Auto V
+01/11/2015 20:46:39 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 20:47:17 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 20:47:17 - Registered Callback: Minecraft
+01/11/2015 20:47:17 - Registered Callback: Grand Theft Auto V
+01/11/2015 20:48:20 - Registered Callback: Minecraft
+01/11/2015 20:48:20 - Registered Callback: Grand Theft Auto V
+01/11/2015 20:48:20 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 20:48:37 - Registered Callback: Minecraft
+01/11/2015 20:48:37 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 20:48:37 - Registered Callback: Grand Theft Auto V
+01/11/2015 20:50:17 - Registered Callback: Minecraft
+01/11/2015 20:50:17 - Registered Callback: Grand Theft Auto V
+01/11/2015 20:50:17 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 20:52:01 - Registered Callback: Minecraft
+01/11/2015 20:52:01 - Registered Callback: Grand Theft Auto V
+01/11/2015 20:52:01 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 20:52:44 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 20:52:44 - Registered Callback: Minecraft
+01/11/2015 20:52:44 - Registered Callback: Grand Theft Auto V
+01/11/2015 20:52:44 - Specified cast is not valid.
+
+Stack Trace:
+   at Neo.IronLua.LuaChunk.Run(LuaTable env, Object[] callArgs)
+   at ChromaSync.LuaScripting.<>c__DisplayClass2_0.<LuaThread>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+01/11/2015 20:53:11 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 20:53:11 - Registered Callback: Minecraft
+01/11/2015 20:53:11 - Registered Callback: Grand Theft Auto V
+01/11/2015 20:53:11 - Specified cast is not valid.
+
+Stack Trace:
+   at Neo.IronLua.LuaChunk.Run(LuaTable env, Object[] callArgs)
+   at ChromaSync.LuaScripting.<>c__DisplayClass2_0.<LuaThread>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+01/11/2015 20:53:47 - Registered Callback: Minecraft
+01/11/2015 20:53:47 - Registered Callback: Grand Theft Auto V
+01/11/2015 20:53:47 - Registered Callback: Counter-Strike: Global Offensive

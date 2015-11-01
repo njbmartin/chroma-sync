@@ -50,7 +50,7 @@ namespace ChromaSync
                            debug(e.FileName + ": " + e.Line + ": " + e.Message);
                         }
 
-
+                        
                     }
                 }).Start();
             }
