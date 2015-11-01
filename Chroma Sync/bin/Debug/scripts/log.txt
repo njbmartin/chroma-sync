@@ -4325,3 +4325,81 @@ Stack Trace:
 01/11/2015 15:56:49 - Registered Callback: Minecraft
 01/11/2015 15:56:49 - Registered Callback: Grand Theft Auto V
 01/11/2015 15:56:49 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 16:42:10 - Registered Callback: Grand Theft Auto V
+01/11/2015 16:42:10 - Registered Callback: Minecraft
+01/11/2015 16:42:10 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 16:42:51 - Registered Callback: Minecraft
+01/11/2015 16:42:51 - Registered Callback: Grand Theft Auto V
+01/11/2015 16:42:51 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 16:43:33 - Registered Callback: Grand Theft Auto V
+01/11/2015 16:43:33 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 16:43:33 - Registered Callback: Minecraft
+01/11/2015 16:44:23 - Registered Callback: Minecraft
+01/11/2015 16:44:23 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 16:44:23 - Registered Callback: Grand Theft Auto V
+01/11/2015 16:45:58 - Could not load file or assembly 'System.EnterpriseServices.Wrapper.dll' or one of its dependencies. No more data is available. (Exception from HRESULT: 0x80070103)
+
+Stack Trace:
+   at Neo.IronLua.LuaChunk.Run(LuaTable env, Object[] callArgs)
+   at ChromaSync.LuaScripting.<>c__DisplayClass2_0.<LuaThread>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+01/11/2015 16:46:20 - Registered Callback: Minecraft
+01/11/2015 16:46:20 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 16:46:20 - Registered Callback: Grand Theft Auto V
+01/11/2015 16:49:08 - Registered Callback: Minecraft
+01/11/2015 16:49:08 - Registered Callback: Grand Theft Auto V
+01/11/2015 16:49:08 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 16:54:41 - Registered Callback: Minecraft
+01/11/2015 16:54:41 - Registered Callback: Grand Theft Auto V
+01/11/2015 16:54:41 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 17:10:10 - Could not load file or assembly 'System.EnterpriseServices.Wrapper.dll' or one of its dependencies. No more data is available. (Exception from HRESULT: 0x80070103)
+
+Stack Trace:
+   at Neo.IronLua.LuaChunk.Run(LuaTable env, Object[] callArgs)
+   at ChromaSync.LuaScripting.<>c__DisplayClass2_0.<LuaThread>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+01/11/2015 17:10:23 - Could not load file or assembly 'System.EnterpriseServices.Wrapper.dll' or one of its dependencies. No more data is available. (Exception from HRESULT: 0x80070103)
+
+Stack Trace:
+   at Neo.IronLua.LuaChunk.Run(LuaTable env, Object[] callArgs)
+   at ChromaSync.LuaScripting.<>c__DisplayClass2_0.<LuaThread>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+01/11/2015 17:10:40 - Registered Callback: Minecraft
+01/11/2015 17:10:40 - Registered Callback: Grand Theft Auto V
+01/11/2015 17:10:40 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 18:35:52 - Registered Callback: Minecraft
+01/11/2015 18:35:52 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 18:35:52 - Registered Callback: Grand Theft Auto V
+01/11/2015 18:35:53 - Call to native Chroma SDK function CreateHeadsetEffect failed with error: RzResourceDisabled: Resource not available or disabled. (4309)
+
+Stack Trace:
+   at Neo.IronLua.LuaChunk.Run(LuaTable env, Object[] callArgs)
+   at ChromaSync.LuaScripting.<>c__DisplayClass2_0.<LuaThread>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+01/11/2015 18:36:40 - Registered Callback: Minecraft
+01/11/2015 18:36:40 - Registered Callback: Grand Theft Auto V
+01/11/2015 18:36:40 - Registered Callback: Counter-Strike: Global Offensive
+01/11/2015 18:36:40 - Call to native Chroma SDK function CreateHeadsetEffect failed with error: RzResourceDisabled: Resource not available or disabled. (4309)
+
+Stack Trace:
+   at Neo.IronLua.LuaChunk.Run(LuaTable env, Object[] callArgs)
+   at ChromaSync.LuaScripting.<>c__DisplayClass2_0.<LuaThread>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+01/11/2015 18:37:29 - Registered Callback: Grand Theft Auto V
+01/11/2015 18:37:29 - Registered Callback: Minecraft
+01/11/2015 18:37:29 - Registered Callback: Counter-Strike: Global Offensive

@@ -143,3 +143,5 @@ C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.applic
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manifest
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.application
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\packages\CSGO.zip
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\packages\CSGO.zip
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\ChromaAppInfo.xml

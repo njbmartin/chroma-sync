@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<application>
+    <title>Chroma Sync</title> <!-- Title of your application -->
+    <description>Brief description</description> <!-- Brief description of your application -->
+    <author name="Ultrabox Entertainment" contact="http://www.your_web_site_or_email.com"/> <!-- Contact details -->
+    <device_supported keyboard="1" mouse="1" headset="1" mousemat="1" keypad="1"/> <!-- Device supported by the application -->
+	<category game="0" /> <!-- App category. Default is an app. If the app is a game, set it to "1" -->
+</application>
