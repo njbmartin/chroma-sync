@@ -4663,3 +4663,110 @@ Stack Trace:
    at System.IO.FileSystemWatcher.OnCreated(FileSystemEventArgs e)
    at System.IO.FileSystemWatcher.CompletionStatusChanged(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* overlappedPointer)
    at System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)
+02/11/2015 21:43:05 - Registered Callback: Minecraft
+02/11/2015 21:43:05 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 21:43:05 - Registered Callback: Grand Theft Auto V
+02/11/2015 21:51:58 - Registered Callback: Minecraft
+02/11/2015 21:51:58 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 21:51:58 - Registered Callback: Grand Theft Auto V
+02/11/2015 21:51:58 - : 0: Object is nil.
+02/11/2015 21:53:39 - Registered Callback: Minecraft
+02/11/2015 21:53:39 - Registered Callback: Grand Theft Auto V
+02/11/2015 21:53:39 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 21:53:39 - : 0: Object is nil.
+02/11/2015 21:54:23 - Registered Callback: Grand Theft Auto V
+02/11/2015 21:54:23 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 21:54:24 - Registered Callback: Minecraft
+02/11/2015 21:54:47 - Registered Callback: Minecraft
+02/11/2015 21:54:47 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 21:54:47 - Registered Callback: Grand Theft Auto V
+02/11/2015 21:56:08 - Registered Callback: Minecraft
+02/11/2015 21:56:08 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 21:56:08 - Registered Callback: Grand Theft Auto V
+02/11/2015 21:57:51 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 21:57:51 - Registered Callback: Minecraft
+02/11/2015 21:57:51 - Registered Callback: Grand Theft Auto V
+02/11/2015 21:58:31 - Registered Callback: Grand Theft Auto V
+02/11/2015 21:58:31 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 21:58:31 - Registered Callback: Minecraft
+02/11/2015 21:59:05 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 21:59:05 - Registered Callback: Minecraft
+02/11/2015 21:59:05 - Registered Callback: Grand Theft Auto V
+02/11/2015 21:59:31 - Could not load file or assembly 'System.EnterpriseServices.Wrapper.dll' or one of its dependencies. No more data is available. (Exception from HRESULT: 0x80070103)
+
+Stack Trace:
+   at Neo.IronLua.LuaChunk.Run(LuaTable env, Object[] callArgs)
+   at ChromaSync.LuaScripting.<>c__DisplayClass2_0.<LuaThread>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+02/11/2015 21:59:52 - Registered Callback: Minecraft
+02/11/2015 21:59:52 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 21:59:52 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:00:33 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:00:33 - Registered Callback: Minecraft
+02/11/2015 22:00:33 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:01:17 - Object reference not set to an instance of an object.
+
+Stack Trace:
+   at Neo.IronLua.LuaChunk.Run(LuaTable env, Object[] callArgs)
+   at ChromaSync.LuaScripting.<>c__DisplayClass2_0.<LuaThread>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+02/11/2015 22:01:17 - Object reference not set to an instance of an object.
+
+Stack Trace:
+   at Neo.IronLua.LuaChunk.Run(LuaTable env, Object[] callArgs)
+   at ChromaSync.LuaScripting.<>c__DisplayClass2_0.<LuaThread>b__0()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+02/11/2015 22:01:27 - Registered Callback: Minecraft
+02/11/2015 22:01:27 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:01:27 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:02:00 - Registered Callback: Minecraft
+02/11/2015 22:02:00 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:02:00 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:04:11 - Registered Callback: Minecraft
+02/11/2015 22:04:11 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:04:11 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:05:41 - Registered Callback: Minecraft
+02/11/2015 22:05:41 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:05:41 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:06:18 - Registered Callback: Minecraft
+02/11/2015 22:06:18 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:06:18 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:06:45 - Registered Callback: Minecraft
+02/11/2015 22:06:45 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:06:45 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:10:04 - Registered Callback: Minecraft
+02/11/2015 22:10:04 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:10:04 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:10:23 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:10:23 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:10:23 - Registered Callback: Minecraft
+02/11/2015 22:40:00 - Registered Callback: Minecraft
+02/11/2015 22:40:00 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:40:00 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:42:08 - Registered Callback: Minecraft
+02/11/2015 22:42:08 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:42:08 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:42:53 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:42:53 - Registered Callback: Minecraft
+02/11/2015 22:42:53 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:44:06 - Registered Callback: Minecraft
+02/11/2015 22:44:06 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:44:06 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:45:49 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:45:49 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:45:49 - Registered Callback: Minecraft
+02/11/2015 22:47:10 - Registered Callback: Grand Theft Auto V
+02/11/2015 22:47:10 - Registered Callback: Minecraft
+02/11/2015 22:47:10 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:54:33 - Registered Callback: Minecraft
+02/11/2015 22:54:33 - Registered Callback: Counter-Strike: Global Offensive
+02/11/2015 22:54:33 - Registered Callback: Grand Theft Auto V

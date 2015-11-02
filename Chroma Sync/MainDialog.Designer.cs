@@ -66,28 +66,30 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DeepPink;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(727, 630);
             this.button1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 36);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Close";
+            this.button1.Text = "Minimise to Tray";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(96, 48);
+            this.imageList1.ImageSize = new System.Drawing.Size(140, 60);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // packageList
@@ -117,7 +119,7 @@
             this.packageList.TabIndex = 2;
             this.packageList.TileSize = new System.Drawing.Size(256, 120);
             this.packageList.UseCompatibleStateImageBehavior = false;
-            this.packageList.View = System.Windows.Forms.View.Tile;
+            this.packageList.View = System.Windows.Forms.View.Details;
             this.packageList.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // ChromaPackages
@@ -289,13 +291,13 @@
             this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(666, 402);
             this.button3.Margin = new System.Windows.Forms.Padding(10);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(201, 36);
             this.button3.TabIndex = 14;
-            this.button3.Text = "Open Custom Scripts Foler";
+            this.button3.Text = "Open Scripts Foler";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -305,7 +307,7 @@
             this.button4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(33, 630);
             this.button4.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
             this.button4.Name = "button4";
@@ -320,7 +322,7 @@
             this.button5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(193, 630);
             this.button5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
             this.button5.Name = "button5";
@@ -332,15 +334,31 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.DeepPink;
-            this.checkBox1.Location = new System.Drawing.Point(552, 641);
+            this.checkBox1.Location = new System.Drawing.Point(526, 641);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox1.Size = new System.Drawing.Size(162, 17);
+            this.checkBox1.Size = new System.Drawing.Size(188, 17);
             this.checkBox1.TabIndex = 17;
             this.checkBox1.Text = "Run Chroma Sync on startup";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.DeepPink;
+            this.button6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(574, 156);
+            this.button6.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(140, 36);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "Download Packages";
+            this.button6.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -351,6 +369,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(900, 695);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -405,6 +424,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button6;
     }
 }
 

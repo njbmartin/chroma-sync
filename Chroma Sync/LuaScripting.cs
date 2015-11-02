@@ -17,7 +17,6 @@ namespace ChromaSync
         public static void LuaThread()
         {
             callbacks = new List<dynamic>();
-
             var ms_luaDebug = new LuaStackTraceDebugger();
             var ms_luaCompileOptions = new LuaCompileOptions();
             ms_luaCompileOptions.DebugEngine = ms_luaDebug;
@@ -121,10 +120,10 @@ namespace ChromaSync
             {
                 case "mouse":
                     return new Corale.Colore.Razer.Mouse.Effects.Custom(new Color());
-                    break;
                 case "mousepad":
                     return new Corale.Colore.Razer.Mousepad.Effects.Custom(new Color());
-                    break;
+                case "keypad":
+                    return new Corale.Colore.Razer.Keypad.Effects.Custom(new Color());
                 default:
                     return null;
             }
