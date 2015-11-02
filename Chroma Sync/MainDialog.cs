@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.IO;
+using System.Diagnostics;
 
 namespace ChromaSync
 {
@@ -13,31 +15,56 @@ namespace ChromaSync
         {
             InitializeComponent();
             GetStartup();
+            Watch();
+        }
+
+        public void Watch()
+        {
+            FileSystemWatcher watcher = new FileSystemWatcher();
+
+            watcher.Path = Directory.GetCurrentDirectory() + "\\packages";
+            watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
+           | NotifyFilters.FileName | NotifyFilters.DirectoryName;
+            // Only watch text files.
+            watcher.Changed += new FileSystemEventHandler(OnChanged);
+            watcher.Created += new FileSystemEventHandler(OnChanged);
+            watcher.Deleted += new FileSystemEventHandler(OnChanged);
+            watcher.EnableRaisingEvents = true;
             ShowPackages();
+        }
+
+        private void OnChanged(object source, FileSystemEventArgs e)
+        {
+            Debug.WriteLine("Changed");
+            // TODO: ShowPackages(); -- Needs to use background worker
+            // https://msdn.microsoft.com/en-us/library/waw3xexc(v=vs.110).aspx
         }
 
         private void ShowPackages()
         {
             packageList.Items.Clear();
+            PackageManager.GetPackages();
             var packages = PackageManager.packages;
             foreach (var package in packages)
             {
-                Console.WriteLine(package.Name);
+                Debug.WriteLine(package.Name);
                 var item = new ListViewItem();
                 item.ToolTipText = package.Description;
                 item.ForeColor = Color.DeepPink;
-                item.Font= new Font(item.Font,
-       item.Font.Style | FontStyle.Bold);
+                item.Font = new Font(item.Font,
+                    item.Font.Style | FontStyle.Bold);
+
                 item.SubItems.Add(package.Author);
-                
+                item.SubItems.Add(package.Type);
+                item.SubItems.Add(package.Version);
                 item.Text = package.Name;
 
                 if (package.Image != null)
                 {
                     packageList.LargeImageList.Images.Add(package.Name, package.Image);
-                    item.ImageKey =package.Name;
+                    item.ImageKey = package.Name;
                 }
-                
+
                 packageList.Items.Add(item);
             }
         }

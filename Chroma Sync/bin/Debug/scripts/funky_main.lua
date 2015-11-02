@@ -12,6 +12,10 @@ function play_anim()
 		local mouseCustom = NewCustom("mouse")		
 		mouseCustom.Colors[math.random(0,17)] = c
 		Colore.Mouse.Instance.SetCustom(mouseCustom)
+		
+		-- set keyboard
+		Colore.Keyboard.Instance.SetPosition(math.random(0,5), math.random(1,18), c, true)
+		
 		-- We don't want to spam the SDK, so throttle to 50ms
 		Thread.Sleep(50)
 	end

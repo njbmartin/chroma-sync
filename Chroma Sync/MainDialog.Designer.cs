@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Installed", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Available to Install", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Installed", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Available to Install", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "ChromaStrike",
             "Listens to events sent by CS:GO to provide effects for bomb/freeze timer, kill co" +
@@ -105,13 +103,6 @@
             this.packageList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.packageList.ForeColor = System.Drawing.Color.DimGray;
             this.packageList.FullRowSelect = true;
-            listViewGroup1.Header = "Installed";
-            listViewGroup1.Name = "listViewGroup1";
-            listViewGroup2.Header = "Available to Install";
-            listViewGroup2.Name = "listViewGroup2";
-            this.packageList.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
             this.packageList.HoverSelection = true;
             this.packageList.LargeImageList = this.imageList1;
             this.packageList.Location = new System.Drawing.Point(33, 202);
@@ -126,7 +117,7 @@
             this.packageList.TabIndex = 2;
             this.packageList.TileSize = new System.Drawing.Size(256, 120);
             this.packageList.UseCompatibleStateImageBehavior = false;
-            this.packageList.View = System.Windows.Forms.View.Details;
+            this.packageList.View = System.Windows.Forms.View.Tile;
             this.packageList.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // ChromaPackages
@@ -181,13 +172,13 @@
             this.columnHeader4});
             this.listView2.ForeColor = System.Drawing.Color.DimGray;
             this.listView2.FullRowSelect = true;
-            listViewGroup3.Header = "Installed";
-            listViewGroup3.Name = "listViewGroup1";
-            listViewGroup4.Header = "Available to Install";
-            listViewGroup4.Name = "listViewGroup2";
+            listViewGroup1.Header = "Installed";
+            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup2.Header = "Available to Install";
+            listViewGroup2.Name = "listViewGroup2";
             this.listView2.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
+            listViewGroup1,
+            listViewGroup2});
             this.listView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             listViewItem1.UseItemStyleForSubItems = false;
             listViewItem2.StateImageIndex = 0;
@@ -325,7 +316,7 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.DeepPink;                
+            this.button5.BackColor = System.Drawing.Color.DeepPink;
             this.button5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -334,7 +325,7 @@
             this.button5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 20);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(140, 36);
-            this.button5.TabIndex = 16;               
+            this.button5.TabIndex = 16;
             this.button5.Text = "Developer Portal";
             this.button5.UseVisualStyleBackColor = false;
             // 

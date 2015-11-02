@@ -24,7 +24,6 @@ namespace ChromaSync
 
             if (!Directory.Exists("scripts\\"))
                 return;
-
             foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
             {
                 new Thread(() =>
@@ -36,9 +35,8 @@ namespace ChromaSync
                         dynamic dg = g;
                         dg.DebugLua = new Func<object, bool>(debug);
                         dg.ConvertInt = new Func<JValue, int>(convertInt);
-                        dg.NewCustom = new Func<string,object>(newCustom);
+                        dg.NewCustom = new Func<string, object>(newCustom);
                         dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
-
 
                         try
                         {
@@ -47,14 +45,16 @@ namespace ChromaSync
                         }
                         catch (LuaException e)
                         {
-                           debug(e.FileName + ": " + e.Line + ": " + e.Message);
+                            debug(e.FileName + ": " + e.Line + ": " + e.Message);
                         }
 
-                        
+
                     }
                 }).Start();
             }
         }
+
+
 
         public static int convertInt(JValue o)
         {
@@ -101,10 +101,12 @@ namespace ChromaSync
                 var name = json["provider"] != null ? json["provider"]["name"].ToString() : json["product"]["name"].ToString();
                 if (action.name == name)
                 {
-                    try {
+                    try
+                    {
                         action.callback(json);
                         debug("Data passed to " + action.name);
-                    }catch(Exception e)
+                    }
+                    catch (Exception e)
                     {
                         debug(e);
                         debug("Exception: " + e.StackTrace);
@@ -115,7 +117,7 @@ namespace ChromaSync
 
         public static object newCustom(string t)
         {
-            switch(t)
+            switch (t)
             {
                 case "mouse":
                     return new Corale.Colore.Razer.Mouse.Effects.Custom(new Color());
