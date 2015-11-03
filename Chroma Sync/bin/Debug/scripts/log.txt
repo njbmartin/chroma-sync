@@ -4770,3 +4770,27 @@ Stack Trace:
 02/11/2015 22:54:33 - Registered Callback: Minecraft
 02/11/2015 22:54:33 - Registered Callback: Counter-Strike: Global Offensive
 02/11/2015 22:54:33 - Registered Callback: Grand Theft Auto V
+03/11/2015 10:22:15 - Registered Callback: Minecraft
+03/11/2015 10:22:15 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 10:22:15 - Registered Callback: Grand Theft Auto V
+03/11/2015 11:49:13 - Registered Callback: Minecraft
+03/11/2015 11:49:13 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 11:49:13 - Registered Callback: Grand Theft Auto V
+03/11/2015 11:50:46 - Registered Callback: Minecraft
+03/11/2015 11:50:46 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 11:50:46 - Registered Callback: Grand Theft Auto V
+03/11/2015 11:57:24 - Registered Callback: Minecraft
+03/11/2015 11:57:24 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 11:57:24 - Registered Callback: Grand Theft Auto V
+03/11/2015 11:57:35 - Registered Callback: Minecraft
+03/11/2015 11:57:35 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 11:57:35 - Registered Callback: Grand Theft Auto V
+03/11/2015 11:59:59 - Registered Callback: Minecraft
+03/11/2015 11:59:59 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 11:59:59 - Registered Callback: Grand Theft Auto V
+03/11/2015 12:02:59 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 12:02:59 - Registered Callback: Grand Theft Auto V
+03/11/2015 12:02:59 - Registered Callback: Minecraft
+03/11/2015 12:03:07 - Registered Callback: Minecraft
+03/11/2015 12:03:07 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 12:03:07 - Registered Callback: Grand Theft Auto V

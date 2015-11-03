@@ -288,7 +288,6 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.DeepPink;
-            this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

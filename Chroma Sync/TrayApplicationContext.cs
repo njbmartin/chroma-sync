@@ -50,7 +50,12 @@ namespace ChromaSync
             _isFlashed = true;
             _isDead = true;
             _mainWindow = new Form1();
-            //_mainWindow.Show();
+            if (!Settings.Default.FirstRun)
+            {
+                Settings.Default.FirstRun = true;
+                _mainWindow.Show();
+                Settings.Default.Save();
+            }
             MenuItem about = new MenuItem("About Chroma Sync", showAbout);
             MenuItem updates = new MenuItem("Check for updates...", ShowConfig);
             MenuItem exitMenuItem = new MenuItem("Exit", Exit);

@@ -37,6 +37,7 @@ namespace ChromaSync
         {
             Debug.WriteLine("Changed");
             // TODO: ShowPackages(); -- Needs to use background worker
+            ShowPackages();
             // https://msdn.microsoft.com/en-us/library/waw3xexc(v=vs.110).aspx
         }
 
@@ -121,7 +122,8 @@ namespace ChromaSync
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            var f = Environment.CurrentDirectory + "\\scripts";
+            Process.Start("explorer.exe", f);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

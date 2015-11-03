@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="125952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="126464">
       <assemblyIdentity name="Chroma Sync" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Xt9MGdJFvA22iG9+2WIDgt6yh3Qvtxzk6mz4F5H/iUQ=</dsig:DigestValue>
+        <dsig:DigestValue>EQ8p4DI6uUDpBH24o8hgbjv3Fwg5+PKeZKPKiho0KHw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -114,13 +114,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Chroma Sync.exe.config" size="161">
+  <file name="Chroma Sync.exe.config" size="881">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+K0Xw31ERSGzkFzL116my249J2OxbrVrLhqkJ0Fz5hQ=</dsig:DigestValue>
+      <dsig:DigestValue>4Jd4pbYJOzFEHVBIwGU8H7gO3anSCSg8NM+cxeiUlxg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ChromaAppInfo.xml" size="585" writeableType="applicationData">
