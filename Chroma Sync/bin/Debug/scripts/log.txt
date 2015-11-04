@@ -4794,3 +4794,101 @@ Stack Trace:
 03/11/2015 12:03:07 - Registered Callback: Minecraft
 03/11/2015 12:03:07 - Registered Callback: Counter-Strike: Global Offensive
 03/11/2015 12:03:07 - Registered Callback: Grand Theft Auto V
+03/11/2015 20:50:06 - Registered Callback: Minecraft
+03/11/2015 20:50:06 - Registered Callback: Grand Theft Auto V
+03/11/2015 20:50:06 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 21:55:11 - Configuration system failed to initialize
+
+Stack Trace:
+   at System.Configuration.ClientConfigurationSystem.OnConfigRemoved(Object sender, InternalConfigEventArgs e)
+   at System.Configuration.Internal.InternalConfigRoot.OnConfigRemoved(InternalConfigEventArgs e)
+   at System.Configuration.Internal.InternalConfigRoot.RemoveConfigImpl(String configPath, BaseConfigurationRecord configRecord)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   at System.Configuration.ClientSettingsStore.ReadSettings(String sectionName, Boolean isUserScoped)
+   at System.Configuration.LocalFileSettingsProvider.GetPropertyValues(SettingsContext context, SettingsPropertyCollection properties)
+   at System.Configuration.SettingsBase.GetPropertiesFromProvider(SettingsProvider provider)
+   at System.Configuration.SettingsBase.GetPropertyValueByName(String propertyName)
+   at System.Configuration.SettingsBase.get_Item(String propertyName)
+   at System.Configuration.ApplicationSettingsBase.GetPropertyValue(String propertyName)
+   at System.Configuration.ApplicationSettingsBase.get_Item(String propertyName)
+   at ChromaSync.Properties.Settings.get_FirstRun()
+   at ChromaSync.TrayApplicationContext..ctor()
+   at ChromaSync.Program.Main()
+   at System.AppDomain._nExecuteAssembly(RuntimeAssembly assembly, String[] args)
+   at System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+03/11/2015 21:55:45 - Registered Callback: Minecraft
+03/11/2015 21:55:45 - Registered Callback: Grand Theft Auto V
+03/11/2015 21:55:45 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 21:55:45 - Registered Callback: Minecraft
+03/11/2015 21:59:04 - Configuration system failed to initialize
+
+Stack Trace:
+   at System.Configuration.ClientConfigurationSystem.OnConfigRemoved(Object sender, InternalConfigEventArgs e)
+   at System.Configuration.Internal.InternalConfigRoot.OnConfigRemoved(InternalConfigEventArgs e)
+   at System.Configuration.Internal.InternalConfigRoot.RemoveConfigImpl(String configPath, BaseConfigurationRecord configRecord)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   at System.Configuration.ClientSettingsStore.ReadSettings(String sectionName, Boolean isUserScoped)
+   at System.Configuration.LocalFileSettingsProvider.GetPropertyValues(SettingsContext context, SettingsPropertyCollection properties)
+   at System.Configuration.SettingsBase.GetPropertiesFromProvider(SettingsProvider provider)
+   at System.Configuration.SettingsBase.GetPropertyValueByName(String propertyName)
+   at System.Configuration.SettingsBase.get_Item(String propertyName)
+   at System.Configuration.ApplicationSettingsBase.GetPropertyValue(String propertyName)
+   at System.Configuration.ApplicationSettingsBase.get_Item(String propertyName)
+   at ChromaSync.Properties.Settings.get_FirstRun()
+   at ChromaSync.TrayApplicationContext..ctor()
+   at ChromaSync.Program.Main()
+   at System.AppDomain._nExecuteAssembly(RuntimeAssembly assembly, String[] args)
+   at System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+03/11/2015 21:59:21 - Configuration system failed to initialize
+
+Stack Trace:
+   at System.Configuration.ClientConfigurationSystem.OnConfigRemoved(Object sender, InternalConfigEventArgs e)
+   at System.Configuration.Internal.InternalConfigRoot.OnConfigRemoved(InternalConfigEventArgs e)
+   at System.Configuration.Internal.InternalConfigRoot.RemoveConfigImpl(String configPath, BaseConfigurationRecord configRecord)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   at System.Configuration.ClientSettingsStore.ReadSettings(String sectionName, Boolean isUserScoped)
+   at System.Configuration.LocalFileSettingsProvider.GetPropertyValues(SettingsContext context, SettingsPropertyCollection properties)
+   at System.Configuration.SettingsBase.GetPropertiesFromProvider(SettingsProvider provider)
+   at System.Configuration.SettingsBase.GetPropertyValueByName(String propertyName)
+   at System.Configuration.SettingsBase.get_Item(String propertyName)
+   at System.Configuration.ApplicationSettingsBase.GetPropertyValue(String propertyName)
+   at System.Configuration.ApplicationSettingsBase.get_Item(String propertyName)
+   at ChromaSync.Properties.Settings.get_FirstRun()
+   at ChromaSync.TrayApplicationContext..ctor()
+   at ChromaSync.Program.Main()
+   at System.AppDomain._nExecuteAssembly(RuntimeAssembly assembly, String[] args)
+   at System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   at Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+03/11/2015 22:54:12 - Registered Callback: Minecraft
+03/11/2015 22:54:12 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 22:54:12 - Registered Callback: Grand Theft Auto V
+03/11/2015 22:54:12 - Registered Callback: Minecraft
+03/11/2015 22:54:12 - : 0: Object is nil.
+03/11/2015 22:54:12 - : 0: Object is nil.
+03/11/2015 22:54:31 - Registered Callback: Minecraft
+03/11/2015 22:54:31 - Registered Callback: Grand Theft Auto V
+03/11/2015 22:54:31 - Registered Callback: Minecraft
+03/11/2015 22:54:31 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 22:54:32 - : 0: Object is nil.
+03/11/2015 22:54:32 - : 0: Object is nil.
+03/11/2015 22:55:38 - Registered Callback: Minecraft
+03/11/2015 22:55:38 - Registered Callback: Counter-Strike: Global Offensive
+03/11/2015 22:55:38 - Registered Callback: Grand Theft Auto V
+03/11/2015 22:55:38 - Registered Callback: Minecraft

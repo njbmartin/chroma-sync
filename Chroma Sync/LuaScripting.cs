@@ -16,6 +16,9 @@ namespace ChromaSync
 
         public static void LuaThread()
         {
+            // WE NEED TO ENSURE CHROMA IS INITIALISED
+            var c = Chroma.Instance;
+
             callbacks = new List<dynamic>();
             var ms_luaDebug = new LuaStackTraceDebugger();
             var ms_luaCompileOptions = new LuaCompileOptions();
@@ -35,6 +38,10 @@ namespace ChromaSync
                         dg.DebugLua = new Func<object, bool>(debug);
                         dg.ConvertInt = new Func<JValue, int>(convertInt);
                         dg.NewCustom = new Func<string, object>(newCustom);
+                        dg.Keyboard = Keyboard.Instance;
+                        dg.Mouse = Mouse.Instance;
+                        dg.Keypad = Keypad.Instance;
+                        dg.Mousepad = Mousepad.Instance;
                         dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
 
                         try
