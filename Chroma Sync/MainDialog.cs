@@ -16,6 +16,14 @@ namespace ChromaSync
             InitializeComponent();
             GetStartup();
             Watch();
+            //EventHook.MouseHook.MouseAction += new EventHandler(Event);
+        }
+
+        private static void Event(object sender, EventArgs e)
+        {
+
+            Console.WriteLine("Mouse Clicked in form");
+
         }
 
         public void Watch()

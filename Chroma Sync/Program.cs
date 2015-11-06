@@ -19,18 +19,18 @@ namespace ChromaSync
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Add the event handler for handling UI thread exceptions to the event.
-    Application.ThreadException += new ThreadExceptionEventHandler(Form1_UIThreadException);
+            Application.ThreadException += new ThreadExceptionEventHandler(Form1_UIThreadException);
 
-        // Set the unhandled exception mode to force all Windows Forms errors to go through
-        // our handler.
-        Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            // Set the unhandled exception mode to force all Windows Forms errors to go through
+            // our handler.
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
 
-        // Add the event handler for handling non-UI thread exceptions to the event. 
-        AppDomain.CurrentDomain.UnhandledException +=
-        new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+            // Add the event handler for handling non-UI thread exceptions to the event. 
+            AppDomain.CurrentDomain.UnhandledException +=
+            new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             SetRegistry();
-            
-        Application.Run(new TrayApplicationContext());
+
+            Application.Run(new TrayApplicationContext());
         }
 
         private static void SetRegistry()
@@ -79,13 +79,13 @@ namespace ChromaSync
             try
             {
                 Exception ex = (Exception)e.ExceptionObject;
-                
+
                 LuaScripting.debug(ex.Message + "\n\nStack Trace:\n" + ex.StackTrace);
             }
             catch (Exception exc)
             {
-                
-                    Application.Exit();
+
+                Application.Exit();
             }
         }
 

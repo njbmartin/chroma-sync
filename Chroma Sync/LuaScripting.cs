@@ -23,7 +23,7 @@ namespace ChromaSync
             var ms_luaDebug = new LuaStackTraceDebugger();
             var ms_luaCompileOptions = new LuaCompileOptions();
             ms_luaCompileOptions.DebugEngine = ms_luaDebug;
-
+            EventHook.MouseHook.MouseAction += new EventHandler(Event);
             if (!Directory.Exists("scripts\\"))
                 return;
             foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
@@ -32,7 +32,6 @@ namespace ChromaSync
                 {
                     using (Lua l = new Lua())
                     {
-
                         LuaGlobalPortable g = l.CreateEnvironment();
                         dynamic dg = g;
                         dg.DebugLua = new Func<object, bool>(debug);
@@ -43,7 +42,6 @@ namespace ChromaSync
                         dg.Keypad = Keypad.Instance;
                         dg.Mousepad = Mousepad.Instance;
                         dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
-
                         try
                         {
                             LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
@@ -53,14 +51,10 @@ namespace ChromaSync
                         {
                             debug(e.FileName + ": " + e.Line + ": " + e.Message);
                         }
-
-
                     }
                 }).Start();
             }
         }
-
-
 
         public static int convertInt(JValue o)
         {
@@ -102,23 +96,53 @@ namespace ChromaSync
 
         public static void PassThrough(JObject json)
         {
-            foreach (LuaCallback action in callbacks)
+            lock (_syncObject)
             {
-                var name = json["provider"] != null ? json["provider"]["name"].ToString() : json["product"]["name"].ToString();
-                if (action.name == name)
+                foreach (LuaCallback action in callbacks)
                 {
-                    try
+                    var name = json["provider"] != null ? json["provider"]["name"].ToString() : json["product"]["name"].ToString();
+                    if (action.name == name)
                     {
-                        action.callback(json);
-                        debug("Data passed to " + action.name);
-                    }
-                    catch (Exception e)
-                    {
-                        debug(e);
-                        debug("Exception: " + e.StackTrace);
+                        try
+                        {
+                            action.callback(json);
+                            debug("Data passed to " + action.name);
+                        }
+                        catch (Exception e)
+                        {
+                            debug(e);
+                            debug("Exception: " + e.StackTrace);
+                        }
                     }
                 }
             }
+        }
+
+
+        private static void Event(object sender, EventArgs e)
+        {
+            lock (_syncObject)
+            {
+                var eventHook = (EventHook.MouseHook.MouseData)sender;
+                foreach (LuaCallback action in callbacks)
+                {
+                    var name = "MouseEvents";
+                    if (action.name == name)
+                    {
+                        try
+                        {
+                                action.callback(eventHook);
+                                debug("Data passed to " + action.name);
+                        }
+                        catch (Exception ex)
+                        {
+                            debug(ex);
+                            debug("Exception: " + ex.StackTrace);
+                        }
+                    }
+                }
+            }
+
         }
 
         public static object newCustom(string t)

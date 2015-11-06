@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioVolume.cs" />
+    <Compile Include="EventHook.cs" />
     <Compile Include="MainDialog.cs">
       <SubType>Form</SubType>
     </Compile>
