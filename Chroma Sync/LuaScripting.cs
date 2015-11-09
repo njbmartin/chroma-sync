@@ -18,12 +18,12 @@ namespace ChromaSync
         {
             // WE NEED TO ENSURE CHROMA IS INITIALISED
             var c = Chroma.Instance;
-
             callbacks = new List<dynamic>();
             var ms_luaDebug = new LuaStackTraceDebugger();
             var ms_luaCompileOptions = new LuaCompileOptions();
             ms_luaCompileOptions.DebugEngine = ms_luaDebug;
-            EventHook.MouseHook.MouseAction += new EventHandler(Event);
+            
+           // EventHook.MouseHook.MouseAction += new EventHandler(LuaScripting.Event);
             if (!Directory.Exists("scripts\\"))
                 return;
             foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
@@ -41,6 +41,7 @@ namespace ChromaSync
                         dg.Mouse = Mouse.Instance;
                         dg.Keypad = Keypad.Instance;
                         dg.Mousepad = Mousepad.Instance;
+
                         dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
                         try
                         {
@@ -96,30 +97,29 @@ namespace ChromaSync
 
         public static void PassThrough(JObject json)
         {
-            lock (_syncObject)
+
+            foreach (LuaCallback action in callbacks)
             {
-                foreach (LuaCallback action in callbacks)
+                var name = json["provider"] != null ? json["provider"]["name"].ToString() : json["product"]["name"].ToString();
+                if (action.name == name)
                 {
-                    var name = json["provider"] != null ? json["provider"]["name"].ToString() : json["product"]["name"].ToString();
-                    if (action.name == name)
+                    try
                     {
-                        try
-                        {
-                            action.callback(json);
-                            debug("Data passed to " + action.name);
-                        }
-                        catch (Exception e)
-                        {
-                            debug(e);
-                            debug("Exception: " + e.StackTrace);
-                        }
+                        action.callback(json);
+                        debug("Data passed to " + action.name);
+                    }
+                    catch (Exception e)
+                    {
+                        debug(e);
+                        debug("Exception: " + e.StackTrace);
                     }
                 }
+
             }
         }
 
 
-        private static void Event(object sender, EventArgs e)
+        public static void Event(object sender, EventArgs e)
         {
             lock (_syncObject)
             {
@@ -131,13 +131,13 @@ namespace ChromaSync
                     {
                         try
                         {
-                                action.callback(eventHook);
-                                debug("Data passed to " + action.name);
+                            action.callback(eventHook);
+                            //debug("Data passed to " + action.name);
                         }
                         catch (Exception ex)
                         {
                             debug(ex);
-                            debug("Exception: " + ex.StackTrace);
+                            //debug("Exception: " + ex.StackTrace);
                         }
                     }
                 }
