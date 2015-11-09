@@ -16,10 +16,12 @@ namespace ChromaSync
         {
             private static readonly object _syncObject = new object();
             public static event EventHandler MouseAction = delegate { };
+            private static Thread _testThread;
 
             public static void Start()
             {
                 _hookID = SetHook(_proc);
+
             }
             public static void stop()
             {
@@ -55,7 +57,6 @@ namespace ChromaSync
                             ld = DateTime.Now;
                             MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                             var m = new MouseData { e = (MouseMessages)wParam, pt = hookStruct.pt };
-
                             new Thread(() =>
                             {
                                 MouseAction(m, new EventArgs());

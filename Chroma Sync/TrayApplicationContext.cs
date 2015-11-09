@@ -64,6 +64,9 @@ namespace ChromaSync
             cm.MenuItems.Add(updates);
             cm.MenuItems.Add(exitMenuItem);
             EventHook.MouseHook.Start();
+
+
+
             _icon = new NotifyIcon
             {
                 Icon = Properties.Resources.favicon,
@@ -83,7 +86,7 @@ namespace ChromaSync
                 Stream stream = new MemoryStream(file);
                 CopyResource(stream, folder + "\\csgo\\cfg\\gamestate_integration_chromasync.cfg");
                 Debug.WriteLine(folder);
-                
+
 
             }
             else
@@ -187,6 +190,7 @@ namespace ChromaSync
                         try
                         {
                             Keyboard.Instance.SetPosition(0, 2 + i, keys >= i ? Color.Red : Color.Black);
+                            Keyboard.Instance.SetKey(Corale.Colore.Razer.Keyboard.Key.Escape, Color.White);
                         }
                         catch (Exception e) { }
                     }
@@ -396,7 +400,7 @@ namespace ChromaSync
             ResetAll();
             _isAnimating = false;
             SetToTeamColour();
-            
+
         }
 
         public void Frozen()
@@ -414,7 +418,7 @@ namespace ChromaSync
             ResetAll();
             _isAnimating = false;
             SetToTeamColour();
-            
+
         }
 
 
@@ -434,7 +438,7 @@ namespace ChromaSync
             ResetAll();
             _isAnimating = false;
             SetToTeamColour();
-            
+
         }
 
         void WeaponsAmmo(JObject weapons)
@@ -478,7 +482,7 @@ namespace ChromaSync
                 switch (wObj.Value<string>("type"))
                 {
                     case "Knife":
-                        if(!threeSet)
+                        if (!threeSet)
                             key = Corale.Colore.Razer.Keyboard.Key.Three;
                         threeSet = true;
                         break;
@@ -565,7 +569,7 @@ namespace ChromaSync
             _icon.Visible = false;
 
             // Abort all threads
-            if(_serverThread != null && _serverThread.IsAlive)
+            if (_serverThread != null && _serverThread.IsAlive)
                 _serverThread.Abort();
             if (_luaThread != null && _luaThread.IsAlive)
                 _luaThread.Abort();
@@ -666,7 +670,7 @@ namespace ChromaSync
                             Debug.Write("You received the following message : " + ns);
                             //Debug.Write(myCompleteMessage);
                             string header = string.Format("HTTP/1.1 {0}\r\n"
-                                              + "Server: {1}\r\n" 
+                                              + "Server: {1}\r\n"
                                               + "Content-Type: {3}\r\n"
                                               + "Keep-Alive: Close\r\n"
                                               + "\r\n",
@@ -675,11 +679,13 @@ namespace ChromaSync
                             var headerBytes = Encoding.ASCII.GetBytes(header);
                             stream.Write(headerBytes, 0, headerBytes.Length);
 
-                            try {
+                            try
+                            {
                                 JObject o = JObject.Parse(ns);
                                 Debug.WriteLine(o.ToString());
                                 LuaScripting.PassThrough(o);
-                            }catch(Exception e)
+                            }
+                            catch (Exception e)
                             {
                                 Debug.WriteLine(e);
                             }

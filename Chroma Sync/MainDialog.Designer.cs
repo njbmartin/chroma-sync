@@ -204,7 +204,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "";
-            this.columnHeader2.Width = 240;
+            this.columnHeader2.Width = 200;
             // 
             // columnHeader3
             // 
