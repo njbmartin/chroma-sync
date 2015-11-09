@@ -50,16 +50,14 @@ namespace ChromaSync
 
                     if (nCode >= 0)
                     {
-                        if (!((MouseMessages)wParam == MouseMessages.WM_MOUSEMOVE && ticks < 1000000f))
+                        if (!((MouseMessages)wParam == MouseMessages.WM_MOUSEMOVE || (MouseMessages)wParam == MouseMessages.WM_MOUSEMOVE) && ticks < 1000000f)
+                   
                         {
                             ld = DateTime.Now;
                             MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
                             var m = new MouseData { e = (MouseMessages)wParam, pt = hookStruct.pt };
 
-                            new Thread(() =>
-                            {
-                                MouseAction(m, new EventArgs());
-                            }).Start();
+                            MouseAction(m, new EventArgs());
                         }
                     }
                 }

@@ -54,16 +54,14 @@ function mouse_event(event)
 			-- set mousepad colour
 			local custom = NewCustom("mousepad")
 			local mpPosX = 10 - math.ceil((6 / 100) * posX)
-			DebugLua(mpPosX)
 			custom.Colors[mpPosX] = c
 			Colore.Mousepad.Instance.SetCustom(custom)
 			do return end
 		end
 		
 		if event.e == "WM_LBUTTONDOWN" then
-		DebugLua(event.e)
 			Colore.Mouse.Instance.SetAll(c)
-			Thread.Sleep(200)
+			Thread.Sleep(100)
 			Colore.Mouse.Instance.Clear()
 			do return end
 		end

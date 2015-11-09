@@ -97,6 +97,7 @@
             this.packageList.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
             this.packageList.AutoArrange = false;
             this.packageList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.packageList.CheckBoxes = true;
             this.packageList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ChromaPackages,
             this.Creator,
@@ -105,7 +106,7 @@
             this.packageList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.packageList.ForeColor = System.Drawing.Color.DimGray;
             this.packageList.FullRowSelect = true;
-            this.packageList.HoverSelection = true;
+            this.packageList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.packageList.LargeImageList = this.imageList1;
             this.packageList.Location = new System.Drawing.Point(33, 202);
             this.packageList.Margin = new System.Windows.Forms.Padding(20, 0, 20, 20);
@@ -120,7 +121,7 @@
             this.packageList.TileSize = new System.Drawing.Size(256, 120);
             this.packageList.UseCompatibleStateImageBehavior = false;
             this.packageList.View = System.Windows.Forms.View.Details;
-            this.packageList.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.packageList.SelectedIndexChanged += new System.EventHandler(this.packageList_SelectedIndexChanged);
             // 
             // ChromaPackages
             // 
@@ -167,6 +168,7 @@
             // 
             this.listView2.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
             this.listView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listView2.CheckBoxes = true;
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2,
             this.columnHeader3,
@@ -182,6 +184,7 @@
             listViewGroup1,
             listViewGroup2});
             this.listView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            listViewItem1.StateImageIndex = 0;
             listViewItem1.UseItemStyleForSubItems = false;
             listViewItem2.StateImageIndex = 0;
             listViewItem2.UseItemStyleForSubItems = false;
@@ -237,11 +240,10 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DeepPink;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(727, 156);
+            this.button2.Location = new System.Drawing.Point(557, 156);
             this.button2.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 36);
@@ -291,19 +293,18 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(666, 402);
+            this.button3.Location = new System.Drawing.Point(727, 402);
             this.button3.Margin = new System.Windows.Forms.Padding(10);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(201, 36);
+            this.button3.Size = new System.Drawing.Size(140, 36);
             this.button3.TabIndex = 14;
-            this.button3.Text = "Open Scripts Foler";
+            this.button3.Text = "Open Folder";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.DeepPink;
-            this.button4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button4.BackColor = System.Drawing.Color.Silver;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -317,8 +318,7 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.DeepPink;
-            this.button5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button5.BackColor = System.Drawing.Color.Silver;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -334,7 +334,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.DeepPink;
+            this.checkBox1.ForeColor = System.Drawing.Color.Silver;
             this.checkBox1.Location = new System.Drawing.Point(526, 641);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -347,17 +347,17 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.DeepPink;
-            this.button6.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(574, 156);
+            this.button6.Location = new System.Drawing.Point(727, 156);
             this.button6.Margin = new System.Windows.Forms.Padding(10, 10, 20, 10);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(140, 36);
             this.button6.TabIndex = 18;
-            this.button6.Text = "Download Packages";
+            this.button6.Text = "Browse Packages";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form1
             // 
@@ -402,7 +402,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ListView packageList;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ColumnHeader ChromaPackages;
         private System.Windows.Forms.ColumnHeader Creator;
@@ -424,6 +423,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button6;
+        public System.Windows.Forms.ListView packageList;
     }
 }
 

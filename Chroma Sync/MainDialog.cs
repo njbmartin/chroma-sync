@@ -16,15 +16,8 @@ namespace ChromaSync
             InitializeComponent();
             GetStartup();
             Watch();
-            //EventHook.MouseHook.MouseAction += new EventHandler(Event);
         }
 
-        private static void Event(object sender, EventArgs e)
-        {
-
-            Console.WriteLine("Mouse Clicked in form");
-
-        }
 
         public void Watch()
         {
@@ -45,7 +38,7 @@ namespace ChromaSync
         {
             Debug.WriteLine("Changed");
             // TODO: ShowPackages(); -- Needs to use background worker
-            ShowPackages();
+            //ShowPackages();
             // https://msdn.microsoft.com/en-us/library/waw3xexc(v=vs.110).aspx
         }
 
@@ -56,22 +49,22 @@ namespace ChromaSync
             var packages = PackageManager.packages;
             foreach (var package in packages)
             {
-                Debug.WriteLine(package.Name);
+                Debug.WriteLine(package.Product.Name);
                 var item = new ListViewItem();
-                item.ToolTipText = package.Description;
+                item.ToolTipText = package.Product.Description;
                 item.ForeColor = Color.DeepPink;
                 item.Font = new Font(item.Font,
                     item.Font.Style | FontStyle.Bold);
 
-                item.SubItems.Add(package.Author);
-                item.SubItems.Add(package.Type);
-                item.SubItems.Add(package.Version);
-                item.Text = package.Name;
+                item.SubItems.Add(package.Product.Author);
+                item.SubItems.Add(package.Product.Type);
+                item.SubItems.Add(package.Product.Version);
+                item.Text = package.Product.Name;
 
                 if (package.Image != null)
                 {
-                    packageList.LargeImageList.Images.Add(package.Name, package.Image);
-                    item.ImageKey = package.Name;
+                    packageList.LargeImageList.Images.Add(package.Product.Name, package.Image);
+                    item.ImageKey = package.Product.Name;
                 }
 
                 packageList.Items.Add(item);
@@ -108,14 +101,20 @@ namespace ChromaSync
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, MouseEventArgs e)
         {
-
+            Console.WriteLine("changed");
+            var senderList = (ListView)sender;
+            var clickedItem = senderList.HitTest(e.Location).Item;
+            if (clickedItem != null)
+            {
+                //do something
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            ShowPackages();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -137,6 +136,17 @@ namespace ChromaSync
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             SetStartup();
+        }
+
+        private void packageList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection selected = packageList.SelectedItems;
+            
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

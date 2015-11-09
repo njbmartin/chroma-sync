@@ -23,7 +23,7 @@ namespace ChromaSync
 
 
         /// <summary>
-        /// Retrieves a list of Steam library folders on this computer.
+        /// Retrieves a list of Steam library folders on this computer as there may be more than one.
         /// </summary>
         public static List<string> SteamLibraryFolders()
         {
@@ -59,15 +59,8 @@ namespace ChromaSync
         }
 
 
-        public static string Rocksmith2014FolderFromUbisoftKey()
-        {
-            RegistryKey ubiKey = Registry.LocalMachine.OpenSubKey(@"Software\Ubisoft\Rocksmith2014") ?? Registry.LocalMachine.OpenSubKey(@"Software\Wow6432Node\Ubisoft\Rocksmith2014");
-            return ubiKey.GetValue("installdir").ToString();
-        }
-
-
         /// <summary>
-        /// Returns the location of the Rocksmith 2014 folder on Windows platforms.
+        /// Returns the location of a particular game on Windows platforms.
         /// </summary>
         public static string InstallFolder(string expectedFolder)
         {
@@ -97,18 +90,6 @@ namespace ChromaSync
 
 
                 return null;
-                /*
-                // Couldn't find folder, attempt another method
-                try
-                {
-                    return Rocksmith2014FolderFromUbisoftKey();
-                }
-                catch (Exception)
-                {
-                    // out of luck, did not find the install path
-                    return null;
-                }
-                */
             }
 
             else if (platform == PlatformID.MacOSX || platform == PlatformID.Unix)

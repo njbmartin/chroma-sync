@@ -84,15 +84,12 @@ namespace ChromaSync
                 CopyResource(stream, folder + "\\csgo\\cfg\\gamestate_integration_chromasync.cfg");
                 Debug.WriteLine(folder);
                 
-
             }
             else
             {
                 //BalloonTip("CS:GO Configuration", "CS:GO folder was not found on this computer");
                 Debug.WriteLine("CS:GO folder was not found");
             }
-
-
 
             folder = GameLocator.InstallFolder("Grand Theft Auto V");
             if (folder != null)
@@ -106,8 +103,6 @@ namespace ChromaSync
                 //BalloonTip("GTA V Configuration", "GTA V directory not found.");
                 Debug.WriteLine("GTA V directory not found");
             }
-
-
 
             _serverThread = new Thread(RunServer);
             _serverThread.Start();
