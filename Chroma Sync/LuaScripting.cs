@@ -5,6 +5,7 @@ using System.Threading;
 using Corale.Colore.Core;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace ChromaSync
 {
@@ -12,6 +13,7 @@ namespace ChromaSync
     {
 
         private static readonly object _syncObject = new object();
+        private static readonly object debugLock = new object();
         private static List<dynamic> callbacks;
 
         public static void LuaThread()
@@ -22,8 +24,9 @@ namespace ChromaSync
             var ms_luaDebug = new LuaStackTraceDebugger();
             var ms_luaCompileOptions = new LuaCompileOptions();
             ms_luaCompileOptions.DebugEngine = ms_luaDebug;
-            
-           // EventHook.MouseHook.MouseAction += new EventHandler(LuaScripting.Event);
+
+            EventHook.MouseHook.MouseAction += new EventHandler(Event);
+
             if (!Directory.Exists("scripts\\"))
                 return;
             foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
@@ -36,7 +39,7 @@ namespace ChromaSync
                         dynamic dg = g;
                         dg.DebugLua = new Func<object, bool>(debug);
                         dg.ConvertInt = new Func<JValue, int>(convertInt);
-                        dg.NewCustom = new Func<string, object>(newCustom);
+                        dg.NewCustom = new Func<string, Color, object>(newCustom);
                         dg.Keyboard = Keyboard.Instance;
                         dg.Mouse = Mouse.Instance;
                         dg.Keypad = Keypad.Instance;
@@ -62,12 +65,14 @@ namespace ChromaSync
             return o.ToObject<int>();
         }
 
+
+
         public static bool debug(object d)
         {
             var text = DateTime.Now + " - " + d;
-            lock (_syncObject)
+            lock (debugLock)
             {
-                Console.WriteLine(text);
+                Debug.WriteLine(text);
 
 
                 string path = @"scripts\log.txt";
@@ -121,40 +126,41 @@ namespace ChromaSync
 
         public static void Event(object sender, EventArgs e)
         {
-            lock (_syncObject)
+
+            var eventHook = (EventHook.MouseHook.MouseData)sender;
+            foreach (LuaCallback action in callbacks)
             {
-                var eventHook = (EventHook.MouseHook.MouseData)sender;
-                foreach (LuaCallback action in callbacks)
+                var name = "MouseEvents";
+                if (action.name == name)
                 {
-                    var name = "MouseEvents";
-                    if (action.name == name)
+                    try
                     {
-                        try
-                        {
-                            action.callback(eventHook);
-                            //debug("Data passed to " + action.name);
-                        }
-                        catch (Exception ex)
-                        {
-                            debug(ex);
-                            //debug("Exception: " + ex.StackTrace);
-                        }
+                        action.callback(eventHook);
+                        debug("Data passed to " + action.name);
+                    }
+                    catch (Exception ex)
+                    {
+                        debug(ex);
+                        debug("Exception: " + ex.StackTrace);
                     }
                 }
+
             }
 
         }
 
-        public static object newCustom(string t)
+        public static object newCustom(string t, Color c)
         {
             switch (t)
             {
                 case "mouse":
-                    return new Corale.Colore.Razer.Mouse.Effects.Custom(new Color());
+                    return new Corale.Colore.Razer.Mouse.Effects.Custom(c);
                 case "mousepad":
-                    return new Corale.Colore.Razer.Mousepad.Effects.Custom(new Color());
+                    return new Corale.Colore.Razer.Mousepad.Effects.Custom(c);
                 case "keypad":
-                    return new Corale.Colore.Razer.Keypad.Effects.Custom(new Color());
+                    return new Corale.Colore.Razer.Keypad.Effects.Custom(c);
+                case "keyboard":
+                    return new Corale.Colore.Razer.Keyboard.Effects.Custom(c);
                 default:
                     return null;
             }

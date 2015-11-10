@@ -50,7 +50,7 @@ namespace ChromaSync
 
                     if (nCode >= 0)
                     {
-                        if (!((MouseMessages)wParam == MouseMessages.WM_MOUSEMOVE || (MouseMessages)wParam == MouseMessages.WM_MOUSEMOVE) && ticks < 1000000f)
+                        if (!(((MouseMessages)wParam == MouseMessages.WM_MOUSEMOVE || (MouseMessages)wParam == MouseMessages.WM_MOUSEWHEEL) && ticks < 1000000f))
                    
                         {
                             ld = DateTime.Now;

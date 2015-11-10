@@ -63,7 +63,7 @@ namespace ChromaSync
             cm.MenuItems.Add(about);
             cm.MenuItems.Add(updates);
             cm.MenuItems.Add(exitMenuItem);
-            EventHook.MouseHook.Start();
+            
 
 
 
