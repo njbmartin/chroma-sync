@@ -2,14 +2,26 @@ local Colore = clr.Corale.Colore.Core
 local Thread = clr.System.Threading.Thread
 local c = Colore.Color.Purple
 function play_anim(json)
+
+local Colors = {
+      Blue = Colore.Color.Blue,
+      Red = Colore.Color.Red
+    }
+
 	while true do
 		-- Everthing should be white (strobe effect!!!!)
 		
 		-- set keyboard colour
-		Keyboard.SetAll(Colore.Color.Black)
-		Colore.Keyboard.Instance[math.random(0,5), math.random(1,18)] =  c
-		Colore.Keyboard.Instance[math.random(0,5), math.random(1,18)] =  c
-		Colore.Keyboard.Instance[math.random(0,5), math.random(1,18)] =  c
+		for x=0,5 do
+			for y=0,21 do
+				Colore.Keyboard.Instance[x,y] =  Colore.Color.Black
+			end
+		end
+		
+		for x=0,10 do
+			Colore.Keyboard.Instance[math.random(0,5), math.random(0,21)] =  Colors.Blue
+		end
+		
 		-- set mousepad colour
 		local custom = NewCustom("mousepad",Colore.Color.Black)
 		custom.Colors[math.random(0,14)] = Colore.Color.White
@@ -39,12 +51,11 @@ function play_anim(json)
 	end
 end
 
-play_anim()
+--play_anim()
 
 function mouse_event(event)
 
 		if event.e == "WM_MOUSEMOVE" then
-			DebugLua("moved")
 			local screen= clr.System.Windows.Forms.Screen.PrimaryScreen.Bounds
 			local posX = (math.ceil((100 / screen.Width) * event.pt.x))
 			local posY = (math.ceil((100 / screen.Height) * event.pt.y))
@@ -55,7 +66,7 @@ function mouse_event(event)
 			
 			
 			-- set mousepad colour
-			local custom = NewCustom("mousepad",Colore.Color.White)
+			local custom = NewCustom("mousepad",Colore.Color.Black)
 			local mpPosX = 10 - math.ceil((6 / 100) * posX)
 			custom.Colors[mpPosX] = c
 			Colore.Mousepad.Instance.SetCustom(custom)
@@ -98,4 +109,4 @@ function mouse_event(event)
 end
 
 
-RegisterForEvents("MouseEvents", mouse_event)
+--RegisterForEvents("MouseEvents", mouse_event)
