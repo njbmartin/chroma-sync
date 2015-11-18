@@ -38,6 +38,8 @@ namespace ChromaSync
         {
             public string Action { get; set; }
             public string Folder { get; set; }
+            public string Cmd { get; set; }
+            public string File { get; set; }
             public Destination Destination { get; set; }
 
         }
@@ -89,25 +91,30 @@ namespace ChromaSync
                         {
                             if (step.Folder != null)
                             {
-                                if (entry.FullName.StartsWith(step.Folder, StringComparison.OrdinalIgnoreCase))
+                                if (entry.FullName.StartsWith(step.Folder, StringComparison.OrdinalIgnoreCase) && entry.Name.Length > 0)
                                 {
                                     switch (step.Action)
                                     {
                                         case "extract":
                                             var path = step.Destination.Folder;
+                                            path = Environment.ExpandEnvironmentVariables(path);
                                             Console.WriteLine(entry.FullName);
                                             if (step.Destination.Type == "steamapp")
                                             {
-                                                var steamFolder = GameLocator.InstallFolder("Counter-Strike Global Offensive");
+                                                
+                                                var steamFolder = GameLocator.InstallFolder(step.Destination.Folder);
                                                 if (steamFolder == null)
                                                 {
-                                                    Console.WriteLine("Could not find folder: " + steamFolder);
+                                                    Console.WriteLine("Could not find steam folder: " + steamFolder);
                                                     return false;
                                                 }
                                                 path = steamFolder;
                                             }
+                                            var sp = entry.FullName.Remove(0, step.Folder.Length + 1);
+                                            var pa = Path.Combine(path, sp);
+                                            if(!Directory.Exists(path))
+                                                Directory.CreateDirectory(path);
 
-                                            var pa = Path.Combine(path, entry.FullName);
                                             try {
                                                 entry.ExtractToFile(pa);
                                             }
@@ -115,6 +122,36 @@ namespace ChromaSync
                                             {
                                                 Console.WriteLine(e.Message);
                                             }
+                                        break;
+
+                                        case "execute":
+                                            
+                                            if (!entry.Name.Equals(step.File))
+                                                continue;
+
+                                            // TODO: Copy the file to a temp directory
+                                            Directory.CreateDirectory("tmp");
+                                            var tmp = Path.Combine("tmp", entry.Name);
+                                            try
+                                            {
+                                                entry.ExtractToFile(tmp);
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                Console.WriteLine(e.Message);
+                                            }
+
+
+                                            System.Diagnostics.Process process = new System.Diagnostics.Process();
+                                            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+                                            //startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                                            startInfo.FileName = entry.Name;
+                                            // temp folder in the Chroma Sync directory
+                                            startInfo.WorkingDirectory = "tmp";
+                                            startInfo.Arguments = step.Cmd;
+                                            process.StartInfo = startInfo;
+                                            process.Start();
+                                            process.WaitForExit();
                                             break;
                                     }
                                 }
