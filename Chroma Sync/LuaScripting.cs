@@ -25,7 +25,7 @@ namespace ChromaSync
             var ms_luaCompileOptions = new LuaCompileOptions();
             ms_luaCompileOptions.DebugEngine = ms_luaDebug;
 
-            EventHook.MouseHook.MouseAction += new EventHandler(Event);
+            //EventHook.MouseHook.MouseAction += new EventHandler(Event);
 
             if (!Directory.Exists("scripts\\"))
                 return;
@@ -54,6 +54,9 @@ namespace ChromaSync
                         catch (LuaException e)
                         {
                             debug(e.FileName + ": " + e.Line + ": " + e.Message);
+                        }catch(Exception e)
+                        {
+                            debug(e.Message);
                         }
                     }
                 }).Start();
@@ -115,7 +118,6 @@ namespace ChromaSync
                     }
                     catch (Exception e)
                     {
-                        debug(e);
                         debug("Exception: " + e.StackTrace);
                     }
                 }
@@ -128,6 +130,7 @@ namespace ChromaSync
         {
 
             var eventHook = (EventHook.MouseHook.MouseData)sender;
+
             foreach (LuaCallback action in callbacks)
             {
                 var name = "MouseEvents";

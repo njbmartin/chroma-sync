@@ -662,7 +662,6 @@ namespace ChromaSync
 
                             String ns = "{" + myCompleteMessage.ToString().Split(new char[] { '{' }, 2)[1];
                             myCompleteMessage = null;
-                            Debug.Write("You received the following message : " + ns);
                             //Debug.Write(myCompleteMessage);
                             string header = string.Format("HTTP/1.1 {0}\r\n"
                                               + "Server: {1}\r\n"
@@ -677,7 +676,6 @@ namespace ChromaSync
                             try
                             {
                                 JObject o = JObject.Parse(ns);
-                                Debug.WriteLine(o.ToString());
                                 LuaScripting.PassThrough(o);
                             }
                             catch (Exception e)
