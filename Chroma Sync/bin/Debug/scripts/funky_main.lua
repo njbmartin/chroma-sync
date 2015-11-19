@@ -4,42 +4,60 @@ local c = Colore.Color.Purple
 function play_anim(json)
 
 local Colors = {
-      Blue = Colore.Color.Blue,
-      Red = Colore.Color.Red
+	Background = Colore.Color(10, 0, 0), 
+	One = Colore.Color.Green,
+	Two = Colore.Color.Pink,
+	Three = Colore.Color(50,100,50),
     }
+	
+	
+	local mousepadNumber = 0
 
 	while true do
+	--Colors.Background= Colore.Color(IntToByte(math.random(0,255)), IntToByte(math.random(0,255)), IntToByte(math.random(0,255))) 
 		-- Everthing should be white (strobe effect!!!!)
 		
 		-- set keyboard colour
 		for x=0,5 do
 			for y=0,21 do
-				Colore.Keyboard.Instance[x,y] =  Colore.Color.Black
+				Colore.Keyboard.Instance[x,y] =  Colors.Background
 			end
 		end
 		
-		for x=0,10 do
-			Colore.Keyboard.Instance[math.random(0,5), math.random(0,21)] =  Colors.Blue
+		for x=0,2 do
+			Colore.Keyboard.Instance[math.random(0,5), math.random(0,21)] =  Colors.One
+			Colore.Keyboard.Instance[math.random(0,5), math.random(0,21)] =  Colors.Two
+			Colore.Keyboard.Instance[math.random(0,5), math.random(0,21)] =  Colors.Three
 		end
 		
 		-- set mousepad colour
-		local custom = NewCustom("mousepad",Colore.Color.Black)
-		custom.Colors[math.random(0,14)] = Colore.Color.White
-		custom.Colors[math.random(0,14)] = Colore.Color.Red
-		custom.Colors[math.random(0,14)] = Colore.Color.Blue
+		local custom = NewCustom("mousepad",Colors.Background)
+		--[[
+		custom.Colors[math.random(0,14)] = Colors.One
+		custom.Colors[math.random(0,14)] = Colors.Two
+		custom.Colors[math.random(0,14)] = Colors.Three
+		]]
+		
+			custom.Colors[mousepadNumber] = Colors.One
+		mousepadNumber = mousepadNumber + 1
+		if mousepadNumber >= 15 then
+			mousepadNumber = 0
+		end
+		
 		Colore.Mousepad.Instance.SetCustom(custom)
+		
 		-- set mouse colour
-		local mouseCustom = NewCustom("mouse",Colore.Color.Black)		
-		mouseCustom.Colors[math.random(0,17)] = Colore.Color.White
-		mouseCustom.Colors[math.random(0,17)] = Colore.Color.Red
-		mouseCustom.Colors[math.random(0,17)] = Colore.Color.Blue
+		local mouseCustom = NewCustom("mouse",Colors.Background)		
+		mouseCustom.Colors[math.random(0,17)] = Colors.One
+		mouseCustom.Colors[math.random(0,17)] = Colors.Two
+		mouseCustom.Colors[math.random(0,17)] = Colors.Three
 		Colore.Mouse.Instance.SetCustom(mouseCustom)
+		
 		-- set keypad colour
-		local keypadCustom = NewCustom("keypad",Colore.Color.Black)
-
-		keypadCustom[math.random(0,4),math.random(0,5)] = Colore.Color.White
-		keypadCustom[math.random(0,4),math.random(0,5)] = Colore.Color.Red
-		keypadCustom[math.random(0,4),math.random(0,5)] = Colore.Color.Blue
+		local keypadCustom = NewCustom("keypad",Colors.Background)
+		keypadCustom[math.random(0,4),math.random(0,5)] = Colors.One
+		keypadCustom[math.random(0,4),math.random(0,5)] = Colors.Two
+		keypadCustom[math.random(0,4),math.random(0,5)] = Colors.Three
 		-- WASD
 		--keypadCustom[1,2] = c
 		--keypadCustom[2,1] = c

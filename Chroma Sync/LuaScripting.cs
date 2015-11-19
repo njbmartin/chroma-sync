@@ -6,31 +6,55 @@ using Corale.Colore.Core;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace ChromaSync
 {
     public class LuaScripting
     {
-
         private static readonly object _syncObject = new object();
         private static readonly object debugLock = new object();
         private static List<dynamic> callbacks;
+        private static Collection<Thread> scriptThreads;
+        private static FileSystemWatcher watcher;
+
+        public static void ReloadScripts()
+        {
+            foreach (var script in scriptThreads)
+            {
+                try
+                {
+                    script.Abort();
+                }
+                catch (Exception e)
+                {
+                    debug(e.Message);
+                }
+            }
+            LuaThread();
+        }
 
         public static void LuaThread()
         {
+            if(watcher == null)
+                Watch();
+            
             // WE NEED TO ENSURE CHROMA IS INITIALISED
             var c = Chroma.Instance;
             callbacks = new List<dynamic>();
             var ms_luaDebug = new LuaStackTraceDebugger();
             var ms_luaCompileOptions = new LuaCompileOptions();
             ms_luaCompileOptions.DebugEngine = ms_luaDebug;
-
+            scriptThreads = new Collection<Thread>();
             //EventHook.MouseHook.MouseAction += new EventHandler(Event);
 
             if (!Directory.Exists("scripts\\"))
-                return;
+                Directory.CreateDirectory("scripts");
             foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
             {
+                
+                scriptThreads.Add(
                 new Thread(() =>
                 {
                     using (Lua l = new Lua())
@@ -40,6 +64,7 @@ namespace ChromaSync
                         dg.DebugLua = new Func<object, bool>(debug);
                         dg.ConvertInt = new Func<JValue, int>(convertInt);
                         dg.NewCustom = new Func<string, Color, object>(newCustom);
+                        dg.IntToByte = new Func<int, byte>(IntToByte);
                         dg.Keyboard = Keyboard.Instance;
                         dg.Mouse = Mouse.Instance;
                         dg.Keypad = Keypad.Instance;
@@ -54,18 +79,24 @@ namespace ChromaSync
                         catch (LuaException e)
                         {
                             debug(e.FileName + ": " + e.Line + ": " + e.Message);
-                        }catch(Exception e)
+                        } catch (Exception e)
                         {
                             debug(e.Message);
                         }
                     }
-                }).Start();
+                }));
+                scriptThreads.Last().Start();
             }
         }
 
         public static int convertInt(JValue o)
         {
             return o.ToObject<int>();
+        }
+
+        public static byte IntToByte(int o)
+        {
+            return(byte)o;
         }
 
 
@@ -176,6 +207,33 @@ namespace ChromaSync
             return true;
         }
 
+
+
+        private static void OnChanged(object source, FileSystemEventArgs e)
+        {
+            Debug.WriteLine("Changed");
+            ReloadScripts();
+            // TODO: ShowPackages(); -- Needs to use background worker
+            //ShowPackages();
+            // https://msdn.microsoft.com/en-us/library/waw3xexc(v=vs.110).aspx
+        }
+
+
+        private static void Watch()
+        {
+            watcher = new FileSystemWatcher();
+
+            watcher.Path = Directory.GetCurrentDirectory() + "\\scripts";
+            watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
+           | NotifyFilters.FileName | NotifyFilters.DirectoryName;
+            watcher.Filter = "*.lua";
+            // Only watch text files.
+            watcher.Changed += new FileSystemEventHandler(OnChanged);
+            watcher.Created += new FileSystemEventHandler(OnChanged);
+            watcher.Deleted += new FileSystemEventHandler(OnChanged);
+            watcher.EnableRaisingEvents = true;
+        }
+
     }
 
     public class LuaCallback
@@ -183,6 +241,11 @@ namespace ChromaSync
         public string name { get; set; }
         public Func<object, LuaResult> callback { get; set; }
     }
+
+    
+
+
+
 
 
 }

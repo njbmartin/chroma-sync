@@ -148,5 +148,10 @@ namespace ChromaSync
         {
 
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            LuaScripting.ReloadScripts();
+        }
     }
 }

@@ -101,7 +101,7 @@ namespace ChromaSync
                                             Console.WriteLine(entry.FullName);
                                             if (step.Destination.Type == "steamapp")
                                             {
-                                                
+
                                                 var steamFolder = GameLocator.InstallFolder(step.Destination.Folder);
                                                 if (steamFolder == null)
                                                 {
@@ -112,20 +112,21 @@ namespace ChromaSync
                                             }
                                             var sp = entry.FullName.Remove(0, step.Folder.Length + 1);
                                             var pa = Path.Combine(path, sp);
-                                            if(!Directory.Exists(path))
+                                            if (!Directory.Exists(path))
                                                 Directory.CreateDirectory(path);
 
-                                            try {
+                                            try
+                                            {
                                                 entry.ExtractToFile(pa);
                                             }
-                                            catch(Exception e)
+                                            catch (Exception e)
                                             {
                                                 Console.WriteLine(e.Message);
                                             }
-                                        break;
+                                            break;
 
                                         case "execute":
-                                            
+                                            continue;
                                             if (!entry.Name.Equals(step.File))
                                                 continue;
 

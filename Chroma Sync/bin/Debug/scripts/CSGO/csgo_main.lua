@@ -53,6 +53,7 @@ end
 
 -- FreezeTime Animation
 CSGO_Example.FreezeTime = coroutine.create(function ()
+local mousepadNumber = 0
 	while true do
 		_isAnimating = true
 		if _phase ~= "freezetime" then
@@ -61,13 +62,56 @@ CSGO_Example.FreezeTime = coroutine.create(function ()
 			coroutine.yield()		
 		end
 		--Keyboard.SetAll(Colore.Core.Color.Pink)
-		Keyboard.SetKey(Razer.Keyboard.Key.Escape, Theme.Colors.Freeze)
-		Thread.Sleep(200)
-		--Keyboard.SetAll(Colore.Core.Color.Blue)
+		if mousepadNumber > 7 then
+			Keyboard.SetKey(Razer.Keyboard.Key.Escape, Theme.Colors.Freeze)
+		else
 		Keyboard.SetKey(Razer.Keyboard.Key.Escape, Colore.Core.Color.Black)
-		Thread.Sleep(200)
+		end
+		Thread.Sleep(50)
+		local custom = NewCustom("mousepad",Theme.Colors.None)
+		--[[
+		custom.Colors[math.random(0,14)] = Colors.One
+		custom.Colors[math.random(0,14)] = Colors.Two
+		custom.Colors[math.random(0,14)] = Colors.Three
+		]]
+		
+		custom.Colors[mousepadNumber] = Theme.Colors.Freeze
+		mousepadNumber = mousepadNumber + 1
+		if mousepadNumber >= 15 then
+			mousepadNumber = 0
+		end
+		Mousepad.SetCustom(custom)
 	end
 end)
+
+
+CSGO_Example.FreezeTimePad = coroutine.create(function ()
+
+	while true do
+		_isAnimating = true
+		if _phase ~= "freezetime" then
+			CSGO_Example.SetTeam(_team)
+			_isAnimating = false
+			coroutine.yield()		
+		end
+		-- set mousepad colour
+		local custom = NewCustom("mousepad",Theme.Colors.None)
+		--[[
+		custom.Colors[math.random(0,14)] = Colors.One
+		custom.Colors[math.random(0,14)] = Colors.Two
+		custom.Colors[math.random(0,14)] = Colors.Three
+		]]
+		
+		custom.Colors[mousepadNumber] = Theme.Colors.Freeze
+		mousepadNumber = mousepadNumber + 1
+		if mousepadNumber >= 15 then
+			mousepadNumber = 0
+		end
+		Mousepad.SetCustom(custom)
+		Thread.Sleep(50)
+	end
+end)
+
 
 CSGO_Example.Planted = coroutine.create(function ()
 	while true do
@@ -105,12 +149,11 @@ function CSGO_Example.RoundHandler(round)
 	
 	if _phase == "freezetime" then -- Check if Phase is FreezeTime
 		--DebugLua("phase is now freezetime")
-		coroutine.resume(CSGO_Example.FreezeTime)
+				coroutine.resume(CSGO_Example.FreezeTime)
 	end
 	
 	
 end
-
 function CSGO_Example.PlayerHandler(player)
 	
 	if player["activity"] ~= _activity then

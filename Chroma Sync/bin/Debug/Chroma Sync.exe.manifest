@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="133632">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="135168">
       <assemblyIdentity name="Chroma Sync" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Kxfv4n+5IEM40V3IPqICgJcSsETpAjq0/z16JLgRN2Y=</dsig:DigestValue>
+        <dsig:DigestValue>R65YNdBj/A2tIDZpq9jvgqZJIZMoujj1jinOPJABNGE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -130,6 +130,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>zcEHjnj/E8SnGtr/+b0VXrdj703FV2HeUZl9SEpayWc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="packages\readme.txt" size="130">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>p2tv2PwBoFPnUrPFUeEEb3cRZM7srC43xCKFRJA7rOY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\favicon.ico" size="15086">
