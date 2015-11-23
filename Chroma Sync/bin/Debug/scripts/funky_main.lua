@@ -4,10 +4,10 @@ local c = Colore.Color.Purple
 function play_anim(json)
 
 local Colors = {
-	Background = Colore.Color(10, 0, 0), 
-	One = Colore.Color.Green,
-	Two = Colore.Color.Pink,
-	Three = Colore.Color(50,100,50),
+	Background = Colore.Color(255, 69, 0), 
+	One = Colore.Color.Red,
+	Two = Colore.Color.Red,
+	Three = Colore.Color(255,140,0),
     }
 	
 	
@@ -24,10 +24,10 @@ local Colors = {
 			end
 		end
 		
-		for x=0,2 do
-			Colore.Keyboard.Instance[math.random(0,5), math.random(0,21)] =  Colors.One
-			Colore.Keyboard.Instance[math.random(0,5), math.random(0,21)] =  Colors.Two
-			Colore.Keyboard.Instance[math.random(0,5), math.random(0,21)] =  Colors.Three
+		for x=0,10 do
+			Colore.Keyboard.Instance[math.random(0,6), math.random(0,22)] =  Colors.One
+			Colore.Keyboard.Instance[math.random(0,6), math.random(0,22)] =  Colors.Two
+			Colore.Keyboard.Instance[math.random(0,6), math.random(0,22)] =  Colors.Three
 		end
 		
 		-- set mousepad colour
@@ -65,11 +65,11 @@ local Colors = {
 		--keypadCustom[2,3] = c
 		Colore.Keypad.Instance.SetCustom(keypadCustom)
 		-- We don't want to spam the SDK, so throttle to 50ms
-		Thread.Sleep(50)
+		Thread.Sleep(60)
 	end
 end
 
---play_anim()
+play_anim()
 
 function mouse_event(event)
 

@@ -572,6 +572,7 @@ namespace ChromaSync
             if (_clientThread != null && _clientThread.IsAlive)
                 _clientThread.Abort();
 
+            LuaScripting.CloseScripts();
             Application.Exit();
         }
 
