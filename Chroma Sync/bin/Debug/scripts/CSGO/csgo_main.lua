@@ -16,7 +16,7 @@ local Theme = {
 		Freeze = Colore.Core.Color(255, 255, 255),
 		Menu = Colore.Core.Color(255, 255, 255),
 		Counter =   Colore.Core.Color(0, 0, 50),
-		Terrorists = Colore.Core.Color(50, 50, 0),
+		Terrorists = Colore.Core.Color(255, 140, 0),
 		Health = {
 			Low = Colore.Core.Color(255, 0, 0),
 			Full = Colore.Core.Color(0, 255, 0)
@@ -185,18 +185,18 @@ function CSGO_Example.PlayerHandler(player)
 			local health = math.ceil((4 / 100) * ConvertInt(player["state"]["health"]))
 			for i=1, 4 do
 				if health >= i then
-					Keyboard[0,2+i]= Theme.Colors.Health.Full
+					Keyboard[0,6+i]= Theme.Colors.Health.Full
 				else
-					Keyboard[0,2+i]= Theme.Colors.Health.Low
+					Keyboard[0,6+i]= Theme.Colors.Health.Low
 				end
 			end
 			
 			local armor = math.ceil((4 / 100) * ConvertInt(player["state"]["armor"]))
 			for i=1, 4 do
 				if armor >= i then
-					Keyboard[0,6+i]= Theme.Colors.Armor.Full
+					Keyboard[0,10+i]= Theme.Colors.Armor.Full
 				else
-					Keyboard[0,6+i]= Theme.Colors.None
+					Keyboard[0,10+i]= Theme.Colors.None
 				end
 			end
 			
@@ -249,8 +249,12 @@ function CSGO_Example.PlayerHandler(player)
 						end
 						Set.One = color
 					end
+					
+					
+					-- Current Ammo
 					local ammo = weapon["ammo_clip"]
 					if (weapon["state"] == "active" and ammo ~= nil) then
+						local keyboardTotal = math.ceil((4 / ConvertInt(weapon["ammo_clip_max"])) * ConvertInt(ammo))
 						local mouseTotal = math.ceil((7 / ConvertInt(weapon["ammo_clip_max"])) * ConvertInt(ammo))
 						local mouseCustom = NewCustom("mouse")
 						c = Theme.Colors.Ammo.Full
@@ -270,6 +274,22 @@ function CSGO_Example.PlayerHandler(player)
 							
 						end
 						Mouse.SetCustom(mouseCustom)
+						
+						c = Theme.Colors.Ammo.Full
+							
+						if (keyboardTotal < 2) then
+							c = Theme.Colors.Ammo.Low
+						end
+							
+						for i=0, 3 do
+								
+							if(i >= keyboardTotal) then
+								c = Theme.Colors.None
+							end
+							Keyboard[0, 3 + i] = c
+						end
+						
+						
 					end
 				end
 			end
