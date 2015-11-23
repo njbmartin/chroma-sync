@@ -21,6 +21,12 @@ namespace ChromaSync
 
         public static void ReloadScripts()
         {
+            CloseScripts();
+            LuaThread();
+        }
+
+        public static void CloseScripts()
+        {
             foreach (var script in scriptThreads)
             {
                 try
@@ -32,7 +38,6 @@ namespace ChromaSync
                     debug(e.Message);
                 }
             }
-            LuaThread();
         }
 
         public static void LuaThread()
