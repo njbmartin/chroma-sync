@@ -7,6 +7,7 @@ using System.Drawing;
 using Newtonsoft.Json;
 using ChromaSync.Properties;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace ChromaSync
 {
@@ -80,6 +81,10 @@ namespace ChromaSync
 
         public static bool InstallPackage(Package p)
         {
+            var message = MessageBox.Show("Would you like to install the package " + p.Product.Name + "?", "Chroma Sync: " + p.Product.Name,
+MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (message == DialogResult.No)
+                return false;
             foreach (var step in p.Installation)
             {
 
@@ -117,7 +122,7 @@ namespace ChromaSync
 
                                             try
                                             {
-                                                entry.ExtractToFile(pa);
+                                                entry.ExtractToFile(pa,true);
                                             }
                                             catch (Exception e)
                                             {
@@ -126,7 +131,6 @@ namespace ChromaSync
                                             break;
 
                                         case "execute":
-                                            continue;
                                             if (!entry.Name.Equals(step.File))
                                                 continue;
 
@@ -141,7 +145,6 @@ namespace ChromaSync
                                             {
                                                 Console.WriteLine(e.Message);
                                             }
-
 
                                             System.Diagnostics.Process process = new System.Diagnostics.Process();
                                             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();

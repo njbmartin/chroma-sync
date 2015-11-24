@@ -148,3 +148,5 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\ChromaAppInfo.xml
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\packages\CSGO.zip
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\packages\CSGO.zip
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\packages\readme.txt
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\CSGO\csgo_main.lua
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\volume_main.lua

@@ -84,7 +84,7 @@ namespace ChromaSync
             }
             catch (Exception exc)
             {
-
+                LuaScripting.debug(exc.Message + "\n\nStack Trace:\n" + exc.StackTrace);
                 Application.Exit();
             }
         }

@@ -52,7 +52,7 @@ namespace ChromaSync
             var ms_luaCompileOptions = new LuaCompileOptions();
             ms_luaCompileOptions.DebugEngine = ms_luaDebug;
             scriptThreads = new Collection<Thread>();
-            //EventHook.MouseHook.MouseAction += new EventHandler(Event);
+            EventHook.MouseHook.MouseAction += new EventHandler(Event);
 
             if (!Directory.Exists("scripts\\"))
                 Directory.CreateDirectory("scripts");
@@ -114,8 +114,12 @@ namespace ChromaSync
                 Debug.WriteLine(text);
 
 
-                string path = @"scripts\log.txt";
+                string path = @"%appdata%\ChromaSync";
+                path = Environment.ExpandEnvironmentVariables(path);
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
                 // This text is added only once to the file.
+                path = Path.Combine(path, "log.txt");
                 if (!File.Exists(path))
                 {
                     // Create a file to write to.
