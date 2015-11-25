@@ -11,7 +11,7 @@ local Thread = clr.System.Threading.Thread
 
 local Theme = {
 	Colors = {
-		None = Colore.Core.Color(0, 0, 0),
+		None = Colore.Core.Color(60, 60, 60),
 		Dead = Colore.Core.Color(255, 0, 0),
 		Freeze = Colore.Core.Color(255, 255, 255),
 		Lite = Colore.Core.Color(50, 50, 50),

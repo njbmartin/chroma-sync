@@ -3,69 +3,59 @@ local Thread = clr.System.Threading.Thread
 local c = Colore.Color.Purple
 
 local Colors = {
-	Background = Colore.Color(255, 69, 0), 
-	One = Colore.Color.Red,
-	Two = Colore.Color.Red,
-	Three = Colore.Color(255,140,0),
+	Background = Colore.Color(60, 60, 60), 
+	One = Colore.Color(255,0,0),
+	Two = Colore.Color(255,0,0),
+	Three = Colore.Color(255,0,0),
 }
 
+local Memory = {
+	Keyboard = {
+		X = 0,
+		Y = 0,
+	},
+	Color = 0.00,
+}
+
+function hsvToRgb(h, s, v, a)
+  local r, g, b
+
+  local i = math.floor(h * 6);
+  local f = h * 6 - i;
+  local p = v * (1 - s);
+  local q = v * (1 - f * s);
+  local t = v * (1 - (1 - f) * s);
+
+  i = i % 6
+
+  if i == 0 then r, g, b = v, t, p
+  elseif i == 1 then r, g, b = q, v, p
+  elseif i == 2 then r, g, b = p, v, t
+  elseif i == 3 then r, g, b = p, q, v
+  elseif i == 4 then r, g, b = t, p, v
+  elseif i == 5 then r, g, b = v, p, q
+  end
+
+  return r * 255, g * 255, b * 255, a * 255
+end
 
 function play_anim(json)
 local mousepadNumber = 0
 	while true do
+	
+	r,g,b = hsvToRgb(Memory.Color,1,1,1)
+	Memory.Color = Memory.Color + 0.002
+	Colors.Background = Colore.Color(r,g,b)
+	
 		-- set keyboard colour
-		for x=0,5 do
-			for y=0,21 do
-				Keyboard[x,y] =  Colors.Background
-			end
-		end
+		Colore.Chroma.Instance.SetAll(Colors.Background)
 		
-		for x=0,5 do
-			Keyboard[math.random(0,6), math.random(0,22)] =  Colors.One
-			Keyboard[math.random(0,6), math.random(0,22)] =  Colors.Two
-			Keyboard[math.random(0,6), math.random(0,22)] =  Colors.Three
-		end
-		
-		-- set mousepad colour
-		local custom = NewCustom("mousepad",Colors.Background)
-		--[[
-		custom.Colors[math.random(0,14)] = Colors.One
-		custom.Colors[math.random(0,14)] = Colors.Two
-		custom.Colors[math.random(0,14)] = Colors.Three
-		]]
-		
-		custom.Colors[mousepadNumber] = Colors.One
-		mousepadNumber = mousepadNumber + 1
-		if mousepadNumber >= 15 then
-			mousepadNumber = 0
-		end
-		
-		Mousepad.SetCustom(custom)
-		
-		-- set mouse colour
-		local mouseCustom = NewCustom("mouse",Colors.Background)		
-		mouseCustom.Colors[math.random(0,17)] = Colors.One
-		mouseCustom.Colors[math.random(0,17)] = Colors.Two
-		mouseCustom.Colors[math.random(0,17)] = Colors.Three
-		Mouse.SetCustom(mouseCustom)
-		
-		-- set keypad colour
-		local keypadCustom = NewCustom("keypad",Colors.Background)
-		keypadCustom[math.random(0,4),math.random(0,5)] = Colors.One
-		keypadCustom[math.random(0,4),math.random(0,5)] = Colors.Two
-		keypadCustom[math.random(0,4),math.random(0,5)] = Colors.Three
-		-- WASD
-		--keypadCustom[1,2] = c
-		--keypadCustom[2,1] = c
-		--keypadCustom[2,2] = c
-		--keypadCustom[2,3] = c
-		Keypad.SetCustom(keypadCustom)
 		-- We don't want to spam the SDK, so throttle to 50ms
-		Thread.Sleep(60)
+		Thread.Sleep(50)
 	end
 end
 
---play_anim()
+play_anim()
 
 function mouse_event(event)
 
