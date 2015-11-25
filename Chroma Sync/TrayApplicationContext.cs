@@ -52,16 +52,16 @@ namespace ChromaSync
             _mainWindow = new Form1();
             if (!Settings.Default.FirstRun)
             {
-                Settings.Default.FirstRun = true;
-                _mainWindow.Show();
-                Settings.Default.Save();
+                //Settings.Default.FirstRun = true;
+                //_mainWindow.Show();
+                //Settings.Default.Save();
             }
             MenuItem about = new MenuItem("About Chroma Sync", showAbout);
             MenuItem updates = new MenuItem("Check for updates...", ShowConfig);
             MenuItem exitMenuItem = new MenuItem("Exit", Exit);
             var cm = new ContextMenu();
             cm.MenuItems.Add(about);
-            cm.MenuItems.Add(updates);
+            //cm.MenuItems.Add(updates);
             cm.MenuItems.Add(exitMenuItem);
             
 
@@ -74,9 +74,9 @@ namespace ChromaSync
                 Visible = true,
                 Text = Resources.ExitMenuText,
             };
-            _icon.DoubleClick += new System.EventHandler(ShowConfig);
+            //_icon.DoubleClick += new System.EventHandler(ShowConfig);
             //BalloonTip("Getting things ready", "Chroma Sync is performing first-time setup.\nThis shouldn't take long...");
-            Debug.WriteLine(Chroma.Instance.Query(Devices.MambaTeChroma).Connected ? "connected" : "not connected");
+            //Debug.WriteLine(Chroma.Instance.Query(Devices.MambaTeChroma).Connected ? "connected" : "not connected");
             string folder = null;
 
             folder = GameLocator.InstallFolder("Counter-Strike Global Offensive");

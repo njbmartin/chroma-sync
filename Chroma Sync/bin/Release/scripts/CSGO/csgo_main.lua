@@ -11,7 +11,7 @@ local Thread = clr.System.Threading.Thread
 
 local Theme = {
 	Colors = {
-		None = Colore.Core.Color(0, 0, 0),
+		None = Colore.Core.Color(60, 60, 60),
 		Dead = Colore.Core.Color(255, 0, 0),
 		Freeze = Colore.Core.Color(255, 255, 255),
 		Lite = Colore.Core.Color(50, 50, 50),
@@ -20,16 +20,20 @@ local Theme = {
 		Terrorists = Colore.Core.Color(255, 69, 0),
 		Health = {
 			Low = Colore.Core.Color(60, 0, 0),
-			Full = Colore.Core.Color(255, 0, 0)
+			Full = Colore.Core.Color(60, 0, 0)
+		},
+		Weapon = {
+			Inactive = Colore.Core.Color(60, 0, 0),
+			Active = Colore.Core.Color(0, 60, 0)
 		},
 		Armor = {
-			Low = Colore.Core.Color(60, 60, 60),
-			Full = Colore.Core.Color(255, 255, 255)
+			Low = Colore.Core.Color(60, 0, 0),
+			Full = Colore.Core.Color(60, 60, 60)
 		},
 		
 		Ammo = {
-			Low = Colore.Core.Color(255, 0, 0),
-			Full = Colore.Core.Color(0, 255, 0)
+			Low = Colore.Core.Color(60, 0, 0),
+			Full = Colore.Core.Color(60, 60, 0)
 		}
 	}
 }
@@ -80,7 +84,7 @@ end
 function CSGO_Example.SetNumpad(color)
 
 	for x=0,5 do
-		for y=18,21 do
+		for y=15,21 do
 			Keyboard[x,y] =  color
 		end
 	end
@@ -150,14 +154,15 @@ CSGO_Example.Burning = coroutine.create(function ()
 		end
 		
 		-- set keyboard colour
-		for x=0,5 do
-			for y=0,21 do
-				Keyboard[x,y] =  Colors.Background
-			end
-		end
 		
 		for x=0,5 do
-			Keyboard[math.random(0,6), math.random(0,22)] =  Colors.One
+		for y=15,21 do
+			Keyboard[x,y] =  Colors.Background
+		end
+	end
+		
+		for x=0,5 do
+			Keyboard[math.random(0,6), math.random(15,22)] =  Colors.One
 		end
 		
 		-- set mousepad colour
@@ -241,6 +246,7 @@ function CSGO_Example.PlayerHandler(player)
 		_activity = player["activity"]
 				
 		if _activity == "menu" then
+				_team = "NA"
 			CSGO_Example.SetAll(Theme.Colors.Terrorists)
 			Keyboard.SetKey(Razer.Keyboard.Key.C, Theme.Colors.Menu)
 			Keyboard.SetKey(Razer.Keyboard.Key.S, Theme.Colors.Menu)
@@ -321,34 +327,34 @@ function CSGO_Example.PlayerHandler(player)
 					local type= weapon["type"]
 					
 					if type == "Pistol" then
-						color = Theme.Colors.Lite
+						color = Theme.Colors.Weapon.Inactive
 						if weapon["state"]== "active" then
-							color = Theme.Colors.Menu
+							color = Theme.Colors.Weapon.Active
 						end
 						Set.Two = color
 					elseif type == "Knife" then
-						color = Theme.Colors.Lite
+						color = Theme.Colors.Weapon.Inactive
 						if weapon["state"] == "active" then
-							color = Theme.Colors.Menu
+							color = Theme.Colors.Weapon.Active
 						end
 						Set.Three = color
 
 					elseif type == "Grenade" then
-						color = Theme.Colors.Lite
+						color = Theme.Colors.Weapon.Inactive
 						if weapon["state"] == "active" then
-							color = Theme.Colors.Menu
+							color = Theme.Colors.Weapon.Active
 						end
 						Set.Four = color
 					elseif type == "C4" then
-						color = Theme.Colors.Lite
+						color = Theme.Colors.Weapon.Inactive
 						if weapon["state"] == "active" then
-							color = Theme.Colors.Menu
+							color = Theme.Colors.Weapon.Active
 						end
 						Set.Five = color
 					else
-						color = Theme.Colors.Lite
+						color = Theme.Colors.Weapon.Inactive
 						if weapon["state"] == "active" then
-							color = Theme.Colors.Menu
+							color = Theme.Colors.Weapon.Active
 						end
 						Set.One = color
 					end
@@ -409,6 +415,8 @@ end
 
 function CSGO_Example.SetTeam(team)
 		DebugLua("team: " .. _team)
+		
+	if _activity ~= "menu" then
 		if team == "CT" then
 			CSGO_Example.SetAll(Theme.Colors.Counter)
 		else
@@ -419,6 +427,10 @@ function CSGO_Example.SetTeam(team)
 		Keyboard.SetKey(Razer.Keyboard.Key.A, Theme.Colors.Menu)
 		Keyboard.SetKey(Razer.Keyboard.Key.S, Theme.Colors.Menu)
 		Keyboard.SetKey(Razer.Keyboard.Key.D, Theme.Colors.Menu)
+	
+	else
+		_team = "NA"
+	end
 end
 
 -- our main function to handle the data 

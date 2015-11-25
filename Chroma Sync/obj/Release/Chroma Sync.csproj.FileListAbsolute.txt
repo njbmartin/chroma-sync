@@ -115,9 +115,9 @@ N:\Development\Chroma Sync\Chroma Sync\obj\Release\ChromaSync.Form1.resources
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\ChromaSync.Properties.Resources.resources
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.dll
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Corale.Colore.xml
-N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\ChromaAppInfo.xml
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\packages\CSGO.zip
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\packages\readme.txt
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\scripts\CSGO\csgo_main.lua
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\scripts\volume_main.lua
+N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.csprojResolveAssemblyReference.cache

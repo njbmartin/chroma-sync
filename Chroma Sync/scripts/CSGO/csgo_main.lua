@@ -11,7 +11,7 @@ local Thread = clr.System.Threading.Thread
 
 local Theme = {
 	Colors = {
-		None = Colore.Core.Color(0, 0, 0),
+		None = Colore.Core.Color(60, 60, 60),
 		Dead = Colore.Core.Color(255, 0, 0),
 		Freeze = Colore.Core.Color(255, 255, 255),
 		Lite = Colore.Core.Color(50, 50, 50),
@@ -19,7 +19,7 @@ local Theme = {
 		Counter =   Colore.Core.Color(0, 0, 50),
 		Terrorists = Colore.Core.Color(255, 69, 0),
 		Health = {
-			Low = Colore.Core.Color(0, 0, 0),
+			Low = Colore.Core.Color(60, 0, 0),
 			Full = Colore.Core.Color(60, 0, 0)
 		},
 		Weapon = {
@@ -27,13 +27,13 @@ local Theme = {
 			Active = Colore.Core.Color(0, 60, 0)
 		},
 		Armor = {
-			Low = Colore.Core.Color(0, 0, 0),
+			Low = Colore.Core.Color(60, 0, 0),
 			Full = Colore.Core.Color(60, 60, 60)
 		},
 		
 		Ammo = {
 			Low = Colore.Core.Color(60, 0, 0),
-			Full = Colore.Core.Color(0, 60, 0)
+			Full = Colore.Core.Color(60, 60, 0)
 		}
 	}
 }

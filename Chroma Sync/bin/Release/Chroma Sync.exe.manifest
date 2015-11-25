@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8so/Hbir2xy23YO+aE9JNvsaeOPdOJXP7Uja9M1QkuI=</dsig:DigestValue>
+        <dsig:DigestValue>CPiIf2kYD0dOlCyDMAOxosBKNiKfqW86fnSdfNJV5Ng=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -123,13 +123,13 @@
       <dsig:DigestValue>4Jd4pbYJOzFEHVBIwGU8H7gO3anSCSg8NM+cxeiUlxg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ChromaAppInfo.xml" size="585" writeableType="applicationData">
+  <file name="ChromaAppInfo.xml" size="661" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>zcEHjnj/E8SnGtr/+b0VXrdj703FV2HeUZl9SEpayWc=</dsig:DigestValue>
+      <dsig:DigestValue>1SaZsoJL5I02R8rOJOIS415pVkljTr/KWI673j5weMk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="packages\readme.txt" size="130">
