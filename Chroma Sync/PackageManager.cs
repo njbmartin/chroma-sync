@@ -82,7 +82,8 @@ namespace ChromaSync
         public static bool InstallPackage(Package p)
         {
             var message = MessageBox.Show("Would you like to install the package " + p.Product.Name + "?", "Chroma Sync: " + p.Product.Name,
-MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (message == DialogResult.No)
                 return false;
             foreach (var step in p.Installation)

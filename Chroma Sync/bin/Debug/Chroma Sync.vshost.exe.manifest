@@ -43,38 +43,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="135680">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="130560">
       <assemblyIdentity name="Chroma Sync" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>54wKLxTUxiNj7obvomGtQYAm85QvXlVPkqc5k5lDcTg=</dsig:DigestValue>
+        <dsig:DigestValue>3Mv8yi4yKcwc2BtB90Gr4+4AlVa7kTgVoQx1k5EbfSI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Corale.Colore.dll" size="68096">
-      <assemblyIdentity name="Corale.Colore" version="2.3.2.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Corale.Colore.dll" size="70144">
+      <assemblyIdentity name="Corale.Colore" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nKnlw49pH05jZntSYqUmfWgcLwb6sUES9/S6M4jGQKs=</dsig:DigestValue>
+        <dsig:DigestValue>bs4qRlB/m3C8Y0VvxiQdvHkLv29ZGqgpNSZ0jDtaolo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="log4net.dll" size="301056">
-      <assemblyIdentity name="log4net" version="1.2.13.0" publicKeyToken="669E0DDF0BB1AA2A" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="log4net.dll" size="304128">
+      <assemblyIdentity name="log4net" version="1.2.14.0" publicKeyToken="669E0DDF0BB1AA2A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zm7k/ceDpb+QXyQBeKyW6ut+3iL/4GoGuhec0aBEK9M=</dsig:DigestValue>
+        <dsig:DigestValue>ESI2njbw0RJ6nTtqunaWXmnQyKRtEQB8VgHjJdZM92E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -123,13 +123,13 @@
       <dsig:DigestValue>4Jd4pbYJOzFEHVBIwGU8H7gO3anSCSg8NM+cxeiUlxg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ChromaAppInfo.xml" size="585" writeableType="applicationData">
+  <file name="ChromaAppInfo.xml" size="661" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>zcEHjnj/E8SnGtr/+b0VXrdj703FV2HeUZl9SEpayWc=</dsig:DigestValue>
+      <dsig:DigestValue>1SaZsoJL5I02R8rOJOIS415pVkljTr/KWI673j5weMk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="packages\readme.txt" size="130">

@@ -55,7 +55,7 @@ local mousepadNumber = 0
 	end
 end
 
-play_anim()
+--play_anim()
 
 function mouse_event(event)
 

@@ -31,6 +31,12 @@ namespace ChromaSync
             SetRegistry();
             //EventHook.MouseHook.Start();
             Application.Run(new TrayApplicationContext());
+            Application.ApplicationExit += Application_ApplicationExit;
+        }
+
+        private static void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            LuaScripting.CloseScripts();
         }
 
         private static void SetRegistry()

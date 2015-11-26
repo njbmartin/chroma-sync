@@ -38,14 +38,18 @@ namespace ChromaSync
                 //_mainWindow.Show();
                 //Settings.Default.Save();
             }
-
-            MenuItem about = new MenuItem("About Chroma Sync", showAbout);
+            Application.ApplicationExit += Application_ApplicationExit;
+            MenuItem about = new MenuItem("Visit website", showAbout);
             MenuItem updates = new MenuItem("Check for updates...", ShowConfig);
+            MenuItem openScripts = new MenuItem("Scripts Folder", BrowseScripts);
+            MenuItem packages = new MenuItem("Packages Folder", BrowsePackages);
             MenuItem reload = new MenuItem("Reload Scripts", ReloadScripts);
             MenuItem exitMenuItem = new MenuItem("Exit", Exit);
             var cm = new ContextMenu();
             cm.MenuItems.Add(about);
             cm.MenuItems.Add(reload);
+            cm.MenuItems.Add(packages);
+            cm.MenuItems.Add(openScripts);
             cm.MenuItems.Add(exitMenuItem);
             
             _icon = new NotifyIcon
@@ -58,7 +62,6 @@ namespace ChromaSync
             //_icon.DoubleClick += new System.EventHandler(ShowConfig);
             //BalloonTip("Getting things ready", "Chroma Sync is performing first-time setup.\nThis shouldn't take long...");
             //Debug.WriteLine(Chroma.Instance.Query(Devices.MambaTeChroma).Connected ? "connected" : "not connected");
-            string folder = null;
 
             _serverThread = new Thread(RunServer);
             _serverThread.Start();
@@ -68,9 +71,15 @@ namespace ChromaSync
 
         }
 
+        private void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            LuaScripting.CloseScripts();
+            Exit();
+        }
+
         void showAbout(object sender, EventArgs e)
         {
-            Process.Start("http://chromasync.io/about/");
+            Process.Start("http://chromasync.io/");
         }
 
         /*
@@ -231,7 +240,24 @@ namespace ChromaSync
             LuaScripting.ReloadScripts();
         }
 
+        void BrowseScripts(object sender, EventArgs e)
+        {
+            var f = Environment.CurrentDirectory + "\\scripts";
+            Process.Start("explorer.exe", f);
+        }
+
+        void BrowsePackages(object sender, EventArgs e)
+        {
+            var f = Environment.CurrentDirectory + "\\packages";
+            Process.Start("explorer.exe", f);
+        }
+
         void Exit(object sender, EventArgs e)
+        {
+            Exit();
+        }
+
+        private void Exit()
         {
             // We must manually tidy up and remove the icon before we exit.
             // Otherwise it will be left behind until the user mouses over.

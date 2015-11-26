@@ -11,29 +11,29 @@ local Thread = clr.System.Threading.Thread
 
 local Theme = {
 	Colors = {
-		None = Colore.Core.Color(60, 60, 60),
+		None = Colore.Core.Color(20, 20, 20),
 		Dead = Colore.Core.Color(255, 0, 0),
 		Freeze = Colore.Core.Color(255, 255, 255),
 		Lite = Colore.Core.Color(50, 50, 50),
 		Menu = Colore.Core.Color(255, 255, 255),
-		Counter =   Colore.Core.Color(0, 0, 50),
+		Counter =   Colore.Core.Color(0, 0, 255),
 		Terrorists = Colore.Core.Color(255, 69, 0),
 		Health = {
 			Low = Colore.Core.Color(60, 0, 0),
-			Full = Colore.Core.Color(60, 0, 0)
+			Full = Colore.Core.Color(255, 0, 0)
 		},
 		Weapon = {
 			Inactive = Colore.Core.Color(60, 0, 0),
-			Active = Colore.Core.Color(0, 60, 0)
+			Active = Colore.Core.Color(0, 255, 0)
 		},
 		Armor = {
 			Low = Colore.Core.Color(60, 0, 0),
-			Full = Colore.Core.Color(60, 60, 60)
+			Full = Colore.Core.Color(255, 255, 255)
 		},
 		
 		Ammo = {
 			Low = Colore.Core.Color(60, 0, 0),
-			Full = Colore.Core.Color(60, 60, 0)
+			Full = Colore.Core.Color(255, 255, 0)
 		}
 	}
 }
@@ -59,25 +59,7 @@ local _burning = false
 
 
 function CSGO_Example.SetAll(color)
-	--keyboard
-	for x=0,5 do
-		for y=0,21 do
-			Keyboard[x,y] =  color
-		end
-	end
-	
-	-- mousepad
-	local custom = NewCustom("mousepad",color)
-	Mousepad.SetCustom(custom)
-	
-	-- mouse
-	local mouseCustom = NewCustom("mouse",color)		
-	Mouse.SetCustom(mouseCustom)
-	
-	--keypad
-	local keypadCustom = NewCustom("keypad",color)
-	Keypad.SetCustom(keypadCustom)
-	
+	Colore.Core.Chroma.Instance.SetAll(color)
 end
 
 
@@ -109,20 +91,14 @@ local mousepadNumber = 0
 		Keyboard.SetKey(Razer.Keyboard.Key.Escape, Colore.Core.Color.Black)
 		CSGO_Example.SetNumpad(Theme.Colors.None)
 		end
-		Thread.Sleep(50)
-		local custom = NewCustom("mousepad",Theme.Colors.None)
-		--[[
-		custom.Colors[math.random(0,14)] = Colors.One
-		custom.Colors[math.random(0,14)] = Colors.Two
-		custom.Colors[math.random(0,14)] = Colors.Three
-		]]
+		Mousepad.SetAll(Theme.Colors.None)
+		Mousepad[mousepadNumber] = Theme.Colors.Freeze
+		Thread.Sleep(50)		
 		
-		custom.Colors[mousepadNumber] = Theme.Colors.Freeze
 		mousepadNumber = mousepadNumber + 1
 		if mousepadNumber >= 15 then
 			mousepadNumber = 0
 		end
-		Mousepad.SetCustom(custom)
 	end
 end)
 
@@ -137,6 +113,13 @@ local mousepadNumber = 0
 			_isAnimating = false
 			coroutine.yield()		
 		end
+		
+		if _helmet == false then
+			CSGO_Example.SetTeam(_team)
+			_isAnimating = false
+			coroutine.yield()		
+		end
+		
 		--Keyboard.SetAll(Colore.Core.Color.Pink)
 		
 		CSGO_Example.SetAll(Theme.Colors.Freeze)
@@ -153,39 +136,32 @@ CSGO_Example.Burning = coroutine.create(function ()
 			coroutine.yield()
 		end
 		
+		if _helmet == false then
+			CSGO_Example.SetTeam(_team)
+			_isAnimating = false
+			coroutine.yield()		
+		end
+		
 		-- set keyboard colour
 		
-		for x=0,5 do
-		for y=15,21 do
-			Keyboard[x,y] =  Colors.Background
-		end
-	end
+		CSGO_Example.SetAll(Theme.Colors.Terrorists)
 		
 		for x=0,5 do
-			Keyboard[math.random(0,6), math.random(15,22)] =  Colors.One
+			Keyboard[math.random(0,6), math.random(0,22)] =  Colors.One
 		end
 		
 		-- set mousepad colour
-		local custom = NewCustom("mousepad",Colors.Background)
-		custom.Colors[math.random(0,14)] = Colors.One
+		Mousepad[math.random(0,15)] = Colors.One
+
 		
-		Mousepad.SetCustom(custom)
-		
-		-- set mouse colour
-		local mouseCustom = NewCustom("mouse",Colors.Background)		
-		mouseCustom.Colors[math.random(0,17)] = Colors.One
-		Mouse.SetCustom(mouseCustom)
+		-- set mouse colour		
+		Mouse[math.random(0,9), math.random(0,7)] = Colors.One
+
 		
 		-- set keypad colour
-		local keypadCustom = NewCustom("keypad",Colors.Background)
-		keypadCustom[math.random(0,4),math.random(0,5)] = Colors.One
 		
-		-- WASD
-		--keypadCustom[1,2] = c
-		--keypadCustom[2,1] = c
-		--keypadCustom[2,2] = c
-		--keypadCustom[2,3] = c
-		Keypad.SetCustom(keypadCustom)
+		Keypad[math.random(0,4),math.random(0,5)] = Colors.One
+		
 		-- We don't want to spam the SDK, so throttle to 50ms
 		Thread.Sleep(60)
 	end
@@ -199,18 +175,24 @@ CSGO_Example.Planted = coroutine.create(function ()
 			_isAnimating = false
 			coroutine.yield()		
 		end
+		
+		if _helmet == false then
+			CSGO_Example.SetTeam(_team)
+			_isAnimating = false
+			coroutine.yield()		
+		end
+		
 		--Keyboard.SetAll(Colore.Core.Color.Pink)
-		Keyboard.SetKey(Razer.Keyboard.Key.Five, Theme.Colors.Dead)
+		Keyboard.SetKey(Razer.Keyboard.Key.D5, Theme.Colors.Dead)
 		CSGO_Example.SetNumpad(Theme.Colors.Dead)
-		local custom = NewCustom("mousepad",Theme.Colors.Dead)
-		Mousepad.SetCustom(custom)
+
+		Mousepad.SetAll(Theme.Colors.Dead)
 		
 		
 		Thread.Sleep(500)
 		--Keyboard.SetAll(Colore.Core.Color.Blue)
-		Keyboard.SetKey(Razer.Keyboard.Key.Five, Colore.Core.Color.Black)
-		local custom = NewCustom("mousepad",Colore.Core.Color.Black)
-		Mousepad.SetCustom(custom)
+		Keyboard.SetKey(Razer.Keyboard.Key.D5, Theme.Colors.None)
+		Mousepad.SetAll(Theme.Colors.None)
 		CSGO_Example.SetNumpad(Theme.Colors.None)
 		Thread.Sleep(500)
 	end
@@ -281,6 +263,7 @@ function CSGO_Example.PlayerHandler(player)
 			_helmet = player["state"]["helmet"]
 			if _helmet == false then
 				CSGO_Example.SetAll(Colore.Core.Color.Red)
+				_team = "NA"
 			do return end
 		end
 	end
@@ -370,26 +353,30 @@ function CSGO_Example.PlayerHandler(player)
 							
 						if (mouseTotal < 3) then
 							c = Theme.Colors.Ammo.Low
+							
 						end
 							
-						for i=0, 7 do
+						for i=1, 7 do
 								
 							if(i >= mouseTotal) then
 								c = Theme.Colors.None
 							end
 							
-							mouseCustom.Colors[17 - i] = c
-							mouseCustom.Colors[9 - i] = c
+							Mouse[i,0] = c
+							Mouse[i,6] = c
 							
 						end
-						Mouse.SetCustom(mouseCustom)
 						
 						c = Theme.Colors.Ammo.Full
 							
 						if (keyboardTotal < 2) then
 							c = Theme.Colors.Ammo.Low
+							Keyboard.SetKey(Razer.Keyboard.Key.R, Theme.Colors.Menu)
+						else
+							c = Theme.Colors.Ammo.Full
+							Keyboard.SetKey(Razer.Keyboard.Key.R, Theme.Colors.None)
 						end
-							
+						
 						for i=0, 3 do
 								
 							if(i >= keyboardTotal) then
@@ -402,13 +389,11 @@ function CSGO_Example.PlayerHandler(player)
 					end
 				end
 			end
-			
-			Keyboard.SetKey(Razer.Keyboard.Key.One, Set.One)
-			Keyboard.SetKey(Razer.Keyboard.Key.Two, Set.Two)
-			Keyboard.SetKey(Razer.Keyboard.Key.Three, Set.Three)
-			Keyboard.SetKey(Razer.Keyboard.Key.Four, Set.Four)
-			Keyboard.SetKey(Razer.Keyboard.Key.Five, Set.Five)
-			
+			Keyboard.SetKey(Razer.Keyboard.Key.D1, Set.One)
+			Keyboard.SetKey(Razer.Keyboard.Key.D2, Set.Two)
+			Keyboard.SetKey(Razer.Keyboard.Key.D3, Set.Three)
+			Keyboard.SetKey(Razer.Keyboard.Key.D4, Set.Four)
+			Keyboard.SetKey(Razer.Keyboard.Key.D5, Set.Five)
 		end
 	end
 end
@@ -436,18 +421,15 @@ end
 -- our main function to handle the data 
 function CSGO_Example.handleData(json)	
 	-- Get the current phase (if any)
-	
 	player = json["player"]
 	CSGO_Example.PlayerHandler(player)
-	
 	round = json["round"]
 	if round ~= nil then
 		CSGO_Example.RoundHandler(round)
 	end
-	
 	--phase = json["round"]["phase"]
 	--CSGO_Example.PhaseHandler(phase)
-	
+
 end
 
 -- Finally, we must register this script in order to receive data

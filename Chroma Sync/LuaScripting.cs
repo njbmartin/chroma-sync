@@ -27,6 +27,9 @@ namespace ChromaSync
 
         public static void CloseScripts()
         {
+
+            callbacks = new List<dynamic>();
+
             foreach (var script in scriptThreads)
             {
                 try
