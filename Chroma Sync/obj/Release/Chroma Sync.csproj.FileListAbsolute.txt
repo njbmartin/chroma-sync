@@ -64,10 +64,8 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.g.resour
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Release\Chroma Sync.csproj.GenerateResource.Cache
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe.config
 N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.exe
-N:\Development\Chroma Sync\Chroma Sync\obj\Release\Chroma Sync.pdb
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\scripts\readme.txt
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.exe
-N:\Development\Chroma Sync\Chroma Sync\bin\Release\Chroma Sync.pdb
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\log4net.dll
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Neo.Lua.Desktop.dll
 N:\Development\Chroma Sync\Chroma Sync\bin\Release\Neo.Lua.dll

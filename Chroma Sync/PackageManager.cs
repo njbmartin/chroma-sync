@@ -68,12 +68,15 @@ namespace ChromaSync
                     var p = PackageDetails(archive);
                     p.Container = st;
 
-
-                    p.Enabled = RegistryKeeper.CheckActive(p.Container);
-                    RegistryKeeper.UpdateReg(p.Container, !p.Enabled);
+                    var v = RegistryKeeper.GetValue(p.Container);
+                    if (v == p.Product.Version)
+                        p.Enabled = true;
+                    
 
                     if (p.Product.Name != null)
                         packages.Add(p);
+
+                    if(!p.Enabled)
                     InstallPackage(p);
                 }
             }
@@ -162,6 +165,7 @@ namespace ChromaSync
                                 }
                             }
                         }
+                        RegistryKeeper.UpdateReg(p.Container, p.Product.Version);
                     }
                     else
                     {

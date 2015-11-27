@@ -16,17 +16,17 @@ namespace ChromaSync
             ProgSettings.Close();
         }
 
-        public static bool CheckActive(string s)
+        public static string GetValue(string s)
         {
             CreateSettings();
             RegistryKey ProgSettings = Registry.CurrentUser.OpenSubKey("Software\\ChromaSync", true);
-            var settings = ProgSettings.GetValue(s, false).ToString(); // retrieve settings    
+            var setting = ProgSettings.GetValue(s, false).ToString(); // retrieve settings    
             ProgSettings.Close();
-            return Boolean.Parse(settings);
+            return setting;
         }
 
 
-        public static void UpdateReg(string s, bool t)
+        public static void UpdateReg(string s, string t)
         {
             CreateSettings();
             RegistryKey ProgSettings = Registry.CurrentUser.OpenSubKey("Software\\ChromaSync", true);

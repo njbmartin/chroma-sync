@@ -5553,11 +5553,6 @@
             A custom effect.
             </summary>
         </member>
-        <member name="F:Corale.Colore.Razer.Mouse.Effects.Effect.CustomGrid">
-            <summary>
-            Custom grid effect.
-            </summary>
-        </member>
         <member name="F:Corale.Colore.Razer.Mouse.Effects.Effect.Reactive">
             <summary>
             Reactive effect.
@@ -5576,6 +5571,11 @@
         <member name="F:Corale.Colore.Razer.Mouse.Effects.Effect.Wave">
             <summary>
             Wave effect.
+            </summary>
+        </member>
+        <member name="F:Corale.Colore.Razer.Mouse.Effects.Effect.CustomGrid">
+            <summary>
+            Custom grid effect.
             </summary>
         </member>
         <member name="F:Corale.Colore.Razer.Mouse.Effects.Effect.Invalid">

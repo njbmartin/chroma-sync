@@ -73,6 +73,7 @@ namespace ChromaSync
                         dg.ConvertInt = new Func<JValue, int>(convertInt);
                         dg.NewCustom = new Func<string, Color, object>(newCustom);
                         dg.IntToByte = new Func<int, byte>(IntToByte);
+                        dg.Headset = Headset.Instance;
                         dg.Keyboard = Keyboard.Instance;
                         dg.Mouse = Mouse.Instance;
                         dg.Keypad = Keypad.Instance;

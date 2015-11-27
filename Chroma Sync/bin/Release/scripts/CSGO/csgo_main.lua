@@ -199,27 +199,29 @@ CSGO_Example.Planted = coroutine.create(function ()
 end)
 
 function CSGO_Example.RoundHandler(round)
-	if round["phase"] ~= _phase then
-		--DebugLua("phase changed: " .. round["phase"])
-		_phase = round["phase"]
+	if _activity == "playing" then
+		if round["phase"] ~= _phase then
+			--DebugLua("phase changed: " .. round["phase"])
+			_phase = round["phase"]
+		end
+		
+		if round["bomb"] ~= _planted then
+			--DebugLua("phase changed: " .. round["phase"])
+			_planted = round["bomb"]
+		end
+		
+		
+		if _planted == "planted" then -- Check if Phase is FreezeTime
+			--DebugLua("phase is now freezetime")
+			
+			coroutine.resume(CSGO_Example.Planted)
+		end
+		
+		if _phase == "freezetime" then -- Check if Phase is FreezeTime
+			--DebugLua("phase is now freezetime")
+					coroutine.resume(CSGO_Example.FreezeTime)
+		end
 	end
-	
-	if round["bomb"] ~= _planted then
-		--DebugLua("phase changed: " .. round["phase"])
-		_planted = round["bomb"]
-	end
-	
-	
-	if _planted == "planted" then -- Check if Phase is FreezeTime
-		--DebugLua("phase is now freezetime")
-		coroutine.resume(CSGO_Example.Planted)
-	end
-	
-	if _phase == "freezetime" then -- Check if Phase is FreezeTime
-		--DebugLua("phase is now freezetime")
-				coroutine.resume(CSGO_Example.FreezeTime)
-	end
-	
 	
 end
 function CSGO_Example.PlayerHandler(player)
@@ -229,6 +231,10 @@ function CSGO_Example.PlayerHandler(player)
 				
 		if _activity == "menu" then
 				_team = "NA"
+				_burning = false
+		_flashed = false
+		_planted = false
+		_phase = "NA"
 			CSGO_Example.SetAll(Theme.Colors.Terrorists)
 			Keyboard.SetKey(Razer.Keyboard.Key.C, Theme.Colors.Menu)
 			Keyboard.SetKey(Razer.Keyboard.Key.S, Theme.Colors.Menu)
@@ -238,6 +244,15 @@ function CSGO_Example.PlayerHandler(player)
 		
 		end
 		
+	end
+	
+	if _activity == "menu" then
+		_team = "NA"
+		_burning = false
+		_flashed = false
+		_planted = false
+		_phase = "NA"
+		do return end
 	end
 	
 	if player["state"]["flashed"] > 0 then

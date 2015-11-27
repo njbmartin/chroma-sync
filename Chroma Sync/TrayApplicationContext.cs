@@ -366,10 +366,10 @@ namespace ChromaSync
                             //Debug.Write(myCompleteMessage);
                             string header = string.Format("HTTP/1.1 {0}\r\n"
                                               + "Server: {1}\r\n"
-                                              + "Content-Type: {3}\r\n"
+                                              + "Content-Type: {2}\r\n"
                                               + "Keep-Alive: Close\r\n"
                                               + "\r\n",
-                                              "HTTP 200 OK", "", 0, "application/json");
+                                              "HTTP 200 OK", "Chroma Sync", "application/json");
                             // Send header & data
                             var headerBytes = Encoding.ASCII.GetBytes(header);
                             stream.Write(headerBytes, 0, headerBytes.Length);
