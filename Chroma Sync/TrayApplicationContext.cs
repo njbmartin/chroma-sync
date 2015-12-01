@@ -38,6 +38,7 @@ namespace ChromaSync
                 //_mainWindow.Show();
                 //Settings.Default.Save();
             }
+            KeyHook.Start();
             Application.ApplicationExit += Application_ApplicationExit;
             MenuItem about = new MenuItem("Visit website", showAbout);
             MenuItem updates = new MenuItem("Check for updates...", ShowConfig);

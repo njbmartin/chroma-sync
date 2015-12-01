@@ -150,3 +150,5 @@ N:\Development\Chroma Sync\Chroma Sync\bin\Debug\packages\CSGO.zip
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\packages\readme.txt
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\CSGO\csgo_main.lua
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\volume_main.lua
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.CodeAnalysisLog.xml
+N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.lastcodeanalysissucceeded
