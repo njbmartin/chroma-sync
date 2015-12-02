@@ -128,7 +128,6 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manife
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.application
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
-C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\ChromaSync.Properties.Resources.resources
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\ChromaSync.Properties.Resources.resources
 N:\Development\Chroma Sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
@@ -152,3 +151,9 @@ N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\CSGO\csgo_main.lua
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\scripts\volume_main.lua
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.CodeAnalysisLog.xml
 N:\Development\Chroma Sync\Chroma Sync\bin\Debug\Chroma Sync.exe.lastcodeanalysissucceeded
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\packages\readme.txt
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\scripts\CSGO\csgo_main.lua
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\scripts\volume_main.lua
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.CodeAnalysisLog.xml
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.lastcodeanalysissucceeded
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache

@@ -53,7 +53,7 @@ namespace ChromaSync
 
         public static List<Package> packages;
 
-        public static void GetPackages()
+        public static List<Package> GetPackages()
         {
             packages = new List<Package>();
             if (!Directory.Exists("packages\\"))
@@ -80,6 +80,8 @@ namespace ChromaSync
                     InstallPackage(p);
                 }
             }
+
+            return packages;
         }
 
         public static bool InstallPackage(Package p)

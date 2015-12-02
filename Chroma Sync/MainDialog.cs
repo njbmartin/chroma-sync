@@ -28,8 +28,8 @@ namespace ChromaSync
            | NotifyFilters.FileName | NotifyFilters.DirectoryName;
             // Only watch text files.
             watcher.Changed += new FileSystemEventHandler(OnChanged);
-            watcher.Created += new FileSystemEventHandler(OnChanged);
-            watcher.Deleted += new FileSystemEventHandler(OnChanged);
+            //watcher.Created += new FileSystemEventHandler(OnChanged);
+            //watcher.Deleted += new FileSystemEventHandler(OnChanged);
             watcher.EnableRaisingEvents = true;
             ShowPackages();
         }
@@ -38,15 +38,14 @@ namespace ChromaSync
         {
             Debug.WriteLine("Changed");
             // TODO: ShowPackages(); -- Needs to use background worker
-            //ShowPackages();
+            ShowPackages();
             // https://msdn.microsoft.com/en-us/library/waw3xexc(v=vs.110).aspx
         }
 
         private void ShowPackages()
         {
             packageList.Items.Clear();
-            PackageManager.GetPackages();
-            var packages = PackageManager.packages;
+            var packages = PackageManager.GetPackages();
             foreach (var package in packages)
             {
                 Debug.WriteLine(package.Product.Name);

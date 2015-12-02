@@ -14,8 +14,12 @@ namespace ChromaSync
         /// </summary>
         [STAThread]
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.ControlAppDomain)]
-        static void Main()
+        static void Main(string[] args)
         {
+            foreach (string s in args)
+            {
+                Console.WriteLine(s);
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Add the event handler for handling UI thread exceptions to the event.
@@ -41,17 +45,13 @@ namespace ChromaSync
 
         private static void SetRegistry()
         {
-            RegistryKey helpDesk = Registry.CurrentUser.CreateSubKey("ChromaSync");
-            helpDesk.SetValue("", "URL:ChromaSync Protocol");
-            helpDesk.SetValue("URL Protocol", "");
 
-            RegistryKey defaultIcon = helpDesk.CreateSubKey("DefaultIcon");
-            defaultIcon.SetValue("", Path.GetFileName(Application.ExecutablePath));
-
-            RegistryKey shell = helpDesk.CreateSubKey("shell");
-            RegistryKey open = shell.CreateSubKey("open");
-            RegistryKey command = open.CreateSubKey("command");
-            command.SetValue("", Application.ExecutablePath + " %1");
+            RegistryKey Key = Registry.CurrentUser.CreateSubKey("test");
+            Key.CreateSubKey("DefaultIcon").SetValue("", Application.ExecutablePath + ",1");
+            Key.SetValue("", "test:Protocol");
+            Key.SetValue("URL Protocol", "");
+            Key.CreateSubKey(@"shell\open\command").SetValue("", Application.ExecutablePath + " %1");
+            
         }
 
 

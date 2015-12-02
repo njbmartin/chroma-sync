@@ -76,5 +76,5 @@ local mousepadNumber = 0
 	end
 end
 
+--clr.KeyHook.Hooker.Start()
 play_anim()
-

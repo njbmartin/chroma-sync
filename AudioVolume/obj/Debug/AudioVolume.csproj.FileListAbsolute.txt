@@ -1,0 +1,5 @@
+C:\Users\NMA04\Projects\chroma-sync\AudioVolume\bin\Debug\AudioVolume.dll
+C:\Users\NMA04\Projects\chroma-sync\AudioVolume\bin\Debug\AudioVolume.pdb
+C:\Users\NMA04\Projects\chroma-sync\AudioVolume\obj\Debug\AudioVolume.csprojResolveAssemblyReference.cache
+C:\Users\NMA04\Projects\chroma-sync\AudioVolume\obj\Debug\AudioVolume.dll
+C:\Users\NMA04\Projects\chroma-sync\AudioVolume\obj\Debug\AudioVolume.pdb

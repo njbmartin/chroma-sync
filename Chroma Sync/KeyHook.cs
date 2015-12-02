@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ChromaSync
 {
-    class KeyHook
+    class KeyHooked
     {
 
         ///////////////////////////////////////////////////////////
@@ -51,6 +51,7 @@ namespace ChromaSync
             using (Process curProcess = Process.GetCurrentProcess())
             using (ProcessModule curModule = curProcess.MainModule)
             {
+                Debug.WriteLine(curModule);
                 return SetWindowsHookEx(WH_KEYBOARD_LL, proc,
                     GetModuleHandle(curModule.ModuleName), 0);
             }
@@ -60,6 +61,7 @@ namespace ChromaSync
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
+            Debug.WriteLine("Hook callback");
             if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN) //A Key was pressed down
             {
                 int vkCode = Marshal.ReadInt32(lParam);           //Get the keycode

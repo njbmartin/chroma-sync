@@ -13,6 +13,9 @@ using System.Diagnostics;
 using ChromaSync.Properties;
 using System.IO;
 using Neo.IronLua;
+using System.Collections.Generic;
+using System.Reflection;
+
 
 namespace ChromaSync
 {
@@ -20,8 +23,7 @@ namespace ChromaSync
 
     public class TrayApplicationContext : ApplicationContext
     {
-        private readonly NotifyIcon _icon;
-
+        private static NotifyIcon _icon;
 
         private Form1 _mainWindow;
         private Thread _serverThread;
@@ -31,14 +33,46 @@ namespace ChromaSync
         //Program configWindow = new Program();
         public TrayApplicationContext()
         {
-            _mainWindow = new Form1();
-            if (!Settings.Default.FirstRun)
+            
+            List<Assembly> allAssemblies = new List<Assembly>();
+
+
+            string path = @"%appdata%\ChromaSync";
+            path = Environment.ExpandEnvironmentVariables(path);
+
+            path = Path.Combine(path, "plugins");
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+
+            
+            foreach (string dll in Directory.GetFiles(path, "*.dll"))
             {
-                //Settings.Default.FirstRun = true;
-                //_mainWindow.Show();
-                //Settings.Default.Save();
+                var assembly = Assembly.LoadFile(dll);
+                allAssemblies.Add(assembly);
+
+
+                Type[] types = assembly.GetTypes();
+                foreach (Type type in types)
+                {
+
+                    if (type != null)
+                    {
+                        MethodInfo methodInfo = type.GetMethod("AutoStart");
+                        if (methodInfo != null)
+                        {
+                            object result = null;
+                            ParameterInfo[] parameters = methodInfo.GetParameters();
+                            object classInstance = Activator.CreateInstance(type, null);
+                            if (parameters.Length == 0)
+                            {
+                                //This works fine
+                                result = methodInfo.Invoke(classInstance, null);
+                            }
+                        }
+                    }
+                }
             }
-            KeyHook.Start();
             Application.ApplicationExit += Application_ApplicationExit;
             MenuItem about = new MenuItem("Visit website", showAbout);
             MenuItem updates = new MenuItem("Check for updates...", ShowConfig);
@@ -52,7 +86,7 @@ namespace ChromaSync
             cm.MenuItems.Add(packages);
             cm.MenuItems.Add(openScripts);
             cm.MenuItems.Add(exitMenuItem);
-            
+
             _icon = new NotifyIcon
             {
                 Icon = Properties.Resources.favicon,
@@ -69,6 +103,15 @@ namespace ChromaSync
 
             _luaThread = new Thread(LuaScripting.LuaThread);
             _luaThread.Start();
+
+            _mainWindow = new Form1();
+            if (!Settings.Default.FirstRun)
+            {
+                //Settings.Default.FirstRun = true;
+                //_mainWindow.Show();
+                //Settings.Default.Save();
+            }
+
 
         }
 
@@ -199,11 +242,11 @@ namespace ChromaSync
             }
         }
 
-        public void BalloonTip(string title, string text)
+        public static void BalloonTip(string title, string text, int timeout = 200)
         {
             _icon.BalloonTipTitle = title;
             _icon.BalloonTipText = text;
-            _icon.ShowBalloonTip(2000);
+            _icon.ShowBalloonTip(timeout);
         }
 
         Color RGBAFix(Color color)

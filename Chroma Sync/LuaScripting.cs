@@ -18,7 +18,6 @@ namespace ChromaSync
         private static List<dynamic> callbacks;
         private static Collection<Thread> scriptThreads;
         private static FileSystemWatcher watcher;
-
         public static void ReloadScripts()
         {
             CloseScripts();
@@ -32,14 +31,10 @@ namespace ChromaSync
 
             foreach (var script in scriptThreads)
             {
-                try
-                {
+               
                     script.Abort();
-                }
-                catch (Exception e)
-                {
-                    debug(e.Message);
-                }
+                
+                
             }
         }
 
@@ -57,9 +52,14 @@ namespace ChromaSync
             scriptThreads = new Collection<Thread>();
             EventHook.MouseHook.MouseAction += new EventHandler(Event);
 
-            if (!Directory.Exists("scripts\\"))
-                Directory.CreateDirectory("scripts");
-            foreach (string st in Directory.GetFiles("scripts\\", "*_main.lua", SearchOption.AllDirectories))
+            string path = @"%appdata%\ChromaSync";
+            path = Environment.ExpandEnvironmentVariables(path);
+
+            path = Path.Combine(path, "scripts");
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            foreach (string st in Directory.GetFiles(path, "*_main.lua", SearchOption.AllDirectories))
             {
                 
                 scriptThreads.Add(
@@ -80,8 +80,10 @@ namespace ChromaSync
                         dg.Mousepad = Mousepad.Instance;
 
                         dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
+                        debug("starting Lua script: " + st);
                         try
                         {
+                            
                             LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
                             var d = g.DoChunk(compiled);
                         }
@@ -115,7 +117,7 @@ namespace ChromaSync
             var text = DateTime.Now + " - " + d;
             lock (debugLock)
             {
-                Debug.WriteLine(text);
+                Debug.WriteLine("Lua Script log: "  + text);
 
 
                 string path = @"%appdata%\ChromaSync";
@@ -221,29 +223,34 @@ namespace ChromaSync
         }
 
 
-
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
+            watcher.EnableRaisingEvents = false;
             Debug.WriteLine("Changed");
             ReloadScripts();
             // TODO: ShowPackages(); -- Needs to use background worker
             //ShowPackages();
             // https://msdn.microsoft.com/en-us/library/waw3xexc(v=vs.110).aspx
+            watcher.EnableRaisingEvents = true;
         }
 
 
         private static void Watch()
         {
             watcher = new FileSystemWatcher();
+            string path = @"%appdata%\ChromaSync";
+            path = Environment.ExpandEnvironmentVariables(path);
+            path = Path.Combine(path, "scripts");
+            if(!Directory.Exists(path))
+                Directory.CreateDirectory(path);
 
-            watcher.Path = Directory.GetCurrentDirectory() + "\\scripts";
-            watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
+            
+            watcher.Path = path;
+            watcher.NotifyFilter = NotifyFilters.LastWrite
            | NotifyFilters.FileName | NotifyFilters.DirectoryName;
             watcher.Filter = "*.lua";
             // Only watch text files.
             watcher.Changed += new FileSystemEventHandler(OnChanged);
-            watcher.Created += new FileSystemEventHandler(OnChanged);
-            watcher.Deleted += new FileSystemEventHandler(OnChanged);
             watcher.EnableRaisingEvents = true;
         }
 

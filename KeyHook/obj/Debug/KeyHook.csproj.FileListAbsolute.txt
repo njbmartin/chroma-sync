@@ -1,0 +1,4 @@
+C:\Users\NMA04\Projects\chroma-sync\KeyHook\bin\Debug\KeyHook.dll
+C:\Users\NMA04\Projects\chroma-sync\KeyHook\bin\Debug\KeyHook.pdb
+C:\Users\NMA04\Projects\chroma-sync\KeyHook\obj\Debug\KeyHook.dll
+C:\Users\NMA04\Projects\chroma-sync\KeyHook\obj\Debug\KeyHook.pdb
