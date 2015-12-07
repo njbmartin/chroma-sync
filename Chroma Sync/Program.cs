@@ -51,7 +51,6 @@ namespace ChromaSync
             Key.SetValue("", "test:Protocol");
             Key.SetValue("URL Protocol", "");
             Key.CreateSubKey(@"shell\open\command").SetValue("", Application.ExecutablePath + " %1");
-            
         }
 
 

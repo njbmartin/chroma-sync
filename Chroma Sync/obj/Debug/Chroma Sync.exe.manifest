@@ -43,38 +43,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="133120">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="136192">
       <assemblyIdentity name="Chroma Sync" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>exEvQ5I+7tE7cZ3PEUQKvS5ETDnlfeB2NFMZJtwPKeo=</dsig:DigestValue>
+        <dsig:DigestValue>EztzeNGYxVU4fl2FyK+s5gyc5RVxWoI1sgrThclHBEQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Corale.Colore.dll" size="70144">
-      <assemblyIdentity name="Corale.Colore" version="3.0.1.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Corale.Colore.dll" size="76288">
+      <assemblyIdentity name="Corale.Colore" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>P3xjvokl/PN5vGRgegFikqvdfLdVpXyeoVMtii462Sg=</dsig:DigestValue>
+        <dsig:DigestValue>eD/4iyesZXAM+mag6E2vAh/vRWuzJaZdUYY1twFuiuo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="log4net.dll" size="304128">
-      <assemblyIdentity name="log4net" version="1.2.14.0" publicKeyToken="669E0DDF0BB1AA2A" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="log4net.dll" size="311296">
+      <assemblyIdentity name="log4net" version="1.2.13.0" publicKeyToken="669E0DDF0BB1AA2A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ESI2njbw0RJ6nTtqunaWXmnQyKRtEQB8VgHjJdZM92E=</dsig:DigestValue>
+        <dsig:DigestValue>NpHGPuhLJijgwCFBjQ3ul5tQzlUBeNs+/F4Z/lutW0w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

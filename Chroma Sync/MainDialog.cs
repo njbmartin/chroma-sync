@@ -22,8 +22,14 @@ namespace ChromaSync
         public void Watch()
         {
             FileSystemWatcher watcher = new FileSystemWatcher();
+            string path = @"%appdata%\ChromaSync";
+            path = Environment.ExpandEnvironmentVariables(path);
 
-            watcher.Path = Directory.GetCurrentDirectory() + "\\packages";
+            path = Path.Combine(path, "packages");
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            watcher.Path = path;
             watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
            | NotifyFilters.FileName | NotifyFilters.DirectoryName;
             // Only watch text files.
@@ -59,7 +65,7 @@ namespace ChromaSync
                 item.SubItems.Add(package.Product.Type);
                 item.SubItems.Add(package.Product.Version);
                 item.Text = package.Product.Name;
-
+                
                 if (package.Image != null)
                 {
                     packageList.LargeImageList.Images.Add(package.Product.Name, package.Image);
@@ -128,8 +134,17 @@ namespace ChromaSync
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var f = Environment.CurrentDirectory + "\\scripts";
-            Process.Start("explorer.exe", f);
+
+
+            string path = @"%appdata%\ChromaSync";
+            path = Environment.ExpandEnvironmentVariables(path);
+
+            path = Path.Combine(path, "scripts");
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            Process.Start("explorer.exe", path);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

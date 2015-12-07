@@ -157,3 +157,9 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\scripts\volume_main.lu
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.CodeAnalysisLog.xml
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.lastcodeanalysissucceeded
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.pdb
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\UserControl1.g.cs
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_Content.g.cs
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_MarkupCompile.cache
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_MarkupCompile.lref
+C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\UserControl1.baml

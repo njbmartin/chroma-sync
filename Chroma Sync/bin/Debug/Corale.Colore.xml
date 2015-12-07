@@ -978,6 +978,12 @@
             <param name="first">Color to start from.</param>
             <param name="second">Color to reach, before going back to <paramref name="first" />.</param>
         </member>
+        <member name="M:Corale.Colore.Core.IKeyboard.SetBreathing">
+            <summary>
+            Sets an effect on the keyboard, fading between
+            between randomly chosen colors.
+            </summary>
+        </member>
         <member name="M:Corale.Colore.Core.IKeyboard.SetReactive(Corale.Colore.Core.Color,Corale.Colore.Razer.Keyboard.Effects.Duration)">
             <summary>
             Sets a reactive effect on the keyboard with the specified
@@ -1438,7 +1444,25 @@
             Prevents a default instance of the <see cref="T:Corale.Colore.Core.Keyboard"/> class from being created.
             </summary>
         </member>
+        <member name="M:Corale.Colore.Core.Keyboard.ParseKey(System.String)">
+            <summary>
+            Parses a string into a <see cref="T:Corale.Colore.Razer.Keyboard.Key"/>.
+            </summary>
+            <param name="key">The key to access as a string.</param>
+            <returns>The actual <see cref="T:Corale.Colore.Razer.Keyboard.Key"/> representation or <see cref="F:Corale.Colore.Razer.Keyboard.Key.Invalid"/> if string is incorrect.</returns>
+        </member>
         <member name="M:Corale.Colore.Core.Keyboard.IsKeySafe(Corale.Colore.Razer.Keyboard.Key)">
+            <summary>
+            Returns whether the specified key is safe to use.
+            </summary>
+            <param name="key">The <see cref="T:Corale.Colore.Razer.Keyboard.Key"/> to test.</param>
+            <returns><c>true</c> if the <see cref="T:Corale.Colore.Razer.Keyboard.Key"/> is safe, otherwise <c>false</c>.</returns>
+            <remarks>
+            A "safe" key means one that will always be visible if lit up,
+            regardless of the physical layout of the keyboard.
+            </remarks>
+        </member>
+        <member name="M:Corale.Colore.Core.Keyboard.IsKeySafe(System.String)">
             <summary>
             Returns whether the specified key is safe to use.
             </summary>
@@ -1468,6 +1492,13 @@
             <param name="key">Key to check.</param>
             <returns><c>true</c> if the key has a color set, otherwise <c>false</c>.</returns>
         </member>
+        <member name="M:Corale.Colore.Core.Keyboard.IsSet(System.String)">
+            <summary>
+            Returns whether a certain key parsed as a string has had a custom color set.
+            </summary>
+            <param name="key">Key to check.</param>
+            <returns><c>true</c> if the key has a color set, otherwise <c>false</c>.</returns>
+        </member>
         <member name="M:Corale.Colore.Core.Keyboard.SetBreathing(Corale.Colore.Razer.Keyboard.Effects.Breathing)">
             <summary>
             Sets a breathing effect on the keyboard.
@@ -1487,6 +1518,12 @@
             </summary>
             <param name="first">Color to start from.</param>
             <param name="second">Color to reach, before going back to <paramref name="first" />.</param>
+        </member>
+        <member name="M:Corale.Colore.Core.Keyboard.SetBreathing">
+            <summary>
+            Sets a breathing effect on the keyboard, fading
+            between randomly chosen colors.
+            </summary>
         </member>
         <member name="M:Corale.Colore.Core.Keyboard.SetReactive(Corale.Colore.Core.Color,Corale.Colore.Razer.Keyboard.Effects.Duration)">
             <summary>
@@ -1559,7 +1596,26 @@
             <param name="key">First key to change.</param>
             <param name="keys">Additional keys that should also have the color applied.</param>
         </member>
+        <member name="M:Corale.Colore.Core.Keyboard.SetKeys(Corale.Colore.Core.Color,System.String,System.String[])">
+            <summary>
+            Sets the specified color on a set of keys.
+            </summary>
+            <param name="color">The <see cref="T:Corale.Colore.Core.Color"/> to apply.</param>
+            <param name="key">First key to change.</param>
+            <param name="keys">Additional keys that should also have the color applied.</param>
+        </member>
         <member name="M:Corale.Colore.Core.Keyboard.SetKeys(System.Collections.Generic.IEnumerable{Corale.Colore.Razer.Keyboard.Key},Corale.Colore.Core.Color,System.Boolean)">
+            <summary>
+            Sets a color on a collection of keys.
+            </summary>
+            <param name="keys">The keys which should have their color changed.</param>
+            <param name="color">The <see cref="T:Corale.Colore.Core.Color"/> to apply.</param>
+            <param name="clear">
+            If <c>true</c>, the keyboard keys will be cleared before
+            applying the new colors.
+            </param>
+        </member>
+        <member name="M:Corale.Colore.Core.Keyboard.SetKeys(System.Collections.Generic.IEnumerable{System.String},Corale.Colore.Core.Color,System.Boolean)">
             <summary>
             Sets a color on a collection of keys.
             </summary>
@@ -1600,13 +1656,20 @@
             <param name="key">The key to access.</param>
             <returns>The color currently set for the specified key.</returns>
         </member>
+        <member name="P:Corale.Colore.Core.Keyboard.Item(System.String)">
+            <summary>
+            Gets or sets the <see cref="T:Corale.Colore.Core.Color"/> for a specific <see cref="T:Corale.Colore.Razer.Keyboard.Key"/> on the keyboard.
+            </summary>
+            <param name="key">The key to access.</param>
+            <returns>The color currently set for the specified key.</returns>
+        </member>
         <member name="P:Corale.Colore.Core.Keyboard.Item(Corale.Colore.Core.Size,Corale.Colore.Core.Size)">
             <summary>
             Gets or sets the <see cref="T:Corale.Colore.Core.Color"/> for a specific row and column on the
             keyboard grid.
             </summary>
             <param name="row">Row to query, between 1 and <see cref="F:Corale.Colore.Razer.Keyboard.Constants.MaxRows"/>.</param>
-            <param name="column">Column to query, between 1 and <see cref="F:Corale.Colore.Razer.Keyboard.Constants.MaxColumns"/>.</param>
+            <param name="column">Column to query, between 1 and <see cref="F:Corale.Colore.Razer.Keyboard.Constants.MaxColumns"/>.</param>ssas
             <returns>The color currently set on the specified position.</returns>
         </member>
         <member name="T:Corale.Colore.Core.Keypad">
@@ -3405,6 +3468,11 @@
             Describes the breathing effect.
             </summary>
         </member>
+        <member name="F:Corale.Colore.Razer.Keyboard.Effects.Breathing.Type">
+            <summary>
+            The type of breathing effect.
+            </summary>
+        </member>
         <member name="F:Corale.Colore.Razer.Keyboard.Effects.Breathing.First">
             <summary>
             First color.
@@ -3415,12 +3483,41 @@
             Second color.
             </summary>
         </member>
-        <member name="M:Corale.Colore.Razer.Keyboard.Effects.Breathing.#ctor(Corale.Colore.Core.Color,Corale.Colore.Core.Color)">
+        <member name="M:Corale.Colore.Razer.Keyboard.Effects.Breathing.#ctor(Corale.Colore.Razer.Keyboard.Effects.BreathingType,Corale.Colore.Core.Color,Corale.Colore.Core.Color)">
             <summary>
             Initializes a new instance of the <see cref="T:Corale.Colore.Razer.Keyboard.Effects.Breathing"/> struct.
             </summary>
-            <param name="first">First color.</param>
+            <param name="type">The type of breathing effect.</param>
+            <param name="first">Initial color.</param>
             <param name="second">Second color.</param>
+        </member>
+        <member name="M:Corale.Colore.Razer.Keyboard.Effects.Breathing.#ctor(Corale.Colore.Core.Color,Corale.Colore.Core.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Corale.Colore.Razer.Keyboard.Effects.Breathing"/> struct with
+            two colors to breathe between.
+            </summary>
+            <param name="first">Initial color.</param>
+            <param name="second">Second color.</param>
+        </member>
+        <member name="T:Corale.Colore.Razer.Keyboard.Effects.BreathingType">
+            <summary>
+            Supported breathing effect types for mouse pads.
+            </summary>
+        </member>
+        <member name="F:Corale.Colore.Razer.Keyboard.Effects.BreathingType.Two">
+            <summary>
+            Breathes between two specified colors.
+            </summary>
+        </member>
+        <member name="F:Corale.Colore.Razer.Keyboard.Effects.BreathingType.Random">
+            <summary>
+            Breathes between two random colors.
+            </summary>
+        </member>
+        <member name="F:Corale.Colore.Razer.Keyboard.Effects.BreathingType.Invalid">
+            <summary>
+            Invalid type.
+            </summary>
         </member>
         <member name="T:Corale.Colore.Razer.Keyboard.Effects.Custom">
             <summary>

@@ -16,7 +16,6 @@ using Neo.IronLua;
 using System.Collections.Generic;
 using System.Reflection;
 
-
 namespace ChromaSync
 {
 
@@ -29,50 +28,31 @@ namespace ChromaSync
         private Thread _serverThread;
         private Thread _clientThread;
         private Thread _luaThread;
+        private UserControl1 _main;
 
         //Program configWindow = new Program();
         public TrayApplicationContext()
         {
-            
-            List<Assembly> allAssemblies = new List<Assembly>();
-
-
-            string path = @"%appdata%\ChromaSync";
-            path = Environment.ExpandEnvironmentVariables(path);
-
-            path = Path.Combine(path, "plugins");
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-
-            
-            foreach (string dll in Directory.GetFiles(path, "*.dll"))
+            System.Windows.Window window = new System.Windows.Window
             {
-                var assembly = Assembly.LoadFile(dll);
-                allAssemblies.Add(assembly);
+                Title = "My User Control Dialog",
+                Content = new UserControl1(),
+                AllowsTransparency = true,
+                WindowStyle = System.Windows.WindowStyle.None
+            };
 
+            window.Show();
 
-                Type[] types = assembly.GetTypes();
-                foreach (Type type in types)
-                {
-
-                    if (type != null)
-                    {
-                        MethodInfo methodInfo = type.GetMethod("AutoStart");
-                        if (methodInfo != null)
-                        {
-                            object result = null;
-                            ParameterInfo[] parameters = methodInfo.GetParameters();
-                            object classInstance = Activator.CreateInstance(type, null);
-                            if (parameters.Length == 0)
-                            {
-                                //This works fine
-                                result = methodInfo.Invoke(classInstance, null);
-                            }
-                        }
-                    }
-                }
+            // Onboarding
+            if (!Settings.Default.FirstRun)
+            {
+                //Settings.Default.FirstRun = true;
+                //_mainWindow.Show();
+                //Settings.Default.Save();
             }
+
+
+
             Application.ApplicationExit += Application_ApplicationExit;
             MenuItem about = new MenuItem("Visit website", showAbout);
             MenuItem updates = new MenuItem("Check for updates...", ShowConfig);
@@ -89,14 +69,13 @@ namespace ChromaSync
 
             _icon = new NotifyIcon
             {
-                Icon = Properties.Resources.favicon,
+                Icon = Resources.favicon,
                 ContextMenu = cm,
                 Visible = true,
                 Text = Resources.ExitMenuText,
             };
-            //_icon.DoubleClick += new System.EventHandler(ShowConfig);
-            //BalloonTip("Getting things ready", "Chroma Sync is performing first-time setup.\nThis shouldn't take long...");
-            //Debug.WriteLine(Chroma.Instance.Query(Devices.MambaTeChroma).Connected ? "connected" : "not connected");
+
+            PluginManager.EnablePlugins();
 
             _serverThread = new Thread(RunServer);
             _serverThread.Start();
@@ -105,12 +84,8 @@ namespace ChromaSync
             _luaThread.Start();
 
             _mainWindow = new Form1();
-            if (!Settings.Default.FirstRun)
-            {
-                //Settings.Default.FirstRun = true;
-                //_mainWindow.Show();
-                //Settings.Default.Save();
-            }
+
+            
 
 
         }
@@ -286,14 +261,26 @@ namespace ChromaSync
 
         void BrowseScripts(object sender, EventArgs e)
         {
-            var f = Environment.CurrentDirectory + "\\scripts";
-            Process.Start("explorer.exe", f);
+            string path = @"%appdata%\ChromaSync";
+            path = Environment.ExpandEnvironmentVariables(path);
+
+            path = Path.Combine(path, "scripts");
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            Process.Start("explorer.exe", path);
         }
 
         void BrowsePackages(object sender, EventArgs e)
         {
-            var f = Environment.CurrentDirectory + "\\packages";
-            Process.Start("explorer.exe", f);
+            string path = @"%appdata%\ChromaSync";
+            path = Environment.ExpandEnvironmentVariables(path);
+
+            path = Path.Combine(path, "packages");
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            Process.Start("explorer.exe", path);
         }
 
         void Exit(object sender, EventArgs e)
