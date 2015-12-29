@@ -2,3 +2,8 @@ C:\Users\NMA04\Projects\chroma-sync\KeyHook\bin\Debug\KeyHook.dll
 C:\Users\NMA04\Projects\chroma-sync\KeyHook\bin\Debug\KeyHook.pdb
 C:\Users\NMA04\Projects\chroma-sync\KeyHook\obj\Debug\KeyHook.dll
 C:\Users\NMA04\Projects\chroma-sync\KeyHook\obj\Debug\KeyHook.pdb
+C:\Users\Nicholas\Documents\chroma-sync\KeyHook\bin\Debug\KeyHook.dll
+C:\Users\Nicholas\Documents\chroma-sync\KeyHook\bin\Debug\KeyHook.pdb
+C:\Users\Nicholas\Documents\chroma-sync\KeyHook\obj\Debug\KeyHook.csprojResolveAssemblyReference.cache
+C:\Users\Nicholas\Documents\chroma-sync\KeyHook\obj\Debug\KeyHook.dll
+C:\Users\Nicholas\Documents\chroma-sync\KeyHook\obj\Debug\KeyHook.pdb

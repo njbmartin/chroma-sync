@@ -12,5 +12,6 @@ namespace AutoUpdater
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

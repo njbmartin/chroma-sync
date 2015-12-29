@@ -63,7 +63,6 @@ C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.pdb
-C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\log4net.dll
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.xml
 C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\log4net.xml
@@ -163,3 +162,14 @@ C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_Content.g.
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_MarkupCompile.cache
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_MarkupCompile.lref
 C:\Users\NMA04\Projects\chroma-sync\Chroma Sync\obj\Debug\UserControl1.baml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\scripts\volume_main.lua
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\ChromaAppInfo.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\packages\readme.txt
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\scripts\CSGO\csgo_main.lua
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.CodeAnalysisLog.xml
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.lastcodeanalysissucceeded
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\UserControl1.g.cs
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_Content.g.cs
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_MarkupCompile.cache
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_MarkupCompile.lref
+C:\Users\Nicholas\Documents\chroma-sync\Chroma Sync\obj\Debug\UserControl1.baml

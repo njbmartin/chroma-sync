@@ -12,3 +12,17 @@ C:\Users\NMA04\Projects\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.csproj.Gen
 C:\Users\NMA04\Projects\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.exe
 C:\Users\NMA04\Projects\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.pdb
 C:\Users\NMA04\Projects\chroma-sync\AutoUpdater\obj\Debug\App.baml
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\bin\Debug\AutoUpdater.exe
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\bin\Debug\AutoUpdater.pdb
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.csprojResolveAssemblyReference.cache
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\MainWindow.g.cs
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\App.g.cs
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater_MarkupCompile.cache
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater_MarkupCompile.lref
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\App.baml
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\MainWindow.baml
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.g.resources
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.Properties.Resources.resources
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.csproj.GenerateResource.Cache
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.exe
+C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.pdb

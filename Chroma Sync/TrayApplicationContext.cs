@@ -16,7 +16,7 @@ using Neo.IronLua;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace ChromaSync
+namespace ChromaSyncOld
 {
 
 
@@ -50,7 +50,6 @@ namespace ChromaSync
                 //_mainWindow.Show();
                 //Settings.Default.Save();
             }
-
 
 
             Application.ApplicationExit += Application_ApplicationExit;
@@ -306,10 +305,6 @@ namespace ChromaSync
             LuaScripting.CloseScripts();
             Application.Exit();
         }
-
-
-
-
 
         private void RunServer()
         {

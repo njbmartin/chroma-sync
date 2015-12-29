@@ -5,23 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoUpdater"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="600" WindowStartupLocation="CenterScreen" Background="#FF3C3C3C" BorderThickness="10,0,0,0" BorderBrush="{DynamicResource Pinks}" AllowsTransparency="True" WindowStyle="None">
+        Title="MainWindow" Height="240" Width="600" WindowStartupLocation="CenterScreen" Background="#FF3C3C3C" BorderThickness="10,0,0,0" BorderBrush="{DynamicResource Pinks}" AllowsTransparency="True" WindowStyle="None">
     <Window.Resources>
         <SolidColorBrush x:Key="Pinks" Color="{DynamicResource Pink}"/>
     </Window.Resources>
     <Window.ContextMenu>
         <ContextMenu/>
     </Window.ContextMenu>
-    <Grid Margin="10,10,10,0" Height="180" VerticalAlignment="Top">
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition/>
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="403*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="image" Margin="0" Source="Resources/android-chrome-192x192.png" Height="124" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Label x:Name="label" Content="Checking for updates..." Margin="10,129,10,0" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" FontFamily="Arial"/>
+        <Image x:Name="image" Margin="223,48" Source="Resources/android-chrome-192x192.png" Height="124" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="124"/>
+        <Label x:Name="Message" Content="Checking for updates..." Margin="213.603,186.2,223,10" Foreground="White" HorizontalAlignment="Center" FontFamily="Arial" Height="23.8" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="133.397"/>
 
     </Grid>
 </Window>

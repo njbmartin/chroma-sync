@@ -1,0 +1,1746 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HockeyAppPCL</name>
+    </assembly>
+    <members>
+        <member name="T:HockeyApp.Exceptions.NamespaceDoc">
+            <summary>
+            Namespace for custom exceptions
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Exceptions.WebTransferException">
+            <summary>
+            Exception used for indication an exception during datatransfer to the server like a connection timeout. ( => Try again later )
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Exceptions.WebTransferException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Exceptions.WebTransferException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="M:HockeyApp.Exceptions.WebTransferException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="message">Exception message</param>
+            <param name="inner">Exception causing the exception</param>
+        </member>
+        <member name="T:HockeyApp.Extensions.ExceptionExtension">
+            <summary>
+            static extension class for extensions on exception
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Extensions.ExceptionExtension.StackTraceToString(System.Exception)">
+            <summary>
+            build a formatted string from the stacktrace of an exception
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HockeyApp.MD5Extension">
+            <summary>
+            static extension class for MD5 digest creation
+            </summary>
+        </member>
+        <member name="M:HockeyApp.MD5Extension.GetMD5HexDigest(System.String)">
+            <summary>
+            string extension method to get md5 hash from string
+            </summary>
+            <param name="aString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HockeyApp.Util.MD5Core">
+            <summary>
+            MD5 digest algorithm
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Util.MD5Core.GetHashString(System.String,System.Text.Encoding)">
+            <summary>
+            Get hash from string
+            </summary>
+            <param name="input">string to digest</param>
+            <param name="encoding">default encoding</param>
+            <returns>md5 hash</returns>
+        </member>
+        <member name="M:HockeyApp.Util.MD5Core.GetHashString(System.String)">
+            <summary>
+            Get hash from string (utf8 encoding)
+            </summary>
+            <param name="input">string to digest</param>
+            <returns>md5 hash</returns>
+        </member>
+        <member name="T:HockeyApp.UtilExtensions">
+            <summary>
+            static extension class for utility extensions
+            </summary>
+        </member>
+        <member name="M:HockeyApp.UtilExtensions.IsValidEmail(System.String)">
+            <summary>
+            Checks valid format of an email address
+            </summary>
+            <param name="str">string to check</param>
+            <returns>true if email has correct format</returns>
+        </member>
+        <member name="M:HockeyApp.UtilExtensions.UnixTimeStampToDateTime(System.Nullable{System.Int64})">
+            <summary>
+            Convert a unix epoch-timestamp to a DateTime
+            </summary>
+            <param name="unixTimeStamp">seconds since epoch (1.1.1970)</param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.UtilExtensions.ToReadableByteString(System.Int64)">
+            <summary>
+            Convert a number of bytes to a short readable string
+            </summary>
+            <param name="byteCount">number of bytes</param>
+            <returns>string representation (e.g. '3 mb')</returns>
+        </member>
+        <member name="T:HockeyApp.Extensions.WebRequestExtension">
+            <summary>
+            static extension class
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Extensions.WebRequestExtension.SetHeader(System.Net.WebRequest,System.String,System.String)">
+            <summary>
+            Set a http header on a Web-Request. Either by setting the property or by adding to the Headers dict.
+            </summary>
+            <param name="request">self</param>
+            <param name="header">header key</param>
+            <param name="value">header value</param>
+        </member>
+        <member name="T:HockeyApp.HockeyClient">
+            <summary>
+            Implements the HockeyClient singleton
+            </summary>
+        </member>
+        <member name="T:HockeyApp.IHockeyClient">
+            <summary>
+            Public Interface for HockeyClient. Used by static extension methods in platfomr-specific SDKs
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Internal.IHockeyClientInternal">
+            <summary>
+            Full interface of Hockeyclient. Used by platform-specific SDKs
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.HandleInternalUnhandledException(System.Exception)">
+            <summary>
+            Handle Exceptions that are swallowed because we don't want our SDK crash other apps
+            For internal use by platform SDKs
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.CheckForInitialization">
+            <summary>
+            Check if this IHockeyClient has already been initialized. throws exception if not initialized.
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.AuthorizeUserAsync(System.String,System.String)">
+            <summary>
+            Authenticate a user against hockeyapp.
+            The returned IAuthStatus can be serialized and saved to later check if the token is still valid.
+            </summary>
+            <param name="email">email of the user</param>
+            <param name="password">password of the user</param>
+            <returns>an IAuthStatus containing the auid-token (if login is valid)</returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.IdentifyUserAsync(System.String,System.String)">
+            <summary>
+            Identify a user against hockeyapp.
+            The returned IAuthStatus can be serialized and saved to later check if the token is still valid.
+            </summary>
+            <param name="email">email of the user</param>
+            <param name="appSecret">appSecret of your app</param>
+            <returns>an IAuthStatus containing the auid-token (if login is valid)</returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.CreateNewFeedbackThread">
+            <summary>
+            Creates a new Feedback-Thread. The thread is stored on the server with the posting of the first message.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.OpenFeedbackThreadAsync(System.String)">
+            <summary>
+            Opens an existing Feedback-Thread on the server using the Thread-Token.
+            </summary>
+            <param name="threadToken">The Feedback-Thread or null, if the thread is not available or deleted on the server.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.GetAppVersionsAsync">
+            <summary>
+            Retrieves the current AppVersion from the HockeyApp-Server
+            </summary>
+            <returns>Metadata of the newest version of the app</returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.CreateCrashData(System.Exception,HockeyApp.Model.CrashLogInformation)">
+            <summary>
+            Factory method for ICrashData
+            </summary>
+            <param name="ex">Exception for which crashData is created</param>
+            <param name="crashLogInfo">Meta infos for crash</param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.CreateCrashData(System.Exception)">
+            <summary>
+            Factory method for ICrashData
+            </summary>
+            <param name="ex">Exception for which crashData is created</param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.CreateCrashData(System.String,System.String)">
+            <summary>
+            Factory method for ICrashData (for unity-sdk)
+            </summary>
+            <param name="logString">The log string.</param>
+            <param name="stackTrace">The stack trace.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.Deserialize(System.IO.Stream)">
+            <summary>
+            Deserializes an ICrashData from stream information
+            </summary>
+            <param name="inputStream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.GetCrashFileNamesAsync">
+            <summary>
+            Returns filenames of current existing Crashlogs
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.DeleteAllCrashesAsync">
+            <summary>
+            Delete all existing Crash-logs
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.AnyCrashesAvailableAsync">
+            <summary>
+            Indicates if any crash-logs are available in storage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.HandleExceptionAsync(System.Exception)">
+            <summary>
+            Handle Exception async
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.HandleException(System.Exception)">
+            <summary>
+            Handle Exception sync (only on platforms that support sync file access)
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Internal.IHockeyClientInternal.SendCrashesAndDeleteAfterwardsAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.ApiBaseVersion2">
+            <summary>
+            Base-URI of Hockey Server API v2
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.ApiBaseVersion3">
+            <summary>
+            Base-URI of Hockey Server API v2
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.ApiDomain">
+            <summary>
+            domain of HockeyApp server
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.UserAgentString">
+            <summary>
+            User-agent string used in server communication
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.SdkName">
+            <summary>
+            Name of SDK
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.SdkVersion">
+            <summary>
+            SDK Version
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.AppIdentifier">
+            <summary>
+            Public identifier of you app
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.VersionInfo">
+            <summary>
+            Current version of your app
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.UserID">
+            <summary>
+            User Id to be sent with crash reports
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.ContactInformation">
+            <summary>
+            Contact information to be sent with crash reports
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.DescriptionLoader">
+            <summary>
+            DescriptionLoader Func which is called for unhandled exceptions. the returned string is added to the crashlog as description.
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.PlatformHelper">
+            <summary>
+            Platformhelper implemented by platform-specific SDKs
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Internal.IHockeyClientInternal.PrefilledCrashLogInfo">
+            <summary>
+            crsh log meta information prefilled with data from platform helper
+            </summary>
+        </member>
+        <member name="T:HockeyApp.IHockeyClientConfigurable">
+            <summary>
+            Interface used during initial fluent configuration of HockeyClient
+            </summary>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.Configure(System.String,System.String,System.String,System.String,System.String,System.Func{System.Exception,System.String})">
+            <summary>
+            Configures the HockeyClient with your app specific information
+            </summary>
+            <param name="appIdentifier">public identfier of your app (AppId)</param>
+            <param name="versionInfo">version of your app</param>
+            <param name="apiBase">[optional] the base url of the hockeyapp server. Only needed if used with a private HockeyApp installation.</param>
+            <param name="userID">[optional] ID of the current user using your app, sent with crash-reports, can also be set via property.</param>
+            <param name="contactInformation">[optional] contact info of the current user using your app, sent with crash-reports, can also be set via property.</param>
+            <param name="descriptionLoader">[optional] description loader func to return an additional description for the exception</param>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.ConfigureInternal(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Func{System.Exception,System.String},System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Use for advanced usecases like building your own platform specific sdk based on HockeyClient
+            </summary>
+            <param name="appIdentifier">public identfier of your app (AppId)</param>
+            <param name="versionInfo">version of your app</param>
+            <param name="apiBase">[optional] the base url of the hockeyapp server. Only needed if used with a private HockeyApp installation.</param>
+            <param name="userID">[optional] ID of the current user using your app, sent with crash-reports, can also be set via property.</param>
+            <param name="contactInformation">[optional] contact info of the current user using your app, sent with crash-reports, can also be set via property.</param>
+            <param name="userAgentName">[optional] useragent string to be used in communication with the HockeyApp server</param>
+            <param name="sdkName">[optional] name of the calling sdk</param>
+            <param name="sdkVersion">[optional] version of the calling sdk </param>
+            <param name="descriptionLoader">[optional] </param>
+            <param name="os">[optional] </param>
+            <param name="osVersion">[optional] </param>
+            <param name="device">[optional] </param>
+            <param name="oem">[optional] </param>
+            <param name="uuid">[optional] </param>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.CheckForInitialization">
+            <summary>
+            Check if this HockeyClient has already been initialized (used internally by platform SDKs)
+            </summary>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.HandleInternalUnhandledException(System.Exception)">
+            <summary>
+            Handle Exceptions that are swallowed because we don't want our SDK crash other apps
+            For internal use by platform SDKs
+            </summary>
+            <param name="unhandledException">the exception to propagate</param>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.CreateCrashData(System.Exception)">
+            <summary>
+            Create a CrashData object from an Exception with the default CrashLogInformation
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.CreateCrashData(System.Exception,HockeyApp.Model.CrashLogInformation)">
+            <summary>
+            Create a CrashData object from an Exception and a given CrashLogInformation
+            </summary>
+            <param name="ex"></param>
+            <param name="crashLogInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.CreateCrashData(System.String,System.String)">
+            <summary>
+            create a CrashData object from a logString and stacktrace (used for Unity crashes)
+            </summary>
+            <param name="logString"></param>
+            <param name="stackTrace"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.Deserialize(System.IO.Stream)">
+            <summary>
+            Get an ICrashData object from crashlog-stream
+            </summary>
+            <param name="inputStream">stream from crashlog</param>
+            <returns>deserialized CrashData object</returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.GetCrashFileNamesAsync">
+            <summary>
+            Retrieve filenames of crashlog files from storage
+            </summary>
+            <returns>crashlog-filenames (only name without folder)</returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.DeleteAllCrashesAsync">
+            <summary>
+            Delete all crash-logs from storage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.AnyCrashesAvailableAsync">
+            <summary>
+            Check for available crash-logs in storage
+            </summary>
+            <returns>true if saved crashlogs are available</returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.HandleExceptionAsync(System.Exception)">
+            <summary>
+            Handle exception asyncronously
+            </summary>
+            <param name="ex">the exception that should be saved to a crashlog</param>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.HandleException(System.Exception)">
+            <summary>
+            Handle exception syncronously (only for platforms that support sync write to storage
+            </summary>
+            <param name="ex">the exception that should be saved to a crashlog</param>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.SendCrashesAndDeleteAfterwardsAsync">
+            <summary>
+            Send crash-logs from storage and deletes the if they could be sent
+            </summary>
+            <returns>true if at least one Crashlog was transmitted to the server</returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.GetAppVersionsAsync">
+            <summary>
+            Get available app versions from the server
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.CreateNewFeedbackThread">
+            <summary>
+            Create a feedback thread to post messages on
+            </summary>
+            <returns>an empty IFeedbackThread</returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.OpenFeedbackThreadAsync(System.String)">
+            <summary>
+            Try to open an existng Feedbackthread
+            </summary>
+            <param name="threadToken">thread token for this thread</param>
+            <returns>a populated feedback thread, null if the token is invalid or the thread closed.</returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.AuthorizeUserAsync(System.String,System.String)">
+            <summary>
+            try to authorize a (hockeayapp) user by email and password
+            </summary>
+            <param name="email">email (hockeyapp user id)</param>
+            <param name="password">password of the user</param>
+            <returns>IAuthStatus. If successfull will contain authid and IsAuthorized will be true</returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClient.IdentifyUserAsync(System.String,System.String)">
+            <summary>
+            Identify a user by his email-adress (hockeyapp id)
+            </summary>
+            <param name="email">email (hockeyapp user id)</param>
+            <param name="appSecret">app secret of the app</param>
+            <returns>IAuthStatus. If sucessful (hockeyapp user exists) IsIdentified is true.</returns>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.ApiBase">
+            <summary>
+            ApiBase of HockeyApp server
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.ApiDomain">
+            <summary>
+            Base URL (prototcol+domainname) of HockeyApp server
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.ApiBaseVersion2">
+            <summary>
+            API endpoint for API v2
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.ApiBaseVersion3">
+            <summary>
+            API endpoint for API v3
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.UserAgentString">
+            <summary>
+            User agent string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.SdkName">
+            <summary>
+            SDK info
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.SdkVersion">
+            <summary>
+            SDK Version
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.AppIdentifier">
+            <summary>
+            Public identifier of your app
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.VersionInfo">
+            <summary>
+            Version of the app as string. Normally set automatically by platform-specific SDK
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.UserID">
+            <summary>
+            UserID of current app user (if provided)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.ContactInformation">
+            <summary>
+            Contact information for current user
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.Os">
+            <summary>
+            Name of platform OS
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.OsVersion">
+            <summary>
+            Operating system version (set by platform-specific SDK if used)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.Device">
+            <summary>
+            Device (set by platform-specific SDK if used)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.Oem">
+            <summary>
+            Oem of Device (set by platform-specific SDK if used)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.Uuid">
+            <summary>
+            unique user id provided by platform (set by platform-specific SDK if used)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.Auid">
+            <summary>
+            Authorized user id (set during login process)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.Iuid">
+            <summary>
+            Identified user id (set during login process)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.DescriptionLoader">
+            <summary>
+            Delegate which can be set to add a description to a stacktrace when app crashes
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.Instance">
+            <summary>
+            The current configured instance of HockeyClient
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.Current">
+            <summary>
+            The current singleton instance of HockeyClient. Use the extension methods in the HockeyApp namespace 
+            to work with the instance:
+            HockeyClient.Current.Configure(..) must be called first to initialize the client!
+            </summary>
+        </member>
+        <member name="E:HockeyApp.HockeyClient.OnHockeySDKInternalException">
+            <summary>
+            Subscribe to this event to get all exceptions that are swallowed by HockeySDK.
+            Useful for debugging. Be sure to know what to do if you use this in production code.
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.PlatformHelper">
+            <summary>
+            Platform helper for internal use
+            </summary>
+        </member>
+        <member name="P:HockeyApp.HockeyClient.PrefilledCrashLogInfo">
+            <summary>
+            A filled CrashLogInformation object
+            </summary>
+        </member>
+        <member name="T:HockeyApp.HockeyClientConfigurationExtensions">
+            <summary>
+            Extensions for fluent configuration
+            </summary>
+        </member>
+        <member name="M:HockeyApp.HockeyClientConfigurationExtensions.SetApiDomain(HockeyApp.IHockeyClientConfigurable,System.String)">
+            <summary>
+            Use this if you're using an on-premise version of HockeyApp. Default is: https://rink.hockeyapp.net
+            </summary>
+            <param name="this"></param>
+            <param name="hockeyApiDomain"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClientConfigurationExtensions.SetExceptionDescriptionLoader(HockeyApp.IHockeyClientConfigurable,System.Func{System.Exception,System.String})">
+            <summary>
+            The provided func is called in case of an exception and the returned string is added as additional description of the exception.
+            </summary>
+            <param name="this"></param>
+            <param name="descriptionLoader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClientConfigurationExtensions.SetContactInfo(HockeyApp.IHockeyClientConfigurable,System.String,System.String)">
+            <summary>
+            Set the user Id and email/contact information of the current user if known. This is sent to HockeyApp with crashes.
+            </summary>
+            <param name="this"></param>
+            <param name="user"></param>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.HockeyClientConfigurationExtensions.UpdateContactInfo(HockeyApp.IHockeyClient,System.String,System.String)">
+            <summary>
+            Set the user Id and emal/contact information of the current user if known. This is sent to HockeyApp with crashes.
+            </summary>
+            <param name="this"></param>
+            <param name="user"></param>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HockeyApp.PCL.HockeyClientPCLExtensions">
+            <summary>
+            static extension class for
+            </summary>
+        </member>
+        <member name="M:HockeyApp.PCL.HockeyClientPCLExtensions.Configure(HockeyApp.IHockeyClient,HockeyApp.IHockeyPlatformHelper)">
+            <summary>
+            Configures the client with a platform helper
+            </summary>
+            <param name="this">The this.</param>
+            <param name="platformHelper">The platform helper.</param>
+            <returns></returns>
+        </member>
+        <member name="T:HockeyApp.IAppVersion">
+            <summary>
+            interface for an app version
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.PublicIdentifier">
+            <summary>
+            Public identifier of your app
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.AppId">
+            <summary>
+            HockeyApp internal key for your app
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.Appsize">
+            <summary>
+            Size of the App in bytes
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.AppSizeReadable">
+            <summary>
+            App size in human readable form
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.DeviceFamily">
+            <summary>
+            Device family
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.Id">
+            <summary>
+            Internal id of the version 
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.Mandatory">
+            <summary>
+            Indicates if this version is marked as mandatory
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.MinimumOsVersion">
+            <summary>
+            Minimum OS requirement for this version
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.Notes">
+            <summary>
+            Notes
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.Shortversion">
+            <summary>
+            Shortversion string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.ShortversionAndVersion">
+            <summary>
+            Formateed string conatining shortversion and version
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.Timestamp">
+            <summary>
+            Timestamp of creation in unix format
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.TimeStamp">
+            <summary>
+            Timestamp of creation as DateTime
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.Title">
+            <summary>
+            Title of the app
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAppVersion.Version">
+            <summary>
+            Version string
+            </summary>
+        </member>
+        <member name="T:HockeyApp.IAuthStatus">
+            <summary>
+            interface for an authorization state
+            </summary>
+        </member>
+        <member name="M:HockeyApp.IAuthStatus.CheckIfStillValidAsync">
+            <summary>
+            trigger revalidation on the hockeyapp server
+            </summary>
+            <returns>true if this status (token) is still valid</returns>
+        </member>
+        <member name="P:HockeyApp.IAuthStatus.IsAuthorized">
+            <summary>
+            Indicates if this AuthCode was generated using the Authorize process (using email and password)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAuthStatus.IsIdentified">
+            <summary>
+            Indicates if this AuthCode was generated using the Identify process (using email and AppSecret)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAuthStatus.IsPermissionError">
+            <summary>
+            For invalid AuthStatus indicates that the user has not the required permission
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IAuthStatus.IsCredentialError">
+            <summary>
+            For invalid AuthStatus indicates that the credentials where wrong
+            </summary>
+        </member>
+        <member name="T:HockeyApp.ICrashData">
+            <summary>
+            interface for crashlog data
+            </summary>
+        </member>
+        <member name="M:HockeyApp.ICrashData.Serialize(System.IO.Stream)">
+            <summary>
+            Serializes the crashdata to a stream.
+            </summary>
+            <param name="outputStream"></param>
+        </member>
+        <member name="M:HockeyApp.ICrashData.SendDataAsync">
+            <summary>
+            Post the crash to the HockeyApp-Platform
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HockeyApp.ICrashData.Contact">
+            <summary>
+            optional, string with contact information, limited to 255 chars
+            </summary>
+        </member>
+        <member name="P:HockeyApp.ICrashData.Description">
+            <summary>
+            optional, file with optional information, e.g. excerpts from the system log
+            </summary>
+        </member>
+        <member name="P:HockeyApp.ICrashData.Log">
+            <summary>
+            required, file with the crash log - Note: The maximum allowed file size is 200kB!
+            </summary>
+        </member>
+        <member name="P:HockeyApp.ICrashData.SDKName">
+            <summary>
+            Name of the used SDK
+            </summary>
+        </member>
+        <member name="P:HockeyApp.ICrashData.SDKVersion">
+            <summary>
+            Version of the used SDK
+            </summary>
+        </member>
+        <member name="P:HockeyApp.ICrashData.UserID">
+            <summary>
+            optional, string with a user or device ID, limited to 255 chars
+            </summary>
+        </member>
+        <member name="T:HockeyApp.IFeedbackAttachment">
+            <summary>
+            Interface for feedback attachments (documents, images)
+            </summary>
+        </member>
+        <member name="M:HockeyApp.IFeedbackAttachment.LoadAttachmentFromServer">
+            <summary>
+            Load attachment to local storage
+            </summary>
+            <returns>true if successfull</returns>
+        </member>
+        <member name="P:HockeyApp.IFeedbackAttachment.Id">
+            <summary>
+            unique Id of the attachment
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackAttachment.CreatedAt">
+            <summary>
+            Timestamp of creation
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackAttachment.RemoteURL">
+            <summary>
+            Remote URL where this attachment is available
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackAttachment.FileName">
+            <summary>
+            Name of the file when it was uploaded
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackAttachment.DataBytes">
+            <summary>
+            Bytes (usually only used when uploading attachments)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackAttachment.ContentType">
+            <summary>
+            Mime content type
+            </summary>
+        </member>
+        <member name="T:HockeyApp.IFeedbackMessage">
+            <summary>
+            Represents a message in a feedback thread
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.AppId">
+            <summary>
+            App id of the app this feedback message belongs to
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.AppVersionId">
+            <summary>
+            App version where the feedback relates to
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.CleanText">
+            <summary>
+            Raw text of the message
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Created">
+            <summary>
+            Timestamp of creation
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.CreatedAt">
+            <summary>
+            Timestamp of creation as string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Email">
+            <summary>
+            email of the message sender
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.GravatarHash">
+            <summary>
+            Gravatar hash of the senders email
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Id">
+            <summary>
+            unique id of the message
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Internal">
+            <summary>
+            Message is only internal
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Model">
+            <summary>
+            Device model
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Name">
+            <summary>
+            Name of sender
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Oem">
+            <summary>
+             Device oem
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.OSVersion">
+            <summary>
+            corresponding OS Version
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Subject">
+            <summary>
+            subject 
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Text">
+            <summary>
+            text (can include html)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Token">
+            <summary>
+            Token for message
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.UserString">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Via">
+            <summary>
+            via-flag (indicates if from web/api ..)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.ViaAsString">
+            <summary>
+            via-flag as string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackMessage.Attachments">
+            <summary>
+            message attachments
+            </summary>
+        </member>
+        <member name="T:HockeyApp.IFeedbackThread">
+            <summary>
+            interface for a hockeyapp feedback thread
+            </summary>
+        </member>
+        <member name="M:HockeyApp.IFeedbackThread.PostFeedbackMessageAsync(System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{HockeyApp.IFeedbackAttachment})">
+            <summary>
+            post a feedback message on this thread
+            </summary>
+            <param name="message">message text</param>
+            <param name="email">[optional] email of sender</param>
+            <param name="subject">[optional] message subject</param>
+            <param name="name">[optional] name of sender</param>
+            <param name="images">[optional] feedback attachments</param>
+            <returns></returns>
+        </member>
+        <member name="P:HockeyApp.IFeedbackThread.CreatedAt">
+            <summary>
+            time of creation as string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackThread.EMail">
+            <summary>
+            email of thread starter
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackThread.Id">
+            <summary>
+            unique id
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackThread.IsNewThread">
+            <summary>
+            indicates if this thread was new (not on server yet)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackThread.Messages">
+            <summary>
+            the messages in this thread (newest message last)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackThread.Name">
+            <summary>
+            name of the thread
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackThread.Status">
+            <summary>
+            status
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IFeedbackThread.Token">
+            <summary>
+            unique token for this thread
+            </summary>
+        </member>
+        <member name="T:HockeyApp.IHockeyPlatformHelper">
+            <summary>
+            interface for 
+            </summary>
+        </member>
+        <member name="M:HockeyApp.IHockeyPlatformHelper.SetSettingValue(System.String,System.String)">
+            <summary>
+            Saves the given value under the specified key in app settings
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:HockeyApp.IHockeyPlatformHelper.GetSettingValue(System.String)">
+            <summary>
+            gets the value for the given key from app settings
+            </summary>
+            <param name="key"></param>
+            <returns>the vlaue or null if the setting with the given key does not exist.</returns>
+        </member>
+        <member name="M:HockeyApp.IHockeyPlatformHelper.RemoveSettingValue(System.String)">
+            <summary>
+            Removes the value for the given key from settings.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:HockeyApp.IHockeyPlatformHelper.WriteStreamToFileAsync(System.IO.Stream,System.String,System.String)">
+            <summary>
+            Writes the stream asynchronous to a file with the given filename and folder.
+            </summary>
+            <param name="dataStream">The data stream.</param>
+            <param name="fileName">Name of the file.</param>
+            <param name="folderName">Name of the folder.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.IHockeyPlatformHelper.WriteStreamToFileSync(System.IO.Stream,System.String,System.String)">
+            <summary>
+            Writes the stream synchronous to a file with the given filename and folder.
+            </summary>
+            <param name="dataStream">The data stream.</param>
+            <param name="fileName">Name of the file.</param>
+            <param name="folderName">Name of the folder.</param>
+        </member>
+        <member name="M:HockeyApp.IHockeyPlatformHelper.GetFileNamesAsync(System.String,System.String)">
+            <summary>
+            Gets the file names of files in a directory asynchronous.
+            </summary>
+            <param name="folderName">Name of the folder.</param>
+            <param name="fileNamePattern">The file name pattern.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.IHockeyPlatformHelper.GetStreamAsync(System.String,System.String)">
+            <summary>
+            Gets the stream of a file asynchronous.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="folderName">Name of the folder.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.IHockeyPlatformHelper.DeleteFileAsync(System.String,System.String)">
+            <summary>
+            Deletes the file asynchronous.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="folderName">Name of the folder.</param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.IHockeyPlatformHelper.FileExistsAsync(System.String,System.String)">
+            <summary>
+            Returns if the file with the given name and folder exists asynchronous.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="folderName">Name of the folder.</param>
+            <returns></returns>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.PlatformSupportsSyncWrite">
+            <summary>
+            Indicates whether the implementing platform supports synchronized write.
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.AppVersion">
+            <summary>
+            The version of your app - determined by platform-specific best practice
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.AppPackageName">
+            <summary>
+             PackageName of your app - the namespace oft the App class
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.OSVersion">
+            <summary>
+            Operating system version
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.OSPlatform">
+            <summary>
+            Operating system platform
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.ProductID">
+            <summary>
+            Product Id from Manifest
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.SDKVersion">
+            <summary>
+            Version of the HockeyApp SDK (which implements this PlatformHelper)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.SDKName">
+            <summary>
+            Name of the HockeyApp SDK (which implements this PlatformHelper)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.UserAgentString">
+            <summary>
+            UserAgent Header to be sent to HockeyApp
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.Manufacturer">
+            <summary>
+            Manufacturer of the device
+            </summary>
+        </member>
+        <member name="P:HockeyApp.IHockeyPlatformHelper.Model">
+            <summary>
+            Device model
+            </summary>
+        </member>
+        <member name="T:HockeyApp.InternalUnhandledExceptionEventArgs">
+            <summary>
+            EventArgs for exceptions which are swallowed by HockeyApp
+            </summary>
+        </member>
+        <member name="P:HockeyApp.InternalUnhandledExceptionEventArgs.Exception">
+            <summary>
+            The exception.
+            </summary>
+        </member>
+        <member name="T:HockeyApp.ILog">
+            <summary>
+            Universal log interface
+            </summary>
+        </member>
+        <member name="M:HockeyApp.ILog.Info(System.String,System.Object[])">
+            <summary>
+            Logs an info message
+            </summary>
+            <param name="format">message to log</param>
+            <param name="args">Parameters, which can be injected to the message</param>
+        </member>
+        <member name="M:HockeyApp.ILog.Warn(System.String,System.Object[])">
+            <summary>
+            Logs a warning message.
+            </summary>
+            <param name="format">message to log.</param>
+            <param name="args">Parameters, which can be injected to the message</param>
+        </member>
+        <member name="M:HockeyApp.ILog.Error(System.Exception)">
+            <summary>
+            Logs an error message with an exception.
+            </summary>
+            <param name="exception">exception with has to be logged.</param>
+        </member>
+        <member name="T:HockeyApp.HockeyLogManager">
+            <summary>
+            Class for registering logging
+            </summary>
+        </member>
+        <member name="F:HockeyApp.HockeyLogManager.GetLog">
+            <summary>
+            Creates an <see cref="T:HockeyApp.ILog"/> for the provided type.
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Model.AppVersion">
+            <summary>
+            represents a version from an hockeyapp app
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Model.AppVersion.FromJson(System.IO.Stream)">
+            <summary>
+            unmarshal a AppVersion from a jsonStream
+            </summary>
+            <param name="jsonStream">json to unmarshall</param>
+            <returns>populated AppVersion</returns>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.PublicIdentifier">
+            <summary>
+            unique public identifier of the app
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.Version">
+            <summary>
+            version string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.Shortversion">
+            <summary>
+            short version string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.Title">
+            <summary>
+            app title
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.Timestamp">
+            <summary>
+            app version timestamp
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.Appsize">
+            <summary>
+            size of version binary
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.Notes">
+            <summary>
+            app version notes
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.Mandatory">
+            <summary>
+            flag to indicate mandatory update
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.MinimumOsVersion">
+            <summary>
+            minimum os version for this app version
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.DeviceFamily">
+            <summary>
+            target device family
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.Id">
+            <summary>
+            version id
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.AppId">
+            <summary>
+            internal app id
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.TimeStamp">
+            <summary>
+            version timestamp as TimeStamp
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.AppSizeReadable">
+            <summary>
+            readable string of app size
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AppVersion.ShortversionAndVersion">
+            <summary>
+            combined string with version and shortversion
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Model.AuthStatus">
+            <summary>
+            represents the status of an autorization request
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Model.AuthStatus.SerializeToString">
+            <summary>
+            Get a string represenation of this auth-status
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Model.AuthStatus.DeserializeFromString(System.String)">
+            <summary>
+            Marshall from a string representation (which you got by SerializeToString())
+            </summary>
+            <param name="aSerializedAuthStatus"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Model.AuthStatus.CheckIfStillValidAsync">
+            <summary>
+            trigger revalidation on the hockeyapp server
+            </summary>
+            <returns>true if this status (token) is still valid</returns>
+        </member>
+        <member name="P:HockeyApp.Model.AuthStatus.IsAuthorized">
+            <summary>
+            Indicates if this AuthCode was generated using the Authorize process (using email and password)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AuthStatus.IsIdentified">
+            <summary>
+            Indicates if this AuthCode was generated using the Identify process (using email and AppSecret)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AuthStatus.IsCredentialError">
+            <summary>
+            For invalid AuthStatus indicates that the credentials where wrong
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.AuthStatus.IsPermissionError">
+            <summary>
+            For invalid AuthStatus indicates that the user has not the required permission
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Model.CrashData">
+            <summary>
+            represents data of a crashlog
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Model.CrashData.OnDeserializing(System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            called on deserializing
+            </summary>
+            <param name="context">context of (de)serializer</param>
+        </member>
+        <member name="M:HockeyApp.Model.CrashData.SendDataAsync">
+            <summary>
+            sends the crashlog data to the hockeyapp serer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HockeyApp.Model.CrashData.Serialize(System.IO.Stream)">
+            <summary>
+            serialize data to a stream
+            </summary>
+            <param name="outputStream"></param>
+        </member>
+        <member name="M:HockeyApp.Model.CrashData.Deserialize(System.IO.Stream)">
+            <summary>
+            unmarshall data from a stream
+            </summary>
+            <param name="inputStream">json data stream</param>
+            <returns>populated CrashData</returns>
+        </member>
+        <member name="P:HockeyApp.Model.CrashData.Log">
+            <summary>
+            log string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.CrashData.Description">
+            <summary>
+            description string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.CrashData.UserID">
+            <summary>
+            user id 
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.CrashData.Contact">
+            <summary>
+            contact info
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.CrashData.SDKName">
+            <summary>
+            sdk name
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.CrashData.SDKVersion">
+            <summary>
+            sdk version
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Model.CrashLogInformation">
+            <summary>
+            representing additional meta info to a crashlog
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.CrashLogInformation.PackageName">
+            <summary>
+            name of app package
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.CrashLogInformation.Version">
+            <summary>
+            version of app
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.CrashLogInformation.OperatingSystem">
+            <summary>
+            os
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.CrashLogInformation.Manufacturer">
+            <summary>
+            device manufacturer
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.CrashLogInformation.Model">
+            <summary>
+            device model
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.CrashLogInformation.ProductID">
+            <summary>
+            product id of app
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.CrashLogInformation.WindowsPhone">
+            <summary>
+            windows phone version
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.CrashLogInformation.Windows">
+            <summary>
+            windows version
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Model.CrashLogInformation.ToString">
+            <summary>
+            concatenate info to key-value string 
+            </summary>
+            <returns>data as string</returns>
+        </member>
+        <member name="T:HockeyApp.Model.FeedbackAttachment">
+            <summary>
+            represents an attachment to a feedback message
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Model.FeedbackAttachment.#ctor(System.String,System.Byte[],System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fileName"></param>
+            <param name="dataBytes"></param>
+            <param name="contentType"></param>
+        </member>
+        <member name="M:HockeyApp.Model.FeedbackAttachment.LoadAttachmentFromServer">
+            <summary>
+            Load attachment to local storage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackAttachment.RemoteURL">
+            <summary>
+            Remote URL where this attachment is available
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackAttachment.CreatedAt">
+            <summary>
+            Timestamp of creation
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackAttachment.Id">
+            <summary>
+            unique Id of the attachment
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackAttachment.FileName">
+            <summary>
+            Name of the file when it was uploaded
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackAttachment.DataBytes">
+            <summary>
+            Bytes (usually only used when uploading attachments)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackAttachment.ContentType">
+            <summary>
+            Mime content type
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Model.FeedbackMessage">
+            <summary>
+            represents a feedback message
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Name">
+            <summary>
+            message attachments
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Email">
+            <summary>
+            email of the message sender
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.GravatarHash">
+            <summary>
+            Gravatar hash of the senders email
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Subject">
+            <summary>
+            subject
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Text">
+            <summary>
+            text (can include html)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Oem">
+            <summary>
+            Device oem
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Model">
+            <summary>
+            Device model
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.OSVersion">
+            <summary>
+            corresponding OS Version
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.CreatedAt">
+            <summary>
+            Timestamp of creation as string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Attachments">
+            <summary>
+            message attachments
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Created">
+            <summary>
+            Timestamp of creation
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Id">
+            <summary>
+            unique id of the message
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Token">
+            <summary>
+            Token for message
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Via">
+            <summary>
+            via-flag (indicates if from web/api ..)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.UserString">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.Internal">
+            <summary>
+            Message is only internal
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.CleanText">
+            <summary>
+            Raw text of the message
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.AppId">
+            <summary>
+            App id of the app this feedback message belongs to
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.AppVersionId">
+            <summary>
+            App version where the feedback relates to
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackMessage.ViaAsString">
+            <summary>
+            via-flag as string
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Model.FeedbackMessage.ViaTypes">
+            <summary>
+            types of message sources
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.FeedbackMessage.ViaTypes.API">
+            <summary>
+            via rest api (normally by an app using the sdk)
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.FeedbackMessage.ViaTypes.Email">
+            <summary>
+            via email
+            </summary>
+        </member>
+        <member name="F:HockeyApp.Model.FeedbackMessage.ViaTypes.Web">
+            <summary>
+            via web interface
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Model.FeedbackResponseSingle">
+            <summary>
+            representation of a feedback response with a single message (returned after posting the message)
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Model.FeedbackResponseSingle.FromJson(System.IO.Stream)">
+            <summary>
+            unmarshal from json stream.
+            </summary>
+            <param name="jsonStream">The json stream.</param>
+            <returns>populated object</returns>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackResponseSingle.Feedback">
+            <summary>
+            Gets the feedback thread.
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackResponseSingle.FeedbackToken">
+            <summary>
+            Gets the feedback token.
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackResponseSingle.Status">
+            <summary>
+            Gets the status of the response (success)
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Model.FeedbackThread">
+            <summary>
+            represents a feedback thread on hockeyapp with one or more messages
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Model.FeedbackThread.CreateInstance">
+            <summary>
+            Creates a new thread.
+            </summary>
+            <returns>new thread</returns>
+        </member>
+        <member name="M:HockeyApp.Model.FeedbackThread.PostFeedbackMessageAsync(System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{HockeyApp.IFeedbackAttachment})">
+            <summary>
+            Posts the feedback message asynchronous.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="email">The email.</param>
+            <param name="subject">The subject.</param>
+            <param name="name">The name.</param>
+            <param name="attachments">The attachments.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Server error. Server returned status  + fbResp.Status</exception>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackThread.IsNewThread">
+            <summary>
+            indicates if this thread was new (not on server yet)
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackThread.Name">
+            <summary>
+            name of the thread
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackThread.EMail">
+            <summary>
+            email of thread starter
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackThread.Id">
+            <summary>
+            unique id
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackThread.CreatedAt">
+            <summary>
+            time of creation as string
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackThread.Token">
+            <summary>
+            unique token for this thread
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackThread.Status">
+            <summary>
+            status
+            </summary>
+        </member>
+        <member name="P:HockeyApp.Model.FeedbackThread.Messages">
+            <summary>
+            the messages in this thread (newest message last)
+            </summary>
+        </member>
+        <member name="T:HockeyApp.Extensions.AsyncLock">
+            <summary>
+            Hlper class to implement async locking
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Extensions.AsyncLock.#ctor">
+            <summary>
+            constructor for a lock
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Extensions.AsyncLock.LockAsync">
+            <summary>
+            Get the lock.
+            Usage: using(var lck = await myAsyncLock.LockAsync()) { ... }
+            </summary>
+            <returns>awaitable task</returns>
+        </member>
+        <member name="T:HockeyApp.Extensions.TaskEx">
+            <summary>
+            TaskEx class to have a consistens interface with .net4.0
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Extensions.TaskEx.Run``1(System.Func{``0})">
+            <summary>
+            wrapper for Task.Run()
+            </summary>
+            <typeparam name="T">result type</typeparam>
+            <param name="func">funct to run asyncronously</param>
+            <returns></returns>
+        </member>
+        <member name="T:HockeyApp.Extensions.PortableExtensions45">
+            <summary>
+            static extension class for mix extensions on pcl lib
+            </summary>
+        </member>
+        <member name="M:HockeyApp.Extensions.PortableExtensions45.GetResponseAsync(System.Net.WebRequest)">
+            <summary>
+            extension method to get web response async
+            </summary>
+            <param name="request">the webrequest to send</param>
+            <returns>the response</returns>
+        </member>
+        <member name="M:HockeyApp.Extensions.PortableExtensions45.GetRequestStreamAsync(System.Net.WebRequest)">
+            <summary>
+            get the request stream asynchronously
+            </summary>
+            <param name="request">the request</param>
+            <returns>the request stream to write on</returns>
+        </member>
+        <member name="M:HockeyApp.Extensions.PortableExtensions45.GetProperty(System.Type,System.String)">
+            <summary>
+            extension method for type to get a runtime property
+            </summary>
+            <param name="self">type to get the property from</param>
+            <param name="propertyName">name of the property to retrieve</param>
+            <returns>PropertyInfo from type</returns>
+        </member>
+        <member name="T:HockeyApp.Model.NamespaceDoc">
+            <summary>
+            Namespace for HockeyApp SDK models
+            </summary>
+        </member>
+        <member name="T:HockeyApp.NamespaceDoc">
+            <summary>
+            Main namespace for HockeyApp SDK for windows
+            </summary>
+        </member>
+    </members>
+</doc>

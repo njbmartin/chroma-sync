@@ -50,19 +50,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EztzeNGYxVU4fl2FyK+s5gyc5RVxWoI1sgrThclHBEQ=</dsig:DigestValue>
+        <dsig:DigestValue>U4G425s4EJ+zNQYLr+gR5E2ztk30GAIp/OGevL8LUv8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Corale.Colore.dll" size="76288">
-      <assemblyIdentity name="Corale.Colore" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Corale.Colore.dll" size="70144">
+      <assemblyIdentity name="Corale.Colore" version="3.0.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>eD/4iyesZXAM+mag6E2vAh/vRWuzJaZdUYY1twFuiuo=</dsig:DigestValue>
+        <dsig:DigestValue>j8eGCGb77q5lnrNwqI5t9yTw5YEZdMzx1k/+C5YXJPw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -114,13 +114,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Chroma Sync.exe.config" size="881">
+  <file name="Chroma Sync.exe.config" size="1232">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>4Jd4pbYJOzFEHVBIwGU8H7gO3anSCSg8NM+cxeiUlxg=</dsig:DigestValue>
+      <dsig:DigestValue>nSyZbQ29EQ655MO/6d+dmSec1UYsfz6mrPLm9RDPRiQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ChromaAppInfo.xml" size="661" writeableType="applicationData">

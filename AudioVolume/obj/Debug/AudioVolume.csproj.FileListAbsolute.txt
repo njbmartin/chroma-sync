@@ -3,3 +3,8 @@ C:\Users\NMA04\Projects\chroma-sync\AudioVolume\bin\Debug\AudioVolume.pdb
 C:\Users\NMA04\Projects\chroma-sync\AudioVolume\obj\Debug\AudioVolume.csprojResolveAssemblyReference.cache
 C:\Users\NMA04\Projects\chroma-sync\AudioVolume\obj\Debug\AudioVolume.dll
 C:\Users\NMA04\Projects\chroma-sync\AudioVolume\obj\Debug\AudioVolume.pdb
+C:\Users\Nicholas\Documents\chroma-sync\AudioVolume\bin\Debug\AudioVolume.dll
+C:\Users\Nicholas\Documents\chroma-sync\AudioVolume\bin\Debug\AudioVolume.pdb
+C:\Users\Nicholas\Documents\chroma-sync\AudioVolume\obj\Debug\AudioVolume.csprojResolveAssemblyReference.cache
+C:\Users\Nicholas\Documents\chroma-sync\AudioVolume\obj\Debug\AudioVolume.dll
+C:\Users\Nicholas\Documents\chroma-sync\AudioVolume\obj\Debug\AudioVolume.pdb
