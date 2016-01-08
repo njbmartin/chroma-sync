@@ -29,7 +29,7 @@ namespace Ultrabox.ChromaSync
         public AutoUpdate()
         {
             InitializeComponent();
-           
+
 
         }
 
@@ -41,7 +41,7 @@ namespace Ultrabox.ChromaSync
                 FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
                 int version = fvi.ProductPrivatePart;
                 Debug.WriteLine(version);
-                
+
                 int newVersion = version;
                 var webRequest = WebRequest.Create(@"https://ultrabox.s3.amazonaws.com/ChromaSync/version.json");
 
@@ -57,94 +57,72 @@ namespace Ultrabox.ChromaSync
                 Debug.WriteLine(newVersion);
 
                 int cV = version;
-                int nV =newVersion;
+                int nV = newVersion;
 
                 if (nV > cV)
                 {
                     updateText.Text = "Downloading new version: " + nV;
+                    ExecuteUpdate();
                     // start download
 
-                        //string updatedFile = System.IO.Path.GetDirectoryName(pluginData.pluginFile.FullName);
+                    //string updatedFile = System.IO.Path.GetDirectoryName(pluginData.pluginFile.FullName);
 
-                        //ProcessStartInfo startInfo = new ProcessStartInfo();
-                        //startInfo.FileName = updatedFile + @"\lib\updater.exe";
-                        //startInfo.Arguments = "\"" + updatedFile + "\"";
-                        //Process.Start(startInfo);
-                    
+                    //ProcessStartInfo startInfo = new ProcessStartInfo();
+                    //startInfo.FileName = updatedFile + @"\lib\updater.exe";
+                    //startInfo.Arguments = "\"" + updatedFile + "\"";
+                    //Process.Start(startInfo);
+
                 }
             }
             catch (Exception ex)
             {
                 this.Close();
             }
-            finally{
-                
+            finally
+            {
+
             }
         }
 
         void ExecuteUpdate()
         {
-            string[] args = Environment.GetCommandLineArgs();
-            string updatedFile = args[1];
+            string path = @"%appdata%\ChromaSync";
+            path = Environment.ExpandEnvironmentVariables(path);
 
+            path = System.IO.Path.Combine(path, "updater");
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
             using (var client = new WebClient())
             {
                 client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");
-                client.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler((sender, e) => Completed(sender, e, updatedFile));
+                client.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler((sender, e) => Completed(sender, e, path));
                 client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, e) => ProgressChanged(sender, e));
-                client.DownloadFileAsync(new Uri("http://thejourneynetwork.net/chromatics/update/Chromatics.zip"), @"\Update.exe");
+                client.DownloadFileAsync(new Uri("https://ultrabox.s3.amazonaws.com/ChromaSync/setup.exe"), path + @"\update.exe");
             }
-
         }
 
         private void Completed(object sender, AsyncCompletedEventArgs e, string updatedFile)
         {
-            FileInfo destFile = new FileInfo(System.IO.Path.Combine(updatedFile, @"\Chromatics.zip"));
+            FileInfo destFile = new FileInfo(System.IO.Path.Combine(updatedFile, @"\update.exe"));
+            updateText.Text = "Installing update...";
 
-            if (destFile.Extension.ToLower() == ".zip")
+
+
+            //File.Delete(updatedFile + @"\Chromatics.zip");
+            updateText.Text = "Closing Updater";
+            if (destFile.Exists)
             {
-                updateText.Text = "Extracting Update..";
-
-                ZipArchive zipArchive = ZipFile.OpenRead(updatedFile + @"\Chromatics.zip");
-
-                foreach (ZipArchiveEntry entry in zipArchive.Entries)
-                {
-                    string fullPath = Path.Combine(updatedFile + @"\", entry.FullName);
-                    if (String.IsNullOrEmpty(entry.Name))
-                    {
-                        Directory.CreateDirectory(fullPath);
-                    }
-                    else
-                    {
-                        if (!entry.Name.Equals("updater.exe"))
-                        {
-                            entry.ExtractToFile(fullPath, true);
-                        }
-                    }
-                }
-
-                zipArchive.Dispose();
-                //File.Delete(updatedFile + @"\Chromatics.zip");
-                updateText.Text = "Closing Updater";
-                if (File.Exists(@"C:\Program Files (x86)\Advanced Combat Tracker\Advanced Combat Tracker.exe"))
-                {
-                    ProcessStartInfo startInfo = new ProcessStartInfo();
-                    startInfo.FileName = @"C:\Program Files (x86)\Advanced Combat Tracker\Advanced Combat Tracker.exe";
-                    Process.Start(startInfo);
-                }
-                System.Windows.Forms.Application.Exit();
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = destFile.FullName;
+                Process.Start(startInfo);
             }
-            else
-            {
-                updateText.Text = "The downloaded file did not contain a valid Chromatics file (Unknown file type)";
-            }
-
-
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            updateText.Text = "Downloading Update: " + e.ProgressPercentage + "% Complete";
+            updateText.Text = "Downloading update: " + e.ProgressPercentage + "% complete";
         }
 
 

@@ -5,24 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoUpdater"
         mc:Ignorable="d"
-        Title="MainWindow" Height="240" Width="600" WindowStartupLocation="CenterScreen" Background="#FF3C3C3C" BorderThickness="10,0,0,0" BorderBrush="{DynamicResource Pinks}" AllowsTransparency="True" WindowStyle="None">
-    <Window.Resources>
-        <SolidColorBrush x:Key="Pinks" Color="{DynamicResource Pink}"/>
-    </Window.Resources>
-    <Window.ContextMenu>
-        <ContextMenu/>
-    </Window.ContextMenu>
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
+        Title="AutoUpdate" WindowStartupLocation="CenterScreen" BorderThickness="0" BorderBrush="#FFFF3366" WindowStyle="None" Foreground="White" Background="#FF141414" SizeToContent="WidthAndHeight" Padding="20" d:DesignHeight="399.235" Height="Auto" Icon="Resources/android-chrome-192x192.png" ResizeMode="NoResize" Topmost="True">
+    <Grid Margin="50,20" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <TextBlock x:Name="updateText" HorizontalAlignment="Center" Margin="0,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC8C8C8" TextAlignment="Center" Padding="10" Height="35"><Run FontWeight="Bold" Text="Checking for updates..."/></TextBlock>
+        <Image x:Name="image" HorizontalAlignment="Center" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" Source="Resources/android-chrome-192x192.png"/>
 
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Image x:Name="image" Margin="223,48" Source="Resources/android-chrome-192x192.png" Height="124" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="124"/>
-        <Label x:Name="Message" Content="Checking for updates..." Margin="213.603,186.2,223,10" Foreground="White" HorizontalAlignment="Center" FontFamily="Arial" Height="23.8" VerticalAlignment="Center" Grid.ColumnSpan="2" Width="133.397"/>
-
+        <Label x:Name="label" Content="Welcome to Chroma Sync" HorizontalAlignment="Center" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="21.333">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+            </Label.Foreground>
+        </Label>
     </Grid>
 </Window>

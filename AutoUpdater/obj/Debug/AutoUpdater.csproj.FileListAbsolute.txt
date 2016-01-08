@@ -26,3 +26,19 @@ C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.Proper
 C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.csproj.GenerateResource.Cache
 C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.exe
 C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\obj\Debug\AutoUpdater.pdb
+N:\Development\Chroma Sync\AutoUpdater\bin\Debug\AutoUpdater.exe
+N:\Development\Chroma Sync\AutoUpdater\bin\Debug\AutoUpdater.pdb
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\AutoUpdater.csprojResolveAssemblyReference.cache
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\MainWindow.g.cs
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\App.g.cs
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\AutoUpdater_MarkupCompile.cache
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\AutoUpdater_MarkupCompile.lref
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\App.baml
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\MainWindow.baml
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\AutoUpdater.g.resources
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\AutoUpdater.Properties.Resources.resources
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\AutoUpdater.csproj.GenerateResource.Cache
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\AutoUpdater.exe
+N:\Development\Chroma Sync\AutoUpdater\obj\Debug\AutoUpdater.pdb
+N:\Development\Chroma Sync\AutoUpdater\bin\Debug\Newtonsoft.Json.dll
+N:\Development\Chroma Sync\AutoUpdater\bin\Debug\Newtonsoft.Json.xml

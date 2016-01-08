@@ -34,7 +34,6 @@ namespace Ultrabox.ChromaSync
             scriptsMenu.MenuItems.Add("-");
         }
 
-
         public static void NewPackagesContext()
         {
             
@@ -48,7 +47,9 @@ namespace Ultrabox.ChromaSync
         public void App_Startup(object sender, StartupEventArgs e)
         {
             // Application is running
-
+            //Check version
+            AutoUpdate updater = new AutoUpdate();
+            updater.ShowDialog();
 
 
             _iconMenu = new ContextMenu();

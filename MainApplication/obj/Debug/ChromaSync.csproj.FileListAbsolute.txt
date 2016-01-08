@@ -57,3 +57,32 @@ C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Ultrabox.ChromaSyn
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\AutoUpdate.g.cs
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\AutoUpdate.baml
 N:\Development\Chroma Sync\MainApplication\bin\Debug\Ultrabox.ChromaSync.exe.config
+N:\Development\Chroma Sync\MainApplication\bin\Debug\chromasync.ico
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Ultrabox.ChromaSync.exe
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Ultrabox.ChromaSync.pdb
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Corale.Colore.dll
+N:\Development\Chroma Sync\MainApplication\bin\Debug\log4net.dll
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Neo.Lua.Desktop.dll
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Neo.Lua.dll
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Newtonsoft.Json.dll
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Corale.Colore.xml
+N:\Development\Chroma Sync\MainApplication\bin\Debug\log4net.xml
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Neo.Lua.pdb
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Neo.Lua.xml
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Neo.Lua.Desktop.pdb
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Neo.Lua.Desktop.xml
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Newtonsoft.Json.xml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\ChromaSync.csprojResolveAssemblyReference.cache
+N:\Development\Chroma Sync\MainApplication\obj\Debug\AutoUpdate.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\MainWindow.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\App.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync_MarkupCompile.cache
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync_MarkupCompile.lref
+N:\Development\Chroma Sync\MainApplication\obj\Debug\App.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\AutoUpdate.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\MainWindow.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.g.resources
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.Properties.Resources.resources
+N:\Development\Chroma Sync\MainApplication\obj\Debug\ChromaSync.csproj.GenerateResource.Cache
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.exe
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.pdb
