@@ -56,3 +56,4 @@ C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Ultrabox.ChromaSyn
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.pdb
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\AutoUpdate.g.cs
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\AutoUpdate.baml
+N:\Development\Chroma Sync\MainApplication\bin\Debug\Ultrabox.ChromaSync.exe.config
