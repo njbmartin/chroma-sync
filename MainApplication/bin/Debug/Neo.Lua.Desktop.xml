@@ -75,25 +75,11 @@
             <summary></summary>
             <returns></returns>
         </member>
-        <member name="P:Neo.IronLua.LuaExceptionData.Count">
-            <summary>Stackframes</summary>
-        </member>
-        <member name="P:Neo.IronLua.LuaExceptionData.IsReadOnly">
-            <summary>Always <c>true</c></summary>
-        </member>
         <member name="M:Neo.IronLua.LuaExceptionData.GetStackTrace(System.Int32,System.Boolean)">
             <summary>Get StackTrace format as an string.</summary>
             <param name="iLuaSkipFrames">Lua frame to skip.</param>
             <param name="lSkipClrFrames">Skip all clr-frames.</param>
             <returns>Formatted stackframe</returns>
-        </member>
-        <member name="P:Neo.IronLua.LuaExceptionData.Item(System.Int32)">
-            <summary></summary>
-            <param name="index"></param>
-            <returns></returns>
-        </member>
-        <member name="P:Neo.IronLua.LuaExceptionData.StackTrace">
-            <summary>Formatted StackTrace</summary>
         </member>
         <member name="M:Neo.IronLua.LuaExceptionData.GetStackFrame(System.Diagnostics.StackFrame)">
             <summary>Get the LuaStackFrame from a .net StackFrame, if someone exists. In the other case, the return LuaStackFrame is only proxy to the orginal frame.</summary>
@@ -109,6 +95,20 @@
             <summary>Retrieves the debug information for an exception.</summary>
             <param name="ex">Exception</param>
             <returns>Debug Information</returns>
+        </member>
+        <member name="P:Neo.IronLua.LuaExceptionData.Count">
+            <summary>Stackframes</summary>
+        </member>
+        <member name="P:Neo.IronLua.LuaExceptionData.IsReadOnly">
+            <summary>Always <c>true</c></summary>
+        </member>
+        <member name="P:Neo.IronLua.LuaExceptionData.Item(System.Int32)">
+            <summary></summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Neo.IronLua.LuaExceptionData.StackTrace">
+            <summary>Formatted StackTrace</summary>
         </member>
         <member name="T:Neo.IronLua.LuaLibraryPackage">
             <summary></summary>
@@ -168,15 +168,6 @@
         <member name="T:Neo.IronLua.LuaDeskop">
             <summary>Extension for the desktop lua version.</summary>
         </member>
-        <member name="T:Neo.IronLua.LuaDeskop.AssemblyCacheList">
-            <summary></summary>
-        </member>
-        <member name="T:Neo.IronLua.LuaDeskop.AssemblyCacheList.CacheItem">
-            <summary></summary>
-        </member>
-        <member name="P:Neo.IronLua.LuaDeskop.AssemblyCacheList.AssemblyCount">
-            <summary>Number of loaded assemblies</summary>
-        </member>
         <member name="M:Neo.IronLua.LuaDeskop.CompileChunk(Neo.IronLua.Lua,System.String,Neo.IronLua.LuaCompileOptions,System.Collections.Generic.KeyValuePair{System.String,System.Type}[])">
             <summary>Erzeugt ein Delegate aus dem Code, ohne ihn auszuführen.</summary>
             <param name="lua"></param>
@@ -192,6 +183,15 @@
             <summary>Should the type resolve also scan references assemblies.</summary>
         </member>
         <member name="P:Neo.IronLua.LuaDeskop.StackTraceCompileOptions">
+            <summary></summary>
+        </member>
+        <member name="T:Neo.IronLua.LuaDeskop.AssemblyCacheList">
+            <summary></summary>
+        </member>
+        <member name="P:Neo.IronLua.LuaDeskop.AssemblyCacheList.AssemblyCount">
+            <summary>Number of loaded assemblies</summary>
+        </member>
+        <member name="T:Neo.IronLua.LuaDeskop.AssemblyCacheList.CacheItem">
             <summary></summary>
         </member>
         <member name="T:Neo.IronLua.LuaFileStream">
@@ -292,9 +292,6 @@
             <param name="args"></param>
             <returns></returns>
         </member>
-        <member name="T:Neo.IronLua.LuaGlobal.LuaLoadReturnClosure">
-            <summary></summary>
-        </member>
         <member name="M:Neo.IronLua.LuaGlobal.LuaLoad(System.Object,System.String,System.String,Neo.IronLua.LuaTable)">
             <summary></summary>
             <param name="ld"></param>
@@ -316,10 +313,19 @@
         <member name="P:Neo.IronLua.LuaGlobal.LuaPackage">
             <summary></summary>
         </member>
+        <member name="T:Neo.IronLua.LuaGlobal.LuaLoadReturnClosure">
+            <summary></summary>
+        </member>
         <member name="T:Neo.IronLua.LuaStackTraceDebugger">
             <summary>Debugger that creates the methods as dynamic assembly, with them
             it is possible to retrieve exact stacktraces. This debugger is good if
             you are running long scripts, they stay in memory.</summary>
+        </member>
+        <member name="M:Neo.IronLua.LuaStackTraceDebugger.#ctor">
+            <summary>Creates a new StackTrace-Debugger</summary>
+        </member>
+        <member name="P:Neo.IronLua.LuaStackTraceDebugger.Default">
+            <summary>Default debugger for the stack trace debugger.</summary>
         </member>
         <member name="T:Neo.IronLua.LuaStackTraceDebugger.LuaDebugInfo">
             <summary></summary>
@@ -329,12 +335,6 @@
         </member>
         <member name="T:Neo.IronLua.LuaStackTraceDebugger.ReduceDynamic">
             <summary></summary>
-        </member>
-        <member name="M:Neo.IronLua.LuaStackTraceDebugger.#ctor">
-            <summary>Creates a new StackTrace-Debugger</summary>
-        </member>
-        <member name="P:Neo.IronLua.LuaStackTraceDebugger.Default">
-            <summary>Default debugger for the stack trace debugger.</summary>
         </member>
     </members>
 </doc>

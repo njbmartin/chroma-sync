@@ -7,6 +7,7 @@ using System.Diagnostics;
 using Ultrabox.ChromaSync.Properties;
 using System.IO;
 using System.Drawing;
+using Corale.Colore.Core;
 
 namespace Ultrabox.ChromaSync
 {
@@ -47,23 +48,11 @@ namespace Ultrabox.ChromaSync
         public void App_Startup(object sender, StartupEventArgs e)
         {
             // Application is running
-           
-            MenuItem about = new MenuItem("Visit website", showAbout);
-            scriptsMenu = new MenuItem("Scripts");
-            packagesMenu = new MenuItem("Packages");
 
-            NewScriptsContext();
-            NewPackagesContext();
-            
-            
 
-            //MenuItem updates = new MenuItem("Check for updates...", ShowConfig);
-            
-            MenuItem exitMenuItem = new MenuItem("Exit", Quit);
 
             _iconMenu = new ContextMenu();
-            _iconMenu.MenuItems.Add(about);
-            //_iconMenu.MenuItems.Add(updates);
+            
             
             
             _icon = new NotifyIcon
@@ -72,6 +61,26 @@ namespace Ultrabox.ChromaSync
                 ContextMenu = _iconMenu,
                 Visible = true,
             };
+
+
+            MenuItem about = new MenuItem("Visit website", showAbout);
+            scriptsMenu = new MenuItem("Scripts");
+            packagesMenu = new MenuItem("Packages");
+
+            _iconMenu.MenuItems.Add(about);
+            //_iconMenu.MenuItems.Add(updates);
+
+            NewScriptsContext();
+            NewPackagesContext();
+
+
+
+            //MenuItem uninit = new MenuItem("Uninit", Uninit);
+
+            MenuItem exitMenuItem = new MenuItem("Exit", Quit);
+
+
+
             _iconMenu.MenuItems.Add(packagesMenu);
             _iconMenu.MenuItems.Add(scriptsMenu);
             _iconMenu.MenuItems.Add(exitMenuItem);
@@ -154,19 +163,21 @@ namespace Ultrabox.ChromaSync
         {
             // We must manually tidy up and remove the icon before we exit.
             // Otherwise it will be left behind until the user mouses over.
-            _icon.Visible = false;
-
+            
+            LuaScripting.CloseScripts();
             // Abort all threads
-            if (_serverThread != null && _serverThread.IsAlive)
-                _serverThread.Abort();
+            
             if (_luaThread != null && _luaThread.IsAlive)
                 _luaThread.Abort();
             //_gtaThread.Abort();
             if (Server._clientThread != null && Server._clientThread.IsAlive)
                 Server._clientThread.Abort();
 
-            LuaScripting.CloseScripts();
-            System.Windows.Forms.Application.Exit();
+            if (_serverThread != null && _serverThread.IsAlive)
+                _serverThread.Abort();
+
+            //_icon.Visible = false;
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)

@@ -23,6 +23,10 @@ namespace Ultrabox.ChromaSync
         public MainWindow()
         {
             InitializeComponent();
+            //Check version
+
+            AutoUpdate updater = new AutoUpdate();
+            updater.ShowDialog();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

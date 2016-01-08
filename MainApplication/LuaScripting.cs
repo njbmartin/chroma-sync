@@ -19,6 +19,8 @@ namespace Ultrabox.ChromaSync
         private static List<dynamic> callbacks;
         private static Collection<Thread> scriptThreads;
         private static FileSystemWatcher watcher;
+        private static bool saveDebug = false;
+
         public static void ReloadScripts()
         {
             CloseScripts();
@@ -27,16 +29,17 @@ namespace Ultrabox.ChromaSync
 
         public static void CloseScripts()
         {
-
             callbacks = new List<dynamic>();
-
-            foreach (var script in scriptThreads)
+            try
             {
+                foreach (var script in scriptThreads)
+                {
 
-                script.Abort();
+                    script.Abort();
 
-
+                }
             }
+            catch (Exception e) { }
         }
 
         public static void LuaThread()
@@ -46,7 +49,7 @@ namespace Ultrabox.ChromaSync
 
             App.NewScriptsContext();
             // WE NEED TO ENSURE CHROMA IS INITIALISED
-            var c = Corale.Colore.Core.Chroma.Instance;
+            var c = Chroma.Instance;
             callbacks = new List<dynamic>();
 
             var ms_luaDebug = new LuaStackTraceDebugger();
@@ -61,7 +64,8 @@ namespace Ultrabox.ChromaSync
 
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-            foreach (string st in Directory.GetFiles(path, "*_main.lua", SearchOption.AllDirectories))
+
+            foreach (string st in Directory.GetFiles(path, "*.lua", SearchOption.AllDirectories))
             {
                 var v = RegistryKeeper.GetValue(st);
                 MenuItem menuItem = new MenuItem(Path.GetFileName(st));
@@ -69,7 +73,7 @@ namespace Ultrabox.ChromaSync
                 menuItem.Tag = st;
                 menuItem.Click += MenuItem_Click;
                 App.scriptsMenu.MenuItems.Add(menuItem);
-                
+
                 if (v.Equals("True"))
                 {
                     menuItem.Checked = true;
@@ -81,7 +85,7 @@ namespace Ultrabox.ChromaSync
                             LuaGlobalPortable g = l.CreateEnvironment();
                             dynamic dg = g;
                             dg.DebugLua = new Func<object, bool>(debug);
-                            dg.ConvertInt = new Func<JValue, int>(convertInt);
+                            dg.ConvertInt = new Func<object, int>(convertInt);
                             dg.NewCustom = new Func<string, Color, object>(newCustom);
                             dg.IntToByte = new Func<int, byte>(IntToByte);
                             dg.Headset = Headset.Instance;
@@ -120,9 +124,9 @@ namespace Ultrabox.ChromaSync
             ReloadScripts();
         }
 
-        public static int convertInt(JValue o)
+        public static int convertInt(object o)
         {
-            return o.ToObject<int>();
+            return Convert.ToInt32(o);
         }
 
         public static byte IntToByte(int o)
@@ -135,9 +139,12 @@ namespace Ultrabox.ChromaSync
         public static bool debug(object d)
         {
             var text = DateTime.Now + " - " + d;
+            Debug.WriteLine("Lua Script log: " + text);
+            if (!saveDebug)
+                return false;
+
             lock (debugLock)
             {
-                Debug.WriteLine("Lua Script log: " + text);
 
 
                 string path = @"%appdata%\ChromaSync";

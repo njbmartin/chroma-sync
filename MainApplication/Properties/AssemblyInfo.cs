@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("Chroma Sync")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Ultrabox Entertainment Limited")]
 [assembly: AssemblyProduct("Chroma Sync")]
-[assembly: AssemblyCopyright("Copyright Chroma Sync ©  2015")]
+[assembly: AssemblyCopyright("Copyright Ultrabox Entertainment Limited ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.*")]
+[assembly: AssemblyFileVersion("1.1.0.2")]

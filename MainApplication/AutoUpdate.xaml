@@ -1,0 +1,19 @@
+﻿<Window x:Class="Ultrabox.ChromaSync.AutoUpdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ultrabox.ChromaSync"
+        mc:Ignorable="d"
+        Title="AutoUpdate" WindowStartupLocation="CenterScreen" BorderThickness="0" BorderBrush="#FFFF3366" WindowStyle="None" Foreground="White" Background="#FF141414" SizeToContent="WidthAndHeight" Padding="20" d:DesignHeight="399.235" Height="Auto" Icon="Resources/android-chrome-192x192.png" ResizeMode="NoResize" Topmost="True">
+    <Grid Margin="50,20" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <TextBlock x:Name="updateText" HorizontalAlignment="Center" Margin="0,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC8C8C8" TextAlignment="Center" Padding="10" Height="35"><Run FontWeight="Bold" Text="Checking for updates..."/></TextBlock>
+        <Image x:Name="image" HorizontalAlignment="Center" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" Source="Resources/android-chrome-192x192.png"/>
+
+        <Label x:Name="label" Content="Welcome to Chroma Sync" HorizontalAlignment="Center" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="21.333">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+            </Label.Foreground>
+        </Label>
+    </Grid>
+</Window>
