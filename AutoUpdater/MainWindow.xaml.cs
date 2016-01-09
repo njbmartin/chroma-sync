@@ -26,7 +26,6 @@ namespace AutoUpdater
     public partial class MainWindow : Window
     {
 
-        internal static Thread t;
         public MainWindow()
         {
             InitializeComponent();
@@ -75,6 +74,7 @@ namespace AutoUpdater
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 this.Close();
             }
             finally

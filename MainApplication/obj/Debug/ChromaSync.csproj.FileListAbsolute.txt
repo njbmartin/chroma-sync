@@ -4,9 +4,6 @@ C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Ultrabox.Chrom
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Ultrabox.ChromaSync.pdb
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Corale.Colore.dll
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\log4net.dll
-C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Neo.Lua.Desktop.dll
-C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Neo.Lua.dll
-C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Corale.Colore.xml
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\log4net.xml
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Neo.Lua.pdb
@@ -86,3 +83,5 @@ N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.Propert
 N:\Development\Chroma Sync\MainApplication\obj\Debug\ChromaSync.csproj.GenerateResource.Cache
 N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.exe
 N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.pdb
+C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\AutoUpdate.g.cs
+C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\AutoUpdate.baml

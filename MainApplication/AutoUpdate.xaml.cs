@@ -29,12 +29,12 @@ namespace Ultrabox.ChromaSync
         public AutoUpdate()
         {
             InitializeComponent();
-
-
+            //CheckUpdate();
         }
 
         public void CheckUpdate()
         {
+
             try
             {
                 System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
@@ -71,17 +71,15 @@ namespace Ultrabox.ChromaSync
                     //startInfo.FileName = updatedFile + @"\lib\updater.exe";
                     //startInfo.Arguments = "\"" + updatedFile + "\"";
                     //Process.Start(startInfo);
-
+                    return;
                 }
+                Hide();
             }
             catch (Exception ex)
             {
-                this.Close();
+                Hide();
             }
-            finally
-            {
 
-            }
         }
 
         void ExecuteUpdate()
@@ -104,7 +102,7 @@ namespace Ultrabox.ChromaSync
 
         private void Completed(object sender, AsyncCompletedEventArgs e, string updatedFile)
         {
-            FileInfo destFile = new FileInfo(System.IO.Path.Combine(updatedFile, @"\update.exe"));
+            FileInfo destFile = new FileInfo(System.IO.Path.Combine(updatedFile, "update.exe"));
             updateText.Text = "Installing update...";
 
 
@@ -115,9 +113,12 @@ namespace Ultrabox.ChromaSync
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo();
                 startInfo.FileName = destFile.FullName;
+                //startInfo.Arguments = @" /S /v/qn";
                 Process.Start(startInfo);
             }
-            System.Windows.Application.Current.Shutdown();
+            App.shouldQuit = true;
+            Hide();
+            //System.Windows.Application.Current.Shutdown();
         }
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -133,8 +134,9 @@ namespace Ultrabox.ChromaSync
 
         protected override void OnActivated(EventArgs e)
         {
-            CheckUpdate();
             base.OnActivated(e);
+            CheckUpdate();
+
         }
     }
 }

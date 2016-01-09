@@ -23,6 +23,7 @@ namespace Ultrabox.ChromaSync
         internal static ContextMenu _iconMenu;
         internal static MenuItem scriptsMenu;
         internal static MenuItem packagesMenu;
+        internal static bool shouldQuit;
 
         public static void NewScriptsContext()
         {
@@ -49,11 +50,14 @@ namespace Ultrabox.ChromaSync
             // Application is running
             //Check version
             AutoUpdate updater = new AutoUpdate();
-            updater.ShowDialog();
-
+            var t= updater.ShowDialog();
+            if(shouldQuit)
+            {
+                Quit();
+                return;
+            }
 
             _iconMenu = new ContextMenu();
-            
             
             
             _icon = new NotifyIcon
