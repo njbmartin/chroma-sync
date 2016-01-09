@@ -62,15 +62,12 @@ namespace AutoUpdater
                 {
                     updateText.Text = "Downloading new version: " + nV;
                     // start download
+                    //ExecuteUpdate();
 
-                    //string updatedFile = System.IO.Path.GetDirectoryName(pluginData.pluginFile.FullName);
 
-                    //ProcessStartInfo startInfo = new ProcessStartInfo();
-                    //startInfo.FileName = updatedFile + @"\lib\updater.exe";
-                    //startInfo.Arguments = "\"" + updatedFile + "\"";
-                    //Process.Start(startInfo);
-
+                    return;
                 }
+
             }
             catch (Exception ex)
             {

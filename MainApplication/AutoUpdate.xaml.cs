@@ -61,8 +61,9 @@ namespace Ultrabox.ChromaSync
 
                 if (nV > cV)
                 {
-                    updateText.Text = "Downloading new version: " + nV;
-                    ExecuteUpdate();
+                    updateText.Text = "A new version is available.";
+                    updateButton.Visibility = Visibility.Visible;
+                    
                     // start download
 
                     //string updatedFile = System.IO.Path.GetDirectoryName(pluginData.pluginFile.FullName);
@@ -129,7 +130,8 @@ namespace Ultrabox.ChromaSync
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
+            updateButton.Visibility = Visibility.Hidden;
+            ExecuteUpdate();
         }
 
         protected override void OnActivated(EventArgs e)

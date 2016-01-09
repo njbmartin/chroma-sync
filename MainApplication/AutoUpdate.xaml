@@ -15,5 +15,10 @@
                 <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
             </Label.Foreground>
         </Label>
+        <Button x:Name="updateButton" Content="Install update" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Background="#FF3C3C3C" BorderThickness="5,0,0,0" Padding="30,10" Width="160" FontWeight="Bold" Margin="0,194,0,0" Click="button_Click" Visibility="Hidden">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+            </Button.BorderBrush>
+        </Button>
     </Grid>
 </Window>
