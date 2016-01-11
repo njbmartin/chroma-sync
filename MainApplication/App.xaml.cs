@@ -17,9 +17,9 @@ namespace Ultrabox.ChromaSync
     public partial class App : System.Windows.Application
     {
         internal static NotifyIcon _icon;
-        internal Thread _serverThread;
-        internal Thread _luaThread;
-        internal Thread _packagesThread;
+        internal static Thread _serverThread;
+        internal static Thread _luaThread;
+        internal static Thread _packagesThread;
         internal static ContextMenu _iconMenu;
         internal static MenuItem scriptsMenu;
         internal static MenuItem packagesMenu;
@@ -35,6 +35,20 @@ namespace Ultrabox.ChromaSync
             scriptsMenu.MenuItems.Add("-");
         }
 
+        internal static void StartServices()
+        {
+            PluginManager.EnablePlugins();
+
+            _packagesThread = new Thread(PackageManager.Start);
+            _packagesThread.Start();
+
+            _serverThread = new Thread(Server.RunServer);
+            _serverThread.Start();
+
+            _luaThread = new Thread(LuaScripting.LuaThread);
+            _luaThread.Start();
+        }
+
         public static void NewPackagesContext()
         {
             
@@ -45,8 +59,16 @@ namespace Ultrabox.ChromaSync
             packagesMenu.MenuItems.Add("-");
         }
 
+        void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            string errorMessage = string.Format("An unhandled exception occurred: {0}", e.Exception.Message);
+            System.Windows.MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            e.Handled = true;
+        }
+
         public void App_Startup(object sender, StartupEventArgs e)
         {
+            this.Dispatcher.UnhandledException += OnDispatcherUnhandledException;
             // Application is running
             //Check version
             AutoUpdate updater = new AutoUpdate();
@@ -89,19 +111,8 @@ namespace Ultrabox.ChromaSync
             _iconMenu.MenuItems.Add(packagesMenu);
             _iconMenu.MenuItems.Add(scriptsMenu);
             _iconMenu.MenuItems.Add(exitMenuItem);
-            PluginManager.EnablePlugins();
-
-            _packagesThread = new Thread(PackageManager.Start);
-            _packagesThread.Start();
-
-            _serverThread = new Thread(Server.RunServer);
-            _serverThread.Start();
-
-            _luaThread = new Thread(LuaScripting.LuaThread);
-            _luaThread.Start();
 
         }
-
 
         static void ReloadScripts(object sender, EventArgs e)
         {
@@ -111,25 +122,6 @@ namespace Ultrabox.ChromaSync
         void showAbout(object sender, EventArgs e)
         {
             Process.Start("http://chromasync.io/");
-        }
-
-        void ShowConfig(object sender, EventArgs e)
-        {
-            /*
-            if (_mainWindow.IsDisposed)
-            {
-                _mainWindow = new Form1();
-            }
-            // If we are already showing the window, merely focus it.
-            if (_mainWindow.Visible)
-            {
-                _mainWindow.Activate();
-            }
-            else
-            {
-                _mainWindow.ShowDialog();
-            }
-            */
         }
 
         static void BrowseScripts(object sender, EventArgs e)

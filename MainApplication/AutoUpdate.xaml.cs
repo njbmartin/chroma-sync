@@ -62,7 +62,7 @@ namespace Ultrabox.ChromaSync
                 if (nV > cV)
                 {
                     updateText.Text = "A new version is available.";
-                    updateButton.Visibility = Visibility.Visible;
+                    buttons.Visibility = Visibility.Visible;
                     
                     // start download
 
@@ -78,6 +78,7 @@ namespace Ultrabox.ChromaSync
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 Hide();
             }
 
@@ -130,8 +131,16 @@ namespace Ultrabox.ChromaSync
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            updateButton.Visibility = Visibility.Hidden;
-            ExecuteUpdate();
+            System.Windows.Controls.Button b = (System.Windows.Controls.Button)sender;
+            if (b.Name == "updateButton")
+            {
+                buttons.Visibility = Visibility.Collapsed;
+                ExecuteUpdate();
+            }
+            else
+            {
+                Hide();
+            }
         }
 
         protected override void OnActivated(EventArgs e)

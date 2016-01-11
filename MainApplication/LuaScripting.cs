@@ -39,7 +39,9 @@ namespace Ultrabox.ChromaSync
 
                 }
             }
-            catch (Exception e) { }
+            catch (Exception e) {
+                Debug.WriteLine(e.Message);
+            }
         }
 
         public static void LuaThread()

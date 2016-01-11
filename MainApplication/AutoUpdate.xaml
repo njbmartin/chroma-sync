@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ultrabox.ChromaSync"
         mc:Ignorable="d"
-        Title="AutoUpdate" WindowStartupLocation="CenterScreen" BorderThickness="0" BorderBrush="#FFFF3366" WindowStyle="None" Foreground="White" Background="#FF141414" SizeToContent="WidthAndHeight" Padding="20" d:DesignHeight="399.235" Height="Auto" Icon="Resources/android-chrome-192x192.png" ResizeMode="NoResize" Topmost="True">
-    <Grid Margin="50,20" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        Title="AutoUpdate" WindowStartupLocation="CenterScreen" BorderThickness="0" BorderBrush="#FFFF3366" Foreground="White" Background="#FF141414" SizeToContent="WidthAndHeight" Padding="20" d:DesignHeight="399.235" Icon="Resources/android-chrome-192x192.png" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+    <Grid Margin="100,20" ScrollViewer.VerticalScrollBarVisibility="Disabled">
         <TextBlock x:Name="updateText" HorizontalAlignment="Center" Margin="0,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC8C8C8" TextAlignment="Center" Padding="10" Height="35"><Run FontWeight="Bold" Text="Checking for updates..."/></TextBlock>
         <Image x:Name="image" HorizontalAlignment="Center" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" Source="Resources/android-chrome-192x192.png"/>
 
@@ -15,10 +15,21 @@
                 <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
             </Label.Foreground>
         </Label>
-        <Button x:Name="updateButton" Content="Install update" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Background="#FF3C3C3C" BorderThickness="5,0,0,0" Padding="30,10" Width="160" FontWeight="Bold" Margin="0,194,0,0" Click="button_Click" Visibility="Hidden">
-            <Button.BorderBrush>
-                <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
-            </Button.BorderBrush>
-        </Button>
+        <Grid x:Name="buttons" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="skipButton" Content="Skip" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Background="#FF3C3C3C" BorderThickness="5,0,0,0" Padding="30,10" Width="160" FontWeight="Bold" Margin="10" Click="button_Click" Grid.ColumnSpan="1" Height="36">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+                </Button.BorderBrush>
+            </Button>
+            <Button x:Name="updateButton" Content="Install Update" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Background="#FF3C3C3C" BorderThickness="5,0,0,0" Padding="30,10" Width="160" Margin="10" Click="button_Click" Grid.ColumnSpan="1" Height="36" Grid.Column="1" FontWeight="Bold">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+                </Button.BorderBrush>
+            </Button>
+        </Grid>
     </Grid>
 </Window>

@@ -7,3 +7,8 @@ C:\Users\Nicholas\Documents\chroma-sync\KeyHook\bin\Debug\KeyHook.pdb
 C:\Users\Nicholas\Documents\chroma-sync\KeyHook\obj\Debug\KeyHook.csprojResolveAssemblyReference.cache
 C:\Users\Nicholas\Documents\chroma-sync\KeyHook\obj\Debug\KeyHook.dll
 C:\Users\Nicholas\Documents\chroma-sync\KeyHook\obj\Debug\KeyHook.pdb
+N:\Development\Chroma Sync\KeyHook\bin\Debug\KeyHook.dll
+N:\Development\Chroma Sync\KeyHook\bin\Debug\KeyHook.pdb
+N:\Development\Chroma Sync\KeyHook\obj\Debug\KeyHook.csprojResolveAssemblyReference.cache
+N:\Development\Chroma Sync\KeyHook\obj\Debug\KeyHook.dll
+N:\Development\Chroma Sync\KeyHook\obj\Debug\KeyHook.pdb
