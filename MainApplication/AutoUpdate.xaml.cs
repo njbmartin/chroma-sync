@@ -37,9 +37,7 @@ namespace Ultrabox.ChromaSync
 
             try
             {
-                System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-                FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-                int version = fvi.ProductPrivatePart;
+                var version = App.GetCSVersion();
                 Debug.WriteLine(version);
 
                 int newVersion = version;

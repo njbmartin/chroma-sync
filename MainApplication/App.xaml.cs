@@ -49,12 +49,20 @@ namespace Ultrabox.ChromaSync
             _luaThread.Start();
         }
 
+        public static int GetCSVersion()
+        {
+
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            int version = fvi.ProductPrivatePart;
+            return version;
+        }
         public static void NewPackagesContext()
         {
-            
+
             packagesMenu.MenuItems.Clear();
             MenuItem packages = new MenuItem("Packages Folder", BrowsePackages);
-            
+
             packagesMenu.MenuItems.Add(packages);
             packagesMenu.MenuItems.Add("-");
         }
@@ -72,16 +80,18 @@ namespace Ultrabox.ChromaSync
             // Application is running
             //Check version
             AutoUpdate updater = new AutoUpdate();
-            var t= updater.ShowDialog();
-            if(shouldQuit)
+            var t = updater.ShowDialog();
+            if (shouldQuit)
             {
                 Quit();
                 return;
             }
 
+            FirstRun();
+
             _iconMenu = new ContextMenu();
-            
-            
+
+
             _icon = new NotifyIcon
             {
                 Icon = new Icon("chromasync.ico"),
@@ -95,7 +105,6 @@ namespace Ultrabox.ChromaSync
             packagesMenu = new MenuItem("Packages");
 
             _iconMenu.MenuItems.Add(about);
-            //_iconMenu.MenuItems.Add(updates);
 
             NewScriptsContext();
             NewPackagesContext();
@@ -112,6 +121,31 @@ namespace Ultrabox.ChromaSync
             _iconMenu.MenuItems.Add(scriptsMenu);
             _iconMenu.MenuItems.Add(exitMenuItem);
 
+
+            StartServices();
+
+            // TODO: Browser
+
+        }
+
+        private void FirstRun()
+        {
+            // Check if first run
+            int v = 0;
+            try
+            {
+                v = int.Parse(RegistryKeeper.GetValue("lastversion"));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            if (GetCSVersion() > v)
+            {
+                Intro iWindow = new Intro();
+                iWindow.ShowDialog();
+                RegistryKeeper.UpdateReg("lastversion", GetCSVersion().ToString());
+            }
         }
 
         static void ReloadScripts(object sender, EventArgs e)
@@ -160,10 +194,10 @@ namespace Ultrabox.ChromaSync
         {
             // We must manually tidy up and remove the icon before we exit.
             // Otherwise it will be left behind until the user mouses over.
-            
+
             LuaScripting.CloseScripts();
             // Abort all threads
-            
+
             if (_luaThread != null && _luaThread.IsAlive)
                 _luaThread.Abort();
             //_gtaThread.Abort();

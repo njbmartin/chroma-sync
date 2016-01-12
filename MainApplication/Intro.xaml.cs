@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Ultrabox.ChromaSync
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Intro.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Intro : Window
     {
-        public MainWindow()
+        public Intro()
         {
             InitializeComponent();
         }
@@ -28,7 +28,7 @@ namespace Ultrabox.ChromaSync
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            App.StartServices();
+            //App.StartServices();
         }
 
     }
