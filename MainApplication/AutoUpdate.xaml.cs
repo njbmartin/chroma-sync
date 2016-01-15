@@ -26,6 +26,10 @@ namespace Ultrabox.ChromaSync
     /// </summary>
     public partial class AutoUpdate : Window
     {
+        private static int buildNumber;
+        private static int newBuildNumber;
+        private static string version;
+
         public AutoUpdate()
         {
             InitializeComponent();
@@ -37,10 +41,10 @@ namespace Ultrabox.ChromaSync
 
             try
             {
-                var version = App.GetCSVersion();
-                Debug.WriteLine(version);
+                buildNumber = App.GetCSVersion();
+                Debug.WriteLine(buildNumber);
 
-                int newVersion = version;
+                newBuildNumber = buildNumber;
                 var webRequest = WebRequest.Create(@"https://ultrabox.s3.amazonaws.com/ChromaSync/version.json");
 
                 using (var response = webRequest.GetResponse())
@@ -49,33 +53,21 @@ namespace Ultrabox.ChromaSync
                 {
                     string newVersionA = reader.ReadToEnd();
                     JObject o = JObject.Parse(newVersionA);
-                    newVersion = o.GetValue("version").ToObject<int>();
+                    newBuildNumber = o.GetValue("build").ToObject<int>();
+                    version = o.GetValue("version").ToString();
                 }
 
-                Debug.WriteLine(newVersion);
-
-                int cV = version;
-                int nV = newVersion;
-
-                if (nV > cV)
+                if (newBuildNumber > buildNumber)
                 {
-                    updateText.Text = "A new version is available.";
+                    updateText.Text = "A new version is available: " + version;
                     buttons.Visibility = Visibility.Visible;
-                    
-                    // start download
-
-                    //string updatedFile = System.IO.Path.GetDirectoryName(pluginData.pluginFile.FullName);
-
-                    //ProcessStartInfo startInfo = new ProcessStartInfo();
-                    //startInfo.FileName = updatedFile + @"\lib\updater.exe";
-                    //startInfo.Arguments = "\"" + updatedFile + "\"";
-                    //Process.Start(startInfo);
                     return;
                 }
                 Hide();
             }
             catch (Exception ex)
             {
+                App.Log.Error(ex.Message);
                 Debug.WriteLine(ex.Message);
                 Hide();
             }
@@ -94,9 +86,9 @@ namespace Ultrabox.ChromaSync
             using (var client = new WebClient())
             {
                 client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");
-                client.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler((sender, e) => Completed(sender, e, path));
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler((sender, e) => Completed(sender, e, path));
                 client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, e) => ProgressChanged(sender, e));
-                client.DownloadFileAsync(new Uri("https://ultrabox.s3.amazonaws.com/ChromaSync/setup.exe"), path + @"\update.exe");
+                client.DownloadFileAsync(new Uri("https://ultrabox.s3.amazonaws.com/ChromaSync/versions/chromasync." + version + ".setup.exe"), path + @"\update.exe");
             }
         }
 
@@ -105,8 +97,13 @@ namespace Ultrabox.ChromaSync
             FileInfo destFile = new FileInfo(System.IO.Path.Combine(updatedFile, "update.exe"));
             updateText.Text = "Installing update...";
 
-
-
+            if (e.Error != null)
+            {
+                App.Log.Error(e.Error.Message, e.Error);
+                Hide();
+                System.Windows.MessageBox.Show(e.Error.Message, e.Error.Message, MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             //File.Delete(updatedFile + @"\Chromatics.zip");
             updateText.Text = "Closing Updater";
             if (destFile.Exists)
@@ -118,7 +115,6 @@ namespace Ultrabox.ChromaSync
             }
             App.shouldQuit = true;
             Hide();
-            //System.Windows.Application.Current.Shutdown();
         }
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -146,6 +142,11 @@ namespace Ultrabox.ChromaSync
             base.OnActivated(e);
             CheckUpdate();
 
+        }
+
+        private void release_notes(object sender, RoutedEventArgs e)
+        {
+            Process.Start("http://chromasync.io/release-notes/");
         }
     }
 }

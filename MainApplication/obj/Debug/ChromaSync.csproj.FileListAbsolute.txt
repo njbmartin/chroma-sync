@@ -88,3 +88,5 @@ C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Chroma Sync.exe
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Chroma Sync.pdb
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Intro.g.cs
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Intro.baml
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\MainBrowser.g.cs
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\MainBrowser.baml

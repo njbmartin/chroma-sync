@@ -108,6 +108,9 @@
     </Compile>
     <Compile Include="GameLocator.cs" />
     <Compile Include="LuaScripting.cs" />
+    <Compile Include="MainBrowser.xaml.cs">
+      <DependentUpon>MainBrowser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PackageManager.cs" />
     <Compile Include="PluginManager.cs" />
     <Compile Include="RegistryKeeper.cs" />
@@ -129,6 +132,10 @@
       <DependentUpon>Intro.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MainBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

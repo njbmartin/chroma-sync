@@ -205,7 +205,6 @@ namespace Ultrabox.ChromaSync
 
                                             if (message == DialogResult.No)
                                                 return false;
-                                            // TODO: Copy the file to a temp directory
                                             Directory.CreateDirectory("tmp");
                                             var tmp = Path.Combine("tmp", entry.Name);
                                             try

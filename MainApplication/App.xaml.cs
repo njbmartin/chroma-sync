@@ -8,6 +8,7 @@ using Ultrabox.ChromaSync.Properties;
 using System.IO;
 using System.Drawing;
 using Corale.Colore.Core;
+using log4net;
 
 namespace Ultrabox.ChromaSync
 {
@@ -16,6 +17,9 @@ namespace Ultrabox.ChromaSync
     /// </summary>
     public partial class App : System.Windows.Application
     {
+
+        internal static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         internal static NotifyIcon _icon;
         internal static Thread _serverThread;
         internal static Thread _luaThread;
@@ -24,6 +28,13 @@ namespace Ultrabox.ChromaSync
         internal static MenuItem scriptsMenu;
         internal static MenuItem packagesMenu;
         internal static bool shouldQuit;
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            log4net.Config.XmlConfigurator.Configure();
+            Log.Info("Hello World");
+            base.OnStartup(e);
+        }
 
         public static void NewScriptsContext()
         {
@@ -69,8 +80,10 @@ namespace Ultrabox.ChromaSync
 
         void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
+            
             string errorMessage = string.Format("An unhandled exception occurred: {0}", e.Exception.Message);
-            System.Windows.MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            Log.Error(errorMessage);
+            //System.Windows.MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
         }
 
@@ -109,23 +122,23 @@ namespace Ultrabox.ChromaSync
             NewScriptsContext();
             NewPackagesContext();
 
-
-
-            //MenuItem uninit = new MenuItem("Uninit", Uninit);
-
+            MenuItem uninit = new MenuItem("Uninit", Uninit);
+            _iconMenu.MenuItems.Add(uninit);
             MenuItem exitMenuItem = new MenuItem("Exit", Quit);
-
-
-
             _iconMenu.MenuItems.Add(packagesMenu);
             _iconMenu.MenuItems.Add(scriptsMenu);
             _iconMenu.MenuItems.Add(exitMenuItem);
 
-
             StartServices();
 
             // TODO: Browser
+            MainBrowser mb = new MainBrowser();
+            mb.Show();
+        }
 
+        private void Uninit(object sender, EventArgs e)
+        {
+            Chroma.Instance.Uninitialize();
         }
 
         private void FirstRun()

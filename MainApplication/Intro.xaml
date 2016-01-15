@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ultrabox.ChromaSync"
         mc:Ignorable="d"
-        Title="Chroma Sync" WindowStartupLocation="CenterScreen" BorderThickness="0" BorderBrush="#FFFF3366" WindowStyle="None" Foreground="White" Background="#FF141414" SizeToContent="WidthAndHeight" Padding="20" d:DesignHeight="399.235" Height="Auto" Icon="Resources/android-chrome-192x192.png" ResizeMode="NoResize">
-    <Window.Resources>
-        <Color x:Key="ChromaSyncPinl">#FFFF3366</Color>
-    </Window.Resources>
+        Title="Chroma Sync" WindowStartupLocation="CenterScreen" BorderThickness="0,0,0,5" BorderBrush="#FFFF3366" WindowStyle="None" Foreground="White" Background="#FF141414" SizeToContent="WidthAndHeight" Padding="20" d:DesignHeight="399.235" Height="Auto" Icon="Resources/android-chrome-192x192.png" ResizeMode="NoResize">
     <Grid Margin="20" ScrollViewer.VerticalScrollBarVisibility="Disabled">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="0,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC8C8C8" TextAlignment="Center" Padding="10"><Run Text="Chroma Sync is the easiest way to sync games and apps, and create beautiful and reactive lighting effects."/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="This "/><Run FontWeight="Bold" Text="application runs in the background. You'll find the icon in the system tray."/></TextBlock>
         <Image x:Name="image" HorizontalAlignment="Center" Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Width="100" Source="Resources/android-chrome-192x192.png"/>
-        
+
         <Label x:Name="label" Content="Welcome to Chroma Sync" HorizontalAlignment="Center" Margin="0,115,0,0" VerticalAlignment="Top" FontSize="21.333">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
             </Label.Foreground>
         </Label>
-        <Button x:Name="button" Content="Continue" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Background="#FF3C3C3C" BorderThickness="5,0,0,0" Padding="30,10" Width="160" FontWeight="Bold" Margin="0,240,0,0" Click="button_Click">
+        <Button x:Name="button" Content="Continue" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" BorderThickness="5,0,0,0" Padding="30,10" Width="160" FontWeight="Bold" Margin="0,240,0,0" Click="button_Click">
+            <Button.Background>
+                <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+            </Button.Background>
             <Button.BorderBrush>
                 <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
             </Button.BorderBrush>

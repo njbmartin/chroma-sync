@@ -33,13 +33,10 @@ namespace Ultrabox.ChromaSync
             try
             {
                 foreach (var script in scriptThreads)
-                {
-
                     script.Abort();
-
-                }
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 Debug.WriteLine(e.Message);
             }
         }
@@ -62,12 +59,16 @@ namespace Ultrabox.ChromaSync
             string path = @"%appdata%\ChromaSync";
             path = Environment.ExpandEnvironmentVariables(path);
 
-            path = Path.Combine(path, "scripts");
+            string scriptsPath = Path.Combine(path, "scripts");
+            string packagesPath = Path.Combine(path, "packages");
+            if (!Directory.Exists(scriptsPath))
+                Directory.CreateDirectory(scriptsPath);
 
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
 
-            foreach (string st in Directory.GetFiles(path, "*.lua", SearchOption.AllDirectories))
+            // Todo: Get all scripts including the packages
+            var files = Directory.GetFiles(path, "*.lua", SearchOption.AllDirectories);
+
+            foreach (string st in files)
             {
                 var v = RegistryKeeper.GetValue(st);
                 MenuItem menuItem = new MenuItem(Path.GetFileName(st));
@@ -200,9 +201,6 @@ namespace Ultrabox.ChromaSync
             }
         }
 
-
-
-
         public static object newCustom(string t, Color c)
         {
             switch (t)
@@ -233,9 +231,6 @@ namespace Ultrabox.ChromaSync
             watcher.EnableRaisingEvents = false;
             Debug.WriteLine("Changed");
             ReloadScripts();
-            // TODO: ShowPackages(); -- Needs to use background worker
-            //ShowPackages();
-            // https://msdn.microsoft.com/en-us/library/waw3xexc(v=vs.110).aspx
             watcher.EnableRaisingEvents = true;
         }
 

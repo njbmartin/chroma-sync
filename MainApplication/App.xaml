@@ -7,5 +7,9 @@
              Exit="Application_Exit">
     <Application.Resources>
         <Color x:Key="ChromaSyncPink">#FFFF3366</Color>
+        <Color x:Key="ChromaSyncBlack">#FF141414</Color>
+        <Color x:Key="ChromaSyncGrey">#FF3C3C3C</Color>
+        <Color x:Key="ChromaSyncTranslucent">#3F3C3C3C</Color>
+        
     </Application.Resources>
 </Application>
