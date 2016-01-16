@@ -5,12 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ultrabox.ChromaSync"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300">
+        Title="Browser" Height="480" Width="720" MinWidth="640" MinHeight="480" WindowStartupLocation="CenterScreen" Icon="Resources/android-chrome-192x192.png" WindowStyle="ThreeDBorderWindow">
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource ChromaSyncBlack}"/>
     </Window.Background>
-    <Grid>
-        <DockPanel HorizontalAlignment="Left" Height="100" LastChildFill="False" Margin="60,75,0,0" VerticalAlignment="Top" Width="100"/>
-
+    <Grid Margin="0">
+        <Grid Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="38"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="260"/>
+                </Grid.ColumnDefinitions>
+                <Grid.Background>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
+                </Grid.Background>
+                <DockPanel x:Name="DetailsView" Grid.Column="1" Margin="0"/>
+                <DockPanel x:Name="ListView" Margin="0">
+                    <DockPanel.Background>
+                        <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
+                    </DockPanel.Background>
+                </DockPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
