@@ -92,3 +92,7 @@ C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Intro.g.cs
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\MainBrowser.g.cs
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Intro.baml
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\MainBrowser.baml
+C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\ListItemControl.g.cs
+C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\ListItemControl.baml
+C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\DetailsControl.g.cs
+C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\DetailsControl.baml

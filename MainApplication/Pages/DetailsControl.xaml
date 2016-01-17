@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Ultrabox.ChromaSync.Pages.DetailsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Ultrabox.ChromaSync.Pages"
+             mc:Ignorable="d" d:DesignWidth="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="60"/>
+            <RowDefinition Height="Auto" MinHeight="53"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="image" Margin="0" Source="/Chroma Sync;component/Resources/csgo.jpg"/>
+        <TextBlock x:Name="Title" Margin="10,10,10,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="13.333" FontWeight="Bold" Foreground="White" Grid.Row="1" Height="18"/>
+        <TextBlock x:Name="Description" Margin="10,33,10,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" Grid.Row="1" Height="16"/>
+        <Grid Margin="10" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="textBlock" Margin="0" TextWrapping="Wrap" Text="Version" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="textBlock1" Grid.Column="1" Margin="10,0" TextWrapping="Wrap" Text="1.1" VerticalAlignment="Top" Foreground="White"/>
+            <TextBlock x:Name="textBlock_Copy" Margin="0" TextWrapping="Wrap" Text="Author" Foreground="White" FontWeight="Bold" Grid.Row="1" VerticalAlignment="Top"/>
+            <TextBlock x:Name="textBlock1_Copy" Grid.Column="1" Margin="10,0" TextWrapping="Wrap" Text="Nicholas Martin" VerticalAlignment="Top" Foreground="White" Grid.Row="1"/>
+        </Grid>
+        <Button x:Name="button" Content="Download Package" Margin="10" Grid.Row="3" Foreground="White" Padding="10" VerticalContentAlignment="Center" FontWeight="Bold" VerticalAlignment="Top" BorderThickness="5,0,0,0">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</UserControl>

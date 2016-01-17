@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Ultrabox.ChromaSync.Pages;
 
 namespace Ultrabox.ChromaSync
 {
@@ -23,5 +24,24 @@ namespace Ultrabox.ChromaSync
         {
             InitializeComponent();
         }
+
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+            for (var i = 0; i < 10; i++)
+            {
+                ListItemControl item = new ListItemControl();
+                item.Title.Content = "CS:GO Chromatic";
+                item.Description.Text = "Provides awesome effects for CSGO";
+                ListView.Children.Add(item);
+            }
+
+            DetailsControl details = new DetailsControl();
+            details.Title.Text = "CS:GO Chromatic";
+            details.Description.Text = "Provides awesome effects for CSGO";
+            DetailsView.Children.Add(details);
+        }
+
+
     }
 }

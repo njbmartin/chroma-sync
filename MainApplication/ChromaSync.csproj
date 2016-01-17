@@ -112,6 +112,12 @@
       <DependentUpon>MainBrowser.xaml</DependentUpon>
     </Compile>
     <Compile Include="PackageManager.cs" />
+    <Compile Include="Pages\DetailsControl.xaml.cs">
+      <DependentUpon>DetailsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ListItemControl.xaml.cs">
+      <DependentUpon>ListItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PluginManager.cs" />
     <Compile Include="RegistryKeeper.cs" />
     <Compile Include="Server.cs" />
@@ -133,6 +139,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MainBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DetailsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,6 +222,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\csgo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
