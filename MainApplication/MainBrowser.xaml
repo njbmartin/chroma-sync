@@ -10,7 +10,11 @@
         <SolidColorBrush Color="{DynamicResource ChromaSyncBlack}"/>
     </Window.Background>
     <Grid Margin="0">
-        <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="145*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,0,0.5" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
@@ -20,6 +24,10 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="7*"/>
                     <ColumnDefinition Width="4*"/>
@@ -27,13 +35,19 @@
                 <Grid.Background>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
                 </Grid.Background>
-                <DockPanel x:Name="DetailsView" Grid.Column="1" Margin="0"/>
                 <ScrollViewer Margin="0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <ScrollViewer.Background>
                         <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
                     </ScrollViewer.Background>
                     <StackPanel x:Name="ListView"/>
                 </ScrollViewer>
+                <DockPanel x:Name="DetailsView" Grid.Column="1" Margin="0,0,0,0.5" Grid.RowSpan="2"/>
+                <TextBlock x:Name="StatusText" Margin="0" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2" Padding="10" Foreground="White">
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+                    </TextBlock.Background>
+                </TextBlock>
+
             </Grid>
             <Label x:Name="label" Content="Packages" HorizontalAlignment="Left" Margin="10,10,0,10" VerticalAlignment="Top" FontWeight="Bold" FontSize="13.333">
                 <Label.Foreground>

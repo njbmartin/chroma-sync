@@ -14,6 +14,7 @@ namespace Ultrabox.ChromaSync
 {
     public class PackageManager
     {
+
         public class Package
         {
             public Product Product { get; set; }
@@ -88,16 +89,39 @@ namespace Ultrabox.ChromaSync
             // https://msdn.microsoft.com/en-us/library/waw3xexc(v=vs.110).aspx
         }
 
+        public static bool FileExists(string file)
+        {
+            try
+            {
+                var p = Path.Combine(AppPath, file);
+                return File.Exists(p);
+            }catch(Exception e)
+            {
+                App.Log.Error(e);
+            }
+            
+            return false;
+        }
+
+        public static string AppPath
+        {
+            get
+            {
+                string path = @"%appdata%\ChromaSync";
+                path = Environment.ExpandEnvironmentVariables(path);
+                path = Path.Combine(path, "packages");
+                return path;
+            }
+        }
+
+
         public static List<Package> GetPackages()
         {
             packages = new List<Package>();
             App.NewPackagesContext();
-            string path = @"%appdata%\ChromaSync";
-            path = Environment.ExpandEnvironmentVariables(path);
 
-            path = Path.Combine(path, "packages");
 
-            foreach (string st in Directory.GetFiles(path, "*.zip", SearchOption.AllDirectories))
+            foreach (string st in Directory.GetFiles(AppPath, "*.zip", SearchOption.AllDirectories))
             {
                 Console.WriteLine("Found package:" + st);
                 // Open the package for reading

@@ -120,7 +120,6 @@ namespace Ultrabox.ChromaSync
             MenuItem about = new MenuItem("Visit website", showAbout);
             scriptsMenu = new MenuItem("Scripts");
             packagesMenu = new MenuItem("Packages");
-
             _iconMenu.MenuItems.Add(about);
 
             NewScriptsContext();

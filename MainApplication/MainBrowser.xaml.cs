@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -24,7 +26,8 @@ namespace Ultrabox.ChromaSync
     public partial class MainBrowser : Window
     {
         public List<Package> packages;
-
+        private int currentSelection;
+        public static DetailsControl _details;
         public class Package
         {
             public string Name { get; set; }
@@ -83,13 +86,7 @@ namespace Ultrabox.ChromaSync
                 ListView.Children.Add(item);
             }
 
-            DetailsControl details = new DetailsControl();
-            details.Title.Text = packages[0].Name;
-            details.Author.Text = packages[0].Author;
-            details.Description.Text = packages[0].Description;
-            details.Version.Text = packages[0].Version;
-            details.Image.Source = GetImage(packages[0].ImageURL);
-            DetailsView.Children.Add(details);
+            ShowDetails(currentSelection);
         }
 
 
@@ -98,14 +95,49 @@ namespace Ultrabox.ChromaSync
         {
             var s = (ListItemControl)sender;
             int i = (int)s.Tag;
-            DetailsControl details = new DetailsControl();
-            details.Title.Text = packages[i].Name;
-            details.Author.Text = packages[i].Author;
-            details.Image.Source = GetImage(packages[i].ImageURL);
-            details.Description.Text = packages[i].Description;
-            details.Version.Text = packages[i].Version;
+            ShowDetails(i);
+        }
+
+        public void ShowDetails(int i)
+        {
+            currentSelection = i;
+            var p = packages[i];
+            _details = new DetailsControl();
+            _details.Title.Text = p.Name;
+            _details.Author.Text = p.Author;
+            _details.Image.Source = GetImage(p.ImageURL);
+            _details.Description.Text = p.Description;
+            try
+            {
+                Uri uri = new Uri(p.PackageURL);
+                string filename = System.IO.Path.GetFileName(uri.LocalPath);
+
+                if (PackageManager.FileExists(filename))
+                {
+                    _details.ActionButton.Content = "Uninstall Package";
+                }
+
+
+                _details.ActionButton.Tag = i;
+                _details.ActionButton.Click += ActionButton_Click;
+            }
+            catch (Exception ex)
+            {
+                App.Log.Error(ex);
+                _details.ActionButton.Visibility = Visibility.Hidden;
+            }
+            _details.Version.Text = p.Version;
             DetailsView.Children.Clear();
-            DetailsView.Children.Add(details);
+            DetailsView.Children.Add(_details);
+        }
+
+        private void ActionButton_Click(object sender, RoutedEventArgs e)
+        {
+            var s = (Button)sender;
+            int i = (int)s.Tag;
+            s.Content = "Downloading...";
+            s.IsEnabled = false;
+            DownloadPackage(packages[i]);
         }
 
         private ImageSource GetImage(string url)
@@ -113,6 +145,38 @@ namespace Ultrabox.ChromaSync
 
             ImageSource imgsr = new BitmapImage(new Uri(url));
             return imgsr;
+        }
+
+
+        private void DownloadPackage(Package p)
+        {
+            var path = PackageManager.AppPath;
+
+            Uri uri = new Uri(p.PackageURL);
+            string filename = System.IO.Path.GetFileName(uri.LocalPath);
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            using (var client = new WebClient())
+            {
+                client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler((sender, e) => Completed(sender, e, path));
+                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, e) => ProgressChanged(sender, e));
+                client.DownloadFileAsync(uri, System.IO.Path.Combine(path, filename));
+            }
+        }
+
+        private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            
+            StatusText.Text= "Downloading: " + e.ProgressPercentage + "% complete";
+        }
+
+        private void Completed(object sender, AsyncCompletedEventArgs e, object path)
+        {
+            StatusText.Text = "";
+            _details.ActionButton.IsEnabled = true;
+            _details.ActionButton.Content = "Uninstall Package";
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
