@@ -39,16 +39,17 @@ namespace Ultrabox.ChromaSync
             {
                 Debug.WriteLine(e.Message);
             }
+            App.c.Uninitialize();
         }
 
         public static void LuaThread()
         {
             if (watcher == null)
                 Watch();
-
+            App.c = Chroma.Instance;
+            App.c.Initialize();
             App.NewScriptsContext();
             // WE NEED TO ENSURE CHROMA IS INITIALISED
-            var c = Chroma.Instance;
             callbacks = new List<dynamic>();
 
             var ms_luaDebug = new LuaStackTraceDebugger();

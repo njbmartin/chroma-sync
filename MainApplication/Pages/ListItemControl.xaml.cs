@@ -23,6 +23,19 @@ namespace Ultrabox.ChromaSync.Pages
         public ListItemControl()
         {
             InitializeComponent();
+            Background.Opacity = 0;
+            MouseEnter += new MouseEventHandler(Hover);
+            MouseLeave += new MouseEventHandler(Leave);
+        }
+
+        private void Leave(object sender, MouseEventArgs e)
+        {
+            Background.Opacity = 0;
+        }
+
+        private void Hover(object sender, MouseEventArgs e)
+        {
+            Background.Opacity = 1;
         }
     }
 }

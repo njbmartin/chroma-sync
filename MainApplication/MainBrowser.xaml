@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ultrabox.ChromaSync"
         mc:Ignorable="d"
-        Title="Browser" Height="480" Width="720" MinWidth="640" MinHeight="480" WindowStartupLocation="CenterScreen" Icon="Resources/android-chrome-192x192.png" WindowStyle="ThreeDBorderWindow">
+        Title="Browser" Height="480" Width="720" MinWidth="640" MinHeight="480" WindowStartupLocation="CenterScreen" Icon="Resources/android-chrome-192x192.png" ResizeMode="CanResizeWithGrip">
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource ChromaSyncBlack}"/>
     </Window.Background>
@@ -46,6 +46,14 @@
                 </Label.Foreground>
             </Label>
             <Label x:Name="label_Copy1" Content="Plugins" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" FontSize="13.333" Foreground="White"/>
+            <Button x:Name="button" Content="Refresh" Margin="0,10,10,10" Foreground="White" BorderThickness="5,0,0,0" FontWeight="Bold" Click="button_Click" HorizontalAlignment="Right" Padding="20,1,24,1">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                </Button.Background>
+            </Button>
         </Grid>
     </Grid>
 </Window>

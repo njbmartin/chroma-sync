@@ -28,6 +28,8 @@ namespace Ultrabox.ChromaSync
         internal static MenuItem scriptsMenu;
         internal static MenuItem packagesMenu;
         internal static bool shouldQuit;
+        internal MainBrowser mb;
+        public static IChroma c = Chroma.Instance;
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -93,6 +95,7 @@ namespace Ultrabox.ChromaSync
             // Application is running
             //Check version
             AutoUpdate updater = new AutoUpdate();
+            mb = new MainBrowser();
             var t = updater.ShowDialog();
             if (shouldQuit)
             {
@@ -110,9 +113,10 @@ namespace Ultrabox.ChromaSync
                 Icon = new Icon("chromasync.ico"),
                 ContextMenu = _iconMenu,
                 Visible = true,
+                
             };
 
-
+            _icon.MouseClick += new MouseEventHandler(ShowBrowser);
             MenuItem about = new MenuItem("Visit website", showAbout);
             scriptsMenu = new MenuItem("Scripts");
             packagesMenu = new MenuItem("Packages");
@@ -129,16 +133,31 @@ namespace Ultrabox.ChromaSync
             _iconMenu.MenuItems.Add(scriptsMenu);
             _iconMenu.MenuItems.Add(exitMenuItem);
 
+            // Start services
             StartServices();
 
             // TODO: Browser
-            MainBrowser mb = new MainBrowser();
+            
             mb.Show();
+        }
+
+        private void ShowBrowser(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                if (!mb.IsLoaded)
+                {
+                    mb = new MainBrowser();
+                    mb.Show();
+                }
+            }
         }
 
         private void Uninit(object sender, EventArgs e)
         {
-            Chroma.Instance.Uninitialize();
+            LuaScripting.CloseScripts();
+            c.Uninitialize();
+            Debug.WriteLine(Chroma.Instance.Initialized);
         }
 
         private void FirstRun()
