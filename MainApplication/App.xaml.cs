@@ -9,6 +9,7 @@ using System.IO;
 using System.Drawing;
 using Corale.Colore.Core;
 using log4net;
+using log4net.Core;
 
 namespace Ultrabox.ChromaSync
 {
@@ -19,7 +20,7 @@ namespace Ultrabox.ChromaSync
     {
 
         internal static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+        
         internal static NotifyIcon _icon;
         internal static Thread _serverThread;
         internal static Thread _luaThread;
@@ -30,10 +31,11 @@ namespace Ultrabox.ChromaSync
         internal static bool shouldQuit;
         internal MainBrowser mb;
         public static IChroma c = Chroma.Instance;
-
+        
         protected override void OnStartup(StartupEventArgs e)
         {
             log4net.Config.XmlConfigurator.Configure();
+            LogManager.GetRepository().Threshold = Level.Info;
             Log.Info("Hello World");
             base.OnStartup(e);
         }
@@ -125,8 +127,6 @@ namespace Ultrabox.ChromaSync
             NewScriptsContext();
             NewPackagesContext();
 
-            MenuItem uninit = new MenuItem("Uninit", Uninit);
-            _iconMenu.MenuItems.Add(uninit);
             MenuItem exitMenuItem = new MenuItem("Exit", Quit);
             _iconMenu.MenuItems.Add(packagesMenu);
             _iconMenu.MenuItems.Add(scriptsMenu);
@@ -149,7 +149,6 @@ namespace Ultrabox.ChromaSync
                     mb = new MainBrowser();
 
                 }
-
 
                 mb.Show();
                 if (mb.WindowState == WindowState.Minimized)

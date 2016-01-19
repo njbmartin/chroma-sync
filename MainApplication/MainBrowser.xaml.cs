@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,6 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Ultrabox.ChromaSync.Pages;
 
 namespace Ultrabox.ChromaSync
@@ -51,6 +53,22 @@ namespace Ultrabox.ChromaSync
             GetPackages();
         }
 
+        public List<Package> GetLocal()
+        {
+            packages = new List<Package>();
+            return packages;
+        }
+
+
+        public string LocalJson
+        {
+            get
+            {
+                var path = System.IO.Path.Combine(PackageManager.AppPath, "packages.json");
+                return path;
+            }
+        }
+
         protected override void OnActivated(EventArgs e)
         {
             base.OnActivated(e);
@@ -61,32 +79,16 @@ namespace Ultrabox.ChromaSync
         private void GetPackages()
         {
 
-            packages = new List<Package>();
-            var webRequest = WebRequest.Create(@"https://ultrabox.s3.amazonaws.com/ChromaSync/packages.json");
-
-            using (var response = webRequest.GetResponse())
-            using (var content = response.GetResponseStream())
-            using (var reader = new StreamReader(content))
+            var uri = new Uri(@"https://ultrabox.s3.amazonaws.com/ChromaSync/packages.json");
+            var path = System.IO.Path.Combine(PackageManager.AppPath, "packages.json");
+            var tmp = System.IO.Path.Combine(PackageManager.AppPath, ".packages.json");
+            using (var client = new WebClient())
             {
-                ListView.Children.Clear();
-                DetailsView.Children.Clear();
-                string packageString = reader.ReadToEnd();
-                JObject o = JObject.Parse(packageString);
-                packages = o.GetValue("packages").ToObject<List<Package>>();
+                client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler((sender, e) => Completed(sender, e, LocalJson, tmp));
+                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, e) => ProgressChanged(sender, e, "Package List"));
+                client.DownloadFileAsync(uri, tmp);
             }
-
-            foreach (var p in packages)
-            {
-                ListItemControl item = new ListItemControl();
-                item.Title.Content = p.Name;
-                item.Summary.Text = p.Summary;
-                item.image.Source = GetImage(p.ImageURL);
-                item.Tag = packages.IndexOf(p);
-                item.MouseLeftButtonDown += new MouseButtonEventHandler(Clicked);
-                ListView.Children.Add(item);
-            }
-
-            ShowDetails(currentSelection);
         }
 
 
@@ -106,7 +108,7 @@ namespace Ultrabox.ChromaSync
             _details.Title.Text = p.Name;
             _details.Author.Text = p.Author;
             _details.Image.Source = GetImage(p.ImageURL);
-            _details.Description.Text = p.Description;
+            SetText(_details.Description, p.Description);
             try
             {
                 Uri uri = new Uri(p.PackageURL);
@@ -143,8 +145,12 @@ namespace Ultrabox.ChromaSync
             var p = PackageManager.GetPackage(file);
             if (p != null)
             {
-                PackageManager.RemovePackage(p);
-                s.Content = "Install Package";
+                if(PackageManager.RemovePackage(p))
+                {
+                    StatusText.Text = packages[i].Name + " has been uninstalled successfully";
+                    removeMessage();
+                }
+                DisplayPackages();
                 return;
             }
 
@@ -155,7 +161,6 @@ namespace Ultrabox.ChromaSync
 
         private ImageSource GetImage(string url)
         {
-
             ImageSource imgsr = new BitmapImage(new Uri(url));
             return imgsr;
         }
@@ -172,37 +177,168 @@ namespace Ultrabox.ChromaSync
                 Directory.CreateDirectory(path);
             if (File.Exists(file))
                 File.Delete(file);
-
-
+            string tmp = System.IO.Path.Combine(path, "." + filename);
 
             using (var client = new WebClient())
             {
                 client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");
-                client.DownloadFileCompleted += new AsyncCompletedEventHandler((sender, e) => Completed(sender, e, file));
-                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, e) => ProgressChanged(sender, e));
-                client.DownloadFileAsync(uri, file);
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler((sender, e) => Completed(sender, e, file, tmp));
+                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, e) => ProgressChanged(sender, e, p.Name));
+                client.DownloadFileAsync(uri, tmp);
             }
         }
 
-        private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e, string file)
         {
 
-            StatusText.Text = "Downloading: " + e.ProgressPercentage + "% complete";
+            StatusText.Text = "Downloading " + file + ": " + e.ProgressPercentage + "% complete";
         }
 
-        private void Completed(object sender, AsyncCompletedEventArgs e, string path)
+        private void Completed(object sender, AsyncCompletedEventArgs e, string path, string tmp)
         {
-            StatusText.Text = "";
-            _details.ActionButton.IsEnabled = true;
-            _details.ActionButton.Content = "Uninstall Package";
+
+            removeMessage();
+
+            if (e.Error != null)
+            {
+                App.Log.Error(e.Error);
+                MessageBox.Show(e.Error.Message);
+                File.Delete(tmp);
+                StatusText.Text = e.Error.Message;
+                DisplayPackages();
+                return;
+            }
+
+            if (File.Exists(path))
+                File.Delete(path);
+
+            File.Move(tmp, path);
+
+            if (path.Equals(LocalJson))
+            {
+                StatusText.Text = "Retrieved packages";
+                DisplayPackages();
+                return;
+            }
+            StatusText.Text = "Downloaded successfully";
             PackageManager.GetPackages();
             var p = PackageManager.GetPackage(path);
             if (p != null)
-                PackageManager.InstallPackage(p);
-            GetPackages();
+            {
+                if (PackageManager.InstallPackage(p))
+                {
+                    StatusText.Text = p.Product.Name + " successfully installed";
+                    removeMessage();
+                }
+            }
+            DisplayPackages();
+        }
+
+        private void removeMessage()
+        {
+            Task.Delay(5000).ContinueWith(_ =>
+            {
+                Application.Current.Dispatcher.BeginInvoke(
+                  DispatcherPriority.Background,
+                  new Action(() => StatusText.Text = ""));
+            });
+        }
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+
+            // Begin dragging the window
+            DragMove();
+        }
+
+        protected override void OnMouseDoubleClick(MouseButtonEventArgs e)
+        {
+            WindowState = (WindowState == WindowState.Maximized) ? WindowState.Normal : WindowState.Maximized;
+        }
+
+        private void DisplayPackages()
+        {
+            try
+            {
+                JObject j = JObject.Parse(File.ReadAllText(LocalJson));
+
+                packages = j.GetValue("packages").ToObject<List<Package>>();
+            }
+            catch (Exception e)
+            {
+                App.Log.Error(e);
+                return;
+            }
+            ListView.Children.Clear();
+            foreach (var package in packages)
+            {
+                ListItemControl item = new ListItemControl();
+                item.Title.Content = package.Name;
+                item.Type.Content = package.Type;
+                SetText(item.Summary, package.Summary);
+                item.image.Source = GetImage(package.ImageURL);
+                item.Tag = packages.IndexOf(package);
+                item.MouseLeftButtonDown += new MouseButtonEventHandler(Clicked);
+                ListView.Children.Add(item);
+            }
+            DetailsView.Children.Clear();
+            ShowDetails(currentSelection);
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+
+        private static readonly Regex RE_URL = new Regex(@"(?#Protocol)(?:(?:ht|f)tp(?:s?)\:\/\/|~/|/)?(?#Username:Password)(?:\w+:\w+@)?(?#Subdomains)(?:(?:[-\w]+\.)+(?#TopLevel Domains)(?:com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum|travel|[a-z]{2}))(?#Port)(?::[\d]{1,5})?(?#Directories)(?:(?:(?:/(?:[-\w~!$+|.,=]|%[a-f\d]{2})+)+|/)+|\?|#)?(?#Query)(?:(?:\?(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)(?:&(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)*)*(?#Anchor)(?:#(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)?");
+        private void SetText(TextBlock text_block, string new_text)
+        {
+            if (text_block == null)
+                return;
+
+            text_block.Inlines.Clear();
+            if (string.IsNullOrEmpty(new_text))
+                return;
+
+            // Find all URLs using a regular expression
+            int last_pos = 0;
+            foreach (Match match in RE_URL.Matches(new_text))
+            {
+                // Copy raw string from the last position up to the match
+                if (match.Index != last_pos)
+                {
+                    var raw_text = new_text.Substring(last_pos, match.Index - last_pos);
+                    text_block.Inlines.Add(new Run(raw_text));
+                }
+
+                // Create a hyperlink for the match
+                var link = new Hyperlink(new Run(match.Value))
+                {
+                    NavigateUri = new Uri(match.Value)
+                };
+                link.Click += OnUrlClick;
+
+                text_block.Inlines.Add(link);
+
+                // Update the last matched position
+                last_pos = match.Index + match.Length;
+            }
+
+            // Finally, copy the remainder of the string
+            if (last_pos < new_text.Length)
+                text_block.Inlines.Add(new Run(new_text.Substring(last_pos)));
+        }
+
+        private static void OnUrlClick(object sender, RoutedEventArgs e)
+        {
+            var link = (Hyperlink)sender;
+            // Do something with link.NavigateUri like:
+            Process.Start(link.NavigateUri.ToString());
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
         {
             GetPackages();
         }

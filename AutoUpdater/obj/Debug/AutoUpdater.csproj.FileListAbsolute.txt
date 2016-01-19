@@ -44,3 +44,5 @@ N:\Development\Chroma Sync\AutoUpdater\bin\Debug\Newtonsoft.Json.dll
 N:\Development\Chroma Sync\AutoUpdater\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Nicholas\Documents\chroma-sync\AutoUpdater\bin\Debug\Newtonsoft.Json.xml
+C:\Users\NMA04\Projects\chroma-sync\AutoUpdater\bin\Debug\Newtonsoft.Json.dll
+C:\Users\NMA04\Projects\chroma-sync\AutoUpdater\bin\Debug\Newtonsoft.Json.xml

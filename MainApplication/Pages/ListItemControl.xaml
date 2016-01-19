@@ -15,9 +15,9 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="Title" Content="ChromaSync" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontWeight="Bold" Padding="0" Grid.Column="1" FontSize="16"/>
-        <TextBlock x:Name="Summary" Margin="0,31,10,10" TextWrapping="WrapWithOverflow" Text="TextBlock" Foreground="White" Grid.Column="1" TextTrimming="WordEllipsis"/>
+        <TextBlock x:Name="Summary" Margin="0,35,10,10" TextWrapping="WrapWithOverflow" Text="TextBlock" Foreground="White" Grid.Column="1" TextTrimming="WordEllipsis"/>
         <Image x:Name="image" Margin="10" Source="/Chroma Sync;component/Resources/csgo.jpg"/>
-        <Image x:Name="image1" Grid.Column="1" HorizontalAlignment="Right" Height="16" Margin="0,10,10,0" VerticalAlignment="Top" Width="16" Source="/Chroma Sync;component/Resources/favicon-96x96.png"/>
+        <Label x:Name="Type" Content="Game" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Background="{x:Null}" Padding="0" Grid.Column="1" FontStyle="Italic" Foreground="#7FFFFFFF" FontSize="13.333"/>
 
     </Grid>
 </UserControl>

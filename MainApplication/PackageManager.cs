@@ -124,6 +124,8 @@ namespace Ultrabox.ChromaSync
 
             foreach (string st in Directory.GetFiles(AppPath, "*.csp", SearchOption.AllDirectories))
             {
+                if (Path.GetFileName(st).StartsWith("."))
+                    continue;
                 Console.WriteLine("Found package:" + st);
                 // Open the package for reading
                 using (ZipArchive archive = ZipFile.OpenRead(st))
@@ -138,13 +140,7 @@ namespace Ultrabox.ChromaSync
                     if (p.Product.Name != null)
                     {
                         packages.Add(p);
-                        MenuItem menuItem = new MenuItem(p.Product.Name);
-                        menuItem.Name = p.Product.Name;
-                        menuItem.Tag = p;
-                        App.packagesMenu.MenuItems.Add(menuItem);
-                        menuItem.Click += MenuItem_Click;
-                        if (p.Enabled)
-                            menuItem.Checked = true;
+                        
 
                     }
 
@@ -213,7 +209,7 @@ namespace Ultrabox.ChromaSync
                                             }
                                             catch (Exception e)
                                             {
-                                                Console.WriteLine(e.Message);
+                                                App.Log.Error(e);
                                             }
                                             break;
 
@@ -241,7 +237,7 @@ namespace Ultrabox.ChromaSync
                                             }
                                             catch (Exception e)
                                             {
-                                                Console.WriteLine(e.Message);
+                                                App.Log.Error(e);
                                             }
 
                                             System.Diagnostics.Process process = new System.Diagnostics.Process();
@@ -263,8 +259,6 @@ namespace Ultrabox.ChromaSync
                 }
             }
             RegistryKeeper.UpdateReg(p.Container, p.Product.Version);
-            message = MessageBox.Show(p.Product.Name + " has been successfully installed.", "Chroma Sync: " + p.Product.Name,
-    MessageBoxButtons.OK, MessageBoxIcon.Information);
             GetPackages();
             LuaScripting.ReloadScripts();
             return true;
@@ -318,7 +312,7 @@ namespace Ultrabox.ChromaSync
                                             }
                                             catch (Exception e)
                                             {
-                                                Console.WriteLine(e.Message);
+                                                App.Log.Error(e);
                                             }
                                             break;
 
@@ -334,7 +328,7 @@ namespace Ultrabox.ChromaSync
                                             }
                                             catch (Exception e)
                                             {
-                                                Console.WriteLine(e.Message);
+                                                App.Log.Error(e);
                                             }
                                             break;
                                     }
@@ -349,8 +343,6 @@ namespace Ultrabox.ChromaSync
             {
                 File.Delete(p.Container);
                 RegistryKeeper.UpdateReg(p.Container, "");
-                message = MessageBox.Show(p.Product.Name + " has been successfully uninstalled.", "Chroma Sync: " + p.Product.Name,
-        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GetPackages();
                 LuaScripting.ReloadScripts();
                 return true;

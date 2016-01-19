@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <Image x:Name="Image" Margin="0" Source="/Chroma Sync;component/Resources/csgo.jpg"/>
         <TextBlock x:Name="Title" Margin="10,10,10,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White" Grid.Row="2"/>
-        <TextBlock x:Name="Description" Margin="10,30,10,0" VerticalAlignment="Top" Foreground="White" Grid.Row="2" TextTrimming="WordEllipsis" TextWrapping="Wrap"><Run Text="TextBlock"/><Run Text=" *"/></TextBlock>
+        <TextBlock x:Name="Description" Margin="10,30,10,0" VerticalAlignment="Top" Foreground="White" Grid.Row="2" TextWrapping="Wrap" Background="{x:Null}" Text="Description" Focusable="False"/>
         <Grid Margin="10" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -35,7 +35,7 @@
             <TextBlock x:Name="textBlock_Copy2" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" Grid.Row="3" VerticalAlignment="Top" Text="Downloads"/>
             <TextBlock x:Name="Downloads" Grid.Column="1" Margin="10,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="White" Grid.Row="3"/>
         </Grid>
-        <Button x:Name="ActionButton" Content="Download Package" Margin="10,10,10,0" Grid.Row="1" Foreground="White" Padding="10" VerticalContentAlignment="Center" FontWeight="Bold" BorderThickness="5,0,0,0">
+        <Button x:Name="ActionButton" Content="Install Package" Margin="10,10,10,0" Grid.Row="1" Foreground="White" Padding="10" VerticalContentAlignment="Center" FontWeight="Bold" BorderThickness="5,0,0,0">
             <Button.BorderBrush>
                 <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
             </Button.BorderBrush>

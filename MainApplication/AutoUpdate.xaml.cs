@@ -33,7 +33,6 @@ namespace Ultrabox.ChromaSync
         public AutoUpdate()
         {
             InitializeComponent();
-            //CheckUpdate();
         }
 
         public void CheckUpdate()
@@ -42,7 +41,7 @@ namespace Ultrabox.ChromaSync
             try
             {
                 buildNumber = App.GetCSVersion();
-                Debug.WriteLine(buildNumber);
+                App.Log.Info("Current Build: "+ buildNumber);
 
                 newBuildNumber = buildNumber;
                 var webRequest = WebRequest.Create(@"https://ultrabox.s3.amazonaws.com/ChromaSync/version.json");
@@ -59,6 +58,7 @@ namespace Ultrabox.ChromaSync
 
                 if (newBuildNumber > buildNumber)
                 {
+                    App.Log.Info("New version available: " + version);
                     updateText.Text = "A new version is available: " + version;
                     buttons.Visibility = Visibility.Visible;
                     return;
@@ -68,7 +68,6 @@ namespace Ultrabox.ChromaSync
             catch (Exception ex)
             {
                 App.Log.Error(ex.Message);
-                Debug.WriteLine(ex.Message);
                 Hide();
             }
 
@@ -99,7 +98,7 @@ namespace Ultrabox.ChromaSync
 
             if (e.Error != null)
             {
-                App.Log.Error(e.Error.Message, e.Error);
+                App.Log.Error(e);
                 Hide();
                 System.Windows.MessageBox.Show(e.Error.Message, e.Error.Message, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
