@@ -19,7 +19,6 @@ namespace Ultrabox.ChromaSync
         private static List<dynamic> callbacks;
         private static Collection<Thread> scriptThreads;
         private static FileSystemWatcher watcher;
-        private static bool saveDebug = false;
 
         public static void ReloadScripts()
         {
@@ -37,17 +36,25 @@ namespace Ultrabox.ChromaSync
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
+                App.Log.Error(e);
             }
             App.c.Uninitialize();
+        }
+
+        private static void C_DeviceAccess(object sender, Corale.Colore.Events.DeviceAccessEventArgs e)
+        {
+            Debug.WriteLine(e);
         }
 
         public static void LuaThread()
         {
             if (watcher == null)
                 Watch();
+
+
             App.c = Chroma.Instance;
             App.c.Initialize();
+            App.c.DeviceAccess += C_DeviceAccess;
             App.NewScriptsContext();
             // WE NEED TO ENSURE CHROMA IS INITIALISED
             callbacks = new List<dynamic>();
@@ -76,8 +83,10 @@ namespace Ultrabox.ChromaSync
                 menuItem.Name = Path.GetFileName(st);
                 menuItem.Tag = st;
                 menuItem.Click += MenuItem_Click;
-                App.scriptsMenu.MenuItems.Add(menuItem);
-
+                if (!st.Contains("\\ChromaSync\\packages\\"))
+                {
+                    App.scriptsMenu.MenuItems.Add(menuItem);
+                }
                 if (v.Equals("True"))
                 {
                     menuItem.Checked = true;
@@ -108,11 +117,12 @@ namespace Ultrabox.ChromaSync
                             }
                             catch (LuaException e)
                             {
-                                debug(e.FileName + ": " + e.Line + ": " + e.Message);
+                                App.Log.Error(e);
                             }
                             catch (Exception e)
                             {
-                                debug(e.Message);
+                                App.Log.Info(e);
+                                Thread.ResetAbort();
                             }
                         }
                     }));
@@ -143,39 +153,7 @@ namespace Ultrabox.ChromaSync
         public static bool debug(object d)
         {
             var text = DateTime.Now + " - " + d;
-            Debug.WriteLine("Lua Script log: " + text);
-            if (!saveDebug)
-                return false;
-
-            lock (debugLock)
-            {
-
-
-                string path = @"%appdata%\ChromaSync";
-                path = Environment.ExpandEnvironmentVariables(path);
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
-                // This text is added only once to the file.
-                path = Path.Combine(path, "log.txt");
-                if (!File.Exists(path))
-                {
-                    // Create a file to write to.
-                    using (StreamWriter sw = File.CreateText(path))
-                    {
-                        sw.WriteLine(text);
-                        sw.Close();
-                    }
-                    return true;
-                }
-
-                // This text is always added, making the file longer over time
-                // if it is not deleted.
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(text);
-                    sw.Close();
-                }
-            }
+            App.Log.Debug(text);
             return true;
         }
 
@@ -195,7 +173,7 @@ namespace Ultrabox.ChromaSync
                     }
                     catch (Exception e)
                     {
-                        debug("Exception: " + e.StackTrace);
+                        App.Log.Error(e);
                     }
                 }
 
@@ -221,8 +199,9 @@ namespace Ultrabox.ChromaSync
 
         public static bool registerEvents(string n, object c)
         {
-            debug("Registered Callback: " + n);
+
             callbacks.Add(new LuaCallback { name = n, callback = (Func<object, LuaResult>)c });
+            debug("Registered Callback: " + n);
             return true;
         }
 
@@ -241,9 +220,9 @@ namespace Ultrabox.ChromaSync
             watcher = new FileSystemWatcher();
             string path = @"%appdata%\ChromaSync";
             path = Environment.ExpandEnvironmentVariables(path);
-            path = Path.Combine(path, "scripts");
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            var sp = Path.Combine(path, "scripts");
+            if (!Directory.Exists(sp))
+                Directory.CreateDirectory(sp);
 
 
             watcher.Path = path;
@@ -262,14 +241,4 @@ namespace Ultrabox.ChromaSync
         public string name { get; set; }
         public Func<object, LuaResult> callback { get; set; }
     }
-
-
-
-
-
-
-
 }
-
-
-

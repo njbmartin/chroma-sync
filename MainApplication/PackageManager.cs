@@ -95,11 +95,12 @@ namespace Ultrabox.ChromaSync
             {
                 var p = Path.Combine(AppPath, file);
                 return File.Exists(p);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 App.Log.Error(e);
             }
-            
+
             return false;
         }
 
@@ -121,7 +122,7 @@ namespace Ultrabox.ChromaSync
             App.NewPackagesContext();
 
 
-            foreach (string st in Directory.GetFiles(AppPath, "*.zip", SearchOption.AllDirectories))
+            foreach (string st in Directory.GetFiles(AppPath, "*.csp", SearchOption.AllDirectories))
             {
                 Console.WriteLine("Found package:" + st);
                 // Open the package for reading
@@ -153,12 +154,16 @@ namespace Ultrabox.ChromaSync
             return packages;
         }
 
+        public static Package GetPackage(string container)
+        {
+            var p = packages.Find(x => x.Container == container);
+            return p;
+        }
+
         private static void MenuItem_Click(object sender, EventArgs e)
         {
             MenuItem s = (MenuItem)sender;
-
             InstallPackage((Package)s.Tag);
-
         }
 
         public static bool InstallPackage(Package p)
@@ -189,7 +194,6 @@ namespace Ultrabox.ChromaSync
                                             Console.WriteLine(entry.FullName);
                                             if (step.Destination.Type == "steamapp")
                                             {
-
                                                 var steamFolder = GameLocator.InstallFolder(step.Destination.Folder);
                                                 if (steamFolder == null)
                                                 {
@@ -255,17 +259,107 @@ namespace Ultrabox.ChromaSync
                                 }
                             }
                         }
-                        RegistryKeeper.UpdateReg(p.Container, p.Product.Version);
-                        message = MessageBox.Show(p.Product.Name + " has been successfully installed.", "Chroma Sync: " + p.Product.Name,
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetPackages();
-                    }
-                    else
-                    {
-                        // No product thingy
                     }
                 }
             }
+            RegistryKeeper.UpdateReg(p.Container, p.Product.Version);
+            message = MessageBox.Show(p.Product.Name + " has been successfully installed.", "Chroma Sync: " + p.Product.Name,
+    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            GetPackages();
+            LuaScripting.ReloadScripts();
+            return true;
+        }
+
+        public static bool RemovePackage(Package p)
+        {
+            var message = MessageBox.Show("Are you sure you would like to remove the package " + p.Product.Name + "?", "Chroma Sync: " + p.Product.Name,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (message == DialogResult.No)
+                return false;
+
+            LuaScripting.CloseScripts();
+            foreach (var step in p.Installation)
+            {
+
+                using (ZipArchive archive = ZipFile.OpenRead(p.Container))
+                {
+                    if (p.Product.Name != null)
+                    {
+                        foreach (ZipArchiveEntry entry in archive.Entries)
+                        {
+                            if (step.Folder != null)
+                            {
+                                if (entry.FullName.StartsWith(step.Folder, StringComparison.OrdinalIgnoreCase) && entry.Name.Length > 0)
+                                {
+                                    switch (step.Action)
+                                    {
+                                        case "extract":
+                                            var path = step.Destination.Folder;
+                                            path = Environment.ExpandEnvironmentVariables(path);
+                                            Console.WriteLine(entry.FullName);
+                                            if (step.Destination.Type == "steamapp")
+                                            {
+
+                                                var steamFolder = GameLocator.InstallFolder(step.Destination.Folder);
+                                                if (steamFolder == null)
+                                                {
+                                                    Console.WriteLine("Could not find steam folder: " + steamFolder);
+                                                    return false;
+                                                }
+                                                path = steamFolder;
+                                            }
+                                            var sp = entry.FullName.Remove(0, step.Folder.Length + 1);
+                                            var pa = Path.Combine(path, sp);
+
+                                            try
+                                            {
+                                                File.Delete(pa);
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                Console.WriteLine(e.Message);
+                                            }
+                                            break;
+
+                                        case "execute":
+                                            if (!entry.Name.Equals(step.File))
+                                                continue;
+
+
+                                            var tmp = Path.Combine("tmp", entry.Name);
+                                            try
+                                            {
+                                                File.Delete(tmp);
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                Console.WriteLine(e.Message);
+                                            }
+                                            break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            try
+            {
+                File.Delete(p.Container);
+                RegistryKeeper.UpdateReg(p.Container, "");
+                message = MessageBox.Show(p.Product.Name + " has been successfully uninstalled.", "Chroma Sync: " + p.Product.Name,
+        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                GetPackages();
+                LuaScripting.ReloadScripts();
+                return true;
+            }
+            catch (Exception e)
+            {
+                App.Log.Error(e);
+            }
+
             return false;
         }
 

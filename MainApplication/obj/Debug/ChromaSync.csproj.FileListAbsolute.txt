@@ -48,11 +48,9 @@ N:\Development\Chroma Sync\MainApplication\bin\Debug\Neo.Lua.Desktop.xml
 N:\Development\Chroma Sync\MainApplication\bin\Debug\Newtonsoft.Json.xml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\ChromaSync.csprojResolveAssemblyReference.cache
 N:\Development\Chroma Sync\MainApplication\obj\Debug\AutoUpdate.g.cs
-N:\Development\Chroma Sync\MainApplication\obj\Debug\MainWindow.g.cs
 N:\Development\Chroma Sync\MainApplication\obj\Debug\App.g.cs
 N:\Development\Chroma Sync\MainApplication\obj\Debug\App.baml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\AutoUpdate.baml
-N:\Development\Chroma Sync\MainApplication\obj\Debug\MainWindow.baml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.Properties.Resources.resources
 N:\Development\Chroma Sync\MainApplication\obj\Debug\ChromaSync.csproj.GenerateResource.Cache
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\AutoUpdate.g.cs
@@ -100,3 +98,11 @@ C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\DetailsContr
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ListItemControl.g.cs
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\DetailsControl.baml
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ListItemControl.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Intro.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\MainBrowser.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\DetailsControl.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ListItemControl.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Intro.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\MainBrowser.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\DetailsControl.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ListItemControl.baml

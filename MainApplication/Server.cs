@@ -129,7 +129,10 @@ namespace Ultrabox.ChromaSync
                     }
                 }
             }
-            catch { }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e);
+            }
             finally
             {
                 try

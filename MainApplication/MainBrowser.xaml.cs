@@ -124,7 +124,7 @@ namespace Ultrabox.ChromaSync
             catch (Exception ex)
             {
                 App.Log.Error(ex);
-                _details.ActionButton.Visibility = Visibility.Hidden;
+                _details.ActionButton.Visibility = Visibility.Collapsed;
             }
             _details.Version.Text = p.Version;
             DetailsView.Children.Clear();
@@ -135,6 +135,19 @@ namespace Ultrabox.ChromaSync
         {
             var s = (Button)sender;
             int i = (int)s.Tag;
+            var path = PackageManager.AppPath;
+
+            Uri uri = new Uri(packages[i].PackageURL);
+            string filename = System.IO.Path.GetFileName(uri.LocalPath);
+            string file = System.IO.Path.Combine(path, filename);
+            var p = PackageManager.GetPackage(file);
+            if (p != null)
+            {
+                PackageManager.RemovePackage(p);
+                s.Content = "Install Package";
+                return;
+            }
+
             s.Content = "Downloading...";
             s.IsEnabled = false;
             DownloadPackage(packages[i]);
@@ -154,29 +167,39 @@ namespace Ultrabox.ChromaSync
 
             Uri uri = new Uri(p.PackageURL);
             string filename = System.IO.Path.GetFileName(uri.LocalPath);
-
+            string file = System.IO.Path.Combine(path, filename);
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
+            if (File.Exists(file))
+                File.Delete(file);
+
+
+
             using (var client = new WebClient())
             {
                 client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");
-                client.DownloadFileCompleted += new AsyncCompletedEventHandler((sender, e) => Completed(sender, e, path));
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler((sender, e) => Completed(sender, e, file));
                 client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, e) => ProgressChanged(sender, e));
-                client.DownloadFileAsync(uri, System.IO.Path.Combine(path, filename));
+                client.DownloadFileAsync(uri, file);
             }
         }
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            
-            StatusText.Text= "Downloading: " + e.ProgressPercentage + "% complete";
+
+            StatusText.Text = "Downloading: " + e.ProgressPercentage + "% complete";
         }
 
-        private void Completed(object sender, AsyncCompletedEventArgs e, object path)
+        private void Completed(object sender, AsyncCompletedEventArgs e, string path)
         {
             StatusText.Text = "";
             _details.ActionButton.IsEnabled = true;
             _details.ActionButton.Content = "Uninstall Package";
+            PackageManager.GetPackages();
+            var p = PackageManager.GetPackage(path);
+            if (p != null)
+                PackageManager.InstallPackage(p);
+            GetPackages();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

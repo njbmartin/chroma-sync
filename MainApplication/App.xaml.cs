@@ -82,7 +82,7 @@ namespace Ultrabox.ChromaSync
 
         void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            
+
             string errorMessage = string.Format("An unhandled exception occurred: {0}", e.Exception.Message);
             Log.Error(errorMessage);
             //System.Windows.MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -113,7 +113,7 @@ namespace Ultrabox.ChromaSync
                 Icon = new Icon("chromasync.ico"),
                 ContextMenu = _iconMenu,
                 Visible = true,
-                
+
             };
 
             _icon.MouseClick += new MouseEventHandler(ShowBrowser);
@@ -136,26 +136,30 @@ namespace Ultrabox.ChromaSync
             StartServices();
 
             // TODO: Browser
-            
+
             mb.Show();
         }
 
         private void ShowBrowser(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 if (!mb.IsLoaded)
                 {
                     mb = new MainBrowser();
-                    mb.Show();
+
                 }
+
+
+                mb.Show();
+                if (mb.WindowState == WindowState.Minimized)
+                    mb.WindowState = WindowState.Normal;
             }
         }
 
         private void Uninit(object sender, EventArgs e)
         {
             LuaScripting.CloseScripts();
-            c.Uninitialize();
             Debug.WriteLine(Chroma.Instance.Initialized);
         }
 
