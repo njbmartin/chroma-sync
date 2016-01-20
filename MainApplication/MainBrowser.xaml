@@ -29,13 +29,13 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="6*"/>
                     <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.Background>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
                 </Grid.Background>
-                <ScrollViewer Margin="0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ScrollViewer Margin="0" Grid.Column="0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <ScrollViewer.Background>
                         <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
                     </ScrollViewer.Background>

@@ -20,22 +20,18 @@ namespace Ultrabox.ChromaSync.Pages
     /// </summary>
     public partial class ListItemControl : UserControl
     {
+
+        public bool isSelected;
+
         public ListItemControl()
         {
             InitializeComponent();
             Background.Opacity = 0;
-            MouseEnter += new MouseEventHandler(Hover);
-            MouseLeave += new MouseEventHandler(Leave);
         }
 
-        private void Leave(object sender, MouseEventArgs e)
+        public void Deselect()
         {
             Background.Opacity = 0;
-        }
-
-        private void Hover(object sender, MouseEventArgs e)
-        {
-            Background.Opacity = 1;
         }
     }
 }

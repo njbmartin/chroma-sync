@@ -91,15 +91,6 @@ namespace Ultrabox.ChromaSync
             }
         }
 
-
-
-        private void Clicked(object sender, EventArgs e)
-        {
-            var s = (ListItemControl)sender;
-            int i = (int)s.Tag;
-            ShowDetails(i);
-        }
-
         public void ShowDetails(int i)
         {
             currentSelection = i;
@@ -145,7 +136,7 @@ namespace Ultrabox.ChromaSync
             var p = PackageManager.GetPackage(file);
             if (p != null)
             {
-                if(PackageManager.RemovePackage(p))
+                if (PackageManager.RemovePackage(p))
                 {
                     StatusText.Text = packages[i].Name + " has been uninstalled successfully";
                     removeMessage();
@@ -236,7 +227,7 @@ namespace Ultrabox.ChromaSync
 
         private void removeMessage()
         {
-            Task.Delay(5000).ContinueWith(_ =>
+            Task.Delay(3000).ContinueWith(_ =>
             {
                 Application.Current.Dispatcher.BeginInvoke(
                   DispatcherPriority.Background,
@@ -279,11 +270,40 @@ namespace Ultrabox.ChromaSync
                 SetText(item.Summary, package.Summary);
                 item.image.Source = GetImage(package.ImageURL);
                 item.Tag = packages.IndexOf(package);
-                item.MouseLeftButtonDown += new MouseButtonEventHandler(Clicked);
+                item.MouseLeftButtonUp += Item_MouseLeftButtonUp;
+                item.MouseEnter += Item_MouseEnter;
+                item.MouseLeave += Item_MouseLeave;
                 ListView.Children.Add(item);
             }
             DetailsView.Children.Clear();
             ShowDetails(currentSelection);
+        }
+
+        private void Item_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var s = (ListItemControl)sender;
+            if (!s.Equals(_CurrentControl))
+                s.Deselect();
+        }
+
+        private ListItemControl _CurrentControl;
+
+        private void Item_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var s = (ListItemControl)sender;
+            if (_CurrentControl != null)
+                _CurrentControl.Deselect();
+            _CurrentControl = s;
+
+
+            int i = (int)s.Tag;
+            ShowDetails(i);
+        }
+
+        private void Item_MouseEnter(object sender, MouseEventArgs e)
+        {
+            var s = (ListItemControl)sender;
+            s.Background.Opacity = 1;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
