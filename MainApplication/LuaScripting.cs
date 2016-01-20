@@ -160,7 +160,7 @@ namespace Ultrabox.ChromaSync
 
         public static void PassThrough(JObject json)
         {
-
+            JObject j = (JObject)json.DeepClone();
             foreach (LuaCallback action in callbacks)
             {
                 var name = json["provider"] != null ? json["provider"]["name"].ToString() : json["product"]["name"].ToString();
@@ -168,7 +168,7 @@ namespace Ultrabox.ChromaSync
                 {
                     try
                     {
-                        action.callback(json);
+                        action.callback(j);
                         debug("Data passed to " + action.name);
                     }
                     catch (Exception e)

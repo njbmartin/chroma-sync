@@ -34,6 +34,7 @@ namespace Ultrabox.ChromaSync
                 {
                     if (server.Pending())
                     {
+                        
                         _clientThread = new Thread(() =>
                         {
                             using (TcpClient client = server.AcceptTcpClient())
@@ -43,7 +44,7 @@ namespace Ultrabox.ChromaSync
                         });
                         _clientThread.Start();
                     }
-                    Thread.Sleep(10);
+                    Thread.Sleep(200);  // This seems important
                 }
 
             }
@@ -62,11 +63,11 @@ namespace Ultrabox.ChromaSync
             try
             {
                 // Enter the listening loop. 
-                Debug.Write("Got a connection... ");
+
 
                 // Perform a blocking call to accept requests. 
                 // You could also user server.AcceptSocket() here.
-                Debug.WriteLine("Connected!");
+
 
 
                 // Get a stream object for reading and writing
@@ -115,23 +116,19 @@ namespace Ultrabox.ChromaSync
                                 JObject o = JObject.Parse(ns);
                                 LuaScripting.PassThrough(o);
                             }
-                            catch (Exception e)
-                            {
-                                Debug.WriteLine(e);
-                            }
-                            return;
+                            catch { }
                         }
 
                     }
                     catch (Exception e)
                     {
-                        Debug.WriteLine(e);
+                        App.Log.Error(e);
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Debug.WriteLine(e);
+                App.Log.Error(e);
             }
             finally
             {
@@ -139,7 +136,7 @@ namespace Ultrabox.ChromaSync
                 {
                     listener.Close();
                 }
-                catch (Exception) { }
+                catch { }
             }
         }
 

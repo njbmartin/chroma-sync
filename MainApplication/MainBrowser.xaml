@@ -49,7 +49,7 @@
                 </TextBlock>
 
             </Grid>
-            <Button x:Name="Hide" Content="Hide" Margin="0,10,10,10" Foreground="White" BorderThickness="0" FontWeight="Bold" Click="button_Click" HorizontalAlignment="Right" Padding="20,5">
+            <Button x:Name="Minimise" Content="Hide" Margin="0,10,10,10" Foreground="White" BorderThickness="0" FontWeight="Bold" Click="button_Click" HorizontalAlignment="Right" Padding="20,5">
                 <Button.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
                 </Button.BorderBrush>
