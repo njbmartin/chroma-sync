@@ -98,30 +98,52 @@ namespace Ultrabox.ChromaSync
             _details = new DetailsControl();
             _details.Title.Text = p.Name;
             _details.Author.Text = p.Author;
+            _details.Downloads.Text = p.Downloads.ToString();
+
             _details.Image.Source = GetImage(p.ImageURL);
             SetText(_details.Description, p.Description);
-            try
+            if (p.PackageURL != null)
             {
-                Uri uri = new Uri(p.PackageURL);
-                string filename = System.IO.Path.GetFileName(uri.LocalPath);
-
-                if (PackageManager.FileExists(filename))
+                try
                 {
-                    _details.ActionButton.Content = "Uninstall Package";
+                    Uri uri = new Uri(p.PackageURL);
+                    string filename = System.IO.Path.GetFileName(uri.LocalPath);
+
+                    if (PackageManager.FileExists(filename))
+                    {
+                        _details.ActionButton.Content = "Remove";
+                    }
+
+                    _details.ActionButton.Tag = i;
+                    _details.ActionButton.Click += ActionButton_Click;
                 }
-
-
-                _details.ActionButton.Tag = i;
-                _details.ActionButton.Click += ActionButton_Click;
+                catch (Exception ex)
+                {
+                    App.Log.Error(ex);
+                    _details.ActionButton.Visibility = Visibility.Collapsed;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                App.Log.Error(ex);
                 _details.ActionButton.Visibility = Visibility.Collapsed;
             }
             _details.Version.Text = p.Version;
+            //HideRows(p);
             DetailsView.Children.Clear();
             DetailsView.Children.Add(_details);
+        }
+
+        public void HideRows(Package p)
+        {
+            foreach(var a in p.GetType().GetProperties())
+            {
+                if(p.GetType().GetProperty(a.Name).GetValue(p,null) == null)
+                {
+                    _details.Details.RowDefinitions.Where(x => x.Name == "Row" + a.Name).First().Height = new GridLength(0, GridUnitType.Pixel);
+                }
+
+            }
+            
         }
 
         private void ActionButton_Click(object sender, RoutedEventArgs e)
@@ -144,7 +166,7 @@ namespace Ultrabox.ChromaSync
                 DisplayPackages();
                 return;
             }
-
+            
             s.Content = "Downloading...";
             s.IsEnabled = false;
             DownloadPackage(packages[i]);
@@ -207,7 +229,7 @@ namespace Ultrabox.ChromaSync
 
             if (path.Equals(LocalJson))
             {
-                StatusText.Text = "Retrieved packages";
+                StatusText.Text = "Retrieved list";
                 DisplayPackages();
                 return;
             }
@@ -245,6 +267,7 @@ namespace Ultrabox.ChromaSync
 
         protected override void OnMouseDoubleClick(MouseButtonEventArgs e)
         {
+            ResizeMode = ResizeMode == ResizeMode.CanResizeWithGrip ? ResizeMode.NoResize : ResizeMode.CanResizeWithGrip;
             WindowState = (WindowState == WindowState.Maximized) ? WindowState.Normal : WindowState.Maximized;
         }
 

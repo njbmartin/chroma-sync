@@ -20,7 +20,7 @@ namespace Ultrabox.ChromaSync
     {
 
         internal static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        
+
         internal static NotifyIcon _icon;
         internal static Thread _serverThread;
         internal static Thread _luaThread;
@@ -28,10 +28,9 @@ namespace Ultrabox.ChromaSync
         internal static ContextMenu _iconMenu;
         internal static MenuItem scriptsMenu;
         internal static MenuItem packagesMenu;
-        internal static bool shouldQuit;
         internal MainBrowser mb;
         public static IChroma c = Chroma.Instance;
-        
+
         protected override void OnStartup(StartupEventArgs e)
         {
             log4net.Config.XmlConfigurator.Configure();
@@ -98,12 +97,7 @@ namespace Ultrabox.ChromaSync
             //Check version
             AutoUpdate updater = new AutoUpdate();
             mb = new MainBrowser();
-            var t = updater.ShowDialog();
-            if (shouldQuit)
-            {
-                Quit();
-                return;
-            }
+            updater.Show();
 
             FirstRun();
 
@@ -224,25 +218,15 @@ namespace Ultrabox.ChromaSync
             Quit();
         }
 
-        private void Quit()
+        public static void Quit()
         {
             // We must manually tidy up and remove the icon before we exit.
             // Otherwise it will be left behind until the user mouses over.
 
-            LuaScripting.CloseScripts();
-            // Abort all threads
 
-            if (_luaThread != null && _luaThread.IsAlive)
-                _luaThread.Abort();
-            //_gtaThread.Abort();
-            if (Server._clientThread != null && Server._clientThread.IsAlive)
-                Server._clientThread.Abort();
-
-            if (_serverThread != null && _serverThread.IsAlive)
-                _serverThread.Abort();
 
             //_icon.Visible = false;
-            System.Windows.Application.Current.Shutdown();
+            Current.Shutdown();
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)
@@ -250,5 +234,23 @@ namespace Ultrabox.ChromaSync
             Debug.WriteLine("Exiting");
             Quit();
         }
+
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+            LuaScripting.CloseScripts();
+
+            // Abort all threads
+            if (_luaThread != null && _luaThread.IsAlive)
+                _luaThread.Abort();
+
+            if (Server._clientThread != null && Server._clientThread.IsAlive)
+                Server._clientThread.Abort();
+
+            if (_serverThread != null && _serverThread.IsAlive)
+                _serverThread.Abort();
+        }
+
     }
 }

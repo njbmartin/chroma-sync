@@ -10,6 +10,7 @@
         <Color x:Key="ChromaSyncBlack">#FF141414</Color>
         <Color x:Key="ChromaSyncGrey">#FF3C3C3C</Color>
         <Color x:Key="ChromaSyncTranslucent">#3F3C3C3C</Color>
-        
+        <Color x:Key="ChromaSyncMedGrey">#FF666666</Color>
+
     </Application.Resources>
 </Application>
