@@ -63,14 +63,26 @@ namespace Ultrabox.ChromaSync
             _luaThread.Start();
         }
 
-        public static int GetCSVersion()
+        public static string CurrentVersion
         {
-
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-            int version = fvi.ProductPrivatePart;
-            return version;
+            get
+            {
+                System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+                return assembly.GetName().Version.ToString();
+            }
         }
+
+        public static int CurrentBuild
+        {
+            get
+            {
+                System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+                Debug.WriteLine(assembly.GetName().Version.Build);
+                return assembly.GetName().Version.Build;
+            }
+        }
+
+
         public static void NewPackagesContext()
         {
 
@@ -99,8 +111,6 @@ namespace Ultrabox.ChromaSync
             mb = new MainBrowser();
             updater.Show();
 
-            FirstRun();
-
             _iconMenu = new ContextMenu();
 
 
@@ -116,13 +126,17 @@ namespace Ultrabox.ChromaSync
             MenuItem about = new MenuItem("Visit website", showAbout);
             scriptsMenu = new MenuItem("Scripts");
             packagesMenu = new MenuItem("Packages");
+            var version = new MenuItem("version: " + CurrentVersion);
+            version.Enabled = false;
+            _iconMenu.MenuItems.Add(version);
+
+            _iconMenu.MenuItems.Add("-");
             _iconMenu.MenuItems.Add(about);
 
             NewScriptsContext();
             NewPackagesContext();
 
             MenuItem exitMenuItem = new MenuItem("Exit", Quit);
-            _iconMenu.MenuItems.Add(packagesMenu);
             _iconMenu.MenuItems.Add(scriptsMenu);
             _iconMenu.MenuItems.Add(exitMenuItem);
 
@@ -130,8 +144,9 @@ namespace Ultrabox.ChromaSync
             StartServices();
 
             // TODO: Browser
-
+            
             mb.Show();
+            FirstRun();
         }
 
         private void ShowBrowser(object sender, MouseEventArgs e)
@@ -168,11 +183,11 @@ namespace Ultrabox.ChromaSync
             {
                 Debug.WriteLine(ex.Message);
             }
-            if (GetCSVersion() > v)
+            if (CurrentBuild > v)
             {
                 Intro iWindow = new Intro();
                 iWindow.ShowDialog();
-                RegistryKeeper.UpdateReg("lastversion", GetCSVersion().ToString());
+                RegistryKeeper.UpdateReg("lastversion", CurrentBuild.ToString());
             }
         }
 

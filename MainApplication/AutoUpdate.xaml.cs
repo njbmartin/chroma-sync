@@ -52,11 +52,10 @@ namespace Ultrabox.ChromaSync
 
             try
             {
-                buildNumber = App.GetCSVersion();
+                buildNumber = App.CurrentBuild;
                 App.Log.Info("Current Build: " + buildNumber);
                 newBuildNumber = buildNumber;
                 var webRequest = WebRequest.Create(@"http://cdn.chromasync.io/version.json");
-
                 using (var response = webRequest.GetResponse())
                 using (var content = response.GetResponseStream())
                 using (var reader = new StreamReader(content))
@@ -89,7 +88,6 @@ namespace Ultrabox.ChromaSync
         {
             string path = @"%appdata%\ChromaSync";
             path = Environment.ExpandEnvironmentVariables(path);
-
             path = System.IO.Path.Combine(path, "updater");
 
             if (!Directory.Exists(path))

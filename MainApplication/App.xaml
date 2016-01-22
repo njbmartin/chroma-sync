@@ -11,6 +11,7 @@
         <Color x:Key="ChromaSyncGrey">#FF3C3C3C</Color>
         <Color x:Key="ChromaSyncTranslucent">#3F3C3C3C</Color>
         <Color x:Key="ChromaSyncMedGrey">#FF666666</Color>
+        <Color x:Key="CSDarkGrey">#FF1E1E1E</Color>
 
     </Application.Resources>
 </Application>

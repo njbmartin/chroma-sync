@@ -37,8 +37,9 @@
                 </ScrollViewer.Background>
                 <StackPanel x:Name="ListView"/>
             </ScrollViewer>
+            <Image x:Name="image" Width="96" Source="Resources/android-chrome-192x192.png" Grid.Column="1" Opacity="0.05"/>
             <DockPanel x:Name="DetailsView" Grid.Column="1" Margin="0" Grid.RowSpan="1">
-                <Image x:Name="image" Width="100" Source="Resources/android-chrome-192x192.png" Opacity="0.2"/>
+                
             </DockPanel>
             <TextBlock x:Name="StatusText" Margin="0" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2" Padding="10" Foreground="White" FontWeight="Bold" FontSize="13.333">
                 <TextBlock.Background>

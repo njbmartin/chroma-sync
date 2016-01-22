@@ -28,7 +28,7 @@ namespace Ultrabox.ChromaSync
     public partial class MainBrowser : Window
     {
         public List<Package> packages;
-        private int currentSelection;
+        private int currentSelection = -1;
         public static DetailsControl _details;
         public class Package
         {
@@ -79,7 +79,7 @@ namespace Ultrabox.ChromaSync
         private void GetPackages()
         {
 
-            var uri = new Uri(@"https://ultrabox.s3.amazonaws.com/ChromaSync/packages.json");
+            var uri = new Uri(@"http://cdn.chromasync.io/packages.json");
             var path = System.IO.Path.Combine(PackageManager.AppPath, "packages.json");
             var tmp = System.IO.Path.Combine(PackageManager.AppPath, ".packages.json");
             using (var client = new WebClient())
@@ -299,7 +299,8 @@ namespace Ultrabox.ChromaSync
                 ListView.Children.Add(item);
             }
             DetailsView.Children.Clear();
-            ShowDetails(currentSelection);
+            if(currentSelection >= 0)
+                ShowDetails(currentSelection);
         }
 
         private void Item_MouseLeave(object sender, MouseEventArgs e)
