@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ultrabox.ChromaSync"
         mc:Ignorable="d"
-        Title="Chroma Sync" Height="480" Width="720" MinWidth="900" MinHeight="600" WindowStartupLocation="CenterScreen" Icon="Resources/android-chrome-192x192.png" ResizeMode="CanResizeWithGrip" WindowStyle="None" AllowsTransparency="True">
+        Title="Chroma Sync" Height="600" Width="920" MinWidth="1280" MinHeight="720" WindowStartupLocation="CenterScreen" Icon="Resources/android-chrome-192x192.png" ResizeMode="CanResizeWithGrip" WindowStyle="None" AllowsTransparency="True">
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource ChromaSyncBlack}"/>
     </Window.Background>
@@ -26,7 +26,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
@@ -35,12 +35,14 @@
                 <ScrollViewer.Background>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
                 </ScrollViewer.Background>
-                <StackPanel x:Name="ListView"/>
+                <StackPanel x:Name="ListView" Orientation="Vertical"/>
             </ScrollViewer>
             <Image x:Name="image" Width="96" Source="Resources/android-chrome-192x192.png" Grid.Column="1" Opacity="0.05"/>
-            <DockPanel x:Name="DetailsView" Grid.Column="1" Margin="0" Grid.RowSpan="1">
-                
-            </DockPanel>
+            <ScrollViewer Margin="0" Grid.Column="1" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <DockPanel x:Name="DetailsView" Margin="0">
+
+                </DockPanel>
+            </ScrollViewer>
             <TextBlock x:Name="StatusText" Margin="0" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2" Padding="10" Foreground="White" FontWeight="Bold" FontSize="13.333">
                 <TextBlock.Background>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
@@ -65,16 +67,33 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="GamesTab" Content="Game Integrations" Margin="0" FontSize="16" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold">
+            <Label x:Name="GamesTab" Tag="0" MouseLeftButtonDown="Tab_MouseUp" Content="Game Integrations" Margin="0" FontSize="16" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="ScriptsTab" Content="Scripts" Margin="0" FontSize="16" ToolTip="Coming Soon" Foreground="#02FFFFFF" Grid.Column="1" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold"/>
-            <Label x:Name="AppsTab" Content="Chroma Apps" Margin="0" FontSize="16" Foreground="#02FFFFFF" ToolTip="Coming Soon" Grid.Column="2" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold"/>
-            <Label x:Name="PluginsTab" Content="Plugins" Margin="0" FontSize="16" Foreground="#02FFFFFF" ToolTip="Coming Soon" Grid.Column="3" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold"/>
+            <Label x:Name="ScriptsTab" Tag="1" MouseLeftButtonDown="Tab_MouseUp" Content="Workshop Apps" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="1" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                </Label.Foreground>
+            </Label>
+            <Label x:Name="ProfilesTab" Tag="2" MouseLeftButtonDown="Tab_MouseUp" Content="Workshop Profiles" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="2" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                </Label.Foreground>
+            </Label>
+            <Label x:Name="PluginsTab" Tag="3" MouseLeftButtonDown="Tab_MouseUp" Content="Scripts" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="3" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                </Label.Foreground>
+            </Label>
+            <Label x:Name="PluginsTab_Copy" Tag="3" MouseLeftButtonDown="Tab_MouseUp" Content="Plugins" FontSize="16" ToolTip="Coming Soon" Grid.Column="4" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left" Width="75">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                </Label.Foreground>
+            </Label>
         </Grid>
         <TextBlock x:Name="TabDescription" Grid.Row="1" TextWrapping="Wrap" Padding="0" Margin="20,0,20,20" HorizontalAlignment="Left">
             <TextBlock.Foreground>

@@ -103,26 +103,66 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AutoUpdate.xaml.cs">
-      <DependentUpon>AutoUpdate.xaml</DependentUpon>
+    <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Helpers\Paths.cs" />
+    <Compile Include="Pages\ChromaProfiles\ProfileDetails.xaml.cs">
+      <DependentUpon>ProfileDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ChromaProfiles\ProfileList.xaml.cs">
+      <DependentUpon>ProfileList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChromaApps\AppDetails.xaml.cs">
+      <DependentUpon>AppDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChromaApps\AppList.xaml.cs">
+      <DependentUpon>AppList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Updater.xaml.cs">
+      <DependentUpon>Updater.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AppsController.cs" />
+    <Compile Include="Controllers\GIController.cs" />
+    <Compile Include="Controllers\ScriptViewController.cs" />
     <Compile Include="GameLocator.cs" />
+    <Compile Include="Helpers\DownloadHelper.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Helpers\TextHelper.cs" />
     <Compile Include="LuaScripting.cs" />
     <Compile Include="MainBrowser.xaml.cs">
       <DependentUpon>MainBrowser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChromaApp.cs" />
+    <Compile Include="Models\ChromaProfile.cs" />
+    <Compile Include="Models\Script.cs" />
+    <Compile Include="Models\GIPackage.cs" />
     <Compile Include="PackageManager.cs" />
-    <Compile Include="Pages\DetailsControl.xaml.cs">
+    <Compile Include="Pages\GameIntegrations\DetailsControl.xaml.cs">
       <DependentUpon>DetailsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ListItemControl.xaml.cs">
+    <Compile Include="Pages\GameIntegrations\ListItemControl.xaml.cs">
       <DependentUpon>ListItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PluginManager.cs" />
     <Compile Include="RegistryKeeper.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Settings.cs" />
-    <Page Include="AutoUpdate.xaml">
+    <Page Include="Pages\ChromaProfiles\ProfileDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ChromaProfiles\ProfileList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ChromaApps\AppDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ChromaApps\AppList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Updater.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,11 +182,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\DetailsControl.xaml">
+    <Page Include="Pages\GameIntegrations\DetailsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ListItemControl.xaml">
+    <Page Include="Pages\GameIntegrations\ListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,9 +266,7 @@
   <ItemGroup>
     <Resource Include="Resources\csgo.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

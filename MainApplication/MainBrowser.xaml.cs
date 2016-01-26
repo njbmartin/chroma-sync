@@ -18,6 +18,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Ultrabox.ChromaSync.Controllers;
+using Ultrabox.ChromaSync.Models;
 using Ultrabox.ChromaSync.Pages;
 
 namespace Ultrabox.ChromaSync
@@ -27,38 +29,38 @@ namespace Ultrabox.ChromaSync
     /// </summary>
     public partial class MainBrowser : Window
     {
-        public List<Package> packages;
-        private int currentSelection = -1;
+        public static List<GIPackage> gameIntegrationList;
+        public static List<ChromaApp> appsList;
+        public static List<Script> scriptsList;
+        internal static int currentSelection = -1;
         public static DetailsControl _details;
-        public class Package
+
+
+        public static TextBlock _messageBox;
+
+        public enum Tabs
         {
-            public string Name { get; set; }
-            public string Author { get; set; }
-            public string Description { get; set; }
-            public string Summary { get; set; }
-            public string Version { get; set; }
-            public string Type { get; set; }
-            public List<string> Tags { get; set; }
-            public List<string> Devices { get; set; }
-            public int Downloads { get; set; }
-            public string ImageURL { get; set; }
-            public string PackageURL { get; set; }
-            public string ProjectURL { get; set; }
+            GameIntegrations,
+            ChromaApps,
+            Profiles,
+            Scripts,
+            Plugins
         }
 
+        internal static Tabs currentTab = Tabs.GameIntegrations;
+        private static Label currentTabLabel;
 
         public MainBrowser()
         {
             InitializeComponent();
+            ScriptViewController.Prepare(this);
+            GIController.Prepare(this);
+            AppsController.Prepare(this);
+            ProfilesController.Prepare(this);
+            currentTabLabel = GamesTab;
+            _messageBox = StatusText;
             GetPackages();
         }
-
-        public List<Package> GetLocal()
-        {
-            packages = new List<Package>();
-            return packages;
-        }
-
 
         public string LocalJson
         {
@@ -72,8 +74,6 @@ namespace Ultrabox.ChromaSync
         protected override void OnActivated(EventArgs e)
         {
             base.OnActivated(e);
-
-
         }
 
         private void GetPackages()
@@ -91,115 +91,21 @@ namespace Ultrabox.ChromaSync
             }
         }
 
-        public void ShowDetails(int i)
+
+        public void HideRows(GIPackage p)
         {
-            currentSelection = i;
-            var p = packages[i];
-            _details = new DetailsControl();
-            _details.Title.Text = p.Name;
-            _details.Author.Text = p.Author;
-            _details.Downloads.Text = p.Downloads.ToString();
-
-            _details.Image.Source = GetImage(p.ImageURL);
-            SetText(_details.Description, p.Description);
-            if (p.PackageURL != null)
+            foreach (var a in p.GetType().GetProperties())
             {
-                try
-                {
-                    Uri uri = new Uri(p.PackageURL);
-                    string filename = System.IO.Path.GetFileName(uri.LocalPath);
-
-                    if (PackageManager.FileExists(filename))
-                    {
-                        _details.ActionButton.Content = "Remove";
-                    }
-
-                    _details.ActionButton.Tag = i;
-                    _details.ActionButton.Click += ActionButton_Click;
-                }
-                catch (Exception ex)
-                {
-                    App.Log.Error(ex);
-                    _details.ActionButton.Visibility = Visibility.Collapsed;
-                }
-            }
-            else
-            {
-                _details.ActionButton.Visibility = Visibility.Collapsed;
-            }
-            _details.Version.Text = p.Version;
-            //HideRows(p);
-            DetailsView.Children.Clear();
-            DetailsView.Children.Add(_details);
-        }
-
-        public void HideRows(Package p)
-        {
-            foreach(var a in p.GetType().GetProperties())
-            {
-                if(p.GetType().GetProperty(a.Name).GetValue(p,null) == null)
+                if (p.GetType().GetProperty(a.Name).GetValue(p, null) == null)
                 {
                     _details.Details.RowDefinitions.Where(x => x.Name == "Row" + a.Name).First().Height = new GridLength(0, GridUnitType.Pixel);
                 }
 
             }
-            
-        }
 
-        private void ActionButton_Click(object sender, RoutedEventArgs e)
-        {
-            var s = (Button)sender;
-            int i = (int)s.Tag;
-            var path = PackageManager.AppPath;
-
-            Uri uri = new Uri(packages[i].PackageURL);
-            string filename = System.IO.Path.GetFileName(uri.LocalPath);
-            string file = System.IO.Path.Combine(path, filename);
-            var p = PackageManager.GetPackage(file);
-            if (p != null)
-            {
-                if (PackageManager.RemovePackage(p))
-                {
-                    StatusText.Text = packages[i].Name + " has been uninstalled successfully";
-                    removeMessage();
-                }
-                DisplayPackages();
-                return;
-            }
-            
-            s.Content = "Downloading...";
-            s.IsEnabled = false;
-            DownloadPackage(packages[i]);
-        }
-
-        private ImageSource GetImage(string url)
-        {
-            ImageSource imgsr = new BitmapImage(new Uri(url));
-            return imgsr;
         }
 
 
-        private void DownloadPackage(Package p)
-        {
-            var path = PackageManager.AppPath;
-
-            Uri uri = new Uri(p.PackageURL);
-            string filename = System.IO.Path.GetFileName(uri.LocalPath);
-            string file = System.IO.Path.Combine(path, filename);
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-            if (File.Exists(file))
-                File.Delete(file);
-            string tmp = System.IO.Path.Combine(path, "." + filename);
-
-            using (var client = new WebClient())
-            {
-                client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");
-                client.DownloadFileCompleted += new AsyncCompletedEventHandler((sender, e) => Completed(sender, e, file, tmp));
-                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, e) => ProgressChanged(sender, e, p.Name));
-                client.DownloadFileAsync(uri, tmp);
-            }
-        }
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e, string file)
         {
@@ -218,7 +124,7 @@ namespace Ultrabox.ChromaSync
                 MessageBox.Show(e.Error.Message);
                 File.Delete(tmp);
                 StatusText.Text = e.Error.Message;
-                DisplayPackages();
+                PopulateList();
                 return;
             }
 
@@ -230,7 +136,7 @@ namespace Ultrabox.ChromaSync
             if (path.Equals(LocalJson))
             {
                 StatusText.Text = "Retrieved list";
-                DisplayPackages();
+                PopulateList();
                 return;
             }
             StatusText.Text = "Downloaded successfully";
@@ -244,16 +150,16 @@ namespace Ultrabox.ChromaSync
                     removeMessage();
                 }
             }
-            DisplayPackages();
+            PopulateList();
         }
 
-        private void removeMessage()
+        internal static void removeMessage()
         {
             Task.Delay(3000).ContinueWith(_ =>
             {
                 Application.Current.Dispatcher.BeginInvoke(
                   DispatcherPriority.Background,
-                  new Action(() => StatusText.Text = ""));
+                  new Action(() => _messageBox.Text = ""));
             });
         }
 
@@ -271,63 +177,41 @@ namespace Ultrabox.ChromaSync
             WindowState = (WindowState == WindowState.Maximized) ? WindowState.Normal : WindowState.Maximized;
         }
 
-        private void DisplayPackages()
+        private void PopulateList()
         {
+
             try
             {
                 JObject j = JObject.Parse(File.ReadAllText(LocalJson));
-
-                packages = j.GetValue("packages").ToObject<List<Package>>();
+                GIController.integrationsList = j.GetValue("packages").ToObject<List<GIPackage>>();
+                ScriptViewController.scriptsList = j.GetValue("scripts").ToObject<List<Script>>();
             }
             catch (Exception e)
             {
                 App.Log.Error(e);
                 return;
             }
-            ListView.Children.Clear();
-            foreach (var package in packages)
+
+
+            switch (currentTab)
             {
-                ListItemControl item = new ListItemControl();
-                item.Title.Content = package.Name;
-                item.Type.Content = package.Type;
-                SetText(item.Summary, package.Summary);
-                item.image.Source = GetImage(package.ImageURL);
-                item.Tag = packages.IndexOf(package);
-                item.MouseLeftButtonUp += Item_MouseLeftButtonUp;
-                item.MouseEnter += Item_MouseEnter;
-                item.MouseLeave += Item_MouseLeave;
-                ListView.Children.Add(item);
+                case Tabs.GameIntegrations:
+                    TabDescription.Text = GIController.Description;
+                    GIController.GenerateList();
+                    break;
+                case Tabs.Scripts:
+                    TabDescription.Text = ScriptViewController.Description;
+                    ScriptViewController.GenerateList();
+                    break;
+                case Tabs.ChromaApps:
+                    TabDescription.Text = AppsController.Description;
+                    AppsController.GetApps();
+                    break;
+                case Tabs.Profiles:
+                    TabDescription.Text = ProfilesController.Description;
+                    ProfilesController.GetApps();
+                    break;
             }
-            DetailsView.Children.Clear();
-            if(currentSelection >= 0)
-                ShowDetails(currentSelection);
-        }
-
-        private void Item_MouseLeave(object sender, MouseEventArgs e)
-        {
-            var s = (ListItemControl)sender;
-            if (!s.Equals(_CurrentControl))
-                s.Deselect();
-        }
-
-        private ListItemControl _CurrentControl;
-
-        private void Item_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            var s = (ListItemControl)sender;
-            if (_CurrentControl != null)
-                _CurrentControl.Deselect();
-            _CurrentControl = s;
-
-
-            int i = (int)s.Tag;
-            ShowDetails(i);
-        }
-
-        private void Item_MouseEnter(object sender, MouseEventArgs e)
-        {
-            var s = (ListItemControl)sender;
-            s.Background.Opacity = 1;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -335,56 +219,27 @@ namespace Ultrabox.ChromaSync
             Close();
         }
 
-
-        private static readonly Regex RE_URL = new Regex(@"(?#Protocol)(?:(?:ht|f)tp(?:s?)\:\/\/|~/|/)?(?#Username:Password)(?:\w+:\w+@)?(?#Subdomains)(?:(?:[-\w]+\.)+(?#TopLevel Domains)(?:com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum|travel|[a-z]{2}))(?#Port)(?::[\d]{1,5})?(?#Directories)(?:(?:(?:/(?:[-\w~!$+|.,=]|%[a-f\d]{2})+)+|/)+|\?|#)?(?#Query)(?:(?:\?(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)(?:&(?:[-\w~!$+|.,*:]|%[a-f\d{2}])+=(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)*)*(?#Anchor)(?:#(?:[-\w~!$+|.,*:=]|%[a-f\d]{2})*)?");
-        private void SetText(TextBlock text_block, string new_text)
-        {
-            if (text_block == null)
-                return;
-
-            text_block.Inlines.Clear();
-            if (string.IsNullOrEmpty(new_text))
-                return;
-
-            // Find all URLs using a regular expression
-            int last_pos = 0;
-            foreach (Match match in RE_URL.Matches(new_text))
-            {
-                // Copy raw string from the last position up to the match
-                if (match.Index != last_pos)
-                {
-                    var raw_text = new_text.Substring(last_pos, match.Index - last_pos);
-                    text_block.Inlines.Add(new Run(raw_text));
-                }
-
-                // Create a hyperlink for the match
-                var link = new Hyperlink(new Run(match.Value))
-                {
-                    NavigateUri = new Uri(match.Value)
-                };
-                link.Click += OnUrlClick;
-
-                text_block.Inlines.Add(link);
-
-                // Update the last matched position
-                last_pos = match.Index + match.Length;
-            }
-
-            // Finally, copy the remainder of the string
-            if (last_pos < new_text.Length)
-                text_block.Inlines.Add(new Run(new_text.Substring(last_pos)));
-        }
-
-        private static void OnUrlClick(object sender, RoutedEventArgs e)
-        {
-            var link = (Hyperlink)sender;
-            // Do something with link.NavigateUri like:
-            Process.Start(link.NavigateUri.ToString());
-        }
-
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
             GetPackages();
+        }
+
+        private void Tab_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Label l = (Label)sender;
+            
+            currentTabLabel.Foreground = new SolidColorBrush((Color)Application.Current.Resources["ChromaSyncGrey"]);
+            l.Foreground= new SolidColorBrush((Color)Application.Current.Resources["ChromaSyncPink"]);
+            currentTabLabel = l;
+            ChangeTab(int.Parse((string)l.Tag));
+        }
+
+        private void ChangeTab(int tag)
+        {
+            currentTab = (Tabs)tag;
+            ListView.Children.Clear();
+            DetailsView.Children.Clear();
+            PopulateList();
         }
     }
 }

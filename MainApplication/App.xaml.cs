@@ -107,7 +107,7 @@ namespace Ultrabox.ChromaSync
             this.Dispatcher.UnhandledException += OnDispatcherUnhandledException;
             // Application is running
             //Check version
-            AutoUpdate updater = new AutoUpdate();
+            Updater updater = new Updater();
             mb = new MainBrowser();
             updater.Show();
 

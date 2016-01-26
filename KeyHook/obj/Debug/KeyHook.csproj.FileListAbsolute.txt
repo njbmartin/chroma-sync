@@ -12,3 +12,4 @@ N:\Development\Chroma Sync\KeyHook\bin\Debug\KeyHook.pdb
 N:\Development\Chroma Sync\KeyHook\obj\Debug\KeyHook.csprojResolveAssemblyReference.cache
 N:\Development\Chroma Sync\KeyHook\obj\Debug\KeyHook.dll
 N:\Development\Chroma Sync\KeyHook\obj\Debug\KeyHook.pdb
+C:\Users\NMA04\Projects\chroma-sync\KeyHook\obj\Debug\KeyHook.csprojResolveAssemblyReference.cache

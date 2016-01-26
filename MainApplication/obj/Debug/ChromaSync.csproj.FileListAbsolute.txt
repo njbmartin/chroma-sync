@@ -31,8 +31,6 @@ C:\Users\NMA04\Projects\chroma-sync\MainApplication\bin\Debug\Newtonsoft.Json.xm
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\App.baml
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.Properties.Resources.resources
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\ChromaSync.csproj.GenerateResource.Cache
-C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\AutoUpdate.g.cs
-C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\AutoUpdate.baml
 N:\Development\Chroma Sync\MainApplication\bin\Debug\chromasync.ico
 N:\Development\Chroma Sync\MainApplication\bin\Debug\Corale.Colore.dll
 N:\Development\Chroma Sync\MainApplication\bin\Debug\log4net.dll
@@ -94,10 +92,6 @@ C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\ListItem
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\ListItemControl.baml
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\DetailsControl.g.cs
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\DetailsControl.baml
-C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\DetailsControl.g.cs
-C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ListItemControl.g.cs
-C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\DetailsControl.baml
-C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ListItemControl.baml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\Intro.g.cs
 N:\Development\Chroma Sync\MainApplication\obj\Debug\MainBrowser.g.cs
 N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\DetailsControl.g.cs
@@ -106,3 +100,17 @@ N:\Development\Chroma Sync\MainApplication\obj\Debug\Intro.baml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\MainBrowser.baml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\DetailsControl.baml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ListItemControl.baml
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Updater.g.cs
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Updater.baml
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaProfiles\ProfileDetails.g.cs
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaProfiles\ProfileList.g.cs
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaApps\AppDetails.g.cs
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaApps\AppList.g.cs
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\GameIntegrations\DetailsControl.g.cs
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\GameIntegrations\ListItemControl.g.cs
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaProfiles\ProfileDetails.baml
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaProfiles\ProfileList.baml
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaApps\AppDetails.baml
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaApps\AppList.baml
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\GameIntegrations\DetailsControl.baml
+C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\GameIntegrations\ListItemControl.baml

@@ -22,9 +22,9 @@ using System.Windows.Shapes;
 namespace Ultrabox.ChromaSync
 {
     /// <summary>
-    /// Interaction logic for AutoUpdate.xaml
+    /// Interaction logic for Updater.xaml
     /// </summary>
-    public partial class AutoUpdate : Window
+    public partial class Updater : Window
     {
         private static int buildNumber;
         private static int newBuildNumber;
@@ -42,7 +42,7 @@ namespace Ultrabox.ChromaSync
         private static VersionInfo LatestVersion;
 
 
-        public AutoUpdate()
+        public Updater()
         {
             InitializeComponent();
         }
