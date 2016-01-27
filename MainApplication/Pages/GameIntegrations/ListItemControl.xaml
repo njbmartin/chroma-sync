@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Ultrabox.ChromaSync.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="135" d:DesignWidth="790" Cursor="Hand" Focusable="True" MaxHeight="240" BorderThickness="0">
+             d:DesignHeight="135" d:DesignWidth="790" Cursor="Hand" Focusable="True" MaxHeight="250" Width="Auto" BorderThickness="0" Grid.IsSharedSizeScope="True">
     <UserControl.Background>
         <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
     </UserControl.Background>

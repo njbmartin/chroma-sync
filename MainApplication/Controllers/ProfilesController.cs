@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using Ultrabox.ChromaSync.Helpers;
@@ -20,7 +21,7 @@ namespace Ultrabox.ChromaSync.Controllers
 {
     class ProfilesController
     {
-        private static StackPanel _listView;
+        private static UniformGrid _listView;
         private static DockPanel _detailsView;
         private static ProfileDetails _details;
 
@@ -72,6 +73,7 @@ namespace Ultrabox.ChromaSync.Controllers
                 //TextHelper.SetText(item.Summary, app.Summary);
                 item.image.Source = GetImage(profile.Video);
                 item.Type.Content = profile.Supported_Devices;
+                item.Author.Content = profile.Comms_Id;
                 item.Tag = profileList.IndexOf(profile);
                 item.MouseLeftButtonUp += Item_MouseLeftButtonUp;
                 item.MouseEnter += Item_MouseEnter;

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ultrabox.ChromaSync"
         mc:Ignorable="d"
-        Title="Chroma Sync" Height="600" Width="920" MinWidth="1280" MinHeight="720" WindowStartupLocation="CenterScreen" Icon="Resources/android-chrome-192x192.png" ResizeMode="CanResizeWithGrip" WindowStyle="None" AllowsTransparency="True">
+        Title="Chroma Sync" Height="600" Width="920" MinWidth="1280" MinHeight="720"  WindowStartupLocation="CenterScreen" Icon="Resources/android-chrome-192x192.png" ResizeMode="CanResizeWithGrip" WindowStyle="None" AllowsTransparency="True">
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource ChromaSyncBlack}"/>
     </Window.Background>
@@ -31,11 +31,11 @@
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
             </Grid.Background>
-            <ScrollViewer Margin="0" Grid.Column="0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Margin="0" Grid.Column="0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.IsSharedSizeScope="True">
                 <ScrollViewer.Background>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
                 </ScrollViewer.Background>
-                <StackPanel x:Name="ListView" Orientation="Vertical"/>
+                <UniformGrid x:Name="ListView" Columns="1"/>
             </ScrollViewer>
             <Image x:Name="image" Width="96" Source="Resources/android-chrome-192x192.png" Grid.Column="1" Opacity="0.05"/>
             <ScrollViewer Margin="0" Grid.Column="1" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">

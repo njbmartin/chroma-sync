@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using Ultrabox.ChromaSync.Helpers;
 using Ultrabox.ChromaSync.Models;
@@ -17,7 +18,7 @@ namespace Ultrabox.ChromaSync.Controllers
 {
     class ScriptViewController
     {
-        private static StackPanel _listView;
+        private static UniformGrid _listView;
         private static DockPanel _detailsView;
         private static DetailsControl _details;
         

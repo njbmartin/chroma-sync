@@ -45,10 +45,8 @@ N:\Development\Chroma Sync\MainApplication\bin\Debug\Neo.Lua.Desktop.pdb
 N:\Development\Chroma Sync\MainApplication\bin\Debug\Neo.Lua.Desktop.xml
 N:\Development\Chroma Sync\MainApplication\bin\Debug\Newtonsoft.Json.xml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\ChromaSync.csprojResolveAssemblyReference.cache
-N:\Development\Chroma Sync\MainApplication\obj\Debug\AutoUpdate.g.cs
 N:\Development\Chroma Sync\MainApplication\obj\Debug\App.g.cs
 N:\Development\Chroma Sync\MainApplication\obj\Debug\App.baml
-N:\Development\Chroma Sync\MainApplication\obj\Debug\AutoUpdate.baml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.Properties.Resources.resources
 N:\Development\Chroma Sync\MainApplication\obj\Debug\ChromaSync.csproj.GenerateResource.Cache
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\AutoUpdate.g.cs
@@ -94,12 +92,8 @@ C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\DetailsC
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\DetailsControl.baml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\Intro.g.cs
 N:\Development\Chroma Sync\MainApplication\obj\Debug\MainBrowser.g.cs
-N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\DetailsControl.g.cs
-N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ListItemControl.g.cs
 N:\Development\Chroma Sync\MainApplication\obj\Debug\Intro.baml
 N:\Development\Chroma Sync\MainApplication\obj\Debug\MainBrowser.baml
-N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\DetailsControl.baml
-N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ListItemControl.baml
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Updater.g.cs
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Updater.baml
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaProfiles\ProfileDetails.g.cs
@@ -114,3 +108,17 @@ C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaApps\A
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\ChromaApps\AppList.baml
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\GameIntegrations\DetailsControl.baml
 C:\Users\NMA04\Projects\chroma-sync\MainApplication\obj\Debug\Pages\GameIntegrations\ListItemControl.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ChromaProfiles\ProfileDetails.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ChromaProfiles\ProfileList.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ChromaApps\AppDetails.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ChromaApps\AppList.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Updater.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\GameIntegrations\DetailsControl.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\GameIntegrations\ListItemControl.g.cs
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ChromaProfiles\ProfileDetails.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ChromaProfiles\ProfileList.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ChromaApps\AppDetails.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\ChromaApps\AppList.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Updater.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\GameIntegrations\DetailsControl.baml
+N:\Development\Chroma Sync\MainApplication\obj\Debug\Pages\GameIntegrations\ListItemControl.baml

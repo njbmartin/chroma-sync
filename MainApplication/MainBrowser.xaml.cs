@@ -196,19 +196,23 @@ namespace Ultrabox.ChromaSync
             switch (currentTab)
             {
                 case Tabs.GameIntegrations:
+                    ListView.Columns = 1;
                     TabDescription.Text = GIController.Description;
                     GIController.GenerateList();
                     break;
                 case Tabs.Scripts:
+                    ListView.Columns = 2;
                     TabDescription.Text = ScriptViewController.Description;
                     ScriptViewController.GenerateList();
                     break;
                 case Tabs.ChromaApps:
+                    ListView.Columns = 3;
                     TabDescription.Text = AppsController.Description;
                     AppsController.GetApps();
                     break;
                 case Tabs.Profiles:
                     TabDescription.Text = ProfilesController.Description;
+                    ListView.Columns = 3;
                     ProfilesController.GetApps();
                     break;
             }
