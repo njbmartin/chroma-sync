@@ -122,7 +122,7 @@ namespace Ultrabox.ChromaSync
                             catch (Exception e)
                             {
                                 App.Log.Info(e);
-                                Thread.ResetAbort();
+                                //Thread.ResetAbort();
                             }
                         }
                     }));

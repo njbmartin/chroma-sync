@@ -31,7 +31,7 @@
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
             </Grid.Background>
-            <ScrollViewer Margin="0" Grid.Column="0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.IsSharedSizeScope="True">
+            <ScrollViewer Margin="0" Grid.Column="0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.IsSharedSizeScope="True" VerticalAlignment="Top">
                 <ScrollViewer.Background>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
                 </ScrollViewer.Background>
