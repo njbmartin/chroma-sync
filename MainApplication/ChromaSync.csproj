@@ -104,6 +104,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Helpers\Paths.cs" />
     <Compile Include="Pages\ChromaProfiles\ProfileDetails.xaml.cs">
       <DependentUpon>ProfileDetails.xaml</DependentUpon>

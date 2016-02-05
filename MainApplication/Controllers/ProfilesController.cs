@@ -29,6 +29,7 @@ namespace Ultrabox.ChromaSync.Controllers
 
         internal static readonly string Description = @"Download new profiles for your Chroma devices created by Razer and the community. Powered by the Razer Chroma Workshop.";
         internal static List<ChromaProfile> profileList;
+        private static string tmp;
 
         internal static void Prepare(MainBrowser mainBrowser)
         {
@@ -40,7 +41,7 @@ namespace Ultrabox.ChromaSync.Controllers
         {
             get
             {
-                var path = Path.Combine(PackageManager.AppPath, "profiles.json");
+                var path = Path.Combine(Paths.Profiles, "profiles.json");
                 return path;
             }
         }
@@ -50,8 +51,8 @@ namespace Ultrabox.ChromaSync.Controllers
         {
 
             var uri = new Uri(@"http://www.razerzone.com/?ACT=34&action=process_chroma_profile_list");
-            var path = System.IO.Path.Combine(PackageManager.AppPath, "profiles.json");
-            var tmp = System.IO.Path.Combine(PackageManager.AppPath, ".profiles.json");
+            var path = Path.Combine(Paths.Profiles, "profiles.json");
+            tmp = Path.Combine(Paths.Profiles, ".profiles.json");
             using (var client = new WebClient())
             {
                 client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");
@@ -109,7 +110,7 @@ namespace Ultrabox.ChromaSync.Controllers
                     Uri uri = new Uri(profile.Download);
                     string filename = Path.GetFileName(uri.LocalPath);
 
-                    if (PackageManager.FileExists(filename))
+                    if (FileHelper.Exists(Path.Combine(Paths.Profiles, filename)))
                     {
                         _details.ActionButton.Content = "Remove";
                     }
@@ -137,19 +138,19 @@ namespace Ultrabox.ChromaSync.Controllers
         {
             var s = (Button)sender;
             int i = (int)s.Tag;
-            var path = PackageManager.AppPath;
+            var path = Paths.Profiles;
 
             Uri uri = new Uri(profileList[i].Download);
             string filename = Path.GetFileName(uri.LocalPath);
+
             string file = Path.Combine(path, filename);
-            var p = PackageManager.GetPackage(file);
-            if (p != null)
+            if (FileHelper.Exists(file))
             {
-                if (PackageManager.RemovePackage(p))
-                {
-                    MainBrowser._messageBox.Text = profileList[i].Name + " has been uninstalled successfully";
-                    MainBrowser.removeMessage();
-                }
+                File.Delete(file);
+
+                MainBrowser._messageBox.Text = profileList[i].Name + " has been uninstalled successfully";
+                MainBrowser.removeMessage();
+
                 GenerateList();
                 return;
             }
@@ -159,7 +160,7 @@ namespace Ultrabox.ChromaSync.Controllers
             DownloadPackage(profileList[i]);
         }
 
-        
+
 
 
         private static ProfileList _CurrentControl;
@@ -170,7 +171,7 @@ namespace Ultrabox.ChromaSync.Controllers
             if (!s.Equals(_CurrentControl))
                 s.Deselect();
         }
-        
+
 
         private static void Item_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -192,16 +193,16 @@ namespace Ultrabox.ChromaSync.Controllers
 
         private static void DownloadPackage(ChromaProfile app)
         {
-            var path = PackageManager.AppPath;
+
 
             Uri uri = new Uri(app.Download);
             string filename = Path.GetFileName(uri.LocalPath);
-            string file = Path.Combine(path, filename);
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            string file = Path.Combine(Paths.Profiles, filename);
+            if (!Directory.Exists(Paths.Profiles))
+                Directory.CreateDirectory(Paths.Profiles);
             if (File.Exists(file))
                 File.Delete(file);
-            string tmp = Path.Combine(path, "." + filename);
+            string tmp = Path.Combine(Paths.Profiles, "." + filename);
 
             using (var client = new WebClient())
             {

@@ -21,7 +21,7 @@ namespace Ultrabox.ChromaSync.Controllers
         private static UniformGrid _listView;
         private static DockPanel _detailsView;
         private static DetailsControl _details;
-        
+
         private static int currentSelection = -1;
 
         internal static readonly string Description = @"Create and share custom scripts.";
@@ -72,9 +72,9 @@ namespace Ultrabox.ChromaSync.Controllers
                 try
                 {
                     Uri uri = new Uri(p.PackageURL);
-                    string filename = System.IO.Path.GetFileName(uri.LocalPath);
+                    string filename = Path.GetFileName(uri.LocalPath);
 
-                    if (PackageManager.FileExists(filename))
+                    if (FileHelper.Exists(Path.Combine(Paths.Scripts, filename)))
                     {
                         _details.ActionButton.Content = "Remove";
                     }
@@ -102,19 +102,16 @@ namespace Ultrabox.ChromaSync.Controllers
         {
             var s = (Button)sender;
             int i = (int)s.Tag;
-            var path = PackageManager.AppPath;
 
             Uri uri = new Uri(scriptsList[i].PackageURL);
-            string filename = System.IO.Path.GetFileName(uri.LocalPath);
-            string file = System.IO.Path.Combine(path, filename);
-            var p = PackageManager.GetPackage(file);
-            if (p != null)
+            string filename = Path.GetFileName(uri.LocalPath);
+            string file = Path.Combine(Paths.Scripts, filename);
+            if (FileHelper.Exists(file))
             {
-                if (PackageManager.RemovePackage(p))
-                {
-                    MainBrowser._messageBox.Text = scriptsList[i].Name + " has been uninstalled successfully";
-                    MainBrowser.removeMessage();
-                }
+                File.Delete(file);
+
+                MainBrowser._messageBox.Text = scriptsList[i].Name + " has been removed successfully";
+                MainBrowser.removeMessage();
                 GenerateList();
                 return;
             }
@@ -156,16 +153,15 @@ namespace Ultrabox.ChromaSync.Controllers
 
         private static void DownloadPackage(Script p)
         {
-            var path = PackageManager.AppPath;
 
             Uri uri = new Uri(p.PackageURL);
             string filename = System.IO.Path.GetFileName(uri.LocalPath);
-            string file = System.IO.Path.Combine(path, filename);
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            string file = System.IO.Path.Combine(Paths.Scripts, filename);
+            if (!Directory.Exists(Paths.Scripts))
+                Directory.CreateDirectory(Paths.Scripts);
             if (File.Exists(file))
                 File.Delete(file);
-            string tmp = System.IO.Path.Combine(path, "." + filename);
+            string tmp = System.IO.Path.Combine(Paths.Scripts, "." + filename);
 
             using (var client = new WebClient())
             {

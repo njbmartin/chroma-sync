@@ -9,6 +9,7 @@ using Ultrabox.ChromaSync.Properties;
 using System.Configuration;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Ultrabox.ChromaSync.Helpers;
 
 namespace Ultrabox.ChromaSync
 {
@@ -89,40 +90,13 @@ namespace Ultrabox.ChromaSync
             // https://msdn.microsoft.com/en-us/library/waw3xexc(v=vs.110).aspx
         }
 
-        public static bool FileExists(string file)
-        {
-            try
-            {
-                var p = Path.Combine(AppPath, file);
-                return File.Exists(p);
-            }
-            catch (Exception e)
-            {
-                App.Log.Error(e);
-            }
-
-            return false;
-        }
-
-        public static string AppPath
-        {
-            get
-            {
-                string path = @"%appdata%\ChromaSync";
-                path = Environment.ExpandEnvironmentVariables(path);
-                path = Path.Combine(path, "packages");
-                return path;
-            }
-        }
-
-
         public static List<Package> GetPackages()
         {
             packages = new List<Package>();
             App.NewPackagesContext();
 
 
-            foreach (string st in Directory.GetFiles(AppPath, "*.csp", SearchOption.AllDirectories))
+            foreach (string st in Directory.GetFiles(Paths.Packages, "*.csp", SearchOption.AllDirectories))
             {
                 if (Path.GetFileName(st).StartsWith("."))
                     continue;

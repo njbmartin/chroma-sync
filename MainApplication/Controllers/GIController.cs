@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -72,9 +75,9 @@ namespace Ultrabox.ChromaSync.Controllers
                 try
                 {
                     Uri uri = new Uri(p.PackageURL);
-                    string filename = System.IO.Path.GetFileName(uri.LocalPath);
+                    string filename = Path.GetFileName(uri.LocalPath);
 
-                    if (PackageManager.FileExists(filename))
+                    if (FileHelper.Exists(Path.Combine(Paths.Packages, filename)))
                     {
                         _details.ActionButton.Content = "Remove";
                     }
@@ -102,7 +105,7 @@ namespace Ultrabox.ChromaSync.Controllers
         {
             var s = (Button)sender;
             int i = (int)s.Tag;
-            var path = PackageManager.AppPath;
+            var path = Paths.Packages;
 
             Uri uri = new Uri(integrationsList[i].PackageURL);
             string filename = System.IO.Path.GetFileName(uri.LocalPath);
@@ -121,7 +124,7 @@ namespace Ultrabox.ChromaSync.Controllers
 
             s.Content = "Downloading...";
             s.IsEnabled = false;
-            //DownloadPackage(gameIntegrationList[i]);
+            DownloadPackage(integrationsList[i]);
         }
 
         private static void Item_MouseLeave(object sender, MouseEventArgs e)
@@ -149,6 +152,71 @@ namespace Ultrabox.ChromaSync.Controllers
         {
             var s = (ListItemControl)sender;
             s.Background.Opacity = 1;
+        }
+
+
+
+        private static void DownloadPackage(GIPackage p)
+        {
+
+            Uri uri = new Uri(p.PackageURL);
+            string filename = System.IO.Path.GetFileName(uri.LocalPath);
+            string file = System.IO.Path.Combine(Paths.Packages, filename);
+            if (!Directory.Exists(Paths.Packages))
+                Directory.CreateDirectory(Paths.Packages);
+            if (File.Exists(file))
+                File.Delete(file);
+            string tmp = System.IO.Path.Combine(Paths.Packages, "." + filename);
+
+            using (var client = new WebClient())
+            {
+                client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler((sender, e) => Completed(sender, e, file, tmp));
+                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler((sender, e) => ProgressChanged(sender, e, p.Name));
+                client.DownloadFileAsync(uri, tmp);
+            }
+        }
+
+
+        private static void ProgressChanged(object sender, DownloadProgressChangedEventArgs e, string file)
+        {
+
+            MainBrowser._messageBox.Text = "Downloading " + file + ": " + e.ProgressPercentage + "% complete";
+        }
+
+        private static void Completed(object sender, AsyncCompletedEventArgs e, string path, string tmp)
+        {
+
+            MainBrowser.removeMessage();
+
+            if (e.Error != null)
+            {
+                App.Log.Error(e.Error);
+                MessageBox.Show(e.Error.Message);
+                File.Delete(tmp);
+                MainBrowser._messageBox.Text = e.Error.Message;
+                GenerateList();
+                return;
+            }
+
+            if (File.Exists(path))
+                File.Delete(path);
+
+            File.Move(tmp, path);
+
+
+            MainBrowser._messageBox.Text = "Downloaded successfully";
+            PackageManager.GetPackages();
+            var p = PackageManager.GetPackage(path);
+            if (p != null)
+            {
+                if (PackageManager.InstallPackage(p))
+                {
+                    MainBrowser._messageBox.Text = p.Product.Name + " successfully installed";
+                    MainBrowser.removeMessage();
+                }
+            }
+            GenerateList();
         }
 
     }

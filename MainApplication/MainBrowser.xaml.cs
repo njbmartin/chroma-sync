@@ -19,6 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Ultrabox.ChromaSync.Controllers;
+using Ultrabox.ChromaSync.Helpers;
 using Ultrabox.ChromaSync.Models;
 using Ultrabox.ChromaSync.Pages;
 
@@ -66,7 +67,7 @@ namespace Ultrabox.ChromaSync
         {
             get
             {
-                var path = System.IO.Path.Combine(PackageManager.AppPath, "packages.json");
+                var path = System.IO.Path.Combine(Paths.MainDirectory, "packages.json");
                 return path;
             }
         }
@@ -80,8 +81,7 @@ namespace Ultrabox.ChromaSync
         {
 
             var uri = new Uri(@"http://cdn.chromasync.io/packages.json");
-            var path = System.IO.Path.Combine(PackageManager.AppPath, "packages.json");
-            var tmp = System.IO.Path.Combine(PackageManager.AppPath, ".packages.json");
+            var tmp = System.IO.Path.Combine(Paths.MainDirectory, ".packages.json");
             using (var client = new WebClient())
             {
                 client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");

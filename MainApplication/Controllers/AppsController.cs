@@ -40,7 +40,7 @@ namespace Ultrabox.ChromaSync.Controllers
         {
             get
             {
-                var path = Path.Combine(PackageManager.AppPath, "apps.json");
+                var path = Path.Combine(Paths.Apps, "apps.json");
                 return path;
             }
         }
@@ -50,8 +50,8 @@ namespace Ultrabox.ChromaSync.Controllers
         {
 
             var uri = new Uri(@"http://www.razerzone.com/?ACT=34&action=process_chroma_app_list");
-            var path = System.IO.Path.Combine(PackageManager.AppPath, "apps.json");
-            var tmp = System.IO.Path.Combine(PackageManager.AppPath, ".apps.json");
+            var path = System.IO.Path.Combine(Paths.Apps, "apps.json");
+            var tmp = System.IO.Path.Combine(Paths.Apps, ".apps.json");
             using (var client = new WebClient())
             {
                 client.Headers.Add("User-Agent", "Mozilla/4.0 (compatible; MSIE 8.0)");
@@ -107,7 +107,7 @@ namespace Ultrabox.ChromaSync.Controllers
                     Uri uri = new Uri(app.Download);
                     string filename = Path.GetFileName(uri.LocalPath);
 
-                    if (PackageManager.FileExists(filename))
+                    if (FileHelper.Exists(Path.Combine(Paths.Apps, filename)))
                     {
                         _details.ActionButton.Content = "Remove";
                     }
@@ -135,19 +135,17 @@ namespace Ultrabox.ChromaSync.Controllers
         {
             var s = (Button)sender;
             int i = (int)s.Tag;
-            var path = PackageManager.AppPath;
+
 
             Uri uri = new Uri(appsList[i].Download);
             string filename = Path.GetFileName(uri.LocalPath);
-            string file = Path.Combine(path, filename);
-            var p = PackageManager.GetPackage(file);
-            if (p != null)
+            string file = Path.Combine(Paths.Apps, filename);
+            if (FileHelper.Exists(file))
             {
-                if (PackageManager.RemovePackage(p))
-                {
-                    MainBrowser._messageBox.Text = appsList[i].Name + " has been uninstalled successfully";
-                    MainBrowser.removeMessage();
-                }
+                File.Delete(file);
+                MainBrowser._messageBox.Text = appsList[i].Name + " has been uninstalled successfully";
+                MainBrowser.removeMessage();
+
                 GenerateList();
                 return;
             }
@@ -157,7 +155,7 @@ namespace Ultrabox.ChromaSync.Controllers
             DownloadPackage(appsList[i]);
         }
 
-        
+
 
 
         private static AppList _CurrentControl;
@@ -168,7 +166,7 @@ namespace Ultrabox.ChromaSync.Controllers
             if (!s.Equals(_CurrentControl))
                 s.Deselect();
         }
-        
+
 
         private static void Item_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -190,16 +188,15 @@ namespace Ultrabox.ChromaSync.Controllers
 
         private static void DownloadPackage(ChromaApp app)
         {
-            var path = PackageManager.AppPath;
 
             Uri uri = new Uri(app.Download);
             string filename = Path.GetFileName(uri.LocalPath);
-            string file = Path.Combine(path, filename);
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            string file = Path.Combine(Paths.Apps, filename);
+            if (!Directory.Exists(Paths.Apps))
+                Directory.CreateDirectory(Paths.Apps);
             if (File.Exists(file))
                 File.Delete(file);
-            string tmp = Path.Combine(path, "." + filename);
+            string tmp = Path.Combine(Paths.Apps, "." + filename);
 
             using (var client = new WebClient())
             {
