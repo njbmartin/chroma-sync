@@ -68,6 +68,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="GamesTab" Tag="0" MouseLeftButtonDown="Tab_MouseUp" Content="Game Integrations" Margin="0" FontSize="16" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold">
                 <Label.Foreground>
@@ -89,7 +90,12 @@
                     <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="PluginsTab_Copy" Tag="3" MouseLeftButtonDown="Tab_MouseUp" Content="Plugins" FontSize="16" ToolTip="Coming Soon" Grid.Column="4" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left" Width="75">
+            <Label x:Name="PluginsTab_Copy" Tag="4" MouseLeftButtonDown="Tab_MouseUp" Content="Plugins" FontSize="16" ToolTip="Coming Soon" Grid.Column="4" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                </Label.Foreground>
+            </Label>
+            <Label x:Name="HeatmapsTab" Tag="5" MouseLeftButtonDown="Tab_MouseUp" Content="Heatmaps" FontSize="16" ToolTip="Coming Soon" Grid.Column="5" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
                 </Label.Foreground>
