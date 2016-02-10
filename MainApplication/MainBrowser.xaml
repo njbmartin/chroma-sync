@@ -75,29 +75,29 @@
                     <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="ScriptsTab" Tag="1" MouseLeftButtonDown="Tab_MouseUp" Content="Workshop Apps" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="1" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
+            <Label x:Name="ScriptsTab" Tag="1" MouseLeftButtonDown="Tab_MouseUp" Content="Chroma Apps" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="1" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
                 <Label.Foreground>
-                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="ProfilesTab" Tag="2" MouseLeftButtonDown="Tab_MouseUp" Content="Workshop Profiles" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="2" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
+            <Label x:Name="ProfilesTab" Tag="2" MouseLeftButtonDown="Tab_MouseUp" Content="Chroma Profiles" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="2" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
                 <Label.Foreground>
-                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
             </Label>
             <Label x:Name="PluginsTab" Tag="3" MouseLeftButtonDown="Tab_MouseUp" Content="Scripts" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="3" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
                 <Label.Foreground>
-                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
             </Label>
             <Label x:Name="PluginsTab_Copy" Tag="4" MouseLeftButtonDown="Tab_MouseUp" Content="Plugins" FontSize="16" ToolTip="Coming Soon" Grid.Column="4" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left">
                 <Label.Foreground>
-                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
             </Label>
             <Label x:Name="HeatmapsTab" Tag="5" MouseLeftButtonDown="Tab_MouseUp" Content="Heatmaps" FontSize="16" ToolTip="Coming Soon" Grid.Column="5" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left">
                 <Label.Foreground>
-                    <SolidColorBrush Color="{DynamicResource ChromaSyncGrey}"/>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
             </Label>
         </Grid>
