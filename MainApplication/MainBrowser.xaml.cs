@@ -201,12 +201,12 @@ namespace Ultrabox.ChromaSync
                     GIController.GenerateList();
                     break;
                 case Tabs.Scripts:
-                    ListView.Columns = 2;
+                    ListView.Columns = 1;
                     TabDescription.Text = ScriptViewController.Description;
                     ScriptViewController.GenerateList();
                     break;
                 case Tabs.ChromaApps:
-                    ListView.Columns = 3;
+                    ListView.Columns = 1;
                     TabDescription.Text = AppsController.Description;
                     AppsController.GetApps();
                     break;
@@ -232,7 +232,7 @@ namespace Ultrabox.ChromaSync
         {
             Label l = (Label)sender;
             
-            currentTabLabel.Foreground = new SolidColorBrush((Color)Application.Current.Resources["ChromaSyncGrey"]);
+            currentTabLabel.Foreground = new SolidColorBrush((Color)Application.Current.Resources["ChromaSyncMedGrey"]);
             l.Foreground= new SolidColorBrush((Color)Application.Current.Resources["ChromaSyncPink"]);
             currentTabLabel = l;
             ChangeTab(int.Parse((string)l.Tag));
