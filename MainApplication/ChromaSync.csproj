@@ -103,6 +103,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CodemastersAPI.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Helpers\Paths.cs" />

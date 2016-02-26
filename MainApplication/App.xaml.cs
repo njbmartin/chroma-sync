@@ -23,6 +23,7 @@ namespace Ultrabox.ChromaSync
 
         internal static NotifyIcon _icon;
         internal static Thread _serverThread;
+        internal static Thread _codemastersAPIThread;
         internal static Thread _luaThread;
         internal static Thread _packagesThread;
         internal static ContextMenu _iconMenu;
@@ -58,6 +59,9 @@ namespace Ultrabox.ChromaSync
 
             _serverThread = new Thread(Server.RunServer);
             _serverThread.Start();
+
+            _codemastersAPIThread = new Thread(CodemastersAPI.RunServer);
+            _codemastersAPIThread.Start();
 
             _luaThread = new Thread(LuaScripting.LuaThread);
             _luaThread.Start();
