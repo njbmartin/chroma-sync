@@ -58,8 +58,8 @@
     <ApplicationIcon>chromasync.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Corale.Colore, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Colore.3.0.2\lib\net35\Corale.Colore.dll</HintPath>
+    <Reference Include="Corale.Colore, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Colore.4.0.0\lib\net35\Corale.Colore.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
