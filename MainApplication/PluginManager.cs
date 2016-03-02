@@ -9,12 +9,21 @@ using System.Threading.Tasks;
 
 namespace Ultrabox.ChromaSync
 {
-
-    
-
     class PluginManager
     {
+        internal class CSPluginAttribute : Attribute
+        {
+            private string Name;
+            private string Description;
+            private int Version;
 
+            public CSPluginAttribute(string name, string desc, int v)
+            {
+                Name = name;
+                Description = desc;
+                Version = v;
+            }
+        }
 
         public static List<Plugin> plugins = new List<Plugin>();
 
@@ -45,7 +54,8 @@ namespace Ultrabox.ChromaSync
                 {
 
                     if (type == null) continue;
-
+                    // Ensure the plugin is for Chroma Sync
+                    //Debug.WriteLine(type.FullName);
                     MethodInfo methodInfo = type.GetMethod("AutoStart");
                     if (methodInfo == null) continue;
                     Debug.WriteLine(dll + " has AutoStart");
