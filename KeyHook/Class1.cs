@@ -66,7 +66,6 @@ namespace KeyHook
 
                         return SetWindowsHookEx(WH_KEYBOARD_LL, proc,
                             GetModuleHandle(curModule.ModuleName), 0);
-
                     }
 
                 }

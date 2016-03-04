@@ -41,24 +41,16 @@ namespace Ultrabox.ChromaSync
             App.c.Uninitialize();
         }
 
-        private static void C_DeviceAccess(object sender, Corale.Colore.Events.DeviceAccessEventArgs e)
-        {
-            Debug.WriteLine(e);
-        }
-
         public static void LuaThread()
         {
             if (watcher == null)
                 Watch();
 
-
             App.c = Chroma.Instance;
             App.c.Initialize();
-            App.c.DeviceAccess += C_DeviceAccess;
             App.NewScriptsContext();
             // WE NEED TO ENSURE CHROMA IS INITIALISED
             callbacks = new List<dynamic>();
-
             var ms_luaDebug = new LuaStackTraceDebugger();
             var ms_luaCompileOptions = new LuaCompileOptions();
             ms_luaCompileOptions.DebugEngine = ms_luaDebug;
@@ -130,6 +122,7 @@ namespace Ultrabox.ChromaSync
                 }
             }
         }
+
 
         private static void MenuItem_Click(object sender, EventArgs e)
         {
@@ -208,8 +201,9 @@ namespace Ultrabox.ChromaSync
 
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
-            watcher.EnableRaisingEvents = false;
             Debug.WriteLine("Changed");
+            watcher.EnableRaisingEvents = false;
+            
             ReloadScripts();
             watcher.EnableRaisingEvents = true;
         }
@@ -225,11 +219,12 @@ namespace Ultrabox.ChromaSync
                 Directory.CreateDirectory(sp);
 
 
-            watcher.Path = path;
+            watcher.Path = sp;
             watcher.NotifyFilter = NotifyFilters.LastWrite
            | NotifyFilters.FileName | NotifyFilters.DirectoryName;
             watcher.Filter = "*.lua";
-            // Only watch text files.
+            Debug.WriteLine("Enabled watch");
+            watcher.Created += new FileSystemEventHandler(OnChanged);
             watcher.Changed += new FileSystemEventHandler(OnChanged);
             watcher.EnableRaisingEvents = true;
         }

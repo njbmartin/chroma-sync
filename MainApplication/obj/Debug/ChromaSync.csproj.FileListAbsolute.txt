@@ -8,7 +8,6 @@ C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Neo.Lua.xml
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Neo.Lua.Desktop.pdb
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Neo.Lua.Desktop.xml
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\ChromaSync.csprojResolveAssemblyReference.cache
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\App.g.cs
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\App.baml
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Ultrabox.ChromaSync.Properties.Resources.resources
@@ -130,3 +129,4 @@ C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\ChromaAp
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Updater.baml
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\GameIntegrations\DetailsControl.baml
 C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\Pages\GameIntegrations\ListItemControl.baml
+C:\Users\Nicholas\Documents\chroma-sync\MainApplication\obj\Debug\ChromaSync.csprojResolveAssemblyReference.cache
