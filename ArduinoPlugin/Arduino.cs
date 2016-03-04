@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -38,8 +39,14 @@ namespace Ultrabox.ChromaSync.Plugin
                     return false;
                 }
             }
-
-            SPort.WriteLine(message);             
+            try {
+                Debug.WriteLine(message);
+                SPort.WriteLine(message);
+                return true;
+            } catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
             return false;
         }
 

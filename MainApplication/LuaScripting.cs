@@ -106,7 +106,7 @@ namespace Ultrabox.ChromaSync
                             dg.Mouse = Mouse.Instance;
                             dg.Keypad = Keypad.Instance;
                             dg.Mousepad = Mousepad.Instance;
-
+                            dg.Chroma = Chroma.Instance;
                             dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
                             debug("starting Lua script: " + st);
                             try
