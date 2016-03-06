@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Ultrabox.ChromaSync.Pages.ProfileList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Ultrabox.ChromaSync.Pages"
+             mc:Ignorable="d"
+             Cursor="Hand" Focusable="True" MaxHeight="240" BorderThickness="0" Margin="5">
+
+    <UserControl.Background>
+        <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+    </UserControl.Background>
+
+    <Grid>
+
+        <Image x:Name="image" Margin="0" Source="/Chroma Sync;component/Resources/csgo.jpg"/>
+        <Grid VerticalAlignment="Bottom">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label x:Name="Title" Content="ChromaSync" Background="{x:Null}" FontWeight="Bold" Padding="0" FontSize="16" Margin="5,5,5,0">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+                </Label.Foreground>
+            </Label>
+            <Label x:Name="Author" Content="ChromaSync" Background="{x:Null}" Foreground="White" Padding="0" Margin="5,0"  Grid.Row="1"/>
+            <Label x:Name="Type" Content="Game" Margin="5" Background="{x:Null}" Padding="0" FontStyle="Italic" Foreground="#7FFFFFFF" Grid.Row="2"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

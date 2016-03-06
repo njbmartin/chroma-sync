@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 
 
-namespace ChromaSync
+namespace Ultrabox.ChromaSync
 {
     public static class GameLocator
     {
@@ -91,21 +91,7 @@ namespace ChromaSync
 
                 return null;
             }
-
-            else if (platform == PlatformID.MacOSX || platform == PlatformID.Unix)
-            {
-                // on Mac, Steam normally installs its games in ~/Library/Application Support/Steam
-                // note: check for Unix platform id, too, since apparently OSX is identified as Unix in Mono, too.
-                string homeDir = Environment.GetEnvironmentVariable("HOME");
-                string rocksmithPathGuess = Path.Combine(homeDir, "Library", "Application Support", "Steam", "SteamApps", "common", "Rocksmith2014");
-                if (Directory.Exists(rocksmithPathGuess))
-                    return rocksmithPathGuess;
-                else
-                    return null;  // can we do something more clever here?
-            }
-
-            else
-            {
+            else {
                 Console.WriteLine("Don't recognize this platform...");
                 // platform not supported
                 return null;

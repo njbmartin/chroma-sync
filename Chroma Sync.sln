@@ -9,9 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioVolume", "AudioVolume\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoUpdater", "AutoUpdater\AutoUpdater.csproj", "{F7293161-2710-44E2-83B6-B0F432FD69E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaSync", "MainApplication\ChromaSync.csproj", "{CDA1EF6F-7986-4CAA-A3C9-3A4588EA12FE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArduinoPlugin", "ArduinoPlugin\ArduinoPlugin.csproj", "{F51FB77A-0B13-422A-8DF2-0F1678B8EA50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{70F59954-853E-4B96-815D-1AF9578CC55F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chroma Sync", "Chroma Sync\Chroma Sync.csproj", "{61AF46E5-2F1C-4455-BC97-A67AFBC1FA86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,16 +33,22 @@ Global
 		{F7293161-2710-44E2-83B6-B0F432FD69E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7293161-2710-44E2-83B6-B0F432FD69E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7293161-2710-44E2-83B6-B0F432FD69E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CDA1EF6F-7986-4CAA-A3C9-3A4588EA12FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDA1EF6F-7986-4CAA-A3C9-3A4588EA12FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDA1EF6F-7986-4CAA-A3C9-3A4588EA12FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDA1EF6F-7986-4CAA-A3C9-3A4588EA12FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F51FB77A-0B13-422A-8DF2-0F1678B8EA50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F51FB77A-0B13-422A-8DF2-0F1678B8EA50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F51FB77A-0B13-422A-8DF2-0F1678B8EA50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F51FB77A-0B13-422A-8DF2-0F1678B8EA50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61AF46E5-2F1C-4455-BC97-A67AFBC1FA86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61AF46E5-2F1C-4455-BC97-A67AFBC1FA86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61AF46E5-2F1C-4455-BC97-A67AFBC1FA86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61AF46E5-2F1C-4455-BC97-A67AFBC1FA86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C7C64E22-595B-4181-A3F8-2A8498B3A7FA} = {70F59954-853E-4B96-815D-1AF9578CC55F}
+		{834F7E43-A28D-4B1A-844C-CFA105DA6AB5} = {70F59954-853E-4B96-815D-1AF9578CC55F}
+		{F7293161-2710-44E2-83B6-B0F432FD69E9} = {70F59954-853E-4B96-815D-1AF9578CC55F}
+		{F51FB77A-0B13-422A-8DF2-0F1678B8EA50} = {70F59954-853E-4B96-815D-1AF9578CC55F}
 	EndGlobalSection
 EndGlobal

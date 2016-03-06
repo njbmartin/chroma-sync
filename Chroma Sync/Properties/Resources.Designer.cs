@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ChromaSyncOld.Properties {
+namespace Ultrabox.ChromaSync.Properties {
     using System;
     
     
@@ -22,7 +22,7 @@ namespace ChromaSyncOld.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace ChromaSyncOld.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChromaSyncOld.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ultrabox.ChromaSync.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace ChromaSyncOld.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace ChromaSyncOld.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap android_chrome_192x192 {
+        public static System.Drawing.Bitmap android_chrome_192x192 {
             get {
                 object obj = ResourceManager.GetObject("android_chrome_192x192", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -71,18 +71,19 @@ namespace ChromaSyncOld.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chroma Sync is running in the background.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static string ExitMenuText {
+        public static System.Drawing.Icon chroma_sync {
             get {
-                return ResourceManager.GetString("ExitMenuText", resourceCulture);
+                object obj = ResourceManager.GetObject("chroma_sync", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon favicon {
+        public static System.Drawing.Icon favicon {
             get {
                 object obj = ResourceManager.GetObject("favicon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
@@ -92,48 +93,10 @@ namespace ChromaSyncOld.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap favicon_96x96 {
+        public static System.Drawing.Bitmap favicon_96x96 {
             get {
                 object obj = ResourceManager.GetObject("favicon_96x96", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] gamestate_integration_chromasync {
-            get {
-                object obj = ResourceManager.GetObject("gamestate_integration_chromasync", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon Icon {
-            get {
-                object obj = ResourceManager.GetObject("Icon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to is now running in the background..
-        /// </summary>
-        internal static string IconBalloonTipText {
-            get {
-                return ResourceManager.GetString("IconBalloonTipText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Chroma Sync.
-        /// </summary>
-        internal static string IconBalloonTipTitle {
-            get {
-                return ResourceManager.GetString("IconBalloonTipTitle", resourceCulture);
             }
         }
     }

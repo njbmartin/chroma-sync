@@ -8,16 +8,18 @@ using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Forms;
 
-namespace ChromaSync
+namespace Ultrabox.ChromaSync
 {
-    public class LuaScripting
+    internal class LuaScripting
     {
         private static readonly object _syncObject = new object();
         private static readonly object debugLock = new object();
         private static List<dynamic> callbacks;
         private static Collection<Thread> scriptThreads;
         private static FileSystemWatcher watcher;
+
         public static void ReloadScripts()
         {
             CloseScripts();
@@ -26,88 +28,117 @@ namespace ChromaSync
 
         public static void CloseScripts()
         {
-
             callbacks = new List<dynamic>();
-
-            foreach (var script in scriptThreads)
+            try
             {
-               
+                foreach (var script in scriptThreads)
                     script.Abort();
-                
-                
             }
+            catch (Exception e)
+            {
+                App.Log.Error(e);
+            }
+            App.c.Uninitialize();
         }
 
         public static void LuaThread()
         {
-            if(watcher == null)
+            if (watcher == null)
                 Watch();
-            
+
+            App.c = Chroma.Instance;
+            App.c.Initialize();
+            App.NewScriptsContext();
             // WE NEED TO ENSURE CHROMA IS INITIALISED
-            var c = Chroma.Instance;
             callbacks = new List<dynamic>();
             var ms_luaDebug = new LuaStackTraceDebugger();
             var ms_luaCompileOptions = new LuaCompileOptions();
             ms_luaCompileOptions.DebugEngine = ms_luaDebug;
             scriptThreads = new Collection<Thread>();
-            EventHook.MouseHook.MouseAction += new EventHandler(Event);
 
             string path = @"%appdata%\ChromaSync";
             path = Environment.ExpandEnvironmentVariables(path);
 
-            path = Path.Combine(path, "scripts");
+            string scriptsPath = Path.Combine(path, "scripts");
+            string packagesPath = Path.Combine(path, "packages");
+            if (!Directory.Exists(scriptsPath))
+                Directory.CreateDirectory(scriptsPath);
 
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-            foreach (string st in Directory.GetFiles(path, "*_main.lua", SearchOption.AllDirectories))
+
+            // Todo: Get all scripts including the packages
+            var files = Directory.GetFiles(path, "*.lua", SearchOption.AllDirectories);
+
+            foreach (string st in files)
             {
-                
-                scriptThreads.Add(
-                new Thread(() =>
+                var v = RegistryKeeper.GetValue(st);
+                MenuItem menuItem = new MenuItem(Path.GetFileName(st));
+                menuItem.Name = Path.GetFileName(st);
+                menuItem.Tag = st;
+                menuItem.Click += MenuItem_Click;
+                if (!st.Contains("\\ChromaSync\\packages\\"))
                 {
-                    using (Lua l = new Lua())
+                    App.scriptsMenu.MenuItems.Add(menuItem);
+                }
+                if (v.Equals("True"))
+                {
+                    menuItem.Checked = true;
+                    scriptThreads.Add(
+                    new Thread(() =>
                     {
-                        LuaGlobalPortable g = l.CreateEnvironment();
-                        dynamic dg = g;
-                        dg.DebugLua = new Func<object, bool>(debug);
-                        dg.ConvertInt = new Func<JValue, int>(convertInt);
-                        dg.NewCustom = new Func<string, Color, object>(newCustom);
-                        dg.IntToByte = new Func<int, byte>(IntToByte);
-                        dg.Headset = Headset.Instance;
-                        dg.Keyboard = Keyboard.Instance;
-                        dg.Mouse = Mouse.Instance;
-                        dg.Keypad = Keypad.Instance;
-                        dg.Mousepad = Mousepad.Instance;
+                        using (Lua l = new Lua())
+                        {
+                            LuaGlobalPortable g = l.CreateEnvironment();
+                            dynamic dg = g;
+                            dg.DebugLua = new Func<object, bool>(debug);
+                            dg.ConvertInt = new Func<object, int>(convertInt);
+                            dg.NewCustom = new Func<string, Color, object>(newCustom);
+                            dg.IntToByte = new Func<int, byte>(IntToByte);
+                            dg.Headset = Headset.Instance;
+                            dg.Keyboard = Keyboard.Instance;
+                            dg.Mouse = Mouse.Instance;
+                            dg.Keypad = Keypad.Instance;
+                            dg.Mousepad = Mousepad.Instance;
+                            dg.Chroma = Chroma.Instance;
+                            dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
+                            debug("starting Lua script: " + st);
+                            try
+                            {
 
-                        dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
-                        debug("starting Lua script: " + st);
-                        try
-                        {
-                            
-                            LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
-                            var d = g.DoChunk(compiled);
+                                LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
+                                var d = g.DoChunk(compiled);
+                            }
+                            catch (LuaException e)
+                            {
+                                App.Log.Error(e);
+                            }
+                            catch (Exception e)
+                            {
+                                App.Log.Info(e);
+                                //Thread.ResetAbort();
+                            }
                         }
-                        catch (LuaException e)
-                        {
-                            debug(e.FileName + ": " + e.Line + ": " + e.Message);
-                        } catch (Exception e)
-                        {
-                            debug(e.Message);
-                        }
-                    }
-                }));
-                scriptThreads.Last().Start();
+                    }));
+                    scriptThreads.Last().Start();
+                }
             }
         }
 
-        public static int convertInt(JValue o)
+
+        private static void MenuItem_Click(object sender, EventArgs e)
         {
-            return o.ToObject<int>();
+            MenuItem s = (MenuItem)sender;
+            RegistryKeeper.UpdateReg((string)s.Tag, (!s.Checked).ToString());
+            ReloadScripts();
+        }
+
+        public static int convertInt(object o)
+        {
+            return Convert.ToInt32(o);
         }
 
         public static byte IntToByte(int o)
         {
-            return(byte)o;
+            return (byte)o;
         }
 
 
@@ -115,43 +146,14 @@ namespace ChromaSync
         public static bool debug(object d)
         {
             var text = DateTime.Now + " - " + d;
-            lock (debugLock)
-            {
-                Debug.WriteLine("Lua Script log: "  + text);
-
-
-                string path = @"%appdata%\ChromaSync";
-                path = Environment.ExpandEnvironmentVariables(path);
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
-                // This text is added only once to the file.
-                path = Path.Combine(path, "log.txt");
-                if (!File.Exists(path))
-                {
-                    // Create a file to write to.
-                    using (StreamWriter sw = File.CreateText(path))
-                    {
-                        sw.WriteLine(text);
-                        sw.Close();
-                    }
-                    return true;
-                }
-
-                // This text is always added, making the file longer over time
-                // if it is not deleted.
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(text);
-                    sw.Close();
-                }
-            }
+            App.Log.Debug(text);
             return true;
         }
 
 
         public static void PassThrough(JObject json)
         {
-
+            JObject j = (JObject)json.DeepClone();
             foreach (LuaCallback action in callbacks)
             {
                 var name = json["provider"] != null ? json["provider"]["name"].ToString() : json["product"]["name"].ToString();
@@ -159,43 +161,16 @@ namespace ChromaSync
                 {
                     try
                     {
-                        action.callback(json);
+                        action.callback(j);
                         debug("Data passed to " + action.name);
                     }
                     catch (Exception e)
                     {
-                        debug("Exception: " + e.StackTrace);
+                        App.Log.Error(e);
                     }
                 }
 
             }
-        }
-
-
-        public static void Event(object sender, EventArgs e)
-        {
-
-            var eventHook = (EventHook.MouseHook.MouseData)sender;
-
-            foreach (LuaCallback action in callbacks)
-            {
-                var name = "MouseEvents";
-                if (action.name == name)
-                {
-                    try
-                    {
-                        action.callback(eventHook);
-                        debug("Data passed to " + action.name);
-                    }
-                    catch (Exception ex)
-                    {
-                        debug(ex);
-                        debug("Exception: " + ex.StackTrace);
-                    }
-                }
-
-            }
-
         }
 
         public static object newCustom(string t, Color c)
@@ -217,20 +192,19 @@ namespace ChromaSync
 
         public static bool registerEvents(string n, object c)
         {
-            debug("Registered Callback: " + n);
+
             callbacks.Add(new LuaCallback { name = n, callback = (Func<object, LuaResult>)c });
+            debug("Registered Callback: " + n);
             return true;
         }
 
 
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
-            watcher.EnableRaisingEvents = false;
             Debug.WriteLine("Changed");
+            watcher.EnableRaisingEvents = false;
+            
             ReloadScripts();
-            // TODO: ShowPackages(); -- Needs to use background worker
-            //ShowPackages();
-            // https://msdn.microsoft.com/en-us/library/waw3xexc(v=vs.110).aspx
             watcher.EnableRaisingEvents = true;
         }
 
@@ -240,16 +214,17 @@ namespace ChromaSync
             watcher = new FileSystemWatcher();
             string path = @"%appdata%\ChromaSync";
             path = Environment.ExpandEnvironmentVariables(path);
-            path = Path.Combine(path, "scripts");
-            if(!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            var sp = Path.Combine(path, "scripts");
+            if (!Directory.Exists(sp))
+                Directory.CreateDirectory(sp);
 
-            
-            watcher.Path = path;
+
+            watcher.Path = sp;
             watcher.NotifyFilter = NotifyFilters.LastWrite
            | NotifyFilters.FileName | NotifyFilters.DirectoryName;
             watcher.Filter = "*.lua";
-            // Only watch text files.
+            Debug.WriteLine("Enabled watch");
+            watcher.Created += new FileSystemEventHandler(OnChanged);
             watcher.Changed += new FileSystemEventHandler(OnChanged);
             watcher.EnableRaisingEvents = true;
         }
@@ -261,14 +236,4 @@ namespace ChromaSync
         public string name { get; set; }
         public Func<object, LuaResult> callback { get; set; }
     }
-
-    
-
-
-
-
-
 }
-
-
-
