@@ -11,19 +11,6 @@ namespace Ultrabox.ChromaSync
 {
     class PluginManager
     {
-        internal class CSPluginAttribute : Attribute
-        {
-            private string Name;
-            private string Description;
-            private int Version;
-
-            public CSPluginAttribute(string name, string desc, int v)
-            {
-                Name = name;
-                Description = desc;
-                Version = v;
-            }
-        }
 
         public static List<Plugin> plugins = new List<Plugin>();
 
@@ -31,9 +18,30 @@ namespace Ultrabox.ChromaSync
         {
             public string Name;
             public Assembly Assembly;
+            public bool Enabled;
+            public MethodInfo AutoStart;
+            public MethodInfo RequestStart;
+            public MethodInfo RequestStop;
+
         }
 
-        public static void EnablePlugins()
+        public static void StopPlugins()
+        {
+            foreach (Plugin p in plugins)
+            {
+                //RunMethod(p.RequestStop);
+            }
+        }
+
+        public static void StartPlugins()
+        {
+            foreach (Plugin p in plugins)
+            {
+                RunMethod(p.RequestStart);
+            }
+        }
+
+        public static void LoadPlugins()
         {
             string path = @"%appdata%\ChromaSync";
             path = Environment.ExpandEnvironmentVariables(path);
@@ -43,30 +51,50 @@ namespace Ultrabox.ChromaSync
                 Directory.CreateDirectory(path);
             foreach (string dll in Directory.GetFiles(path, "*.dll"))
             {
-                var assembly = Assembly.LoadFile(dll);
+                Byte[] dllBytes= File.ReadAllBytes(dll);
+                var assembly = Assembly.Load(dllBytes);
+                dllBytes = null;
                 var plugin = new Plugin();
                 plugin.Name = dll;
                 plugin.Assembly = assembly;
-                plugins.Add(plugin);
+
                 Debug.WriteLine("found " + dll);
-                Type[] types = assembly.GetTypes();
+                Type[] types = assembly.GetExportedTypes();
                 foreach (Type type in types)
                 {
 
                     if (type == null) continue;
                     // Ensure the plugin is for Chroma Sync
                     //Debug.WriteLine(type.FullName);
-                    MethodInfo methodInfo = type.GetMethod("AutoStart");
-                    if (methodInfo == null) continue;
-                    Debug.WriteLine(dll + " has AutoStart");
+                    var autostart = type.GetMethod("AutoStart");
+                    if (autostart != null)
+                    {
+                        plugin.AutoStart = autostart;
+                        Debug.WriteLine(dll + " has AutoStart");
+                        //RunMethod(plugin.AutoStart);
 
-                    object result = null;
-                    ParameterInfo[] parameters = methodInfo.GetParameters();
-                    object classInstance = null; //Activator.CreateInstance(type, null);
-                    if (parameters.Length == 0)
-                        result = methodInfo.Invoke(classInstance, null);
+                    }
+                        
+                    var requestStop = type.GetMethod("RequestStop");
+                    if (requestStop != null)
+                        plugin.RequestStop = requestStop;
+
+
                 }
+                plugins.Add(plugin);
             }
         }
+
+        private static void RunMethod(MethodInfo m)
+        {
+            if (m == null) return;
+
+            object result = null;
+            ParameterInfo[] parameters = m.GetParameters();
+            object classInstance = null; //Activator.CreateInstance(type, null);
+            if (parameters.Length == 0)
+                result = m.Invoke(null, null);
+        }
+
     }
 }

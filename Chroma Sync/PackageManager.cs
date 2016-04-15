@@ -79,7 +79,6 @@ namespace Ultrabox.ChromaSync
             //watcher.Created += new FileSystemEventHandler(OnChanged);
             //watcher.Deleted += new FileSystemEventHandler(OnChanged);
             watcher.EnableRaisingEvents = true;
-            GetPackages();
         }
 
         private static void OnChanged(object source, FileSystemEventArgs e)
@@ -234,7 +233,7 @@ namespace Ultrabox.ChromaSync
             }
             RegistryKeeper.UpdateReg(p.Container, p.Product.Version);
             GetPackages();
-            LuaScripting.ReloadScripts();
+            App.RestartServices();
             return true;
         }
 
@@ -246,7 +245,7 @@ namespace Ultrabox.ChromaSync
             if (message == DialogResult.No)
                 return false;
 
-            LuaScripting.CloseScripts();
+            App.RestartServices();
             foreach (var step in p.Installation)
             {
 
@@ -318,7 +317,7 @@ namespace Ultrabox.ChromaSync
                 File.Delete(p.Container);
                 RegistryKeeper.UpdateReg(p.Container, "");
                 GetPackages();
-                LuaScripting.ReloadScripts();
+                App.RestartServices();
                 return true;
             }
             catch (Exception e)

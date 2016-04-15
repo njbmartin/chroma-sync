@@ -95,7 +95,7 @@ namespace Ultrabox.ChromaSync
 
 
     [Serializable]
-    public struct TelemetryPacket : ISerializable
+    internal struct TelemetryPacket : ISerializable
     {
         public TelemetryPacket(SerializationInfo info, StreamingContext context)
         {

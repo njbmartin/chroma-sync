@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 using System.Threading;
 using System.Diagnostics;
-using Ultrabox.ChromaSync.Properties;
+using Ultrabox.ChromaSync.Engines;
 using System.IO;
 using System.Drawing;
 using Corale.Colore.Core;
@@ -22,21 +22,30 @@ namespace Ultrabox.ChromaSync
         internal static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         internal static NotifyIcon _icon;
-        internal static Thread _serverThread;
+        internal static ApiServer _apiServer;
+
+        internal static Thread _apiServerThread;
+
         internal static Thread _codemastersAPIThread;
-        internal static Thread _luaThread;
+
+        internal static LuaEngine _luaEngine;
+        internal static Thread _luaEngineThread;
+
+        internal static JavascriptEngine _jsEngine;
+        internal static Thread _jsEngineThread;
+
         internal static Thread _packagesThread;
         internal static ContextMenu _iconMenu;
         internal static MenuItem scriptsMenu;
         internal static MenuItem packagesMenu;
+
+
+
         internal MainBrowser mb;
         public static IChroma c = Chroma.Instance;
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            log4net.Config.XmlConfigurator.Configure();
-            LogManager.GetRepository().Threshold = Level.Info;
-            Log.Info("Hello World");
             base.OnStartup(e);
         }
 
@@ -52,19 +61,65 @@ namespace Ultrabox.ChromaSync
 
         internal static void StartServices()
         {
-            PluginManager.EnablePlugins();
+            c = Chroma.Instance;
+            c.Initialize();
 
-            _packagesThread = new Thread(PackageManager.Start);
-            _packagesThread.Start();
+            PackageManager.GetPackages();
+            //c.Initialize();
+            NewScriptsContext();
+            //_packagesThread = new Thread(PackageManager.Start);
+            //_packagesThread.Start();
 
-            _serverThread = new Thread(Server.RunServer);
-            _serverThread.Start();
+            _apiServer = new ApiServer();
 
-            _codemastersAPIThread = new Thread(CodemastersAPI.RunServer);
-            _codemastersAPIThread.Start();
+            _apiServerThread = new Thread(_apiServer.Start);
+            _apiServerThread.Start();
 
-            _luaThread = new Thread(LuaScripting.LuaThread);
-            _luaThread.Start();
+            //_codemastersAPIThread = new Thread(CodemastersAPI.RunServer);
+            //_codemastersAPIThread.Start();
+
+
+            _luaEngine = new LuaEngine();
+            _luaEngineThread = new Thread(_luaEngine.Start);
+            _luaEngineThread.Start();
+
+            _jsEngine = new JavascriptEngine();
+            _jsEngineThread = new Thread(_jsEngine.Start);
+            _jsEngineThread.Start();
+
+
+            
+        }
+
+
+        internal static void StopServices()
+        {
+            // Request Plugins to Stop
+
+            PluginManager.StopPlugins();
+
+            // Abort all threads
+            if (_luaEngine != null && _luaEngineThread != null)
+            {
+                _luaEngine.RequestStop();
+                _luaEngineThread.Join();
+            }
+
+
+            if (_jsEngine != null && _jsEngineThread != null)
+            {
+                _jsEngine.RequestStop();
+                _jsEngineThread.Join();
+            }
+
+            if (_apiServer != null && _apiServerThread != null)
+            {
+                _apiServer.RequestStop();
+                _apiServerThread.Join();
+            }
+
+            c.Uninitialize();
+
         }
 
         public static string CurrentVersion
@@ -81,7 +136,6 @@ namespace Ultrabox.ChromaSync
             get
             {
                 System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-                Debug.WriteLine(assembly.GetName().Version.Build);
                 return assembly.GetName().Version.Build;
             }
         }
@@ -137,18 +191,21 @@ namespace Ultrabox.ChromaSync
             _iconMenu.MenuItems.Add("-");
             _iconMenu.MenuItems.Add(about);
 
-            NewScriptsContext();
             NewPackagesContext();
+
+
 
             MenuItem exitMenuItem = new MenuItem("Exit", Quit);
             _iconMenu.MenuItems.Add(scriptsMenu);
             _iconMenu.MenuItems.Add(exitMenuItem);
 
+
+            PluginManager.LoadPlugins();
             // Start services
             StartServices();
 
             // TODO: Browser
-            
+
             mb.Show();
             FirstRun();
         }
@@ -171,7 +228,8 @@ namespace Ultrabox.ChromaSync
 
         private void Uninit(object sender, EventArgs e)
         {
-            LuaScripting.CloseScripts();
+            StopServices();
+
             Debug.WriteLine(Chroma.Instance.Initialized);
         }
 
@@ -197,7 +255,14 @@ namespace Ultrabox.ChromaSync
 
         static void ReloadScripts(object sender, EventArgs e)
         {
-            LuaScripting.ReloadScripts();
+            RestartServices();
+        }
+
+        public static void RestartServices()
+        {
+
+            StopServices();
+            StartServices();
         }
 
         void showAbout(object sender, EventArgs e)
@@ -258,17 +323,7 @@ namespace Ultrabox.ChromaSync
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
-            LuaScripting.CloseScripts();
-
-            // Abort all threads
-            if (_luaThread != null && _luaThread.IsAlive)
-                _luaThread.Abort();
-
-            if (Server._clientThread != null && Server._clientThread.IsAlive)
-                Server._clientThread.Abort();
-
-            if (_serverThread != null && _serverThread.IsAlive)
-                _serverThread.Abort();
+            StopServices();
         }
 
     }

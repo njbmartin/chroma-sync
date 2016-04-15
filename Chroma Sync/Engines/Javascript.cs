@@ -1,32 +1,36 @@
-﻿using System;
-using Neo.IronLua;
-using System.IO;
-using System.Threading;
-using Corale.Colore.Core;
+﻿using Corale.Colore.Core;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Jint;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows.Forms;
 
-namespace Ultrabox.ChromaSync
+namespace Ultrabox.ChromaSync.Engines
 {
-    internal class LuaScripting
+    class JavascriptEngine : IDisposable
     {
-        private static readonly object _syncObject = new object();
-        private static readonly object debugLock = new object();
-        private static List<dynamic> callbacks;
-        private static Collection<Thread> scriptThreads;
-        private static FileSystemWatcher watcher;
+        private readonly object _syncObject = new object();
+        private readonly object debugLock = new object();
+        private List<dynamic> callbacks;
+        private Collection<Thread> scriptThreads;
+        private FileSystemWatcher watcher;
+        private bool _shouldStop;
 
-        public static void ReloadScripts()
+
+        public void RequestStop()
         {
             CloseScripts();
-            LuaThread();
+            _shouldStop = true;
         }
 
-        public static void CloseScripts()
+        internal void CloseScripts()
         {
             callbacks = new List<dynamic>();
             try
@@ -38,24 +42,18 @@ namespace Ultrabox.ChromaSync
             {
                 App.Log.Error(e);
             }
-            App.c.Uninitialize();
+ 
         }
 
-        public static void LuaThread()
+        public void Start()
         {
             if (watcher == null)
                 Watch();
 
-            App.c = Chroma.Instance;
-            App.c.Initialize();
-            App.NewScriptsContext();
             // WE NEED TO ENSURE CHROMA IS INITIALISED
             callbacks = new List<dynamic>();
-            var ms_luaDebug = new LuaStackTraceDebugger();
-            var ms_luaCompileOptions = new LuaCompileOptions();
-            ms_luaCompileOptions.DebugEngine = ms_luaDebug;
             scriptThreads = new Collection<Thread>();
-
+                    
             string path = @"%appdata%\ChromaSync";
             path = Environment.ExpandEnvironmentVariables(path);
 
@@ -66,7 +64,7 @@ namespace Ultrabox.ChromaSync
 
 
             // Todo: Get all scripts including the packages
-            var files = Directory.GetFiles(path, "*.lua", SearchOption.AllDirectories);
+            var files = Directory.GetFiles(path, "*.js", SearchOption.AllDirectories);
 
             foreach (string st in files)
             {
@@ -85,50 +83,51 @@ namespace Ultrabox.ChromaSync
                     scriptThreads.Add(
                     new Thread(() =>
                     {
-                        using (Lua l = new Lua())
+                                 
+                        Engine jint = new Engine(cfg => cfg.AllowClr(typeof(Color).Assembly));
+                        jint.SetValue("debug", new Func<object, bool>(debug));
+                        //dg.ConvertInt = new Func<object, int>(convertInt);
+                        //dg.GetType = new Func<object, object>(GetType);
+                        //dg.NewCustom = new Func<string, Color, object>(newCustom);
+                        //dg.IntToByte = new Func<int, byte>(IntToByte);
+                        jint.SetValue("Headset", Headset.Instance);
+                        jint.SetValue("Keyboard", Keyboard.Instance);
+                        jint.SetValue("Keypad", Keypad.Instance);
+                        jint.SetValue("Mouse", Mouse.Instance);
+                        jint.SetValue("Chroma", Chroma.Instance);
+                        jint.SetValue("Mousepad", Mousepad.Instance);
+                        jint.SetValue("Color",  new Func<byte,byte,byte,Color>(JintColor));
+                        jint.SetValue("RegisterForEvents", new Action<string, object>(registerEvents));
+                        debug("starting Jint for: " + st);
+                        try
                         {
-                            LuaGlobalPortable g = l.CreateEnvironment();
-                            dynamic dg = g;
-                            dg.DebugLua = new Func<object, bool>(debug);
-                            dg.ConvertInt = new Func<object, int>(convertInt);
-                            dg.NewCustom = new Func<string, Color, object>(newCustom);
-                            dg.IntToByte = new Func<int, byte>(IntToByte);
-                            dg.Headset = Headset.Instance;
-                            dg.Keyboard = Keyboard.Instance;
-                            dg.Mouse = Mouse.Instance;
-                            dg.Keypad = Keypad.Instance;
-                            dg.Mousepad = Mousepad.Instance;
-                            dg.Chroma = Chroma.Instance;
-                            dg.RegisterForEvents = new Func<string, object, bool>(registerEvents);
-                            debug("starting Lua script: " + st);
-                            try
-                            {
-
-                                LuaChunk compiled = l.CompileChunk(st, ms_luaCompileOptions);
-                                var d = g.DoChunk(compiled);
-                            }
-                            catch (LuaException e)
-                            {
-                                App.Log.Error(e);
-                            }
-                            catch (Exception e)
-                            {
-                                App.Log.Info(e);
-                                //Thread.ResetAbort();
-                            }
+                            string readText = File.ReadAllText(st);
+                            jint.Execute(readText);
                         }
+                        catch (Exception e)
+                        {
+                            Debug.WriteLine(e.Message);
+                            //    App.Log.Error(e);
+                            //Thread.ResetAbort();
+                        }
+
                     }));
                     scriptThreads.Last().Start();
                 }
             }
         }
 
+        public Color JintColor(byte r, byte g, byte b)
+        {
+            return new Color(r, g, b);
+        }
 
-        private static void MenuItem_Click(object sender, EventArgs e)
+
+        private void MenuItem_Click(object sender, EventArgs e)
         {
             MenuItem s = (MenuItem)sender;
             RegistryKeeper.UpdateReg((string)s.Tag, (!s.Checked).ToString());
-            ReloadScripts();
+            App.RestartServices();
         }
 
         public static int convertInt(object o)
@@ -141,27 +140,37 @@ namespace Ultrabox.ChromaSync
             return (byte)o;
         }
 
+        public static object GetType(object o)
+        {
+            debug(o.GetType());
+            return o;
+        }
+
 
 
         public static bool debug(object d)
         {
             var text = DateTime.Now + " - " + d;
+            Debug.WriteLine(text);
             App.Log.Debug(text);
             return true;
         }
 
 
-        public static void PassThrough(JObject json)
+        public void PassThrough(JObject json)
         {
             JObject j = (JObject)json.DeepClone();
-            foreach (LuaCallback action in callbacks)
+            
+            var l=  new List<Jint.Native.JsValue>() { j.ToString() };
+            foreach (JintCallback action in callbacks)
             {
                 var name = json["provider"] != null ? json["provider"]["name"].ToString() : json["product"]["name"].ToString();
                 if (action.name == name)
                 {
                     try
                     {
-                        action.callback(j);
+                        //action.callback(l);
+                        
                         debug("Data passed to " + action.name);
                     }
                     catch (Exception e)
@@ -190,26 +199,23 @@ namespace Ultrabox.ChromaSync
             }
         }
 
-        public static bool registerEvents(string n, object c)
+        public void registerEvents(string n, object c)
         {
 
-            callbacks.Add(new LuaCallback { name = n, callback = (Func<object, LuaResult>)c });
+            callbacks.Add(new JintCallback { name = n, callback = (Func<string,object,object>)c });
             debug("Registered Callback: " + n);
-            return true;
         }
 
 
-        private static void OnChanged(object source, FileSystemEventArgs e)
+        private void OnChanged(object source, FileSystemEventArgs e)
         {
             Debug.WriteLine("Changed");
             watcher.EnableRaisingEvents = false;
-            
-            ReloadScripts();
-            watcher.EnableRaisingEvents = true;
+            App.RestartServices();
         }
 
 
-        private static void Watch()
+        private void Watch()
         {
             watcher = new FileSystemWatcher();
             string path = @"%appdata%\ChromaSync";
@@ -222,18 +228,25 @@ namespace Ultrabox.ChromaSync
             watcher.Path = sp;
             watcher.NotifyFilter = NotifyFilters.LastWrite
            | NotifyFilters.FileName | NotifyFilters.DirectoryName;
-            watcher.Filter = "*.lua";
+            watcher.Filter = "*.js";
             Debug.WriteLine("Enabled watch");
             watcher.Created += new FileSystemEventHandler(OnChanged);
             watcher.Changed += new FileSystemEventHandler(OnChanged);
             watcher.EnableRaisingEvents = true;
         }
 
+        public void Dispose()
+        {
+            watcher.Dispose();
+            throw new NotImplementedException();
+        }
+
+        public class JintCallback
+        {
+            public string name { get; set; }
+            public Func<string,object,object> callback { get; set; }
+        }
+
     }
 
-    public class LuaCallback
-    {
-        public string name { get; set; }
-        public Func<object, LuaResult> callback { get; set; }
-    }
 }

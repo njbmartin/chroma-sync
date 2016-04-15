@@ -42,3 +42,56 @@ N:\Development\chroma-sync\Chroma Sync\obj\Debug\Pages\GameIntegrations\ListItem
 N:\Development\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.g.resources
 N:\Development\chroma-sync\Chroma Sync\obj\Debug\Ultrabox.ChromaSync.Properties.Resources.resources
 N:\Development\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\ChromaProfiles\ProfileDetails.g.cs
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\ChromaProfiles\ProfileList.g.cs
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\ChromaApps\AppDetails.g.cs
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\ChromaApps\AppList.g.cs
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Updater.g.cs
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Intro.g.cs
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\MainBrowser.g.cs
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\GameIntegrations\DetailsControl.g.cs
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\GameIntegrations\ListItemControl.g.cs
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\App.g.cs
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_MarkupCompile.cache
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync_MarkupCompile.lref
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\App.baml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\ChromaProfiles\ProfileDetails.baml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\ChromaProfiles\ProfileList.baml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\ChromaApps\AppDetails.baml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\ChromaApps\AppList.baml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Updater.baml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Intro.baml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\MainBrowser.baml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\GameIntegrations\DetailsControl.baml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Pages\GameIntegrations\ListItemControl.baml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.g.resources
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Ultrabox.ChromaSync.Properties.Resources.resources
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csproj.GenerateResource.Cache
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.TrustInfo.xml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.pdb
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\chromasync.ico
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\ChromaAppInfo.xml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.config
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.manifest
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.application
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.pdb
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.CodeAnalysisLog.xml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Chroma Sync.exe.lastcodeanalysissucceeded
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.dll
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Jint.dll
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\log4net.dll
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.dll
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.dll
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Corale.Colore.xml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\log4net.xml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.pdb
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.xml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.pdb
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Neo.Lua.Desktop.xml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\bin\Debug\Newtonsoft.Json.xml
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.csprojResolveAssemblyReference.cache
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.exe.manifest
+C:\Users\nmart\Documents\sourcecode\chroma-sync\Chroma Sync\obj\Debug\Chroma Sync.application

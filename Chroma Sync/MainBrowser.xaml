@@ -7,23 +7,20 @@
         mc:Ignorable="d"
         Title="Chroma Sync" Height="600" Width="920" MinWidth="1280" MinHeight="720"  WindowStartupLocation="CenterScreen" Icon="Resources/android-chrome-192x192.png" ResizeMode="CanResizeWithGrip" WindowStyle="None" AllowsTransparency="True">
     <Window.Background>
-        <SolidColorBrush Color="{DynamicResource ChromaSyncBlack}"/>
+        <SolidColorBrush Color="{DynamicResource CSDarkGrey}"/>
     </Window.Background>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+        <Image x:Name="image2" Width="240" Source="Resources/android-chrome-192x192.png" Opacity="0.05" Grid.Row="2"/>
+
         <Grid Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="4*"/>
@@ -31,26 +28,42 @@
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
             </Grid.Background>
-            <ScrollViewer Margin="0" Grid.Column="0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.IsSharedSizeScope="True" VerticalAlignment="Top">
+            <ScrollViewer PanningMode="VerticalOnly" Margin="0" Grid.Column="0" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.IsSharedSizeScope="True" VerticalAlignment="Top">
                 <ScrollViewer.Background>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
                 </ScrollViewer.Background>
                 <UniformGrid x:Name="ListView" Columns="1"/>
             </ScrollViewer>
-            <Image x:Name="image" Width="96" Source="Resources/android-chrome-192x192.png" Grid.Column="1" Opacity="0.05"/>
-            <ScrollViewer Margin="0" Grid.Column="1" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ScrollViewer  PanningMode="VerticalOnly"  Margin="0" Grid.Column="1" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <DockPanel x:Name="DetailsView" Margin="0">
 
                 </DockPanel>
             </ScrollViewer>
-            <TextBlock x:Name="StatusText" Margin="0" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2" Padding="10" Foreground="White" FontWeight="Bold" FontSize="13.333">
-                <TextBlock.Background>
-                    <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
-                </TextBlock.Background>
-            </TextBlock>
+
+
 
         </Grid>
-        <Button x:Name="Minimise" Content="Hide" Margin="0,0,20,0" BorderThickness="0" FontWeight="Bold" Click="button_Click" Padding="20,5" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top">
+
+        <Grid Grid.Row="4">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource CSDarkGrey}"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="StatusText" Margin="0" TextWrapping="Wrap" Grid.Column="0"  Padding="10" Foreground="White" FontWeight="Bold" FontSize="13.333" VerticalAlignment="Center"/>
+            <Image x:Name="image" Grid.Column="1" MouseDown="secret_click" MouseUp="secret_click" Source="Resources/Razer_wordmark.png" Width="96" HorizontalAlignment="Right" Margin="0,0,20,0" VerticalAlignment="Center"/>
+            <Label x:Name="label" Grid.Column="1" Content="Powered by" HorizontalAlignment="Center" Margin="0,0,121,0" VerticalAlignment="Center" Background="{x:Null}">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
+                </Label.Foreground>
+
+            </Label>
+        </Grid>
+
+        <Button x:Name="Minimise" Content="Hide" Margin="0,0,20,0" BorderThickness="0" FontWeight="Bold" Click="button_Click" Padding="30,10" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Button.Foreground>
                 <SolidColorBrush Color="White"/>
             </Button.Foreground>
@@ -75,27 +88,27 @@
                     <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="ScriptsTab" Tag="1" MouseLeftButtonDown="Tab_MouseUp" Content="Chroma Apps" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="1" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
+            <Label x:Name="WorkshopTab" Tag="1" MouseLeftButtonDown="Tab_MouseUp" Content="Chroma Workshop" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="3" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="ProfilesTab" Tag="2" MouseLeftButtonDown="Tab_MouseUp" Content="Chroma Profiles" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="2" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
+            <Label x:Name="SecretTab" Tag="2" MouseLeftButtonDown="Tab_MouseUp" Content="Secret" Margin="0" FontSize="16" ToolTip="Can you keep a secret?" Grid.Column="5" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" Visibility="Collapsed">
+                <Label.Foreground>
+                    <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
+                </Label.Foreground>
+            </Label>
+            <Label x:Name="ScriptsTab" Tag="3" MouseLeftButtonDown="Tab_MouseUp" Content="Scripts" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="1" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="PluginsTab" Tag="3" MouseLeftButtonDown="Tab_MouseUp" Content="Scripts" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="3" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
+            <Label x:Name="PluginsTab" Tag="4" MouseLeftButtonDown="Tab_MouseUp" Content="Plugins" FontSize="16" ToolTip="Coming Soon" Grid.Column="2" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left" Visibility="Collapsed">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="PluginsTab_Copy" Tag="4" MouseLeftButtonDown="Tab_MouseUp" Content="Plugins" FontSize="16" ToolTip="Coming Soon" Grid.Column="4" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left">
-                <Label.Foreground>
-                    <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
-                </Label.Foreground>
-            </Label>
-            <Label x:Name="HeatmapsTab" Tag="5" MouseLeftButtonDown="Tab_MouseUp" Content="Heatmaps" FontSize="16" ToolTip="Coming Soon" Grid.Column="5" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left">
+            <Label x:Name="SettingsTab" Tag="5" MouseLeftButtonDown="Tab_MouseUp" Content="Settings" FontSize="16" ToolTip="Coming Soon" Grid.Column="4" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
@@ -105,5 +118,13 @@
             <TextBlock.Foreground>
                 <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
             </TextBlock.Foreground><Run Text="Sync your games to "/><Run Text="Chroma "/><Run Text="lighting effects with the following game mods and integrations."/></TextBlock>
+        <Button x:Name="Minimise_Copy" Content="Provide Feedback" Margin="0,0,120,0" BorderThickness="0" Click="button_Click" Padding="20,10" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="White" FontWeight="Bold">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

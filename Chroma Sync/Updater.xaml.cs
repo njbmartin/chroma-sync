@@ -60,6 +60,7 @@ namespace Ultrabox.ChromaSync
                 using (var content = response.GetResponseStream())
                 using (var reader = new StreamReader(content))
                 {
+                    content.Dispose();
                     string newVersionA = reader.ReadToEnd();
                     JObject o = JObject.Parse(newVersionA);
                     LatestVersion = o.ToObject<VersionInfo>();

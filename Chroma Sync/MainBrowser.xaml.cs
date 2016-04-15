@@ -42,10 +42,11 @@ namespace Ultrabox.ChromaSync
         public enum Tabs
         {
             GameIntegrations,
-            ChromaApps,
-            Profiles,
             Scripts,
-            Plugins
+            Plugins,
+            Workshop,
+            Settings,
+            Secret
         }
 
         internal static Tabs currentTab = Tabs.GameIntegrations;
@@ -120,10 +121,13 @@ namespace Ultrabox.ChromaSync
 
             if (e.Error != null)
             {
+
                 App.Log.Error(e.Error);
-                MessageBox.Show(e.Error.Message);
+                //MessageBox.Show(e.Error.Message);
                 File.Delete(tmp);
-                StatusText.Text = e.Error.Message;
+                
+                StatusText.Text = "It appears as though you do not have an internet connection";
+
                 PopulateList();
                 return;
             }
@@ -205,12 +209,12 @@ namespace Ultrabox.ChromaSync
                     TabDescription.Text = ScriptViewController.Description;
                     ScriptViewController.GenerateList();
                     break;
-                case Tabs.ChromaApps:
+                case Tabs.Workshop:
                     ListView.Columns = 1;
                     TabDescription.Text = AppsController.Description;
                     AppsController.GetApps();
                     break;
-                case Tabs.Profiles:
+                case Tabs.Settings:
                     TabDescription.Text = ProfilesController.Description;
                     ListView.Columns = 3;
                     ProfilesController.GetApps();
@@ -244,6 +248,11 @@ namespace Ultrabox.ChromaSync
             ListView.Children.Clear();
             DetailsView.Children.Clear();
             PopulateList();
+        }
+
+        private void secret_click(object sender, MouseButtonEventArgs e)
+        {
+            SecretTab.Visibility = Visibility.Visible;
         }
     }
 }

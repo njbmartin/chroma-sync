@@ -12,37 +12,43 @@ using System.Threading.Tasks;
 
 namespace Ultrabox.ChromaSync
 {
-    class Server
+    class ApiServer
     {
+        private bool _shouldStop;
+        private TcpListener _server;
         public static Thread _clientThread;
 
-        internal static void RunServer()
+        public void RequestStop()
         {
-            TcpListener server = null;
+            _server.Stop();
+            _shouldStop = true;
+            
+        }
+
+        internal void Start()
+        {
+             _server = null;
             try
             {
                 // Set the TcpListener on port 13000.
                 const int port = 13000;
 
                 // TcpListener server = new TcpListener(port);
-                server = new TcpListener(IPAddress.Any, port);
+                _server = new TcpListener(IPAddress.Any, port);
                 //BalloonTip("Server running", IPAddress.Any.ToString());
                 // Start listening for client requests.
-                server.Start();
+                _server.Start();
 
-                while (true)
+                while (!_shouldStop)
                 {
-                    if (server.Pending())
+                    if (_server.Pending())
                     {
-                        
-                        _clientThread = new Thread(() =>
+
+                        using (TcpClient client = _server.AcceptTcpClient())
                         {
-                            using (TcpClient client = server.AcceptTcpClient())
-                            {
-                                ParseData(client);
-                            }
-                        });
-                        _clientThread.Start();
+                            ParseData(client);
+                        }
+
                     }
                     Thread.Sleep(200);  // This seems important
                 }
@@ -114,7 +120,7 @@ namespace Ultrabox.ChromaSync
                             try
                             {
                                 JObject o = JObject.Parse(ns);
-                                LuaScripting.PassThrough(o);
+                                App._luaEngine.PassThrough(o);
                             }
                             catch { }
                         }

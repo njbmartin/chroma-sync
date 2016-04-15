@@ -79,7 +79,7 @@ namespace Ultrabox.ChromaSync.Controllers
 
                     if (FileHelper.Exists(Path.Combine(Paths.Packages, filename)))
                     {
-                        _details.ActionButton.Content = "Remove";
+                        _details.ActionButton.Content = "Disable Integration";
                     }
 
                     _details.ActionButton.Tag = i;
@@ -192,7 +192,7 @@ namespace Ultrabox.ChromaSync.Controllers
             if (e.Error != null)
             {
                 App.Log.Error(e.Error);
-                MessageBox.Show(e.Error.Message);
+                //MessageBox.Show(e.Error.Message);
                 File.Delete(tmp);
                 MainBrowser._messageBox.Text = e.Error.Message;
                 GenerateList();
