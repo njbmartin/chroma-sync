@@ -10,6 +10,7 @@ using System.Drawing;
 using Corale.Colore.Core;
 using log4net;
 using log4net.Core;
+using Ultrabox.ChromaSync.Services;
 
 namespace Ultrabox.ChromaSync
 {
@@ -35,6 +36,10 @@ namespace Ultrabox.ChromaSync
         internal static Thread _jsEngineThread;
 
         internal static Thread _packagesThread;
+
+        internal static USBDetection _usbDetection;
+        internal static Thread _usbDetectionThread;
+
         internal static ContextMenu _iconMenu;
         internal static MenuItem scriptsMenu;
         internal static MenuItem packagesMenu;
@@ -62,10 +67,10 @@ namespace Ultrabox.ChromaSync
         internal static void StartServices()
         {
             c = Chroma.Instance;
-            c.Initialize();
+            if(!c.Initialized)
+                c.Initialize();
 
             PackageManager.GetPackages();
-            //c.Initialize();
             NewScriptsContext();
             //_packagesThread = new Thread(PackageManager.Start);
             //_packagesThread.Start();
@@ -77,6 +82,11 @@ namespace Ultrabox.ChromaSync
 
             //_codemastersAPIThread = new Thread(CodemastersAPI.RunServer);
             //_codemastersAPIThread.Start();
+
+
+            _usbDetection = new USBDetection();
+            _usbDetectionThread = new Thread(_usbDetection.Start);
+            _usbDetectionThread.Start();
 
 
             _luaEngine = new LuaEngine();
@@ -96,7 +106,7 @@ namespace Ultrabox.ChromaSync
         {
             // Request Plugins to Stop
 
-            PluginManager.StopPlugins();
+            //PluginManager.StopPlugins();
 
             // Abort all threads
             if (_luaEngine != null && _luaEngineThread != null)
@@ -118,7 +128,7 @@ namespace Ultrabox.ChromaSync
                 _apiServerThread.Join();
             }
 
-            c.Uninitialize();
+            //c.Uninitialize();
 
         }
 
@@ -250,6 +260,7 @@ namespace Ultrabox.ChromaSync
                 Intro iWindow = new Intro();
                 iWindow.ShowDialog();
                 RegistryKeeper.UpdateReg("lastversion", CurrentBuild.ToString());
+                BalloonTip("Chroma Sync", "Chroma Sync continues to run in the background");
             }
         }
 
@@ -325,6 +336,12 @@ namespace Ultrabox.ChromaSync
             base.OnExit(e);
             StopServices();
         }
+
+        public static void BalloonTip(string title, string description)
+        {
+            _icon.ShowBalloonTip(2000, title, description, ToolTipIcon.None);
+        }
+
 
     }
 }

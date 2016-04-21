@@ -39,18 +39,18 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>0</WarningLevel>
+    <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
     <Prefer32Bit>true</Prefer32Bit>
     <UseVSHostingProcess>true</UseVSHostingProcess>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,7 +68,7 @@
     <ApplicationIcon>chromasync.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -121,6 +121,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -157,6 +158,7 @@
     <Compile Include="Pages\ChromaApps\AppList.xaml.cs">
       <DependentUpon>AppList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\USBDetection.cs" />
     <Compile Include="Updater.xaml.cs">
       <DependentUpon>Updater.xaml</DependentUpon>
     </Compile>
@@ -298,9 +300,9 @@
     <Resource Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ChromaAppInfo.xml">
+    <Content Include="ChromaAppInfo.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -310,6 +312,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Razer_wordmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Plugins\AudioVisualiser\Ultrabox.ChromaSync.Plugin.AudioVisualiser\Ultrabox.ChromaSync.Plugin.AudioVisualiser.csproj">
+      <Project>{c9f0a131-1828-42e0-80dc-b364c606994f}</Project>
+      <Name>Ultrabox.ChromaSync.Plugin.AudioVisualiser</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,22 +4,7 @@ using System.Windows.Forms;
 
 namespace Ultrabox.ChromaSync.Plugin
 {
-    internal class CSPluginAttribute : Attribute
-    {
-        private string Name;
-        private string Description;
-        private int Version;
 
-        public CSPluginAttribute(string name, string desc, int v)
-        {
-            Name = name;
-            Description = desc;
-            Version = v;
-        }
-    }
-
-    // Name, Description, Version
-    [CSPlugin("Chroma for Arduino", "This is a description", 20160301)]
     public class Arduino
     {
         public class Serial

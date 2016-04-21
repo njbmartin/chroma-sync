@@ -34,11 +34,10 @@
                 </ScrollViewer.Background>
                 <UniformGrid x:Name="ListView" Columns="1"/>
             </ScrollViewer>
-            <ScrollViewer  PanningMode="VerticalOnly"  Margin="0" Grid.Column="1" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                <DockPanel x:Name="DetailsView" Margin="0">
+            <DockPanel x:Name="DetailsView" Margin="0" Grid.Column="1">
 
-                </DockPanel>
-            </ScrollViewer>
+            </DockPanel>
+            
 
 
 
@@ -49,13 +48,15 @@
                 <SolidColorBrush Color="{DynamicResource CSDarkGrey}"/>
             </Grid.Background>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
+            <Image x:Name="logo_image" Grid.Column="0" MouseUp="secret_click" Source="Resources/favicon-96x96.png" Margin="10" VerticalAlignment="Center"/>
 
-            <TextBlock x:Name="StatusText" Margin="0" TextWrapping="Wrap" Grid.Column="0"  Padding="10" Foreground="White" FontWeight="Bold" FontSize="13.333" VerticalAlignment="Center"/>
-            <Image x:Name="image" Grid.Column="1" MouseDown="secret_click" MouseUp="secret_click" Source="Resources/Razer_wordmark.png" Width="96" HorizontalAlignment="Right" Margin="0,0,20,0" VerticalAlignment="Center"/>
-            <Label x:Name="label" Grid.Column="1" Content="Powered by" HorizontalAlignment="Center" Margin="0,0,121,0" VerticalAlignment="Center" Background="{x:Null}">
+            <TextBlock x:Name="StatusText" Margin="0" Grid.Column="1" TextWrapping="Wrap"  Padding="10" Foreground="White" FontWeight="Bold" FontSize="13.333" VerticalAlignment="Center"/>
+            <Image x:Name="image" Grid.Column="2" Source="Resources/Razer_wordmark.png" Width="96" HorizontalAlignment="Right" Margin="0,0,20,0" VerticalAlignment="Center"/>
+            <Label x:Name="label" Grid.Column="2" Content="Powered by" HorizontalAlignment="Center" Margin="0,0,121,0" VerticalAlignment="Center" Background="{x:Null}">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
@@ -88,7 +89,7 @@
                     <SolidColorBrush Color="{DynamicResource ChromaSyncPink}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="WorkshopTab" Tag="1" MouseLeftButtonDown="Tab_MouseUp" Content="Chroma Workshop" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="3" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
+            <Label x:Name="WorkshopTab" Tag="1" MouseLeftButtonDown="Tab_MouseUp" Content="Custom Scripts" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="3" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
@@ -98,12 +99,12 @@
                     <SolidColorBrush Color="{DynamicResource ChromaSyncTranslucent}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="ScriptsTab" Tag="3" MouseLeftButtonDown="Tab_MouseUp" Content="Scripts" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="1" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
+            <Label x:Name="ScriptsTab" Tag="3" MouseLeftButtonDown="Tab_MouseUp" Content="Chroma Workshop" Margin="0" FontSize="16" ToolTip="Coming Soon" Grid.Column="1" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>
             </Label>
-            <Label x:Name="PluginsTab" Tag="4" MouseLeftButtonDown="Tab_MouseUp" Content="Plugins" FontSize="16" ToolTip="Coming Soon" Grid.Column="2" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left" Visibility="Collapsed">
+            <Label x:Name="PluginsTab" Tag="4" MouseLeftButtonDown="Tab_MouseUp" Content="Plugins" FontSize="16" ToolTip="Coming Soon" Grid.Column="2" BorderThickness="0" Padding="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" HorizontalAlignment="Left">
                 <Label.Foreground>
                     <SolidColorBrush Color="{DynamicResource ChromaSyncMedGrey}"/>
                 </Label.Foreground>

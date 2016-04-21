@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{70F59954-853E-4B96-815D-1AF9578CC55F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chroma Sync", "Chroma Sync\Chroma Sync.csproj", "{61AF46E5-2F1C-4455-BC97-A67AFBC1FA86}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C9F0A131-1828-42E0-80DC-B364C606994F} = {C9F0A131-1828-42E0-80DC-B364C606994F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArduinoPlugin", "Plugins\ArduinoPlugin\ArduinoPlugin.csproj", "{F51FB77A-0B13-422A-8DF2-0F1678B8EA50}"
 EndProject

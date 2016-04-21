@@ -54,7 +54,7 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
         public void CreateSpectrumLine(int height)
         {
 
-            Debug.WriteLine("Creating Spectrum line");
+
             var fftBuffer = new float[(int)FftSize];
 
             if (SpectrumProvider.GetFftData(fftBuffer, this))
@@ -69,7 +69,6 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
 
         private void CreateSpectrumLineInternal(float[] fftBuffer, int height)
         {
-            Debug.WriteLine("Creating Spectrum line internal");
             SpectrumPointData[] spectrumPoints = CalculateSpectrumPoints(height, fftBuffer);
             double average = 0;
             for (int i = 0; i < spectrumPoints.Length; i++)
@@ -87,7 +86,7 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
             HSLColor.HsvToRgb(percentage, 1, (average / height), out r, out g, out b);
             HSLColor.HsvToRgb(percentage, 1, (average / height) / 2, out r2, out g2, out b2);
             Corale.Colore.Core.Color c2 = new Corale.Colore.Core.Color(((double)r / 255), ((double)g / 255), ((double)b / 255));
-            //Corale.Colore.Core.Chroma.Instance.SetAll(c2);
+            Corale.Colore.Core.Chroma.Instance.SetAll(c2);
 
             foreach (var k in spectrumPoints)
             {
@@ -104,7 +103,7 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
                         if (Main._isRunning)
                         {
                             Corale.Colore.Core.Color c3 = new Corale.Colore.Core.Color(((double)ra / 255), ((double)ga / 255), ((double)ba / 255));
-                            Corale.Colore.Core.Keyboard.Instance[5 - i, k.SpectrumPointIndex] = c > i ? c3 : Corale.Colore.Core.Color.Black;
+                            Corale.Colore.Core.Keyboard.Instance[5 - i, k.SpectrumPointIndex] = c >= i ? c3 : new Corale.Colore.Core.Color(5,5,5);
                         }
                         else
                         {

@@ -28,7 +28,8 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
         private static WasapiLoopbackCapture _wasapiCapture;
         public static bool _isRunning = false;
 
-        public static void AutoStart()
+
+        public static void RequestStart()
         {
             Debug.WriteLine("Starting Visualiser");
             _wasapiCapture = new WasapiLoopbackCapture();
@@ -42,7 +43,7 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
             wasapiCaptureSource.FillWithZeros = true;
             var sampleSource = wasapiCaptureSource.ToSampleSource();
             var peakMeter = new PeakMeter(sampleSource);
-            peakMeter.Interval = 1000;
+            peakMeter.Interval = 50;
             var waveSource = peakMeter.ToWaveSource();
             const FftSize fftSize = FftSize.Fft4096;
             IWaveSource source = waveSource;
@@ -60,14 +61,11 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
                 ScalingStrategy = ScalingStrategy.Sqrt
             };
 
-
-
-
             var notificationSource = new SingleBlockNotificationStream(source.ToSampleSource());
             notificationSource.SingleBlockRead += (s, a) => spectrumProvider.Add(a.Left, a.Right);
             _source = notificationSource.ToWaveSource(16);
 
-            _wasapiOut = new WasapiOut(true, AudioClientShareMode.Shared, 1);
+            _wasapiOut = new WasapiOut(true, AudioClientShareMode.Shared, 100);
             _wasapiOut.Initialize(_source.ToMono());
             _wasapiOut.Volume = 0;
             _spotifyTimer.Start();
@@ -110,7 +108,6 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
 
         private static void Main_Elapsed(object sender, ElapsedEventArgs e)
         {
-            Debug.WriteLine("test");
             GenerateLineSpectrum();
         }
 
@@ -160,7 +157,6 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
 
         private static bool isSpotifyPlaying()
         {
-            Debug.WriteLine("Checking Spotify");
             var proc = Process.GetProcessesByName("Spotify").FirstOrDefault(p => !string.IsNullOrWhiteSpace(p.MainWindowTitle));
 
             if (proc == null)
@@ -168,14 +164,12 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
 
                 return false;
             }
-            Debug.WriteLine("Spotify is running");
             if (string.Equals(proc.MainWindowTitle, "Spotify", StringComparison.InvariantCultureIgnoreCase))
             {
-                Debug.WriteLine("No track is playing");
 
                 return false;
             }
-            Debug.WriteLine(proc.MainWindowTitle);
+
             return true;
         }
 

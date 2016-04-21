@@ -4,7 +4,7 @@
   <description asmv2:iconFile="chromasync.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Chroma Sync" version="1.1.5949.1963" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Chroma Sync" version="1.1.5954.27932" language="neutral" processorArchitecture="msil" />
     <commandLine file="Chroma Sync.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="726624">
-      <assemblyIdentity name="Chroma Sync" version="1.1.5949.1963" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Chroma Sync.exe" size="721408">
+      <assemblyIdentity name="Chroma Sync" version="1.1.5954.27932" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5/O11GaaqtJEaOmDlFK0mT2dEZUcdHjYZ6TT6SHK8Dg=</dsig:DigestValue>
+        <dsig:DigestValue>cJlxxG2fjLN8SkyN7UB+Pt/JqXt7eTncfpdEBMGh7jo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -63,6 +63,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>NdJ6lyCZkbxiOMW89SGC8f8or6VMETOudUOB+urzdWM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CSCore.dll" size="507904">
+      <assemblyIdentity name="CSCore" version="1.1.5860.21642" publicKeyToken="5A08F2B6F4415DEA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>/T/u/GIJf/eFx/3VJAcOJfyrp+TOGfVIDsrWld0qVAU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -126,6 +138,18 @@
       </hash>
     </dependentAssembly>
   </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpotifyVisualiser.dll" size="142336">
+      <assemblyIdentity name="SpotifyVisualiser" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ylRRz9jnwalyR+luRaFFQZBKfg++cqpCCkFL21j/Zes=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
   <file name="Chroma Sync.exe.config" size="1635">
     <hash>
       <dsig:Transforms>
@@ -133,6 +157,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>MUynQKJCIceEozRi71SJmI57ebJvr8e42QnDdToj7EY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ChromaAppInfo.xml" size="673" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>IjRrUfTxJSsE8HYE5TGkcAc0CO9JS5iMrdEYXtaINPk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="chromasync.ico" size="15086">

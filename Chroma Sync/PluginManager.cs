@@ -17,6 +17,8 @@ namespace Ultrabox.ChromaSync
         public class Plugin
         {
             public string Name;
+            public string Description;
+            public Version Version;
             public Assembly Assembly;
             public bool Enabled;
             public MethodInfo AutoStart;
@@ -55,7 +57,9 @@ namespace Ultrabox.ChromaSync
                 var assembly = Assembly.Load(dllBytes);
                 dllBytes = null;
                 var plugin = new Plugin();
-                plugin.Name = dll;
+                plugin.Name = assembly.GetName().Name;
+                plugin.Version = assembly.GetName().Version;
+                                                    
                 plugin.Assembly = assembly;
 
                 Debug.WriteLine("found " + dll);
@@ -82,6 +86,11 @@ namespace Ultrabox.ChromaSync
 
                 }
                 plugins.Add(plugin);
+            }
+
+            foreach(var plugin in plugins)
+            {
+                RunMethod(plugin.RequestStart);
             }
         }
 

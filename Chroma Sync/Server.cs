@@ -35,7 +35,7 @@ namespace Ultrabox.ChromaSync
 
                 // TcpListener server = new TcpListener(port);
                 _server = new TcpListener(IPAddress.Any, port);
-                //BalloonTip("Server running", IPAddress.Any.ToString());
+                
                 // Start listening for client requests.
                 _server.Start();
 
@@ -105,8 +105,10 @@ namespace Ultrabox.ChromaSync
                         {
 
                             String ns = "{" + myCompleteMessage.ToString().Split(new char[] { '{' }, 2)[1];
+                            
+                            Debug.Write(myCompleteMessage);
                             myCompleteMessage = null;
-                            //Debug.Write(myCompleteMessage);
+
                             string header = string.Format("HTTP/1.1 {0}\r\n"
                                               + "Server: {1}\r\n"
                                               + "Content-Type: {2}\r\n"
