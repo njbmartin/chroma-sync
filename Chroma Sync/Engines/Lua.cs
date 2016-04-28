@@ -43,9 +43,10 @@ namespace Ultrabox.ChromaSync.Engines
         public void Start()
         {
             if (watcher == null)
-                Watch();            
+                Watch();
 
             // WE NEED TO ENSURE CHROMA IS INITIALISED
+
             callbacks = new List<dynamic>();
             var ms_luaDebug = new LuaStackTraceDebugger();
             var ms_luaCompileOptions = new LuaCompileOptions();
@@ -89,7 +90,7 @@ namespace Ultrabox.ChromaSync.Engines
                             dg.ConvertInt = new Func<object, int>(convertInt);
                             dg.GetType = new Func<object,object>(GetType);
                             dg.NewCustom = new Func<string, Color, object>(newCustom);
-                            dg.IntToByte = new Func<int, byte>(IntToByte);
+                            dg.IntToByte = new Func<object, byte>(IntToByte);
                             dg.Headset = Headset.Instance;
                             dg.Keyboard = Keyboard.Instance;
                             dg.Mouse = Mouse.Instance;
@@ -140,9 +141,10 @@ namespace Ultrabox.ChromaSync.Engines
             return Convert.ToInt32(o);
         }
 
-        public byte IntToByte(int o)
+        public byte IntToByte(object o)
         {
-            return (byte)o;
+             
+            return (byte)convertInt(o);
         }
 
         public object GetType(object o)

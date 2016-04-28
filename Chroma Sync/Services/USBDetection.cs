@@ -18,10 +18,7 @@ namespace Ultrabox.ChromaSync.Services
             {
                 Console.WriteLine(property.Name + " = " + property.Value);
             }
-            App.StopServices();
-            Corale.Colore.Core.Keyboard.Instance.SetWave(Corale.Colore.Razer.Keyboard.Effects.Direction.LeftToRight);
-            Thread.Sleep(500);
-            App.StartServices();
+
         }
 
         void DeviceRemovedEvent(object sender, EventArrivedEventArgs e)

@@ -36,10 +36,11 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
 
             _timer1 = new Timer(50);
             _timer1.Elapsed += Main_Elapsed;
-            _spotifyTimer = new Timer(500);
+            _spotifyTimer = new Timer(100);
             _spotifyTimer.Elapsed += _spotifyTimer_Elapsed;
             _wasapiCapture.Initialize();
             var wasapiCaptureSource = new SoundInSource(_wasapiCapture);
+
             wasapiCaptureSource.FillWithZeros = true;
             var sampleSource = wasapiCaptureSource.ToSampleSource();
             var peakMeter = new PeakMeter(sampleSource);
@@ -50,13 +51,22 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
             var spectrumProvider = new BasicSpectrumProvider(source.WaveFormat.Channels,
                 source.WaveFormat.SampleRate, fftSize);
 
+            using (var device = _wasapiCapture.Device)
+            using (var endpointVolume = AudioEndpointVolume.FromDevice(device))
+            {
+                var volume = endpointVolume.GetMasterVolumeLevelScalar();
+                Debug.WriteLine("Volume: {0}", endpointVolume.MasterVolumeLevel);
+                Debug.WriteLine("Volume: {0}", endpointVolume.MasterVolumeLevelScalar);
+                Debug.WriteLine("State: {0}", device);
+                // endpointVolume.SetMasterVolumeLevelScalar(0.13f, Guid.Empty);
+            }
+
             _lineSpectrum = new LineSpectrum(fftSize)
             {
                 SpectrumProvider = spectrumProvider,
                 UseAverage = true,
                 BarCount = 15,
                 MaximumFrequency = 500,
-                BarSpacing = 2,
                 IsXLogScale = true,
                 ScalingStrategy = ScalingStrategy.Sqrt
             };
@@ -65,7 +75,7 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
             notificationSource.SingleBlockRead += (s, a) => spectrumProvider.Add(a.Left, a.Right);
             _source = notificationSource.ToWaveSource(16);
 
-            _wasapiOut = new WasapiOut(true, AudioClientShareMode.Shared, 100);
+            _wasapiOut = new WasapiOut(true, AudioClientShareMode.Shared, 10);
             _wasapiOut.Initialize(_source.ToMono());
             _wasapiOut.Volume = 0;
             _spotifyTimer.Start();
@@ -108,7 +118,8 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
 
         private static void Main_Elapsed(object sender, ElapsedEventArgs e)
         {
-            GenerateLineSpectrum();
+            if (Corale.Colore.Core.Chroma.Instance.Initialized)
+                GenerateLineSpectrum();
         }
 
 

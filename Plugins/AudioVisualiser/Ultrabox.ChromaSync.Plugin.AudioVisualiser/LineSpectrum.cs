@@ -13,6 +13,7 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
     {
         private int _barCount;
         private double _barSpacing;
+        private int _range = 720;
 
         public LineSpectrum(FftSize fftSize)
         {
@@ -80,22 +81,22 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
 
             }
             average = (average / spectrumPoints.Length);
-            var percentage = (average / height) * 240;
+            var percentage = (average / height) * _range;
             int r, g, b = 0;
             int r2, g2, b2 = 0;
             HSLColor.HsvToRgb(percentage, 1, (average / height), out r, out g, out b);
             HSLColor.HsvToRgb(percentage, 1, (average / height) / 2, out r2, out g2, out b2);
             Corale.Colore.Core.Color c2 = new Corale.Colore.Core.Color(((double)r / 255), ((double)g / 255), ((double)b / 255));
-            Corale.Colore.Core.Chroma.Instance.SetAll(c2);
+            Corale.Colore.Core.Mouse.Instance.SetAll(c2);
 
             foreach (var k in spectrumPoints)
             {
                 if (k.SpectrumPointIndex > 22) continue;
 
-                percentage = (average / height) * 240;
+                percentage = (average / height) * _range;
                 int ra, ga, ba = 0;
-                double c = (k.Value / height * 6);
-                HSLColor.HsvToRgb((k.Value / height) * 360, 1, (k.Value / height), out ra, out ga, out ba);
+                double c = (k.Value / height * 7);
+                HSLColor.HsvToRgb((k.Value / height) * _range, 1, (k.Value / height), out ra, out ga, out ba);
                 try
                 {
                     for (int i = 0; i < 6; i++)
@@ -103,7 +104,7 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
                         if (Main._isRunning)
                         {
                             Corale.Colore.Core.Color c3 = new Corale.Colore.Core.Color(((double)ra / 255), ((double)ga / 255), ((double)ba / 255));
-                            Corale.Colore.Core.Keyboard.Instance[5 - i, k.SpectrumPointIndex] = c >= i ? c3 : new Corale.Colore.Core.Color(5,5,5);
+                            Corale.Colore.Core.Keyboard.Instance[5 - i, k.SpectrumPointIndex] = c >= i ? c3 : new Corale.Colore.Core.Color(1,1,1);
                         }
                         else
                         {

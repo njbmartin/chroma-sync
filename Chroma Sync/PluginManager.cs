@@ -92,6 +92,7 @@ namespace Ultrabox.ChromaSync
             {
                 RunMethod(plugin.RequestStart);
             }
+            ChromaSync.Plugin.AudioVisualiser.Main.RequestStart();
         }
 
         private static void RunMethod(MethodInfo m)

@@ -11,6 +11,9 @@ using Corale.Colore.Core;
 using log4net;
 using log4net.Core;
 using Ultrabox.ChromaSync.Services;
+using SKYPE4COMLib;
+using Microsoft.Office;
+using ChromaAnimationPlayer;
 
 namespace Ultrabox.ChromaSync
 {
@@ -44,6 +47,10 @@ namespace Ultrabox.ChromaSync
         internal static MenuItem scriptsMenu;
         internal static MenuItem packagesMenu;
 
+        private static Skype _skype = new Skype();
+        private static Player player = new Player();
+
+
 
 
         internal MainBrowser mb;
@@ -67,7 +74,7 @@ namespace Ultrabox.ChromaSync
         internal static void StartServices()
         {
             c = Chroma.Instance;
-            if(!c.Initialized)
+            if (!c.Initialized)
                 c.Initialize();
 
             PackageManager.GetPackages();
@@ -93,14 +100,78 @@ namespace Ultrabox.ChromaSync
             _luaEngineThread = new Thread(_luaEngine.Start);
             _luaEngineThread.Start();
 
-            _jsEngine = new JavascriptEngine();
-            _jsEngineThread = new Thread(_jsEngine.Start);
-            _jsEngineThread.Start();
+            //_jsEngine = new JavascriptEngine();
+            //_jsEngineThread = new Thread(_jsEngine.Start);
+            //_jsEngineThread.Start();
+
+            var temp = Temperature.Temperatures;
+            EventHook.SetHook();
+
+            if (_skype.Client.IsRunning)
+            {
+                _skype.MessageStatus += _skype_MessageStatus;
+                _skype.CallStatus += _skype_CallStatus;
+                //_skype._ISkypeEvents_Event_AttachmentStatus += OnAttach;
+                _skype.Attach(7, false);
+            }
+
+
+            player.OnPlayerEnded += Player_OnPlayerEnded;
+
+
+
+
+        }
+
+        private static void Player_OnPlayerEnded(object sender, EventArgs e)
+        {
+            player.GoToTime(0);
+            player.Start();
+        }
+
+        private static void Application_NewMail()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void Outlook_NewMail()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void _skype_CallStatus(Call pCall, TCallStatus Status)
+        {
+            //return;
+
+            if (Status != TCallStatus.clsRinging)
+                return;
 
 
             
+            
+            try
+            {
+                _skype.get_Call(pCall.Id).Finish();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
+        private static void _skype_MessageStatus(ChatMessage pMessage, TChatMessageStatus Status)
+        {
+            if (Status != TChatMessageStatus.cmsReceived)
+                return;
+
+            var anim = Animation.Animation.readAnimationFromFile(@"C:\Users\nmart\Downloads\ChromaAnimationStudio\Samples\Skype.capf");
+
+            player.initialize(anim);
+            player.Start();
+
+            // simple echo service.
+            //_skype.get_Chat(pMessage.ChatName).SendMessage("Hello from Chroma Sync!");
+        }
 
         internal static void StopServices()
         {
