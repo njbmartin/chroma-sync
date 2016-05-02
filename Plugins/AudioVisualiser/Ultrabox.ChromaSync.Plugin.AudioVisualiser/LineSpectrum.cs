@@ -88,7 +88,8 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
             HSLColor.HsvToRgb(percentage, 1, (average / height) / 2, out r2, out g2, out b2);
             Corale.Colore.Core.Color c2 = new Corale.Colore.Core.Color(((double)r / 255), ((double)g / 255), ((double)b / 255));
             Corale.Colore.Core.Mouse.Instance.SetAll(c2);
-
+            Corale.Colore.Core.Mousepad.Instance.SetAll(c2);
+            Corale.Colore.Core.Mouse.Instance.SetAll(c2);
             foreach (var k in spectrumPoints)
             {
                 if (k.SpectrumPointIndex > 22) continue;
@@ -104,7 +105,21 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
                         if (Main._isRunning)
                         {
                             Corale.Colore.Core.Color c3 = new Corale.Colore.Core.Color(((double)ra / 255), ((double)ga / 255), ((double)ba / 255));
-                            Corale.Colore.Core.Keyboard.Instance[5 - i, k.SpectrumPointIndex] = c >= i ? c3 : new Corale.Colore.Core.Color(1,1,1);
+                            Corale.Colore.Core.Keyboard.Instance[5 - i, k.SpectrumPointIndex] = c >= i ? c3 : new Corale.Colore.Core.Color(1, 1, 1);
+                        }
+                        else
+                        {
+                            return;
+                        }
+
+                    }
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (Main._isRunning)
+                        {
+                            Corale.Colore.Core.Color c3 = new Corale.Colore.Core.Color(((double)ra / 255), ((double)ga / 255), ((double)ba / 255));
+                            if (k.SpectrumPointIndex < 5)
+                                Corale.Colore.Core.Keypad.Instance[3 - i, k.SpectrumPointIndex] = c >= i ? c3 : new Corale.Colore.Core.Color(1, 1, 1);
                         }
                         else
                         {

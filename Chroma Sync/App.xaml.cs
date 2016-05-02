@@ -13,7 +13,6 @@ using log4net.Core;
 using Ultrabox.ChromaSync.Services;
 using SKYPE4COMLib;
 using Microsoft.Office;
-using ChromaAnimationPlayer;
 
 namespace Ultrabox.ChromaSync
 {
@@ -48,7 +47,6 @@ namespace Ultrabox.ChromaSync
         internal static MenuItem packagesMenu;
 
         private static Skype _skype = new Skype();
-        private static Player player = new Player();
 
 
 
@@ -116,17 +114,10 @@ namespace Ultrabox.ChromaSync
             }
 
 
-            player.OnPlayerEnded += Player_OnPlayerEnded;
 
 
 
 
-        }
-
-        private static void Player_OnPlayerEnded(object sender, EventArgs e)
-        {
-            player.GoToTime(0);
-            player.Start();
         }
 
         private static void Application_NewMail()
@@ -163,11 +154,6 @@ namespace Ultrabox.ChromaSync
         {
             if (Status != TChatMessageStatus.cmsReceived)
                 return;
-
-            var anim = Animation.Animation.readAnimationFromFile(@"C:\Users\nmart\Downloads\ChromaAnimationStudio\Samples\Skype.capf");
-
-            player.initialize(anim);
-            player.Start();
 
             // simple echo service.
             //_skype.get_Chat(pMessage.ChatName).SendMessage("Hello from Chroma Sync!");
