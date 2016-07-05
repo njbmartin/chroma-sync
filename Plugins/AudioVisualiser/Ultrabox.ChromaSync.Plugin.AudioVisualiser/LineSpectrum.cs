@@ -72,16 +72,17 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
         {
             SpectrumPointData[] spectrumPoints = CalculateSpectrumPoints(height, fftBuffer);
             double average = 0;
+            double peak = 0;
             for (int i = 0; i < spectrumPoints.Length; i++)
             {
                 SpectrumPointData p = spectrumPoints[i];
                 int barIndex = p.SpectrumPointIndex;
                 //double xCoord = (_barWidth * barIndex) + (BarSpacing * barIndex) + 1 + _barWidth / 2;
                 average += p.Value;
-
+                peak = p.Value > peak ? p.Value : peak;
             }
             average = (average / spectrumPoints.Length);
-            var percentage = (average / height) * _range;
+            var percentage = (average / peak) * _range;
             int r, g, b = 0;
             int r2, g2, b2 = 0;
             HSLColor.HsvToRgb(percentage, 1, (average / height), out r, out g, out b);
@@ -96,16 +97,17 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
 
                 percentage = (average / height) * _range;
                 int ra, ga, ba = 0;
-                double c = (k.Value / height * 7);
-                HSLColor.HsvToRgb((k.Value / height) * _range, 1, (k.Value / height), out ra, out ga, out ba);
+                double c = (k.Value / (peak)) * (height-2);
+                
                 try
                 {
-                    for (int i = 0; i < 6; i++)
+                    for (int i = 1; i <= height; i++)
                     {
                         if (Main._isRunning)
                         {
+                            HSLColor.HsvToRgb((k.Value / peak) * (_range / i), 1, (k.Value / average), out ra, out ga, out ba);
                             Corale.Colore.Core.Color c3 = new Corale.Colore.Core.Color(((double)ra / 255), ((double)ga / 255), ((double)ba / 255));
-                            Corale.Colore.Core.Keyboard.Instance[5 - i, k.SpectrumPointIndex] = c >= i ? c3 : new Corale.Colore.Core.Color(1, 1, 1);
+                            Corale.Colore.Core.Keyboard.Instance[height - i, k.SpectrumPointIndex] = c >= i ? c3 : new Corale.Colore.Core.Color(10, 10, 10);
                         }
                         else
                         {
@@ -113,13 +115,14 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
                         }
 
                     }
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 1; i <= 4; i++)
                     {
                         if (Main._isRunning)
                         {
+                            HSLColor.HsvToRgb((k.Value / peak) * (_range / i), 1, (k.Value / peak), out ra, out ga, out ba);
                             Corale.Colore.Core.Color c3 = new Corale.Colore.Core.Color(((double)ra / 255), ((double)ga / 255), ((double)ba / 255));
                             if (k.SpectrumPointIndex < 5)
-                                Corale.Colore.Core.Keypad.Instance[3 - i, k.SpectrumPointIndex] = c >= i ? c3 : new Corale.Colore.Core.Color(1, 1, 1);
+                                Corale.Colore.Core.Keypad.Instance[4 - i, k.SpectrumPointIndex] = c >= i ? c3 : new Corale.Colore.Core.Color(1, 1, 1);
                         }
                         else
                         {

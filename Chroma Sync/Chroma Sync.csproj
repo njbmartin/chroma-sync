@@ -93,15 +93,6 @@
     <ManifestTimestampUrl>http://timestamp.comodoca.com/</ManifestTimestampUrl>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Animation">
-      <HintPath>..\..\..\..\Downloads\ChromaAnimationStudio\Animation.dll</HintPath>
-    </Reference>
-    <Reference Include="CAEBase">
-      <HintPath>..\..\..\..\Downloads\ChromaAnimationStudio\CAEBase.dll</HintPath>
-    </Reference>
-    <Reference Include="ChromaAnimationPlayer">
-      <HintPath>..\..\..\..\Downloads\ChromaAnimationStudio\ChromaAnimationPlayer.dll</HintPath>
-    </Reference>
     <Reference Include="Corale.Colore, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Colore.4.0.0\lib\net35\Corale.Colore.dll</HintPath>
       <Private>True</Private>

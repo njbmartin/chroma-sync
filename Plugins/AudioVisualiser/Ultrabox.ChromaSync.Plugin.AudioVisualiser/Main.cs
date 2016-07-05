@@ -34,17 +34,25 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
             Debug.WriteLine("Starting Visualiser");
             _wasapiCapture = new WasapiLoopbackCapture();
 
-            _timer1 = new Timer(50);
+            _timer1 = new Timer(100);
             _timer1.Elapsed += Main_Elapsed;
             _spotifyTimer = new Timer(100);
             _spotifyTimer.Elapsed += _spotifyTimer_Elapsed;
-            _wasapiCapture.Initialize();
+            try
+            {
+
+                _wasapiCapture.Initialize();
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+            }
             var wasapiCaptureSource = new SoundInSource(_wasapiCapture);
 
             wasapiCaptureSource.FillWithZeros = true;
             var sampleSource = wasapiCaptureSource.ToSampleSource();
             var peakMeter = new PeakMeter(sampleSource);
-            peakMeter.Interval = 50;
+            peakMeter.Interval = 1;
             var waveSource = peakMeter.ToWaveSource();
             const FftSize fftSize = FftSize.Fft4096;
             IWaveSource source = waveSource;
@@ -65,7 +73,7 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
             {
                 SpectrumProvider = spectrumProvider,
                 UseAverage = true,
-                BarCount = 15,
+                BarCount = 22,
                 MaximumFrequency = 500,
                 IsXLogScale = true,
                 ScalingStrategy = ScalingStrategy.Sqrt
