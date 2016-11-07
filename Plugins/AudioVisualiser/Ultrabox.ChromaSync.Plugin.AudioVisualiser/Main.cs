@@ -27,6 +27,7 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
         private static Timer _timer1;
         private static WasapiLoopbackCapture _wasapiCapture;
         public static bool _isRunning = false;
+        private static int _milliseconds = 50;
 
 
         public static void RequestStart()
@@ -34,9 +35,9 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
             Debug.WriteLine("Starting Visualiser");
             _wasapiCapture = new WasapiLoopbackCapture();
 
-            _timer1 = new Timer(100);
+            _timer1 = new Timer(_milliseconds);
             _timer1.Elapsed += Main_Elapsed;
-            _spotifyTimer = new Timer(100);
+            _spotifyTimer = new Timer(_milliseconds);
             _spotifyTimer.Elapsed += _spotifyTimer_Elapsed;
             try
             {
@@ -52,7 +53,7 @@ namespace Ultrabox.ChromaSync.Plugin.AudioVisualiser
             wasapiCaptureSource.FillWithZeros = true;
             var sampleSource = wasapiCaptureSource.ToSampleSource();
             var peakMeter = new PeakMeter(sampleSource);
-            peakMeter.Interval = 1;
+            peakMeter.Interval = _milliseconds;
             var waveSource = peakMeter.ToWaveSource();
             const FftSize fftSize = FftSize.Fft4096;
             IWaveSource source = waveSource;
